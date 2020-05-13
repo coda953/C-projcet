@@ -13,10 +13,12 @@ int main() {
         }
     }
     Matrix a;
+    Matrix k = Matrix(10);
     a = x + y;
     a.show();
     x.setRow(2);
     a = x + y;
     a.show();
+    complex<double> i = x.findSumAtRow(1);
     return 0;
 }

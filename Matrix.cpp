@@ -43,19 +43,19 @@ void Matrix::show() const {
     cout << "]" << endl;
 }
 
-int Matrix::setRow(int input) {
-    this->row = input;
-    this->matrix.resize(input);
+int Matrix::setRow(int row) {
+    this->row = row;
+    this->matrix.resize(row);
     return 1;
 }
 
-int Matrix::setColumn(int input) {
+int Matrix::setColumn(int column) {
     if (this->row == 0) {
         return 0;
     }
-    this->column = input;
+    this->column = column;
     for (int i = 0; i < row; ++i) {
-        this->matrix[i].resize(input);
+        this->matrix[i].resize(column);
     }
     return 1;
 }
@@ -100,8 +100,147 @@ Matrix Matrix::operator-(const Matrix &other) const {
     return ans;
 }
 
+//TODO 重载*
 Matrix Matrix::operator*(const Matrix &other) const {
     return Matrix();
+}
+
+Matrix::Matrix(int length) {
+    this->row = 1;
+    this->column = length;
+    this->matrix[0].resize(column);
+}
+
+double Matrix::findMax() {
+    if (this->row == 0 || this->column == 0) {
+        cout << "The matrix is empty,can not get sum" << endl;
+        return 0;
+    }
+    double ans = this->matrix[0][0].real();
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < column; ++j) {
+            ans = max(ans, this->matrix[i][j].real());
+        }
+    }
+    return ans;
+}
+
+complex<double> Matrix::findAverage() {
+    complex<double> ans = findSum();
+    ans /= (row * column);
+    return ans;
+}
+
+complex<double> Matrix::findSum() {
+    if (this->row == 0 || this->column == 0) {
+        cout << "The matrix is empty,can not get sum" << endl;
+        return {0, 0};
+    }
+    complex<double> ans = {0, 0};
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < column; ++j) {
+            ans += this->matrix[i][j];
+        }
+    }
+    return ans;
+}
+
+complex<double> Matrix::findSumAtRow(int row) {
+    if (this->row < row) {
+        cout << "Input row is bigger than the matrix size" << endl;
+        return {0, 0};
+    }
+    complex<double> ans = {0, 0};
+    for (int i = 0; i < column; ++i) {
+        ans += this->matrix[row][i];
+    }
+    return ans;
+}
+
+complex<double> Matrix::findSumAtColumn(int column) {
+    if (this->column < column) {
+        cout << "Input column is bigger than the matrix size" << endl;
+        return {0, 0};
+    }
+    complex<double> ans = {0, 0};
+    for (int i = 0; i < this->row; ++i) {
+        ans += this->matrix[column][i];
+    }
+    return ans;
+}
+
+complex<double> Matrix::findAverageAtRow(int row) {
+    complex<double> ans = findSumAtRow(row);
+    ans /= this->column;
+    return ans;
+}
+
+complex<double> Matrix::findAverageAtColumn(int column) {
+    complex<double> ans = findSumAtColumn(column);
+    ans /= this->row;
+    return ans;
+}
+
+double Matrix::findMaxAtRow(int row) {
+    if (this->row == 0 || this->column == 0) {
+        cout << "The matrix is empty,can not get sum" << endl;
+        return 0;
+    }
+    double ans = this->matrix[0][0].real();
+    for (int i = 0; i < this->column; ++i) {
+        ans = max(ans, this->matrix[row][column].real());
+    }
+    return ans;
+}
+
+double Matrix::findMaxAtColumn(int column) {
+    if (this->row == 0 || this->column == 0) {
+        cout << "The matrix is empty,can not get sum" << endl;
+        return 0;
+    }
+    double ans = this->matrix[0][0].real();
+    for (int i = 0; i < row; ++i) {
+        ans = max(ans, this->matrix[i][column].real());
+    }
+    return ans;
+}
+
+double Matrix::findMin() {
+    if (this->row == 0 || this->column == 0) {
+        cout << "The matrix is empty,can not get sum" << endl;
+        return 0;
+    }
+    double ans = this->matrix[0][0].real();
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < column; ++j) {
+            ans = min(ans, this->matrix[i][j].real());
+        }
+    }
+    return ans;
+}
+
+double Matrix::findMinAtRow(int row) {
+    if (this->row == 0 || this->column == 0) {
+        cout << "The matrix is empty,can not get sum" << endl;
+        return 0;
+    }
+    double ans = this->matrix[0][0].real();
+    for (int i = 0; i < this->column; ++i) {
+        ans = min(ans, this->matrix[row][column].real());
+    }
+    return ans;
+}
+
+double Matrix::findMinAtColumn(int column) {
+    if (this->row == 0 || this->column == 0) {
+        cout << "The matrix is empty,can not get sum" << endl;
+        return 0;
+    }
+    double ans = this->matrix[0][0].real();
+    for (int i = 0; i < row; ++i) {
+        ans = min(ans, this->matrix[i][column].real());
+    }
+    return ans;
 }
 
 
