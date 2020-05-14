@@ -62,7 +62,7 @@ int Matrix::setColumn(int column) {
 
 Matrix Matrix::operator+(const Matrix &other) const {
     if (this->row != other.row || this->column != other.column) {
-        cout << "the size of these two matrix is not equal" << endl;
+        cout << "the size of these two vector is not equal" << endl;
         cout << "left size is:";
         this->showSize();
         cout << "right size is:";
@@ -84,7 +84,7 @@ void Matrix::showSize() const {
 
 Matrix Matrix::operator-(const Matrix &other) const {
     if (this->row != other.row || this->column != other.column) {
-        cout << "the size of these two matrix is not equal" << endl;
+        cout << "the size of these two vector is not equal" << endl;
         cout << "left size is:";
         this->showSize();
         cout << "right size is:";
@@ -113,7 +113,7 @@ Matrix::Matrix(int length) {
 
 double Matrix::findMax() {
     if (this->row == 0 || this->column == 0) {
-        cout << "The matrix is empty,can not get sum" << endl;
+        cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
@@ -133,7 +133,7 @@ complex<double> Matrix::findAverage() {
 
 complex<double> Matrix::findSum() {
     if (this->row == 0 || this->column == 0) {
-        cout << "The matrix is empty,can not get sum" << endl;
+        cout << "The vector is empty,can not get sum" << endl;
         return {0, 0};
     }
     complex<double> ans = {0, 0};
@@ -147,7 +147,7 @@ complex<double> Matrix::findSum() {
 
 complex<double> Matrix::findSumAtRow(int row) {
     if (this->row < row) {
-        cout << "Input row is bigger than the matrix size" << endl;
+        cout << "Input row is bigger than the vector size" << endl;
         return {0, 0};
     }
     complex<double> ans = {0, 0};
@@ -159,7 +159,7 @@ complex<double> Matrix::findSumAtRow(int row) {
 
 complex<double> Matrix::findSumAtColumn(int column) {
     if (this->column < column) {
-        cout << "Input column is bigger than the matrix size" << endl;
+        cout << "Input column is bigger than the vector size" << endl;
         return {0, 0};
     }
     complex<double> ans = {0, 0};
@@ -183,7 +183,7 @@ complex<double> Matrix::findAverageAtColumn(int column) {
 
 double Matrix::findMaxAtRow(int row) {
     if (this->row == 0 || this->column == 0) {
-        cout << "The matrix is empty,can not get sum" << endl;
+        cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
@@ -195,7 +195,7 @@ double Matrix::findMaxAtRow(int row) {
 
 double Matrix::findMaxAtColumn(int column) {
     if (this->row == 0 || this->column == 0) {
-        cout << "The matrix is empty,can not get sum" << endl;
+        cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
@@ -207,7 +207,7 @@ double Matrix::findMaxAtColumn(int column) {
 
 double Matrix::findMin() {
     if (this->row == 0 || this->column == 0) {
-        cout << "The matrix is empty,can not get sum" << endl;
+        cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
@@ -221,7 +221,7 @@ double Matrix::findMin() {
 
 double Matrix::findMinAtRow(int row) {
     if (this->row == 0 || this->column == 0) {
-        cout << "The matrix is empty,can not get sum" << endl;
+        cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
@@ -233,7 +233,7 @@ double Matrix::findMinAtRow(int row) {
 
 double Matrix::findMinAtColumn(int column) {
     if (this->row == 0 || this->column == 0) {
-        cout << "The matrix is empty,can not get sum" << endl;
+        cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();

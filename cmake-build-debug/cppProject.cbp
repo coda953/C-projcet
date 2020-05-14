@@ -86,6 +86,12 @@
 		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/Matrix.hpp">
 			<Option target="cppProject"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/Vector.cpp">
+			<Option target="cppProject"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/Vector.hpp">
+			<Option target="cppProject"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/main.cpp">
 			<Option target="cppProject"/>
 		</Unit>

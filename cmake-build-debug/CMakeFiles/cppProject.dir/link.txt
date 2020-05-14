@@ -1,1 +1,1 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/cppProject.dir/main.cpp.o CMakeFiles/cppProject.dir/Matrix.cpp.o  -o cppProject.exe -Wl,--out-implib,libcppProject.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/cppProject.dir/main.cpp.o CMakeFiles/cppProject.dir/Matrix.cpp.o CMakeFiles/cppProject.dir/Vector.cpp.o  -o cppProject.exe -Wl,--out-implib,libcppProject.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -1,9 +1,9 @@
 # C-projcet
 
-## 已完成：
+## 已完成（矩阵部分）：
 
 ### 基本属性
-`vector<vector<complex<double>>> matrix` 每个元素为std::complex<double>的二维vector
+`vector<vector<complex<double>>> vector` 每个元素为std::complex<double>的二维vector
 
 `int row, column;` 矩阵的行，列。
 
@@ -12,7 +12,7 @@
 `x.showSize()` 打印x矩阵的行列，用于异常提醒
 ### 初始化（默认每个元素为std::complex<double>，使用二维vector存储）
 
-`matrix x;` x为row=0，column=0的空矩阵。
+`vector x;` x为row=0，column=0的空矩阵。
 
 `Matrix x = Matrix(3, 4);` x为row=3，column=4的所有项为0的矩阵
 
@@ -55,6 +55,31 @@
 
 `x.findAverageAtColumn(int column);` 返回矩阵x中第column列的平均值。
 
+## 已完成（向量部分）
+### 基本属性
+`vector<complex<double>> vector` 每个元素为std::complex<double>的一维vector
+
+`int length` 向量的长度。
+### 初始化
+`Vector x=Vector()` 生成一个长度为0的空向量
+
+`Vector x=Vector(int length)` 生成一个长度位length的向量，所有元素为{0,0}
+### 设置长度
+`x.setLength(int length)` 将向量的长度设置为length，多的元素补为{0,0}，少的部分删掉元素。
+### 重载[]访问向量元素
+`x[i]`访问向量x的第i位元素
+### 重载+ -进行向量加减
+`y=a+b` 向量y为a和b的向量和
+
+`y=a-b` 向量y为a和b的向量差
+### 基本算数操作
+`x.findMax()` 返回实部最大的元素的实部
+
+`x.findMin()` 返回实部最小的元素的实部
+
+`x.findSum()` 返回向量所有元素的和
+
+`x.findAverage()` 返回向量所有元素的平均值
 ## 短期目标：
 
 3)支持矩阵和向量运算，包括加法、减法、标量乘法、标量除法、移位法、共轭法、元素乘法、矩阵矩阵乘法、矩阵向量乘法、点积和叉积。
