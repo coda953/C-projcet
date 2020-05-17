@@ -3,6 +3,7 @@
 #define CPPPROJECT_VECTOR_HPP
 
 #include <bits/stdc++.h>
+#include "Matrix.hpp"
 
 using namespace std;
 
@@ -11,6 +12,8 @@ public:
     Vector();
 
     Vector(int length);
+
+    int getLength();
 
     complex<double> &operator[](int i);
 
@@ -26,7 +29,11 @@ public:
 
     Vector operator+(const Vector &other) const;
 
+    Matrix operator+(Matrix other) const;
+
     Vector operator-(const Vector &other) const;
+
+    Matrix operator-(Matrix other) const;
 
 private:
     vector<complex<double>> vector;

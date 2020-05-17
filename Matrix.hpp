@@ -2,6 +2,7 @@
 #define CPPPROJECT_MATRIX_HPP
 
 #include <bits/stdc++.h>
+#include "Vector.hpp"
 
 using namespace std;
 
@@ -45,11 +46,19 @@ public:
 
     int setRow(int row);
 
+    int getRow();
+
     int setColumn(int column);
+
+    int getColumn();
 
     Matrix operator+(const Matrix &other) const;
 
+    Matrix operator+(Vector other) const;
+
     Matrix operator-(const Matrix &other) const;
+
+    Matrix operator-(Vector other) const;
 
     Matrix operator*(const Matrix &other) const;
 

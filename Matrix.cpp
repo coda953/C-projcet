@@ -243,4 +243,40 @@ double Matrix::findMinAtColumn(int column) {
     return ans;
 }
 
+Matrix Matrix::operator+(Vector other) const {
+    if (this->column != other.getLength()) {
+        cout << "The column of the matrix is not equal to the vector length" << endl;
+        return Matrix(0, 0);
+    }
+    Matrix ans = Matrix(this->row, this->column);
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < column; ++j) {
+            ans[i][j] = this->matrix[i][j] + other[j];
+        }
+    }
+    return ans;
+}
+
+Matrix Matrix::operator-(Vector other) const {
+    if (this->column != other.getLength()) {
+        cout << "The column of the matrix is not equal to the vector length" << endl;
+        return Matrix(0, 0);
+    }
+    Matrix ans = Matrix(this->row, this->column);
+    for (int i = 0; i < row; ++i) {
+        for (int j = 0; j < column; ++j) {
+            ans[i][j] = this->matrix[i][j] - other[j];
+        }
+    }
+    return ans;
+}
+
+int Matrix::getRow() {
+    return this->row;
+}
+
+int Matrix::getColumn() {
+    return this->column;
+}
+
 

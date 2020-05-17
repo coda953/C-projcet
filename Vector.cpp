@@ -89,6 +89,38 @@ Vector Vector::operator-(const Vector &other) const {
     return ans;
 }
 
+int Vector::getLength() {
+    return this->length;
+}
+
+Matrix Vector::operator+(Matrix other) const {
+    if (this->length != other.getColumn()) {
+        cout << "The column of the matrix is not equal to the vector length" << endl;
+        return Matrix(0, 0);
+    }
+    Matrix ans = Matrix(other.getRow(), other.getColumn());
+    for (int i = 0; i < other.getRow(); ++i) {
+        for (int j = 0; j < other.getColumn(); ++j) {
+            ans[i][j] = other[i][j] + this->vector[j];
+        }
+    }
+    return ans;
+}
+
+Matrix Vector::operator-(Matrix other) const {
+    if (this->length != other.getColumn()) {
+        cout << "The column of the matrix is not equal to the vector length" << endl;
+        return Matrix(0, 0);
+    }
+    Matrix ans = Matrix(other.getRow(), other.getColumn());
+    for (int i = 0; i < other.getRow(); ++i) {
+        for (int j = 0; j < other.getColumn(); ++j) {
+            ans[i][j] = other[i][j] - this->vector[j];
+        }
+    }
+    return ans;
+}
+
 
 
 
