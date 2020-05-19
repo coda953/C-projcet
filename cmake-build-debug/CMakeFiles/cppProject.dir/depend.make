@@ -3,7 +3,13 @@
 
 CMakeFiles/cppProject.dir/Matrix.cpp.o: ../Matrix.cpp
 CMakeFiles/cppProject.dir/Matrix.cpp.o: ../Matrix.hpp
+CMakeFiles/cppProject.dir/Matrix.cpp.o: ../Vector.hpp
+
+CMakeFiles/cppProject.dir/Vector.cpp.o: ../Matrix.hpp
+CMakeFiles/cppProject.dir/Vector.cpp.o: ../Vector.cpp
+CMakeFiles/cppProject.dir/Vector.cpp.o: ../Vector.hpp
 
 CMakeFiles/cppProject.dir/main.cpp.o: ../Matrix.hpp
+CMakeFiles/cppProject.dir/main.cpp.o: ../Vector.hpp
 CMakeFiles/cppProject.dir/main.cpp.o: ../main.cpp
 

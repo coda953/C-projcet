@@ -31,10 +31,11 @@
 ### 重载[]访问矩阵元素
 `x[i][j]` 访问矩阵x的第i行第j列元素。
 
-### 重载+-，实现矩阵和向量之间的加减和矩阵之间相加减
+### 重载+ - *，实现矩阵间的运算，矩阵和向量间的运算
 `y=a+b;` y为矩阵a和b的和，若a和b的size不相等，则会抛出异常。
 
 `y=a+b;` y为矩阵a和向量b的和，其中y的结果为a的每行加上b
+
 ### 基本算术操作
 `x.findMax()` 返回矩阵x中实数部分最大的实数部分（由于复数无法比较大小，方法只对矩阵中所有元素的实部进行比较），如果矩阵为空矩阵则返回0
 
@@ -60,6 +61,11 @@
 
 `x.findAverageAtColumn(int column);` 返回矩阵x中第column列的平均值。
 
+`x.transposition()` 返回x的转置（并且x变成自己的转置）。
+
+`x.element_wise_multiplication(y)` 返回x与y的元素乘结果（并且x变成该结果）。
+
+`x.conjugation();` 返回x的共轭矩阵，并且x变成自己的共轭矩阵。
 ## 已完成（向量部分）
 ### 基本属性
 `vector<complex<double>> vector` 每个元素为std::complex<double>的一维vector
@@ -75,7 +81,7 @@
 `x.setLength(int length)` 将向量的长度设置为length，多的元素补为{0,0}，少的部分删掉元素。
 ### 重载[]访问向量元素
 `x[i]`访问向量x的第i位元素
-### 重载+ -进行向量加减和向量和矩阵间的加减
+### 重载+ - * 进行向量和矩阵间的运算，向量和向量的运算，向量和常数间的运算
 `y=a+b` 向量y为a和b的向量和
 
 `y=a-b` 向量y为a和b的向量差
@@ -87,6 +93,13 @@
 `x.findSum()` 返回向量所有元素的和
 
 `x.findAverage()` 返回向量所有元素的平均值
+
+`x.dot_product(y)` 返回x与向量y的点积，并且x变成结果
+
+`x.conjugation();` 返回x的共轭向量，并且x变成它自己的共轭向量
+
+`x.element_wise_multiplication(y)` 返回x与y的元素乘积，并且x变为结果
+
 ## 短期目标：
 
 3)支持矩阵和向量运算，现在只剩下dot product and cross product（向量点积已完成）
