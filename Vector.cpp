@@ -121,6 +121,99 @@ Matrix Vector::operator-(Matrix other) const {
     return ans;
 }
 
+Vector Vector::operator*(complex<double> other) const {
+    Vector ans = Vector(this->length);
+    for (int i = 0; i < this->length; ++i) {
+        ans[i] = this->vector[i] * other;
+    }
+    return ans;
+}
+
+Vector operator*(complex<double> l, Vector &other) {
+    Vector ans = Vector(other.getLength());
+    for (int i = 0; i < other.getLength(); ++i) {
+        ans[i] = l * other[i];
+    }
+    return ans;
+}
+
+Vector Vector::operator/(complex<double> other) const {
+    if (other.real() == 0 && other.imag() == 0) {
+        cout << other << "can not be divisor" << endl;
+        return Vector(0);
+    }
+    Vector ans = Vector(this->length);
+    for (int i = 0; i < this->length; ++i) {
+        ans[i] = this->vector[i] / other;
+    }
+    return ans;
+}
+
+Vector operator/(complex<double> l, Vector &other) {
+    if (l.real() == 0 && l.imag() == 0) {
+        cout << l << "can not be divisor" << endl;
+        return Vector(0);
+    }
+    Vector ans = Vector(other.getLength());
+    for (int i = 0; i < other.getLength(); ++i) {
+        ans[i] = l / other[i];
+    }
+    return ans;
+}
+
+Vector Vector::element_wise_multiplication(Vector &other) {
+    if (this->length != other.length) {
+        cout << "element_wise_multiplication error!" << endl;
+        cout << "the size of two vector is not equal" << endl;
+        return Vector(0);
+    }
+    Vector ans = Vector(this->length);
+    for (int i = 0; i < this->length; ++i) {
+        ans[i] = this->vector[i] * other.vector[i];
+    }
+    this->vector = ans.vector;
+    return ans;
+}
+
+Vector Vector::conjugation() {
+    Vector ans = Vector(this->length);
+    for (int i = 0; i < this->length; ++i) {
+        complex<double> cur(this->vector[i].real(), -this->vector[i].imag());
+        ans[i] = cur;
+    }
+    this->vector = ans.vector;
+    return ans;
+}
+
+Vector Vector::operator*(Matrix other) const {
+    if (this->length != other.getRow()) {
+        cout << "Vector * Matrix error!" << endl;
+        cout << "Vector length is not equal Matrix row" << endl;
+        return Vector(0);
+    }
+    Vector ans = Vector(other.getColumn());
+    for (int i = 0; i < other.getColumn(); ++i) {
+        for (int j = 0; j < this->length; ++j) {
+            ans[i] += this->vector[j] * other[j][i];
+        }
+    }
+    return ans;
+}
+
+complex<double> Vector::dot_product(Vector other) {
+    complex<double> ans(0, 0);
+    if (this->length != other.length) {
+        cout << "dot product error!" << endl;
+        cout << "the two vector length is not equal" << endl;
+        return ans;
+    }
+    for (int i = 0; i < this->length; ++i) {
+        ans += this->vector[i] * other.vector[i];
+    }
+    return ans;
+}
+
+
 
 
 

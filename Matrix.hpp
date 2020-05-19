@@ -6,6 +6,8 @@
 
 using namespace std;
 
+class Vector;
+
 class Matrix {
 public:
     Matrix();
@@ -52,6 +54,12 @@ public:
 
     int getColumn();
 
+    Matrix transposition();
+
+    Matrix conjugation();
+
+    Matrix element_wise_multiplication(Matrix &other);
+
     Matrix operator+(const Matrix &other) const;
 
     Matrix operator+(Vector other) const;
@@ -61,6 +69,8 @@ public:
     Matrix operator-(Vector other) const;
 
     Matrix operator*(const Matrix &other) const;
+
+    Vector operator*(Vector other) const;
 
 private:
     vector<vector<complex<double>>> matrix;

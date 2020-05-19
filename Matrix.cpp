@@ -100,14 +100,26 @@ Matrix Matrix::operator-(const Matrix &other) const {
     return ans;
 }
 
-//TODO 重载*
 Matrix Matrix::operator*(const Matrix &other) const {
-    return Matrix();
+    if (this->column != other.row) {
+        cout << "multiple error!" << endl;
+        cout << "the left matrix column is not equal right matrix row" << endl;
+    }
+    Matrix ans = Matrix(this->row, other.column);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < other.column; ++j) {
+            for (int k = 0; k < this->column; ++k) {
+                ans[i][j] += this->matrix[i][k] * other.matrix[k][j];
+            }
+        }
+    }
+    return ans;
 }
 
 Matrix::Matrix(int length) {
     this->row = 1;
     this->column = length;
+    this->matrix.resize(this->row);
     this->matrix[0].resize(column);
 }
 
@@ -277,6 +289,64 @@ int Matrix::getRow() {
 
 int Matrix::getColumn() {
     return this->column;
+}
+
+Matrix Matrix::transposition() {
+    Matrix ans = Matrix(this->column, this->row);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            ans[j][i] = this->matrix[i][j];
+        }
+    }
+    this->row = ans.row;
+    this->column = ans.column;
+    this->matrix = ans.matrix;
+    return ans;
+}
+
+Matrix Matrix::conjugation() {
+    Matrix ans = Matrix(this->row, this->column);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            complex<double> cur(this->matrix[i][j].real(), -this->matrix[i][j].imag());
+            ans[i][j] = cur;
+        }
+    }
+    this->matrix = ans.matrix;
+    return ans;
+}
+
+Matrix Matrix::element_wise_multiplication(Matrix &other) {
+    if (this->row != other.row || this->column != other.column) {
+        cout << "the size of these two vector is not equal" << endl;
+        cout << "left size is:";
+        this->showSize();
+        cout << "right size is:";
+        other.showSize();
+        return Matrix(0, 0);
+    }
+    Matrix ans = Matrix(this->row, this->column);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            ans[i][j] = this->matrix[i][j] * other.matrix[i][j];
+        }
+    }
+    return ans;
+}
+
+Vector Matrix::operator*(Vector other) const {
+    if (this->column != other.getLength()) {
+        cout << "Matrix * Vector error!" << endl;
+        cout << "The left Matrix column is not equal right length" << endl;
+        return Vector(0);
+    }
+    Vector ans = Vector(other.getLength());
+    for (int i = 0; i < other.getLength(); ++i) {
+        for (int j = 0; j < other.getLength(); ++j) {
+            ans[i] += this->matrix[i][j] * other[j];
+        }
+    }
+    return ans;
 }
 
 

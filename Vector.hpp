@@ -6,6 +6,7 @@
 #include "Matrix.hpp"
 
 using namespace std;
+class Matrix;
 
 class Vector {
 public:
@@ -27,6 +28,12 @@ public:
 
     void setLength(int length);
 
+    complex<double> dot_product(Vector other);
+
+    Vector conjugation();
+
+    Vector element_wise_multiplication(Vector &other);
+
     Vector operator+(const Vector &other) const;
 
     Matrix operator+(Matrix other) const;
@@ -34,6 +41,16 @@ public:
     Vector operator-(const Vector &other) const;
 
     Matrix operator-(Matrix other) const;
+
+    Vector operator*(complex<double> other) const;
+
+    Vector operator*(Matrix other) const;
+
+    friend Vector operator*(complex<double> l, Vector &other);
+
+    Vector operator/(complex<double> other) const;
+
+    friend Vector operator/(complex<double> l, Vector &other);
 
 private:
     vector<complex<double>> vector;
