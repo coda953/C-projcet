@@ -30,9 +30,7 @@ int main() {
     t[1] = 2;
     t[2] = 3;
     t = 2 * t;
-    for (int l = 0; l < 3; ++l) {
-        cout << t[l] << " ";
-    }
+    t.show();
     Matrix b = a.conjugation();
     a.show();
     b.show();

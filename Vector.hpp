@@ -15,7 +15,7 @@ public:
     Vector(int length);
 
     int getLength();
-
+    void show();
     complex<double> &operator[](int i);
 
     double findMin();

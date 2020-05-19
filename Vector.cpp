@@ -213,6 +213,19 @@ complex<double> Vector::dot_product(Vector other) {
     return ans;
 }
 
+void Vector::show() {
+    cout<<"Length:"<< this->length<<endl;
+    cout<<"[";
+    for (int i = 0; i < this->length; ++i) {
+        cout<< this->vector[i];
+        if(i==this->length-1){
+            cout<<"]";
+        } else{
+            cout<<",";
+        }
+    }
+}
+
 
 
 
