@@ -161,9 +161,9 @@ Vector operator/(complex<double> l, Vector &other) {
     return ans;
 }
 
-Vector Vector::element_wise_multiplication(Vector &other) {
+Vector Vector::element_wise_multiplication_change(Vector &other) {
     if (this->length != other.length) {
-        cout << "element_wise_multiplication error!" << endl;
+        cout << "element_wise_multiplication_change error!" << endl;
         cout << "the size of two vector is not equal" << endl;
         return Vector(0);
     }
@@ -175,7 +175,7 @@ Vector Vector::element_wise_multiplication(Vector &other) {
     return ans;
 }
 
-Vector Vector::conjugation() {
+Vector Vector::conjugation_change() {
     Vector ans = Vector(this->length);
     for (int i = 0; i < this->length; ++i) {
         complex<double> cur(this->vector[i].real(), -this->vector[i].imag());
@@ -215,15 +215,37 @@ complex<double> Vector::dot_product(Vector other) {
 
 void Vector::show() {
     cout<<"Length:"<< this->length<<endl;
-    cout<<"[";
+    cout << "[";
     for (int i = 0; i < this->length; ++i) {
-        cout<< this->vector[i];
-        if(i==this->length-1){
-            cout<<"]";
-        } else{
-            cout<<",";
+        cout << this->vector[i];
+        if (i == this->length - 1) {
+            cout << "]";
+        } else {
+            cout << ",";
         }
     }
+}
+
+Vector Vector::conjugation() {
+    Vector ans = Vector(this->length);
+    for (int i = 0; i < this->length; ++i) {
+        complex<double> cur(this->vector[i].real(), -this->vector[i].imag());
+        ans[i] = cur;
+    }
+    return ans;
+}
+
+Vector Vector::element_wise_multiplication(Vector &other) {
+    if (this->length != other.length) {
+        cout << "element_wise_multiplication_change error!" << endl;
+        cout << "the size of two vector is not equal" << endl;
+        return Vector(0);
+    }
+    Vector ans = Vector(this->length);
+    for (int i = 0; i < this->length; ++i) {
+        ans[i] = this->vector[i] * other.vector[i];
+    }
+    return ans;
 }
 
 

@@ -17,7 +17,10 @@ int main() {
     }
     Matrix o = x * y;
     o.show();
-    Matrix a;
+    Matrix a = o.slicing(2, 6);
+    a.show();
+    Vector b = o.slicing(2, 6);
+    b.show();
     Matrix k = Matrix(10);
     a = x + y;
     a.show();
@@ -31,7 +34,6 @@ int main() {
     t[2] = 3;
     t = 2 * t;
     t.show();
-    Matrix b = a.conjugation();
     a.show();
     b.show();
     return 0;

@@ -61,11 +61,15 @@
 
 `x.findAverageAtColumn(int column);` 返回矩阵x中第column列的平均值。
 
-`x.transposition()` 返回x的转置（并且x变成自己的转置）。
+`x.transposition()` 返回x的转置
 
-`x.element_wise_multiplication(y)` 返回x与y的元素乘结果（并且x变成该结果）。
+`x.transposition_change()` 返回x的转置（并且x变成自己的转置）。
 
-`x.conjugation();` 返回x的共轭矩阵，并且x变成自己的共轭矩阵。
+`x.element_wise_multiplication(y)`返回x与y的元素乘结果
+
+`x.element_wise_multiplication_change(y)` 返回x与y的元素乘结果,并改变x
+
+`x.conjugation_change();` 返回x的共轭矩阵，并改变x
 ## 已完成（向量部分）
 ### 基本属性
 `vector<complex<double>> vector` 每个元素为std::complex<double>的一维vector
@@ -94,25 +98,30 @@
 
 `x.findAverage()` 返回向量所有元素的平均值
 
-`x.dot_product(y)` 返回x与向量y的点积，并且x变成结果
+`x.dot_product(y)` 返回x与向量y的点积
 
-`x.conjugation();` 返回x的共轭向量，并且x变成它自己的共轭向量
+`x.conjugation()` 返回x的共轭向量
 
-`x.element_wise_multiplication(y)` 返回x与y的元素乘积，并且x变为结果
+`x.conjugation_change();` 返回x的共轭向量，同时改变x
 
+`x.element_wise_multiplication()` 返回x与y的元素乘积
+
+`x.element_wise_multiplication_change(y)` 返回x与y的元素乘积,并改变x
+
+`x.reshape(int row,int column)` 将x变成行为row，列为column的矩阵，若元素不足补0，反之舍弃多余元素
+
+`x.reshape_change(int row,int column)` 同上，并改变x
+
+`x.slicing(int from,int to)` 将x的[from,to)范围内元素切片成向量或一维矩阵
+
+`x.cal_traces()` 返回矩阵的trace（迹，对角线元素和）
 ## 短期目标：
 
-3)支持矩阵和向量运算，现在只剩下dot product and cross product（向量点积已完成）
-
-5)支持计算特征值和特征向量，计算迹，计算逆和计算行列式。
-
-6)支持整形、切片操作。
-
-7)支持两个矩阵的卷积运算。
-
-8)支持将矩阵从OpenCV传输到这个库的矩阵中，反之亦然。
-
-9)它应该尽可能多地处理可能出现的异常。
+3) 矩阵点积叉积，向量叉积。
+5) 计算特征值和特征向量，计算逆和计算行列式。
+7) 支持两个矩阵的卷积运算。
+8) 支持将矩阵从OpenCV传输到这个库的矩阵中，反之亦然。
+9) 它应该尽可能多地处理可能出现的异常。
 
 代码很好写，但是问题是不知道怎么算。。
 
@@ -132,7 +141,7 @@ Building a library for matrix computation
 Matrix is an important concept introduced in linear algebra. Matrix calculation is widely used in many practical applications, such as image processing and machine learning. Programmers can indeed use many different existing libraries, and in certain cases, programmers are required to design their own matrix calculation libraries for specific implementations. This project will build a new library (do not attempt to directly copy codes from other existing library) that can perform the following operations on the matrix:
 1) It supports all matrix sizes, from small fixed-size matrices to arbitrarily large dense matrices, and even sparse matrices (Add: try to use efficient ways to store the sparse matrices).
 2) It supports all standard numeric types, including std::complex, integers, and is easily extensible to custom numeric types.
-3) It supports matrix and vector arithmetic, including addition, subtraction, scalar multiplication, scalar division, transposition, conjugation, element-wise multiplication, matrix-matrix multiplication, matrix-vector multiplication, dot product and cross product.
+3) It supports matrix and vector arithmetic, including addition, subtraction, scalar multiplication, scalar division, transposition_change, conjugation_change, element-wise multiplication, matrix-matrix multiplication, matrix-vector multiplication, dot product and cross product.
 4) It supports basic arithmetic reduction operations, including finding the maximum value, finding the minimum value, summing all items, calculating the average value (all supporting axis-specific and all items).
 5) It supports computing eigenvalues and eigenvectors, calculating traces, computing inverse and computing determinant.
 6) It supports the operations of reshape and slicing.

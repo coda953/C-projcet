@@ -291,27 +291,16 @@ int Matrix::getColumn() {
     return this->column;
 }
 
-Matrix Matrix::transposition() {
-    Matrix ans = Matrix(this->column, this->row);
-    for (int i = 0; i < this->row; ++i) {
-        for (int j = 0; j < this->column; ++j) {
-            ans[j][i] = this->matrix[i][j];
-        }
-    }
+Matrix Matrix::transposition_change() {
+    Matrix ans = this->transposition();
     this->row = ans.row;
     this->column = ans.column;
     this->matrix = ans.matrix;
     return ans;
 }
 
-Matrix Matrix::conjugation() {
-    Matrix ans = Matrix(this->row, this->column);
-    for (int i = 0; i < this->row; ++i) {
-        for (int j = 0; j < this->column; ++j) {
-            complex<double> cur(this->matrix[i][j].real(), -this->matrix[i][j].imag());
-            ans[i][j] = cur;
-        }
-    }
+Matrix Matrix::conjugation_change() {
+    Matrix ans = this->conjugation();
     this->matrix = ans.matrix;
     return ans;
 }
@@ -349,4 +338,113 @@ Vector Matrix::operator*(Vector other) const {
     return ans;
 }
 
+Matrix Matrix::transposition() {
+    Matrix ans = Matrix(this->column, this->row);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            ans[j][i] = this->matrix[i][j];
+        }
+    }
+    return ans;
+}
+
+Matrix Matrix::conjugation() {
+    Matrix ans = Matrix(this->row, this->column);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            complex<double> cur(this->matrix[i][j].real(), -this->matrix[i][j].imag());
+            ans[i][j] = cur;
+        }
+    }
+    return ans;
+}
+
+Matrix Matrix::reshape(int row, int column) {
+    Matrix ans = Matrix(row, column);
+    int other = row * column;
+    int cur = this->row * this->column;
+    int count = 0;
+    while (count < min(other, cur)) {
+        int curRow = count / this->column;
+        int curColumn = count % this->column;
+        int ansRow = count / column;
+        int ansColumn = count % column;
+        ans[ansRow][ansColumn] = this->matrix[curRow][curColumn];
+        count++;
+    }
+    return ans;
+}
+
+Matrix Matrix::reshape_change(int row, int column) {
+    Matrix ans = this->reshape(row, column);
+    this->row = row;
+    this->column = column;
+    this->matrix = ans.matrix;
+    return ans;
+}
+
+Matrix::Matrix(Matrix const &other) {
+    this->row = other.row;
+    this->column = other.column;
+    this->matrix = other.matrix;
+}
+
+Vector Matrix::slicing(int from, int to) {
+    Matrix cur = this->reshape(1, this->row * this->column);
+    if (to > cur.column) {
+        cout << "slicing error" << endl;
+        cout << "slicing bound is large than matrix size" << endl;
+        return Vector(0);
+    }
+    if (from < 0) {
+        cout << "slicing error" << endl;
+        cout << "slicing left bound is little than 0" << endl;
+        return Vector(0);
+    }
+    Vector ans = Vector(to - from);
+    for (int i = 0; i < ans.getLength(); ++i) {
+        ans[i] = cur.matrix[0][from + i];
+    }
+    return ans;
+}
+
+Matrix::Matrix(Vector other) {
+    Matrix ans = Matrix(1, other.getLength());
+    for (int i = 0; i < other.getLength(); ++i) {
+        ans[0][i] = other[i];
+    }
+    this->row = ans.row;
+    this->column = ans.column;
+    this->matrix = ans.matrix;
+}
+
+Matrix Matrix::element_wise_multiplication_change(Matrix &other) {
+    if (this->row != other.row || this->column != other.column) {
+        cout << "the size of these two vector is not equal" << endl;
+        cout << "left size is:";
+        this->showSize();
+        cout << "right size is:";
+        other.showSize();
+        return Matrix(0, 0);
+    }
+    Matrix ans = Matrix(this->row, this->column);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            ans[i][j] = this->matrix[i][j] * other.matrix[i][j];
+        }
+    }
+    this->row = ans.row;
+    this->column = ans.column;
+    this->matrix = ans.matrix;
+    return ans;
+}
+
+complex<double> Matrix::cal_traces() {
+    complex<double> ans(0, 0);
+    int cur = min(this->row, this->column);
+    for (int i = 0; i < cur; ++i) {
+        ans += this->matrix[i][i];
+    }
+    return ans;
+}
 

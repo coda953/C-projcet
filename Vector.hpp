@@ -6,6 +6,7 @@
 #include "Matrix.hpp"
 
 using namespace std;
+
 class Matrix;
 
 class Vector {
@@ -15,7 +16,9 @@ public:
     Vector(int length);
 
     int getLength();
+
     void show();
+
     complex<double> &operator[](int i);
 
     double findMin();
@@ -32,7 +35,11 @@ public:
 
     Vector conjugation();
 
+    Vector conjugation_change();
+
     Vector element_wise_multiplication(Vector &other);
+
+    Vector element_wise_multiplication_change(Vector &other);
 
     Vector operator+(const Vector &other) const;
 

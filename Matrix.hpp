@@ -18,6 +18,10 @@ public:
 
     Matrix(int length);
 
+    Matrix(Matrix const &other);
+
+    Matrix(Vector other);
+
     double findMin();
 
     double findMinAtRow(int row);
@@ -42,6 +46,8 @@ public:
 
     complex<double> findSumAtColumn(int column);
 
+    complex<double> cal_traces();
+
     void show() const;
 
     void showSize() const;
@@ -56,9 +62,21 @@ public:
 
     Matrix transposition();
 
+    Matrix transposition_change();
+
     Matrix conjugation();
 
+    Matrix conjugation_change();
+
     Matrix element_wise_multiplication(Matrix &other);
+
+    Matrix element_wise_multiplication_change(Matrix &other);
+
+    Matrix reshape(int row, int column);
+
+    Matrix reshape_change(int row, int column);
+
+    Vector slicing(int from, int to);
 
     Matrix operator+(const Matrix &other) const;
 
