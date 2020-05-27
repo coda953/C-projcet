@@ -11,5 +11,5 @@ include_directories(
 )
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cppProject main.cpp Matrix.cpp Matrix.hpp Vector.hpp Vector.cpp)
+add_executable(cppProject main.cpp Matrix.hpp Vector.hpp)
 target_link_libraries(cppProject ${OpenCV_LIBS})
