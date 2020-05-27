@@ -189,7 +189,7 @@ public:
     }
 
     T cal_traces() {
-        T ans(0, 0);
+        T ans=0;
         int cur = min(this->row, this->column);
         for (int i = 0; i < cur; ++i) {
             ans += this->matrix[i][i];

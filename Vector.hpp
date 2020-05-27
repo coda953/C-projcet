@@ -94,7 +94,7 @@ public:
     }
 
     T dot_product(Vector other) {
-        T ans(0, 0);
+        T ans =0;
         if (this->length != other.length) {
             cout << "dot product error!" << endl;
             cout << "the two vector length is not equal" << endl;
