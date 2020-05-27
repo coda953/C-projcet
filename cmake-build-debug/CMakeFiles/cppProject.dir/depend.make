@@ -4,10 +4,12 @@
 CMakeFiles/cppProject.dir/Matrix.cpp.o: ../Matrix.cpp
 CMakeFiles/cppProject.dir/Matrix.cpp.o: ../Matrix.hpp
 CMakeFiles/cppProject.dir/Matrix.cpp.o: ../Vector.hpp
+CMakeFiles/cppProject.dir/Matrix.cpp.o: /usr/include/opencv2/opencv.hpp
 
 CMakeFiles/cppProject.dir/Vector.cpp.o: ../Matrix.hpp
 CMakeFiles/cppProject.dir/Vector.cpp.o: ../Vector.cpp
 CMakeFiles/cppProject.dir/Vector.cpp.o: ../Vector.hpp
+CMakeFiles/cppProject.dir/Vector.cpp.o: /usr/include/opencv2/opencv.hpp
 
 CMakeFiles/cppProject.dir/main.cpp.o: ../Matrix.hpp
 CMakeFiles/cppProject.dir/main.cpp.o: ../Vector.hpp

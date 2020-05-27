@@ -155,31 +155,6 @@ Vector<T> operator*(T l, Vector<T> &other) {
     return ans;
 }
 
-template<class T>
-Vector<T> Vector<T>::operator/(T other) const {
-    if (other.real() == 0 && other.imag() == 0) {
-        cout << other << "can not be divisor" << endl;
-        return Vector(0);
-    }
-    Vector ans = Vector(this->length);
-    for (int i = 0; i < this->length; ++i) {
-        ans[i] = this->vector[i] / other;
-    }
-    return ans;
-}
-
-template<class T>
-Vector<T> operator/(T l, Vector<T> &other) {
-    if (l.real() == 0 && l.imag() == 0) {
-        cout << l << "can not be divisor" << endl;
-        return Vector<T>(0);
-    }
-    Vector<T> ans = Vector<T>(other.getLength());
-    for (int i = 0; i < other.getLength(); ++i) {
-        ans[i] = l / other[i];
-    }
-    return ans;
-}
 
 template<class T>
 Vector<T> Vector<T>::element_wise_multiplication_change(Vector &other) {

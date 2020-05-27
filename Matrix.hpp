@@ -3,7 +3,7 @@
 
 #include <bits/stdc++.h>
 #include "Vector.hpp"
-#i
+#include <opencv.hpp>
 using namespace std;
 
 template<class T>
@@ -93,8 +93,7 @@ public:
     Vector<T> operator*(Vector<T> other) const;
 
 private:
-    vector<vector<T>>>
-    matrix;
+    vector<vector<T>> matrix;
     int row{}, column{};
 };
 

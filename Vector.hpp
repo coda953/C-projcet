@@ -7,9 +7,7 @@
 
 using namespace std;
 
-template class
-
-<T>
+template<class T>
 class Matrix;
 
 template<class T>
@@ -57,11 +55,9 @@ public:
 
     Vector operator*(Matrix<T> other) const;
 
-    friend Vector operator*(T l, Vector &other);
 
     Vector operator/(T other) const;
 
-    friend Vector operator/(T l, Vector &other);
 
 private:
     vector <T> vector;
