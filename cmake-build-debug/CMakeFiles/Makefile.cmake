@@ -23,6 +23,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/Compiler/GNU-C.cmake"
   "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/Compiler/GNU-CXX.cmake"
   "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/Compiler/GNU.cmake"
+  "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/FindPackageHandleStandardArgs.cmake"
+  "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/FindPackageMessage.cmake"
   "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/Internal/CMakeCheckCompilerFlag.cmake"
   "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/Platform/CYGWIN-GNU-C.cmake"
   "/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/share/cmake-3.15.3/Modules/Platform/CYGWIN-GNU-CXX.cmake"
@@ -36,6 +38,10 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.15.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeRCCompiler.cmake"
   "CMakeFiles/3.15.3/CMakeSystem.cmake"
+  "/usr/lib/cmake/OpenCV/OpenCVConfig-version.cmake"
+  "/usr/lib/cmake/OpenCV/OpenCVConfig.cmake"
+  "/usr/lib/cmake/OpenCV/OpenCVModules-relwithdebinfo.cmake"
+  "/usr/lib/cmake/OpenCV/OpenCVModules.cmake"
   )
 
 # The corresponding makefile is:

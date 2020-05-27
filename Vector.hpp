@@ -7,8 +7,12 @@
 
 using namespace std;
 
+template class
+
+<T>
 class Matrix;
 
+template<class T>
 class Vector {
 public:
     Vector();
@@ -19,19 +23,19 @@ public:
 
     void show();
 
-    complex<double> &operator[](int i);
+    T &operator[](int i);
 
     double findMin();
 
     double findMax();
 
-    complex<double> findAverage();
+    T findAverage();
 
-    complex<double> findSum();
+    T findSum();
 
     void setLength(int length);
 
-    complex<double> dot_product(Vector other);
+    T dot_product(Vector other);
 
     Vector conjugation();
 
@@ -43,25 +47,25 @@ public:
 
     Vector operator+(const Vector &other) const;
 
-    Matrix operator+(Matrix other) const;
+    Matrix<T> operator+(Matrix<T> other) const;
 
     Vector operator-(const Vector &other) const;
 
-    Matrix operator-(Matrix other) const;
+    Matrix<T> operator-(Matrix<T> other) const;
 
-    Vector operator*(complex<double> other) const;
+    Vector operator*(T other) const;
 
-    Vector operator*(Matrix other) const;
+    Vector operator*(Matrix<T> other) const;
 
-    friend Vector operator*(complex<double> l, Vector &other);
+    friend Vector operator*(T l, Vector &other);
 
-    Vector operator/(complex<double> other) const;
+    Vector operator/(T other) const;
 
-    friend Vector operator/(complex<double> l, Vector &other);
+    friend Vector operator/(T l, Vector &other);
 
 private:
-    vector<complex<double>> vector;
-    int length;
+    vector <T> vector;
+    int length{};
 };
 
 #endif //CPPPROJECT_VECTOR_HPP

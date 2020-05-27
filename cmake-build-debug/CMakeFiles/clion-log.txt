@@ -1,4 +1,8 @@
 C:\Users\10505\.CLion2019.3\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/10505/CLionProjects/C-projcet
+-- OpenCV library status:
+--  version: 3.4.1
+--  libraries: opencv_aruco;opencv_bgsegm;opencv_bioinspired;opencv_calib3d;opencv_ccalib;opencv_core;opencv_datasets;opencv_dpm;opencv_face;opencv_features2d;opencv_flann;opencv_freetype;opencv_fuzzy;opencv_hdf;opencv_hfs;opencv_highgui;opencv_img_hash;opencv_imgcodecs;opencv_imgproc;opencv_line_descriptor;opencv_ml;opencv_objdetect;opencv_optflow;opencv_phase_unwrapping;opencv_photo;opencv_plot;opencv_reg;opencv_rgbd;opencv_saliency;opencv_shape;opencv_stereo;opencv_stitching;opencv_structured_light;opencv_superres;opencv_surface_matching;opencv_tracking;opencv_video;opencv_videoio;opencv_videostab;opencv_ximgproc;opencv_xobjdetect;opencv_xphoto
+--  include path: /usr/include;/usr/include/opencv
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug

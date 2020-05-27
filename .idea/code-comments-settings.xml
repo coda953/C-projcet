@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CodeCommentSettings">
+    <templates>
+      <template key="TEMPLATE">==========
+&lt;#list fileComments as fileComment&gt;
+File: ${fileComment.fileInformation.path}
+-----
+&lt;#list fileComment.comments as comment&gt;
+${comment.codeInformation.codeText}:
+vvvvvv
+&lt;#list comment.commentHistory.records as record&gt;
+${record.text}
+&lt;/#list&gt;
+-----
+&lt;/#list&gt;
+
+==========
+&lt;/#list&gt;</template>
+    </templates>
+  </component>
+</project>

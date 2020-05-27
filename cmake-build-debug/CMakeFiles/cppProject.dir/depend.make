@@ -12,4 +12,6 @@ CMakeFiles/cppProject.dir/Vector.cpp.o: ../Vector.hpp
 CMakeFiles/cppProject.dir/main.cpp.o: ../Matrix.hpp
 CMakeFiles/cppProject.dir/main.cpp.o: ../Vector.hpp
 CMakeFiles/cppProject.dir/main.cpp.o: ../main.cpp
+CMakeFiles/cppProject.dir/main.cpp.o: /usr/include/opencv2/opencv.hpp
+CMakeFiles/cppProject.dir/main.cpp.o: /usr/include/opencv2/opencv_modules.hpp
 

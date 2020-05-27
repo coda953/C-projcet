@@ -1,6 +1,18 @@
 #include "Matrix.hpp"
+#include "Vector.hpp"
 
-Matrix::Matrix(int row, int column) {
+template<class T>
+class Vector;
+
+template<class T>
+Matrix<T>::Matrix() {
+    this->row = 0;
+    this->column = 0;
+    this->matrix.resize(0);
+}
+
+template<class T>
+Matrix<T>::Matrix(int row, int column) {
     this->row = row;
     this->column = column;
     this->matrix.resize(row);
@@ -9,28 +21,15 @@ Matrix::Matrix(int row, int column) {
     }
 }
 
-Matrix::Matrix() {
-}
-
-vector<complex<double>> &Matrix::operator[](int i) {
-    if (i >= row) {
-        cout << "the input row is lager than row";
-    }
-    return this->matrix[i];
-}
-
-void Matrix::show() const {
+template<class T>
+void Matrix<T>::show() const {
     cout << "Row:" << this->row << endl;
     cout << "Column:" << this->column << endl;
     cout << "[";
     for (int i = 0; i < row; ++i) {
         cout << "[";
         for (int j = 0; j < column; ++j) {
-            if (this->matrix[i][j].imag()) {
-                cout << this->matrix[i][j];
-            } else {
-                cout << this->matrix[i][j].real();
-            }
+            cout << this->matrix[i][j];
             if (j != column - 1) {
                 cout << ",";
             }
@@ -43,13 +42,15 @@ void Matrix::show() const {
     cout << "]" << endl;
 }
 
-int Matrix::setRow(int row) {
+template<class T>
+int Matrix<T>::setRow(int row) {
     this->row = row;
     this->matrix.resize(row);
     return 1;
 }
 
-int Matrix::setColumn(int column) {
+template<class T>
+int Matrix<T>::setColumn(int column) {
     if (this->row == 0) {
         return 0;
     }
@@ -60,7 +61,8 @@ int Matrix::setColumn(int column) {
     return 1;
 }
 
-Matrix Matrix::operator+(const Matrix &other) const {
+template<class T>
+Matrix<T> Matrix<T>::operator+(const Matrix &other) const {
     if (this->row != other.row || this->column != other.column) {
         cout << "the size of these two vector is not equal" << endl;
         cout << "left size is:";
@@ -78,11 +80,13 @@ Matrix Matrix::operator+(const Matrix &other) const {
     return ans;
 }
 
-void Matrix::showSize() const {
+template<class T>
+void Matrix<T>::showSize() const {
     cout << "Row:" << this->row << "  Column:" << this->column << endl;
 }
 
-Matrix Matrix::operator-(const Matrix &other) const {
+template<class T>
+Matrix<T> Matrix<T>::operator-(const Matrix &other) const {
     if (this->row != other.row || this->column != other.column) {
         cout << "the size of these two vector is not equal" << endl;
         cout << "left size is:";
@@ -100,7 +104,8 @@ Matrix Matrix::operator-(const Matrix &other) const {
     return ans;
 }
 
-Matrix Matrix::operator*(const Matrix &other) const {
+template<class T>
+Matrix<T> Matrix<T>::operator*(const Matrix &other) const {
     if (this->column != other.row) {
         cout << "multiple error!" << endl;
         cout << "the left matrix column is not equal right matrix row" << endl;
@@ -116,39 +121,43 @@ Matrix Matrix::operator*(const Matrix &other) const {
     return ans;
 }
 
-Matrix::Matrix(int length) {
+template<class T>
+Matrix<T>::Matrix(int length) {
     this->row = 1;
     this->column = length;
     this->matrix.resize(this->row);
-    this->matrix[0].resize(column);
+    this->matrix[0].resize(this->column);
 }
 
-double Matrix::findMax() {
+template<class T>
+T Matrix<T>::findMax() {
     if (this->row == 0 || this->column == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
     for (int i = 0; i < row; ++i) {
-        for (int j = 0; j < column; ++j) {
-            ans = max(ans, this->matrix[i][j].real());
+        for (int j = 0; j < this->column; ++j) {
+            ans = max(ans, this->matrix[i][j]);
         }
     }
     return ans;
 }
 
-complex<double> Matrix::findAverage() {
-    complex<double> ans = findSum();
-    ans /= (row * column);
+template<class T>
+T Matrix<T>::findAverage() {
+    T ans = findSum();
+    ans /= (row * this->column);
     return ans;
 }
 
-complex<double> Matrix::findSum() {
+template<class T>
+T Matrix<T>::findSum() {
     if (this->row == 0 || this->column == 0) {
         cout << "The vector is empty,can not get sum" << endl;
-        return {0, 0};
+        return 0;
     }
-    complex<double> ans = {0, 0};
+    T ans = 0;
     for (int i = 0; i < row; ++i) {
         for (int j = 0; j < column; ++j) {
             ans += this->matrix[i][j];
@@ -157,105 +166,115 @@ complex<double> Matrix::findSum() {
     return ans;
 }
 
-complex<double> Matrix::findSumAtRow(int row) {
+template<class T>
+T Matrix<T>::findSumAtRow(int row) {
     if (this->row < row) {
         cout << "Input row is bigger than the vector size" << endl;
-        return {0, 0};
+        return 0;
     }
-    complex<double> ans = {0, 0};
+    T ans = 0;
     for (int i = 0; i < column; ++i) {
         ans += this->matrix[row][i];
     }
     return ans;
 }
 
-complex<double> Matrix::findSumAtColumn(int column) {
+template<class T>
+T Matrix<T>::findSumAtColumn(int column) {
     if (this->column < column) {
         cout << "Input column is bigger than the vector size" << endl;
-        return {0, 0};
+        return 0;
     }
-    complex<double> ans = {0, 0};
+    T ans = 0;
     for (int i = 0; i < this->row; ++i) {
         ans += this->matrix[column][i];
     }
     return ans;
 }
 
-complex<double> Matrix::findAverageAtRow(int row) {
-    complex<double> ans = findSumAtRow(row);
+template<class T>
+T Matrix<T>::findAverageAtRow(int row) {
+    T ans = findSumAtRow(row);
     ans /= this->column;
     return ans;
 }
 
-complex<double> Matrix::findAverageAtColumn(int column) {
-    complex<double> ans = findSumAtColumn(column);
+template<class T>
+T Matrix<T>::findAverageAtColumn(int column) {
+    T ans = findSumAtColumn(column);
     ans /= this->row;
     return ans;
 }
 
-double Matrix::findMaxAtRow(int row) {
+template<class T>
+T Matrix<T>::findMaxAtRow(int row) {
     if (this->row == 0 || this->column == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
     for (int i = 0; i < this->column; ++i) {
-        ans = max(ans, this->matrix[row][column].real());
+        ans = max(ans, this->matrix[row][this->column].real());
     }
     return ans;
 }
 
-double Matrix::findMaxAtColumn(int column) {
+template<class T>
+T Matrix<T>::findMaxAtColumn(int column) {
     if (this->row == 0 || this->column == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
     for (int i = 0; i < row; ++i) {
-        ans = max(ans, this->matrix[i][column].real());
+        ans = max(ans, this->matrix[i][column]);
     }
     return ans;
 }
 
-double Matrix::findMin() {
+template<class T>
+T Matrix<T>::findMin() {
     if (this->row == 0 || this->column == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
-    for (int i = 0; i < row; ++i) {
-        for (int j = 0; j < column; ++j) {
-            ans = min(ans, this->matrix[i][j].real());
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            ans = min(ans, this->matrix[i][j]);
         }
     }
     return ans;
 }
 
-double Matrix::findMinAtRow(int row) {
+template<class T>
+T Matrix<T>::findMinAtRow(int row) {
     if (this->row == 0 || this->column == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
     for (int i = 0; i < this->column; ++i) {
-        ans = min(ans, this->matrix[row][column].real());
+        ans = min(ans, this->matrix[row][this->column].real());
     }
     return ans;
 }
 
-double Matrix::findMinAtColumn(int column) {
+template<class T>
+T Matrix<T>::findMinAtColumn(int column) {
     if (this->row == 0 || this->column == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
     }
     double ans = this->matrix[0][0].real();
     for (int i = 0; i < row; ++i) {
-        ans = min(ans, this->matrix[i][column].real());
+        ans = min(ans, this->matrix[i][column]);
     }
     return ans;
 }
 
-Matrix Matrix::operator+(Vector other) const {
+template<class T>
+Matrix<T> Matrix<T>::operator+(Vector<T> other) const {
     if (this->column != other.getLength()) {
         cout << "The column of the matrix is not equal to the vector length" << endl;
         return Matrix(0, 0);
@@ -269,7 +288,8 @@ Matrix Matrix::operator+(Vector other) const {
     return ans;
 }
 
-Matrix Matrix::operator-(Vector other) const {
+template<class T>
+Matrix<T> Matrix<T>::operator-(Vector<T> other) const {
     if (this->column != other.getLength()) {
         cout << "The column of the matrix is not equal to the vector length" << endl;
         return Matrix(0, 0);
@@ -283,15 +303,18 @@ Matrix Matrix::operator-(Vector other) const {
     return ans;
 }
 
-int Matrix::getRow() {
+template<class T>
+int Matrix<T>::getRow() {
     return this->row;
 }
 
-int Matrix::getColumn() {
+template<class T>
+int Matrix<T>::getColumn() {
     return this->column;
 }
 
-Matrix Matrix::transposition_change() {
+template<class T>
+Matrix<T> Matrix<T>::transposition_change() {
     Matrix ans = this->transposition();
     this->row = ans.row;
     this->column = ans.column;
@@ -299,13 +322,15 @@ Matrix Matrix::transposition_change() {
     return ans;
 }
 
-Matrix Matrix::conjugation_change() {
+template<class T>
+Matrix<T> Matrix<T>::conjugation_change() {
     Matrix ans = this->conjugation();
     this->matrix = ans.matrix;
     return ans;
 }
 
-Matrix Matrix::element_wise_multiplication(Matrix &other) {
+template<class T>
+Matrix<T> Matrix<T>::element_wise_multiplication(Matrix &other) {
     if (this->row != other.row || this->column != other.column) {
         cout << "the size of these two vector is not equal" << endl;
         cout << "left size is:";
@@ -323,13 +348,14 @@ Matrix Matrix::element_wise_multiplication(Matrix &other) {
     return ans;
 }
 
-Vector Matrix::operator*(Vector other) const {
+template<class T>
+Vector<T> Matrix<T>::operator*(Vector<T> other) const {
     if (this->column != other.getLength()) {
         cout << "Matrix * Vector error!" << endl;
         cout << "The left Matrix column is not equal right length" << endl;
-        return Vector(0);
+        return Vector<T>(0);
     }
-    Vector ans = Vector(other.getLength());
+    Vector<T> ans = Vector<T>(other.getLength());
     for (int i = 0; i < other.getLength(); ++i) {
         for (int j = 0; j < other.getLength(); ++j) {
             ans[i] += this->matrix[i][j] * other[j];
@@ -338,7 +364,8 @@ Vector Matrix::operator*(Vector other) const {
     return ans;
 }
 
-Matrix Matrix::transposition() {
+template<class T>
+Matrix<T> Matrix<T>::transposition() {
     Matrix ans = Matrix(this->column, this->row);
     for (int i = 0; i < this->row; ++i) {
         for (int j = 0; j < this->column; ++j) {
@@ -348,18 +375,20 @@ Matrix Matrix::transposition() {
     return ans;
 }
 
-Matrix Matrix::conjugation() {
+template<class T>
+Matrix<T> Matrix<T>::conjugation() {
     Matrix ans = Matrix(this->row, this->column);
     for (int i = 0; i < this->row; ++i) {
         for (int j = 0; j < this->column; ++j) {
-            complex<double> cur(this->matrix[i][j].real(), -this->matrix[i][j].imag());
+            T cur(this->matrix[i][j].real(), -this->matrix[i][j].imag());
             ans[i][j] = cur;
         }
     }
     return ans;
 }
 
-Matrix Matrix::reshape(int row, int column) {
+template<class T>
+Matrix<T> Matrix<T>::reshape(int row, int column) {
     Matrix ans = Matrix(row, column);
     int other = row * column;
     int cur = this->row * this->column;
@@ -375,7 +404,8 @@ Matrix Matrix::reshape(int row, int column) {
     return ans;
 }
 
-Matrix Matrix::reshape_change(int row, int column) {
+template<class T>
+Matrix<T> Matrix<T>::reshape_change(int row, int column) {
     Matrix ans = this->reshape(row, column);
     this->row = row;
     this->column = column;
@@ -383,32 +413,35 @@ Matrix Matrix::reshape_change(int row, int column) {
     return ans;
 }
 
-Matrix::Matrix(Matrix const &other) {
+template<class T>
+Matrix<T>::Matrix(Matrix const &other) {
     this->row = other.row;
     this->column = other.column;
     this->matrix = other.matrix;
 }
 
-Vector Matrix::slicing(int from, int to) {
+template<class T>
+Vector<T> Matrix<T>::slicing(int from, int to) {
     Matrix cur = this->reshape(1, this->row * this->column);
     if (to > cur.column) {
         cout << "slicing error" << endl;
         cout << "slicing bound is large than matrix size" << endl;
-        return Vector(0);
+        return Vector<T>(0);
     }
     if (from < 0) {
         cout << "slicing error" << endl;
         cout << "slicing left bound is little than 0" << endl;
-        return Vector(0);
+        return Vector<T>(0);
     }
-    Vector ans = Vector(to - from);
+    Vector<T> ans = Vector<T>(to - from);
     for (int i = 0; i < ans.getLength(); ++i) {
         ans[i] = cur.matrix[0][from + i];
     }
     return ans;
 }
 
-Matrix::Matrix(Vector other) {
+template<class T>
+Matrix<T>::Matrix(Vector<T> other) {
     Matrix ans = Matrix(1, other.getLength());
     for (int i = 0; i < other.getLength(); ++i) {
         ans[0][i] = other[i];
@@ -418,7 +451,8 @@ Matrix::Matrix(Vector other) {
     this->matrix = ans.matrix;
 }
 
-Matrix Matrix::element_wise_multiplication_change(Matrix &other) {
+template<class T>
+Matrix<T> Matrix<T>::element_wise_multiplication_change(Matrix &other) {
     if (this->row != other.row || this->column != other.column) {
         cout << "the size of these two vector is not equal" << endl;
         cout << "left size is:";
@@ -439,12 +473,25 @@ Matrix Matrix::element_wise_multiplication_change(Matrix &other) {
     return ans;
 }
 
-complex<double> Matrix::cal_traces() {
-    complex<double> ans(0, 0);
+template<class T>
+T Matrix<T>::cal_traces() {
+    T ans(0, 0);
     int cur = min(this->row, this->column);
     for (int i = 0; i < cur; ++i) {
         ans += this->matrix[i][i];
     }
     return ans;
 }
+
+template<class T>
+vector<T> &Matrix<T>::operator[](int i) {
+    if (i >= row) {
+        cout << "the input row is lager than row";
+    }
+    return this->matrix[i];
+}
+
+
+
+
 

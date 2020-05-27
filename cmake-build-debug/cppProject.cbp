@@ -5,7 +5,7 @@
 		<Option title="cppProject"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\;CMake Files\..\..\..\..\..\..\usr\lib\cmake\OpenCV\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug"/>
@@ -34,6 +34,9 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/cygdrive/c/Users/10505/CLionProjects/C-projcet"/>
+					<Add directory="/usr/include/opencv2"/>
+					<Add directory="/usr/include/opencv"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
@@ -55,6 +58,9 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/cygdrive/c/Users/10505/CLionProjects/C-projcet"/>
+					<Add directory="/usr/include/opencv2"/>
+					<Add directory="/usr/include/opencv"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/x86_64-pc-cygwin"/>
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/backward"/>
@@ -97,6 +103,18 @@
 		</Unit>
 		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/../../../../../../usr/lib/cmake/OpenCV/OpenCVConfig-version.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\OpenCV\"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/../../../../../../usr/lib/cmake/OpenCV/OpenCVConfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\OpenCV\"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/../../../../../../usr/lib/cmake/OpenCV/OpenCVModules-relwithdebinfo.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\OpenCV\"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/10505/CLionProjects/C-projcet/../../../../../../usr/lib/cmake/OpenCV/OpenCVModules.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\lib\cmake\OpenCV\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

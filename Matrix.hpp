@@ -3,16 +3,18 @@
 
 #include <bits/stdc++.h>
 #include "Vector.hpp"
-
+#i
 using namespace std;
 
+template<class T>
 class Vector;
 
+template<class T>
 class Matrix {
 public:
     Matrix();
 
-    vector<complex<double>> &operator[](int i);
+    vector<T> &operator[](int i);
 
     Matrix(int row, int column);
 
@@ -20,33 +22,33 @@ public:
 
     Matrix(Matrix const &other);
 
-    Matrix(Vector other);
+    Matrix(Vector<T> other);
 
-    double findMin();
+    T findMin();
 
-    double findMinAtRow(int row);
+    T findMinAtRow(int row);
 
-    double findMinAtColumn(int column);
+    T findMinAtColumn(int column);
 
-    double findMax();
+    T findMax();
 
-    double findMaxAtRow(int row);
+    T findMaxAtRow(int row);
 
-    double findMaxAtColumn(int column);
+    T findMaxAtColumn(int column);
 
-    complex<double> findAverage();
+    T findAverage();
 
-    complex<double> findAverageAtRow(int row);
+    T findAverageAtRow(int row);
 
-    complex<double> findAverageAtColumn(int column);
+    T findAverageAtColumn(int column);
 
-    complex<double> findSum();
+    T findSum();
 
-    complex<double> findSumAtRow(int row);
+    T findSumAtRow(int row);
 
-    complex<double> findSumAtColumn(int column);
+    T findSumAtColumn(int column);
 
-    complex<double> cal_traces();
+    T cal_traces();
 
     void show() const;
 
@@ -76,23 +78,24 @@ public:
 
     Matrix reshape_change(int row, int column);
 
-    Vector slicing(int from, int to);
+    Vector<T> slicing(int from, int to);
 
     Matrix operator+(const Matrix &other) const;
 
-    Matrix operator+(Vector other) const;
+    Matrix operator+(Vector<T> other) const;
 
     Matrix operator-(const Matrix &other) const;
 
-    Matrix operator-(Vector other) const;
+    Matrix operator-(Vector<T> other) const;
 
     Matrix operator*(const Matrix &other) const;
 
-    Vector operator*(Vector other) const;
+    Vector<T> operator*(Vector<T> other) const;
 
 private:
-    vector<vector<complex<double>>> matrix;
-    int row, column;
+    vector<vector<T>>>
+    matrix;
+    int row{}, column{};
 };
 
 #endif //CPPPROJECT_MATRIX_HPP

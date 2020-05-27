@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I/cygdrive/c/Users/10505/CLionProjects/C-projcet -I/usr/include/opencv2 -isystem /usr/include/opencv 
 

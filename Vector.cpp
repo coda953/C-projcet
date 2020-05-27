@@ -4,17 +4,23 @@
 
 #include "Vector.hpp"
 
-Vector::Vector(int length) {
-    this->length = length;
-    this->vector.resize(length);
-}
+template<class T>
+class Matrix;
 
-Vector::Vector() {
+template<class T>
+Vector<T>::Vector() {
     this->length = 0;
     this->vector.resize(length);
 }
 
-double Vector::findMin() {
+template<class T>
+Vector<T>::Vector(int length) {
+    this->length = length;
+    this->vector.resize(length);
+}
+
+template<class T>
+double Vector<T>::findMin() {
     if (this->length == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
@@ -26,7 +32,8 @@ double Vector::findMin() {
     return ans;
 }
 
-double Vector::findMax() {
+template<class T>
+double Vector<T>::findMax() {
     if (this->length == 0) {
         cout << "The vector is empty,can not get sum" << endl;
         return 0;
@@ -38,34 +45,39 @@ double Vector::findMax() {
     return ans;
 }
 
-complex<double> Vector::findAverage() {
-    complex<double> ans = findSum();
+template<class T>
+T Vector<T>::findAverage() {
+    T ans = findSum();
     ans /= this->length;
     return ans;
 }
 
-complex<double> Vector::findSum() {
+template<class T>
+T Vector<T>::findSum() {
     if (this->length == 0) {
         cout << "The Vector is empty,can not get sum" << endl;
         return {0, 0};
     }
-    complex<double> ans = {0, 0};
+    T ans = {0, 0};
     for (int i = 0; i < this->length; ++i) {
         ans += this->vector[i];
     }
     return ans;
 }
 
-void Vector::setLength(int length) {
+template<class T>
+void Vector<T>::setLength(int length) {
     this->length = length;
     this->vector.resize(length);
 }
 
-complex<double> &Vector::operator[](int i) {
+template<class T>
+T &Vector<T>::operator[](int i) {
     return this->vector[i];
 }
 
-Vector Vector::operator+(const Vector &other) const {
+template<class T>
+Vector<T> Vector<T>::operator+(const Vector &other) const {
     if (this->length != other.length) {
         cout << "The length of two vector is not equal" << endl;
         return Vector(0);
@@ -77,7 +89,8 @@ Vector Vector::operator+(const Vector &other) const {
     return ans;
 }
 
-Vector Vector::operator-(const Vector &other) const {
+template<class T>
+Vector<T> Vector<T>::operator-(const Vector &other) const {
     if (this->length != other.length) {
         cout << "The length of two vector is not equal" << endl;
         return Vector(0);
@@ -89,16 +102,18 @@ Vector Vector::operator-(const Vector &other) const {
     return ans;
 }
 
-int Vector::getLength() {
+template<class T>
+int Vector<T>::getLength() {
     return this->length;
 }
 
-Matrix Vector::operator+(Matrix other) const {
+template<class T>
+Matrix<T> Vector<T>::operator+(Matrix<T> other) const {
     if (this->length != other.getColumn()) {
         cout << "The column of the matrix is not equal to the vector length" << endl;
-        return Matrix(0, 0);
+        return Matrix<T>(0, 0);
     }
-    Matrix ans = Matrix(other.getRow(), other.getColumn());
+    Matrix<T> ans = Matrix<T>(other.getRow(), other.getColumn());
     for (int i = 0; i < other.getRow(); ++i) {
         for (int j = 0; j < other.getColumn(); ++j) {
             ans[i][j] = other[i][j] + this->vector[j];
@@ -107,12 +122,13 @@ Matrix Vector::operator+(Matrix other) const {
     return ans;
 }
 
-Matrix Vector::operator-(Matrix other) const {
+template<class T>
+Matrix<T> Vector<T>::operator-(Matrix<T> other) const {
     if (this->length != other.getColumn()) {
         cout << "The column of the matrix is not equal to the vector length" << endl;
-        return Matrix(0, 0);
+        return Matrix<T>(0, 0);
     }
-    Matrix ans = Matrix(other.getRow(), other.getColumn());
+    Matrix<T> ans = Matrix<T>(other.getRow(), other.getColumn());
     for (int i = 0; i < other.getRow(); ++i) {
         for (int j = 0; j < other.getColumn(); ++j) {
             ans[i][j] = other[i][j] - this->vector[j];
@@ -121,7 +137,8 @@ Matrix Vector::operator-(Matrix other) const {
     return ans;
 }
 
-Vector Vector::operator*(complex<double> other) const {
+template<class T>
+Vector<T> Vector<T>::operator*(T other) const {
     Vector ans = Vector(this->length);
     for (int i = 0; i < this->length; ++i) {
         ans[i] = this->vector[i] * other;
@@ -129,15 +146,17 @@ Vector Vector::operator*(complex<double> other) const {
     return ans;
 }
 
-Vector operator*(complex<double> l, Vector &other) {
-    Vector ans = Vector(other.getLength());
+template<class T>
+Vector<T> operator*(T l, Vector<T> &other) {
+    Vector<T> ans = Vector<T>(other.getLength());
     for (int i = 0; i < other.getLength(); ++i) {
         ans[i] = l * other[i];
     }
     return ans;
 }
 
-Vector Vector::operator/(complex<double> other) const {
+template<class T>
+Vector<T> Vector<T>::operator/(T other) const {
     if (other.real() == 0 && other.imag() == 0) {
         cout << other << "can not be divisor" << endl;
         return Vector(0);
@@ -149,19 +168,21 @@ Vector Vector::operator/(complex<double> other) const {
     return ans;
 }
 
-Vector operator/(complex<double> l, Vector &other) {
+template<class T>
+Vector<T> operator/(T l, Vector<T> &other) {
     if (l.real() == 0 && l.imag() == 0) {
         cout << l << "can not be divisor" << endl;
-        return Vector(0);
+        return Vector<T>(0);
     }
-    Vector ans = Vector(other.getLength());
+    Vector<T> ans = Vector<T>(other.getLength());
     for (int i = 0; i < other.getLength(); ++i) {
         ans[i] = l / other[i];
     }
     return ans;
 }
 
-Vector Vector::element_wise_multiplication_change(Vector &other) {
+template<class T>
+Vector<T> Vector<T>::element_wise_multiplication_change(Vector &other) {
     if (this->length != other.length) {
         cout << "element_wise_multiplication_change error!" << endl;
         cout << "the size of two vector is not equal" << endl;
@@ -175,17 +196,19 @@ Vector Vector::element_wise_multiplication_change(Vector &other) {
     return ans;
 }
 
-Vector Vector::conjugation_change() {
+template<class T>
+Vector<T> Vector<T>::conjugation_change() {
     Vector ans = Vector(this->length);
     for (int i = 0; i < this->length; ++i) {
-        complex<double> cur(this->vector[i].real(), -this->vector[i].imag());
+        T cur(this->vector[i].real(), -this->vector[i].imag());
         ans[i] = cur;
     }
     this->vector = ans.vector;
     return ans;
 }
 
-Vector Vector::operator*(Matrix other) const {
+template<class T>
+Vector<T> Vector<T>::operator*(Matrix<T> other) const {
     if (this->length != other.getRow()) {
         cout << "Vector * Matrix error!" << endl;
         cout << "Vector length is not equal Matrix row" << endl;
@@ -200,8 +223,9 @@ Vector Vector::operator*(Matrix other) const {
     return ans;
 }
 
-complex<double> Vector::dot_product(Vector other) {
-    complex<double> ans(0, 0);
+template<class T>
+T Vector<T>::dot_product(Vector other) {
+    T ans(0, 0);
     if (this->length != other.length) {
         cout << "dot product error!" << endl;
         cout << "the two vector length is not equal" << endl;
@@ -213,8 +237,9 @@ complex<double> Vector::dot_product(Vector other) {
     return ans;
 }
 
-void Vector::show() {
-    cout<<"Length:"<< this->length<<endl;
+template<class T>
+void Vector<T>::show() {
+    cout << "Length:" << this->length << endl;
     cout << "[";
     for (int i = 0; i < this->length; ++i) {
         cout << this->vector[i];
@@ -226,16 +251,18 @@ void Vector::show() {
     }
 }
 
-Vector Vector::conjugation() {
+template<class T>
+Vector<T> Vector<T>::conjugation() {
     Vector ans = Vector(this->length);
     for (int i = 0; i < this->length; ++i) {
-        complex<double> cur(this->vector[i].real(), -this->vector[i].imag());
+        T cur(this->vector[i].real(), -this->vector[i].imag());
         ans[i] = cur;
     }
     return ans;
 }
 
-Vector Vector::element_wise_multiplication(Vector &other) {
+template<class T>
+Vector<T> Vector<T>::element_wise_multiplication(Vector &other) {
     if (this->length != other.length) {
         cout << "element_wise_multiplication_change error!" << endl;
         cout << "the size of two vector is not equal" << endl;

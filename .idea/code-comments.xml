@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CodeComments" version="1">
+    <comments>
+      <comment>
+        <place from="544" to="551">
+          <path mode="project">Vector.cpp</path>
+        </place>
+        <text>findMax</text>
+        <data>return the max</data>
+      </comment>
+      <comment>
+        <place from="529" to="823">
+          <path mode="project">Vector.cpp</path>
+        </place>
+        <text>double Vector::findMax() {
+    if (this-&gt;length == 0) {
+        cout &lt;&lt; &quot;The vector is empty,can not get sum&quot; &lt;&lt; endl;
+        return 0;
+    }
+    double ans = this-&gt;vector[0].real();
+    for (int i = 0; i &lt; length; ++i) {
+        ans = max(ans, this-&gt;vector[i].real());
+    }
+    return ans;
+}</text>
+        <data>hhh</data>
+      </comment>
+    </comments>
+  </component>
+</project>

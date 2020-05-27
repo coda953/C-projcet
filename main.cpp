@@ -1,40 +1,21 @@
 #include "Matrix.hpp"
 #include "Vector.hpp"
+#include <opencv.hpp>
+#include <opencv_modules.hpp>
+
 using namespace std;
+using namespace cv;
 
 int main() {
-    Matrix x = Matrix(3, 3);
-    Matrix y = Matrix(3, 3);
-    complex<double> c(1, 0);
-    complex<double> d(9, 0);
-    for (int i = 0; i < 3; ++i) {
-        for (int j = 0; j < 3; ++j) {
-            x[i][j] = c;
-            y[i][j] = d;
-            c += 1;
-            d -= 1;
-        }
-    }
-    Matrix o = x * y;
-    o.show();
-    Matrix a = o.slicing(2, 6);
+    Matrix<int> a = Matrix<int>(5, 5);
     a.show();
-    Vector b = o.slicing(2, 6);
-    b.show();
-    Matrix k = Matrix(10);
-    a = x + y;
-    a.show();
-//    x.setRow(2);
-//    a = x + y;
-//    a.show();
-    complex<double> i = x.findSumAtRow(1);
-    Vector t = Vector(3);
-    t[0] = 1;
-    t[1] = 2;
-    t[2] = 3;
-    t = 2 * t;
-    t.show();
-    a.show();
-    b.show();
+//    Mat mat1=Mat::ones(Size(3,2),CV_32FC1);
+//    Mat mat2=Mat::zeros(Size(5,5),CV_8UC1);
+//    cout<<mat1<<endl;
+//    cout<<mat1.rows<<endl;
+//    cout<<mat1.cols<<endl;
+//    mat1.col(1).row(0)=-0.1;
+//    cout<<mat1;
+
     return 0;
 }
