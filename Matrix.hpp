@@ -64,7 +64,7 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->matrix[0][0].real();
+        double ans = this->matrix[0][0];
         for (int i = 0; i < this->row; ++i) {
             for (int j = 0; j < this->column; ++j) {
                 ans = min(ans, this->matrix[i][j]);
@@ -78,9 +78,9 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->matrix[0][0].real();
+        double ans = this->matrix[row][0];
         for (int i = 0; i < this->column; ++i) {
-            ans = min(ans, this->matrix[row][this->column].real());
+            ans = min(ans, this->matrix[row][i]);
         }
         return ans;
     }
@@ -90,7 +90,7 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->matrix[0][0].real();
+        double ans = this->matrix[0][column];
         for (int i = 0; i < row; ++i) {
             ans = min(ans, this->matrix[i][column]);
         }
@@ -102,7 +102,7 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->matrix[0][0].real();
+        double ans = this->matrix[0][0];
         for (int i = 0; i < row; ++i) {
             for (int j = 0; j < this->column; ++j) {
                 ans = max(ans, this->matrix[i][j]);
@@ -116,9 +116,9 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->matrix[0][0].real();
+        double ans = this->matrix[row][0];
         for (int i = 0; i < this->column; ++i) {
-            ans = max(ans, this->matrix[row][this->column].real());
+            ans = max(ans, this->matrix[row][i]);
         }
         return ans;
     }
@@ -128,7 +128,7 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->matrix[0][0].real();
+        double ans = this->matrix[0][column];
         for (int i = 0; i < row; ++i) {
             ans = max(ans, this->matrix[i][column]);
         }
@@ -186,7 +186,7 @@ public:
         }
         T ans = 0;
         for (int i = 0; i < this->row; ++i) {
-            ans += this->matrix[column][i];
+            ans += this->matrix[i][column];
         }
         return ans;
     }
