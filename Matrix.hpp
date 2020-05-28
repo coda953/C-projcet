@@ -462,6 +462,8 @@ public:
         return ans;
     }
 
+    Matrix(vector<vector<T>> other);
+
     Matrix(Mat other);
 
     Mat to_opencv_32FC1();
@@ -472,6 +474,13 @@ private:
     vector<vector<T>> matrix;
     int row{}, column{};
 };
+
+template<class T>
+Matrix<T>::Matrix(vector<vector<T>> other) {
+    this->row = other.size();
+    this->column = other[0].size();
+    this->matrix = other;
+}
 
 template<class T>
 Mat Matrix<T>::to_opencv_8UC1() {

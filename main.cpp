@@ -6,12 +6,33 @@ using namespace std;
 using namespace cv;
 
 #include "gtest/gtest.h"
-
+vector<vector<double>> m1={{1,2,3},{4,5,6},{7,8,9}};
+vector<vector<double>> m2={{9,8,7},{6,5,4},{3,2,1}};
 TEST(test1, ok) {
     EXPECT_EQ(1, 2 - 1);
 }
-
-TEST(Matrix_add, test1) {
+TEST(Matrix_init_vector,test1){
+    Matrix<double> a=m1;
+    Matrix<double> b=m2;
+    EXPECT_EQ(a.getRow(),3);
+    EXPECT_EQ(a.getColumn(),3);
+    EXPECT_EQ(b.getRow(),3);
+    EXPECT_EQ(b.getColumn(),3);
+    int count=1;
+    for (int i = 0; i < a.getRow(); ++i) {
+        for (int j = 0; j < a.getColumn(); ++j) {
+            EXPECT_EQ(a[i][j],count);
+            count++;
+        }
+    }
+    for (int i = 0; i < a.getRow(); ++i) {
+        for (int j = 0; j < a.getColumn(); ++j) {
+            count--;
+            EXPECT_EQ(b[i][j],count);
+        }
+    }
+}
+TEST(Matrix_add_matrix, test1) {
     Matrix<int> a = Matrix<int>(3, 3);
     Matrix<int> b = Matrix<int>(3, 3);
     int count = 0;
