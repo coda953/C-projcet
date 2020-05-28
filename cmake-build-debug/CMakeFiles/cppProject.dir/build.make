@@ -106,6 +106,10 @@ cppProject.exe: /usr/lib/libopencv_videostab.dll.a
 cppProject.exe: /usr/lib/libopencv_ximgproc.dll.a
 cppProject.exe: /usr/lib/libopencv_xobjdetect.dll.a
 cppProject.exe: /usr/lib/libopencv_xphoto.dll.a
+cppProject.exe: lib/libgtestd.a
+cppProject.exe: lib/libgtest_maind.a
+cppProject.exe: lib/libgmockd.a
+cppProject.exe: lib/libgmock_maind.a
 cppProject.exe: /usr/lib/libopencv_datasets.dll.a
 cppProject.exe: /usr/lib/libopencv_ml.dll.a
 cppProject.exe: /usr/lib/libopencv_plot.dll.a
@@ -121,6 +125,8 @@ cppProject.exe: /usr/lib/libopencv_imgcodecs.dll.a
 cppProject.exe: /usr/lib/libopencv_objdetect.dll.a
 cppProject.exe: /usr/lib/libopencv_imgproc.dll.a
 cppProject.exe: /usr/lib/libopencv_core.dll.a
+cppProject.exe: lib/libgmockd.a
+cppProject.exe: lib/libgtestd.a
 cppProject.exe: CMakeFiles/cppProject.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cppProject.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cppProject.dir/link.txt --verbose=$(VERBOSE)

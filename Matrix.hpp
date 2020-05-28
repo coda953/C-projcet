@@ -367,11 +367,11 @@ public:
         return ans;
     }
 
-    Matrix operator+(const Matrix &other) const {
+    Matrix operator+(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
             cerr << "the size of these two vector is not equal" << endl;
             cerr << "left size is:";
-            this->showSize();
+            showSize();
             cerr << "right size is:";
             other.showSize();
             return Matrix(0, 0);

@@ -492,3 +492,64 @@ Parsed CXX implicit link information from above output:
   implicit fwks: []
 
 
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make.exe cmTC_54de8/fast && /usr/bin/make -f CMakeFiles/cmTC_54de8.dir/build.make CMakeFiles/cmTC_54de8.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_54de8.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_54de8.dir/CheckIncludeFile.c.o   -c /cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_54de8.exe
+/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_54de8.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_54de8.dir/CheckIncludeFile.c.o  -o cmTC_54de8.exe -Wl,--out-implib,libcmTC_54de8.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make.exe cmTC_6f0c2/fast && /usr/bin/make -f CMakeFiles/cmTC_6f0c2.dir/build.make CMakeFiles/cmTC_6f0c2.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6f0c2.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_6f0c2.dir/CheckIncludeFile.c.o   -c /cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_6f0c2.exe
+/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_6f0c2.dir/link.txt --verbose=1
+/usr/bin/cc    -Wl,--enable-auto-import  CMakeFiles/cmTC_6f0c2.dir/CheckIncludeFile.c.o  -o cmTC_6f0c2.exe -Wl,--out-implib,libcmTC_6f0c2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD succeeded with the following output:
+Change Dir: /cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make.exe cmTC_d6c52/fast && /usr/bin/make -f CMakeFiles/cmTC_d6c52.dir/build.make CMakeFiles/cmTC_d6c52.dir/build
+make[1]: Entering directory '/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d6c52.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_d6c52.dir/src.c.o   -c /cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_d6c52.exe
+/cygdrive/c/Users/10505/.CLion2019.3/system/cygwin_cmake/bin/cmake.exe -E cmake_link_script CMakeFiles/cmTC_d6c52.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD  -Wl,--enable-auto-import  CMakeFiles/cmTC_d6c52.dir/src.c.o  -o cmTC_d6c52.exe -Wl,--out-implib,libcmTC_d6c52.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+make[1]: Leaving directory '/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+

@@ -94,7 +94,7 @@ public:
     }
 
     T dot_product(Vector other) {
-        T ans =0;
+        T ans = 0;
         if (this->length != other.length) {
             cerr << "dot product error!" << endl;
             cerr << "the two vector length is not equal" << endl;
