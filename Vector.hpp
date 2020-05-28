@@ -48,7 +48,7 @@ public:
 
     double findMin() {
         if (this->length == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->vector[0].real();
@@ -60,7 +60,7 @@ public:
 
     double findMax() {
         if (this->length == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->vector[0].real();
@@ -78,7 +78,7 @@ public:
 
     T findSum() {
         if (this->length == 0) {
-            cout << "The Vector is empty,can not get sum" << endl;
+            cerr << "The Vector is empty,can not get sum" << endl;
             return {0, 0};
         }
         T ans = {0, 0};
@@ -96,8 +96,8 @@ public:
     T dot_product(Vector other) {
         T ans =0;
         if (this->length != other.length) {
-            cout << "dot product error!" << endl;
-            cout << "the two vector length is not equal" << endl;
+            cerr << "dot product error!" << endl;
+            cerr << "the two vector length is not equal" << endl;
             return ans;
         }
         for (int i = 0; i < this->length; ++i) {
@@ -127,8 +127,8 @@ public:
 
     Vector element_wise_multiplication(Vector &other) {
         if (this->length != other.length) {
-            cout << "element_wise_multiplication_change error!" << endl;
-            cout << "the size of two vector is not equal" << endl;
+            cerr << "element_wise_multiplication_change error!" << endl;
+            cerr << "the size of two vector is not equal" << endl;
             return Vector(0);
         }
         Vector ans = Vector(this->length);
@@ -140,8 +140,8 @@ public:
 
     Vector element_wise_multiplication_change(Vector &other) {
         if (this->length != other.length) {
-            cout << "element_wise_multiplication_change error!" << endl;
-            cout << "the size of two vector is not equal" << endl;
+            cerr << "element_wise_multiplication_change error!" << endl;
+            cerr << "the size of two vector is not equal" << endl;
             return Vector(0);
         }
         Vector ans = Vector(this->length);
@@ -154,7 +154,7 @@ public:
 
     Vector operator+(const Vector &other) const {
         if (this->length != other.length) {
-            cout << "The length of two vector is not equal" << endl;
+            cerr << "The length of two vector is not equal" << endl;
             return Vector(0);
         }
         Vector ans = Vector(this->length);
@@ -166,7 +166,7 @@ public:
 
     Matrix<T> operator+(Matrix<T> other) const {
         if (this->length != other.getColumn()) {
-            cout << "The column of the matrix is not equal to the vector length" << endl;
+            cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix<T>(0, 0);
         }
         Matrix<T> ans = Matrix<T>(other.getRow(), other.getColumn());
@@ -180,7 +180,7 @@ public:
 
     Vector operator-(const Vector &other) const {
         if (this->length != other.length) {
-            cout << "The length of two vector is not equal" << endl;
+            cerr << "The length of two vector is not equal" << endl;
             return Vector(0);
         }
         Vector ans = Vector(this->length);
@@ -192,7 +192,7 @@ public:
 
     Matrix<T> operator-(Matrix<T> other) const {
         if (this->length != other.getColumn()) {
-            cout << "The column of the matrix is not equal to the vector length" << endl;
+            cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix<T>(0, 0);
         }
         Matrix<T> ans = Matrix<T>(other.getRow(), other.getColumn());
@@ -214,8 +214,8 @@ public:
 
     Vector operator*(Matrix<T> other) const {
         if (this->length != other.getRow()) {
-            cout << "Vector * Matrix error!" << endl;
-            cout << "Vector length is not equal Matrix row" << endl;
+            cerr << "Vector * Matrix error!" << endl;
+            cerr << "Vector length is not equal Matrix row" << endl;
             return Vector(0);
         }
         Vector ans = Vector(other.getColumn());

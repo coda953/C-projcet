@@ -3,7 +3,10 @@
 
 #include <bits/stdc++.h>
 #include "Vector.hpp"
+#include <opencv.hpp>
+
 using namespace std;
+using namespace cv;
 
 template<class T>
 class Vector;
@@ -19,7 +22,7 @@ public:
 
     vector<T> &operator[](int i) {
         if (i >= row) {
-            cout << "the input row is lager than row";
+            cerr << "the input row is lager than row";
         }
         return this->matrix[i];
     }
@@ -58,7 +61,7 @@ public:
 
     T findMin() {
         if (this->row == 0 || this->column == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->matrix[0][0].real();
@@ -72,7 +75,7 @@ public:
 
     T findMinAtRow(int row) {
         if (this->row == 0 || this->column == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->matrix[0][0].real();
@@ -84,7 +87,7 @@ public:
 
     T findMinAtColumn(int column) {
         if (this->row == 0 || this->column == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->matrix[0][0].real();
@@ -96,7 +99,7 @@ public:
 
     T findMax() {
         if (this->row == 0 || this->column == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->matrix[0][0].real();
@@ -110,7 +113,7 @@ public:
 
     T findMaxAtRow(int row) {
         if (this->row == 0 || this->column == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->matrix[0][0].real();
@@ -122,7 +125,7 @@ public:
 
     T findMaxAtColumn(int column) {
         if (this->row == 0 || this->column == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         double ans = this->matrix[0][0].real();
@@ -152,7 +155,7 @@ public:
 
     T findSum() {
         if (this->row == 0 || this->column == 0) {
-            cout << "The vector is empty,can not get sum" << endl;
+            cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
         T ans = 0;
@@ -166,7 +169,7 @@ public:
 
     T findSumAtRow(int row) {
         if (this->row < row) {
-            cout << "Input row is bigger than the vector size" << endl;
+            cerr << "Input row is bigger than the vector size" << endl;
             return 0;
         }
         T ans = 0;
@@ -178,7 +181,7 @@ public:
 
     T findSumAtColumn(int column) {
         if (this->column < column) {
-            cout << "Input column is bigger than the vector size" << endl;
+            cerr << "Input column is bigger than the vector size" << endl;
             return 0;
         }
         T ans = 0;
@@ -189,7 +192,7 @@ public:
     }
 
     T cal_traces() {
-        T ans=0;
+        T ans = 0;
         int cur = min(this->row, this->column);
         for (int i = 0; i < cur; ++i) {
             ans += this->matrix[i][i];
@@ -219,7 +222,6 @@ public:
 
     void showSize() {
         cout << "Row:" << this->row << "  Column:" << this->column << endl;
-
     }
 
     int setRow(int row) {
@@ -285,10 +287,10 @@ public:
 
     Matrix element_wise_multiplication(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
-            cout << "the size of these two vector is not equal" << endl;
-            cout << "left size is:";
+            cerr << "the size of these two vector is not equal" << endl;
+            cerr << "left size is:";
             this->showSize();
-            cout << "right size is:";
+            cerr << "right size is:";
             other.showSize();
             return Matrix(0, 0);
         }
@@ -303,10 +305,10 @@ public:
 
     Matrix element_wise_multiplication_change(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
-            cout << "the size of these two vector is not equal" << endl;
-            cout << "left size is:";
+            cerr << "the size of these two vector is not equal" << endl;
+            cerr << "left size is:";
             this->showSize();
-            cout << "right size is:";
+            cerr << "right size is:";
             other.showSize();
             return Matrix(0, 0);
         }
@@ -349,13 +351,13 @@ public:
     Vector<T> slicing(int from, int to) {
         Matrix cur = this->reshape(1, this->row * this->column);
         if (to > cur.column) {
-            cout << "slicing error" << endl;
-            cout << "slicing bound is large than matrix size" << endl;
+            cerr << "slicing error" << endl;
+            cerr << "slicing bound is large than matrix size" << endl;
             return Vector<T>(0);
         }
         if (from < 0) {
-            cout << "slicing error" << endl;
-            cout << "slicing left bound is little than 0" << endl;
+            cerr << "slicing error" << endl;
+            cerr << "slicing left bound is little than 0" << endl;
             return Vector<T>(0);
         }
         Vector<T> ans = Vector<T>(to - from);
@@ -367,10 +369,10 @@ public:
 
     Matrix operator+(const Matrix &other) const {
         if (this->row != other.row || this->column != other.column) {
-            cout << "the size of these two vector is not equal" << endl;
-            cout << "left size is:";
+            cerr << "the size of these two vector is not equal" << endl;
+            cerr << "left size is:";
             this->showSize();
-            cout << "right size is:";
+            cerr << "right size is:";
             other.showSize();
             return Matrix(0, 0);
         }
@@ -385,7 +387,7 @@ public:
 
     Matrix operator+(Vector<T> other) const {
         if (this->column != other.getLength()) {
-            cout << "The column of the matrix is not equal to the vector length" << endl;
+            cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix(0, 0);
         }
         Matrix ans = Matrix(this->row, this->column);
@@ -399,10 +401,10 @@ public:
 
     Matrix operator-(const Matrix &other) const {
         if (this->row != other.row || this->column != other.column) {
-            cout << "the size of these two vector is not equal" << endl;
-            cout << "left size is:";
+            cerr << "the size of these two vector is not equal" << endl;
+            cerr << "left size is:";
             this->showSize();
-            cout << "right size is:";
+            cerr << "right size is:";
             other.showSize();
             return Matrix(0, 0);
         }
@@ -417,7 +419,7 @@ public:
 
     Matrix operator-(Vector<T> other) const {
         if (this->column != other.getLength()) {
-            cout << "The column of the matrix is not equal to the vector length" << endl;
+            cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix(0, 0);
         }
         Matrix ans = Matrix(this->row, this->column);
@@ -431,8 +433,8 @@ public:
 
     Matrix operator*(const Matrix &other) const {
         if (this->column != other.row) {
-            cout << "multiple error!" << endl;
-            cout << "the left matrix column is not equal right matrix row" << endl;
+            cerr << "multiple error!" << endl;
+            cerr << "the left matrix column is not equal right matrix row" << endl;
         }
         Matrix ans = Matrix(this->row, other.column);
         for (int i = 0; i < this->row; ++i) {
@@ -447,8 +449,8 @@ public:
 
     Vector<T> operator*(Vector<T> other) const {
         if (this->column != other.getLength()) {
-            cout << "Matrix * Vector error!" << endl;
-            cout << "The left Matrix column is not equal right length" << endl;
+            cerr << "Matrix * Vector error!" << endl;
+            cerr << "The left Matrix column is not equal right length" << endl;
             return Vector<T>(0);
         }
         Vector<T> ans = Vector<T>(other.getLength());
@@ -460,9 +462,58 @@ public:
         return ans;
     }
 
+    Matrix(Mat other);
+
+    Mat to_opencv_32FC1();
+
+    Mat to_opencv_8UC1();
+
 private:
     vector<vector<T>> matrix;
     int row{}, column{};
 };
+
+template<class T>
+Mat Matrix<T>::to_opencv_8UC1() {
+    Mat ans = Mat::zeros(Size(this->column, this->row), CV_8UC1);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            ans.at<float>(i, j) = this->matrix[i][j];
+        }
+    }
+    return ans;
+}
+
+template<class T>
+Mat Matrix<T>::to_opencv_32FC1() {
+    Mat ans = Mat::zeros(Size(this->column, this->row), CV_32FC1);
+    for (int i = 0; i < this->row; ++i) {
+        for (int j = 0; j < this->column; ++j) {
+            ans.at<float>(i, j) = this->matrix[i][j];
+        }
+    }
+    return ans;
+}
+
+template<class T>
+Matrix<T>::Matrix(Mat other) {
+    Matrix ans = Matrix(other.rows, other.cols);
+    if (other.type() == CV_32FC1) {
+        for (int i = 0; i < other.rows; ++i) {
+            for (int j = 0; j < other.cols; ++j) {
+                ans[i][j] = other.at<float>(i, j);
+            }
+        }
+    } else if (other.type() == CV_8UC1) {
+        for (int i = 0; i < other.rows; ++i) {
+            for (int j = 0; j < other.cols; ++j) {
+                ans[i][j] = other.at<uchar>(i, j);
+            }
+        }
+    }
+    this->row = ans.row;
+    this->column = ans.column;
+    this->matrix = ans.matrix;
+}
 
 #endif //CPPPROJECT_MATRIX_HPP
