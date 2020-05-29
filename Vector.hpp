@@ -18,7 +18,7 @@ public:
         this->vector.resize(length);
     }
 
-    Vector(int length) {
+    explicit Vector(int length) {
         this->length = length;
         this->vector.resize(length);
     }
@@ -88,9 +88,9 @@ public:
         return ans;
     }
 
-    void setLength(int length) {
-        this->length = length;
-        this->vector.resize(length);
+    void setLength(int _length) {
+        this->length = _length;
+        this->vector.resize(_length);
     }
 
     T dot_product(Vector other) {

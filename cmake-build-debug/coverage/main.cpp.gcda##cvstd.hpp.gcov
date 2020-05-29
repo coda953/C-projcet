@@ -1,0 +1,1061 @@
+        -:    0:Source:/usr/include/opencv2/core/cvstd.hpp
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*M///////////////////////////////////////////////////////////////////////////////////////
+        -:    2://
+        -:    3://  IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.
+        -:    4://
+        -:    5://  By downloading, copying, installing or using the software you agree to this license.
+        -:    6://  If you do not agree to this license, do not download, install,
+        -:    7://  copy or use the software.
+        -:    8://
+        -:    9://
+        -:   10://                          License Agreement
+        -:   11://                For Open Source Computer Vision Library
+        -:   12://
+        -:   13:// Copyright (C) 2000-2008, Intel Corporation, all rights reserved.
+        -:   14:// Copyright (C) 2009, Willow Garage Inc., all rights reserved.
+        -:   15:// Copyright (C) 2013, OpenCV Foundation, all rights reserved.
+        -:   16:// Third party copyrights are property of their respective owners.
+        -:   17://
+        -:   18:// Redistribution and use in source and binary forms, with or without modification,
+        -:   19:// are permitted provided that the following conditions are met:
+        -:   20://
+        -:   21://   * Redistribution's of source code must retain the above copyright notice,
+        -:   22://     this list of conditions and the following disclaimer.
+        -:   23://
+        -:   24://   * Redistribution's in binary form must reproduce the above copyright notice,
+        -:   25://     this list of conditions and the following disclaimer in the documentation
+        -:   26://     and/or other materials provided with the distribution.
+        -:   27://
+        -:   28://   * The name of the copyright holders may not be used to endorse or promote products
+        -:   29://     derived from this software without specific prior written permission.
+        -:   30://
+        -:   31:// This software is provided by the copyright holders and contributors "as is" and
+        -:   32:// any express or implied warranties, including, but not limited to, the implied
+        -:   33:// warranties of merchantability and fitness for a particular purpose are disclaimed.
+        -:   34:// In no event shall the Intel Corporation or contributors be liable for any direct,
+        -:   35:// indirect, incidental, special, exemplary, or consequential damages
+        -:   36:// (including, but not limited to, procurement of substitute goods or services;
+        -:   37:// loss of use, data, or profits; or business interruption) however caused
+        -:   38:// and on any theory of liability, whether in contract, strict liability,
+        -:   39:// or tort (including negligence or otherwise) arising in any way out of
+        -:   40:// the use of this software, even if advised of the possibility of such damage.
+        -:   41://
+        -:   42://M*/
+        -:   43:
+        -:   44:#ifndef OPENCV_CORE_CVSTD_HPP
+        -:   45:#define OPENCV_CORE_CVSTD_HPP
+        -:   46:
+        -:   47:#ifndef __cplusplus
+        -:   48:#  error cvstd.hpp header must be compiled as C++
+        -:   49:#endif
+        -:   50:
+        -:   51:#include "opencv2/core/cvdef.h"
+        -:   52:#include <cstddef>
+        -:   53:#include <cstring>
+        -:   54:#include <cctype>
+        -:   55:
+        -:   56:#include <string>
+        -:   57:
+        -:   58:// import useful primitives from stl
+        -:   59:#  include <algorithm>
+        -:   60:#  include <utility>
+        -:   61:#  include <cstdlib> //for abs(int)
+        -:   62:#  include <cmath>
+        -:   63:
+        -:   64:namespace cv
+        -:   65:{
+        -:   66:    static inline uchar abs(uchar a) { return a; }
+        -:   67:    static inline ushort abs(ushort a) { return a; }
+        -:   68:    static inline unsigned abs(unsigned a) { return a; }
+        -:   69:    static inline uint64 abs(uint64 a) { return a; }
+        -:   70:
+        -:   71:    using std::min;
+        -:   72:    using std::max;
+        -:   73:    using std::abs;
+        -:   74:    using std::swap;
+        -:   75:    using std::sqrt;
+        -:   76:    using std::exp;
+        -:   77:    using std::pow;
+        -:   78:    using std::log;
+        -:   79:}
+        -:   80:
+        -:   81:namespace cv {
+        -:   82:
+        -:   83://! @addtogroup core_utils
+        -:   84://! @{
+        -:   85:
+        -:   86://////////////////////////// memory management functions ////////////////////////////
+        -:   87:
+        -:   88:/** @brief Allocates an aligned memory buffer.
+        -:   89:
+        -:   90:The function allocates the buffer of the specified size and returns it. When the buffer size is 16
+        -:   91:bytes or more, the returned buffer is aligned to 16 bytes.
+        -:   92:@param bufSize Allocated buffer size.
+        -:   93: */
+        -:   94:CV_EXPORTS void* fastMalloc(size_t bufSize);
+        -:   95:
+        -:   96:/** @brief Deallocates a memory buffer.
+        -:   97:
+        -:   98:The function deallocates the buffer allocated with fastMalloc . If NULL pointer is passed, the
+        -:   99:function does nothing. C version of the function clears the pointer *pptr* to avoid problems with
+        -:  100:double memory deallocation.
+        -:  101:@param ptr Pointer to the allocated buffer.
+        -:  102: */
+        -:  103:CV_EXPORTS void fastFree(void* ptr);
+        -:  104:
+        -:  105:/*!
+        -:  106:  The STL-compilant memory Allocator based on cv::fastMalloc() and cv::fastFree()
+        -:  107:*/
+        -:  108:template<typename _Tp> class Allocator
+        -:  109:{
+        -:  110:public:
+        -:  111:    typedef _Tp value_type;
+        -:  112:    typedef value_type* pointer;
+        -:  113:    typedef const value_type* const_pointer;
+        -:  114:    typedef value_type& reference;
+        -:  115:    typedef const value_type& const_reference;
+        -:  116:    typedef size_t size_type;
+        -:  117:    typedef ptrdiff_t difference_type;
+        -:  118:    template<typename U> class rebind { typedef Allocator<U> other; };
+        -:  119:
+        -:  120:    explicit Allocator() {}
+        -:  121:    ~Allocator() {}
+        -:  122:    explicit Allocator(Allocator const&) {}
+        -:  123:    template<typename U>
+        -:  124:    explicit Allocator(Allocator<U> const&) {}
+        -:  125:
+        -:  126:    // address
+        -:  127:    pointer address(reference r) { return &r; }
+        -:  128:    const_pointer address(const_reference r) { return &r; }
+        -:  129:
+        -:  130:    pointer allocate(size_type count, const void* =0) { return reinterpret_cast<pointer>(fastMalloc(count * sizeof (_Tp))); }
+        -:  131:    void deallocate(pointer p, size_type) { fastFree(p); }
+        -:  132:
+        -:  133:    void construct(pointer p, const _Tp& v) { new(static_cast<void*>(p)) _Tp(v); }
+        -:  134:    void destroy(pointer p) { p->~_Tp(); }
+        -:  135:
+        -:  136:    size_type max_size() const { return cv::max(static_cast<_Tp>(-1)/sizeof(_Tp), 1); }
+        -:  137:};
+        -:  138:
+        -:  139://! @} core_utils
+        -:  140:
+        -:  141://! @cond IGNORED
+        -:  142:
+        -:  143:namespace detail
+        -:  144:{
+        -:  145:
+        -:  146:// Metafunction to avoid taking a reference to void.
+        -:  147:template<typename T>
+        -:  148:struct RefOrVoid { typedef T& type; };
+        -:  149:
+        -:  150:template<>
+        -:  151:struct RefOrVoid<void>{ typedef void type; };
+        -:  152:
+        -:  153:template<>
+        -:  154:struct RefOrVoid<const void>{ typedef const void type; };
+        -:  155:
+        -:  156:template<>
+        -:  157:struct RefOrVoid<volatile void>{ typedef volatile void type; };
+        -:  158:
+        -:  159:template<>
+        -:  160:struct RefOrVoid<const volatile void>{ typedef const volatile void type; };
+        -:  161:
+        -:  162:// This class would be private to Ptr, if it didn't have to be a non-template.
+        -:  163:struct PtrOwner;
+        -:  164:
+        -:  165:}
+        -:  166:
+        -:  167:template<typename Y>
+        -:  168:struct DefaultDeleter
+        -:  169:{
+        -:  170:    void operator () (Y* p) const;
+        -:  171:};
+        -:  172:
+        -:  173://! @endcond
+        -:  174:
+        -:  175://! @addtogroup core_basic
+        -:  176://! @{
+        -:  177:
+        -:  178:/** @brief Template class for smart pointers with shared ownership
+        -:  179:
+        -:  180:A Ptr\<T\> pretends to be a pointer to an object of type T. Unlike an ordinary pointer, however, the
+        -:  181:object will be automatically cleaned up once all Ptr instances pointing to it are destroyed.
+        -:  182:
+        -:  183:Ptr is similar to boost::shared_ptr that is part of the Boost library
+        -:  184:(<http://www.boost.org/doc/libs/release/libs/smart_ptr/shared_ptr.htm>) and std::shared_ptr from
+        -:  185:the [C++11](http://en.wikipedia.org/wiki/C++11) standard.
+        -:  186:
+        -:  187:This class provides the following advantages:
+        -:  188:-   Default constructor, copy constructor, and assignment operator for an arbitrary C++ class or C
+        -:  189:    structure. For some objects, like files, windows, mutexes, sockets, and others, a copy
+        -:  190:    constructor or an assignment operator are difficult to define. For some other objects, like
+        -:  191:    complex classifiers in OpenCV, copy constructors are absent and not easy to implement. Finally,
+        -:  192:    some of complex OpenCV and your own data structures may be written in C. However, copy
+        -:  193:    constructors and default constructors can simplify programming a lot. Besides, they are often
+        -:  194:    required (for example, by STL containers). By using a Ptr to such an object instead of the
+        -:  195:    object itself, you automatically get all of the necessary constructors and the assignment
+        -:  196:    operator.
+        -:  197:-   *O(1)* complexity of the above-mentioned operations. While some structures, like std::vector,
+        -:  198:    provide a copy constructor and an assignment operator, the operations may take a considerable
+        -:  199:    amount of time if the data structures are large. But if the structures are put into a Ptr, the
+        -:  200:    overhead is small and independent of the data size.
+        -:  201:-   Automatic and customizable cleanup, even for C structures. See the example below with FILE\*.
+        -:  202:-   Heterogeneous collections of objects. The standard STL and most other C++ and OpenCV containers
+        -:  203:    can store only objects of the same type and the same size. The classical solution to store
+        -:  204:    objects of different types in the same container is to store pointers to the base class (Base\*)
+        -:  205:    instead but then you lose the automatic memory management. Again, by using Ptr\<Base\> instead
+        -:  206:    of raw pointers, you can solve the problem.
+        -:  207:
+        -:  208:A Ptr is said to *own* a pointer - that is, for each Ptr there is a pointer that will be deleted
+        -:  209:once all Ptr instances that own it are destroyed. The owned pointer may be null, in which case
+        -:  210:nothing is deleted. Each Ptr also *stores* a pointer. The stored pointer is the pointer the Ptr
+        -:  211:pretends to be; that is, the one you get when you use Ptr::get or the conversion to T\*. It's
+        -:  212:usually the same as the owned pointer, but if you use casts or the general shared-ownership
+        -:  213:constructor, the two may diverge: the Ptr will still own the original pointer, but will itself point
+        -:  214:to something else.
+        -:  215:
+        -:  216:The owned pointer is treated as a black box. The only thing Ptr needs to know about it is how to
+        -:  217:delete it. This knowledge is encapsulated in the *deleter* - an auxiliary object that is associated
+        -:  218:with the owned pointer and shared between all Ptr instances that own it. The default deleter is an
+        -:  219:instance of DefaultDeleter, which uses the standard C++ delete operator; as such it will work with
+        -:  220:any pointer allocated with the standard new operator.
+        -:  221:
+        -:  222:However, if the pointer must be deleted in a different way, you must specify a custom deleter upon
+        -:  223:Ptr construction. A deleter is simply a callable object that accepts the pointer as its sole
+        -:  224:argument. For example, if you want to wrap FILE, you may do so as follows:
+        -:  225:@code
+        -:  226:    Ptr<FILE> f(fopen("myfile.txt", "w"), fclose);
+        -:  227:    if(!f) throw ...;
+        -:  228:    fprintf(f, ....);
+        -:  229:    ...
+        -:  230:    // the file will be closed automatically by f's destructor.
+        -:  231:@endcode
+        -:  232:Alternatively, if you want all pointers of a particular type to be deleted the same way, you can
+        -:  233:specialize DefaultDeleter<T>::operator() for that type, like this:
+        -:  234:@code
+        -:  235:    namespace cv {
+        -:  236:    template<> void DefaultDeleter<FILE>::operator ()(FILE * obj) const
+        -:  237:    {
+        -:  238:        fclose(obj);
+        -:  239:    }
+        -:  240:    }
+        -:  241:@endcode
+        -:  242:For convenience, the following types from the OpenCV C API already have such a specialization that
+        -:  243:calls the appropriate release function:
+        -:  244:-   CvCapture
+        -:  245:-   CvFileStorage
+        -:  246:-   CvHaarClassifierCascade
+        -:  247:-   CvMat
+        -:  248:-   CvMatND
+        -:  249:-   CvMemStorage
+        -:  250:-   CvSparseMat
+        -:  251:-   CvVideoWriter
+        -:  252:-   IplImage
+        -:  253:@note The shared ownership mechanism is implemented with reference counting. As such, cyclic
+        -:  254:ownership (e.g. when object a contains a Ptr to object b, which contains a Ptr to object a) will
+        -:  255:lead to all involved objects never being cleaned up. Avoid such situations.
+        -:  256:@note It is safe to concurrently read (but not write) a Ptr instance from multiple threads and
+        -:  257:therefore it is normally safe to use it in multi-threaded applications. The same is true for Mat and
+        -:  258:other C++ OpenCV classes that use internal reference counts.
+        -:  259:*/
+        -:  260:template<typename T>
+        -:  261:struct Ptr
+        -:  262:{
+        -:  263:    /** Generic programming support. */
+        -:  264:    typedef T element_type;
+        -:  265:
+        -:  266:    /** The default constructor creates a null Ptr - one that owns and stores a null pointer.
+        -:  267:    */
+        -:  268:    Ptr();
+        -:  269:
+        -:  270:    /**
+        -:  271:    If p is null, these are equivalent to the default constructor.
+        -:  272:    Otherwise, these constructors assume ownership of p - that is, the created Ptr owns and stores p
+        -:  273:    and assumes it is the sole owner of it. Don't use them if p is already owned by another Ptr, or
+        -:  274:    else p will get deleted twice.
+        -:  275:    With the first constructor, DefaultDeleter\<Y\>() becomes the associated deleter (so p will
+        -:  276:    eventually be deleted with the standard delete operator). Y must be a complete type at the point
+        -:  277:    of invocation.
+        -:  278:    With the second constructor, d becomes the associated deleter.
+        -:  279:    Y\* must be convertible to T\*.
+        -:  280:    @param p Pointer to own.
+        -:  281:    @note It is often easier to use makePtr instead.
+        -:  282:     */
+        -:  283:    template<typename Y>
+        -:  284:#ifdef DISABLE_OPENCV_24_COMPATIBILITY
+        -:  285:    explicit
+        -:  286:#endif
+        -:  287:    Ptr(Y* p);
+        -:  288:
+        -:  289:    /** @overload
+        -:  290:    @param d Deleter to use for the owned pointer.
+        -:  291:    @param p Pointer to own.
+        -:  292:    */
+        -:  293:    template<typename Y, typename D>
+        -:  294:    Ptr(Y* p, D d);
+        -:  295:
+        -:  296:    /**
+        -:  297:    These constructors create a Ptr that shares ownership with another Ptr - that is, own the same
+        -:  298:    pointer as o.
+        -:  299:    With the first two, the same pointer is stored, as well; for the second, Y\* must be convertible
+        -:  300:    to T\*.
+        -:  301:    With the third, p is stored, and Y may be any type. This constructor allows to have completely
+        -:  302:    unrelated owned and stored pointers, and should be used with care to avoid confusion. A relatively
+        -:  303:    benign use is to create a non-owning Ptr, like this:
+        -:  304:    @code
+        -:  305:        ptr = Ptr<T>(Ptr<T>(), dont_delete_me); // owns nothing; will not delete the pointer.
+        -:  306:    @endcode
+        -:  307:    @param o Ptr to share ownership with.
+        -:  308:    */
+        -:  309:    Ptr(const Ptr& o);
+        -:  310:
+        -:  311:    /** @overload
+        -:  312:    @param o Ptr to share ownership with.
+        -:  313:    */
+        -:  314:    template<typename Y>
+        -:  315:    Ptr(const Ptr<Y>& o);
+        -:  316:
+        -:  317:    /** @overload
+        -:  318:    @param o Ptr to share ownership with.
+        -:  319:    @param p Pointer to store.
+        -:  320:    */
+        -:  321:    template<typename Y>
+        -:  322:    Ptr(const Ptr<Y>& o, T* p);
+        -:  323:
+        -:  324:    /** The destructor is equivalent to calling Ptr::release. */
+        -:  325:    ~Ptr();
+        -:  326:
+        -:  327:    /**
+        -:  328:    Assignment replaces the current Ptr instance with one that owns and stores same pointers as o and
+        -:  329:    then destroys the old instance.
+        -:  330:    @param o Ptr to share ownership with.
+        -:  331:     */
+        -:  332:    Ptr& operator = (const Ptr& o);
+        -:  333:
+        -:  334:    /** @overload */
+        -:  335:    template<typename Y>
+        -:  336:    Ptr& operator = (const Ptr<Y>& o);
+        -:  337:
+        -:  338:    /** If no other Ptr instance owns the owned pointer, deletes it with the associated deleter. Then sets
+        -:  339:    both the owned and the stored pointers to NULL.
+        -:  340:    */
+        -:  341:    void release();
+        -:  342:
+        -:  343:    /**
+        -:  344:    `ptr.reset(...)` is equivalent to `ptr = Ptr<T>(...)`.
+        -:  345:    @param p Pointer to own.
+        -:  346:    */
+        -:  347:    template<typename Y>
+        -:  348:    void reset(Y* p);
+        -:  349:
+        -:  350:    /** @overload
+        -:  351:    @param d Deleter to use for the owned pointer.
+        -:  352:    @param p Pointer to own.
+        -:  353:    */
+        -:  354:    template<typename Y, typename D>
+        -:  355:    void reset(Y* p, D d);
+        -:  356:
+        -:  357:    /**
+        -:  358:    Swaps the owned and stored pointers (and deleters, if any) of this and o.
+        -:  359:    @param o Ptr to swap with.
+        -:  360:    */
+        -:  361:    void swap(Ptr& o);
+        -:  362:
+        -:  363:    /** Returns the stored pointer. */
+        -:  364:    T* get() const;
+        -:  365:
+        -:  366:    /** Ordinary pointer emulation. */
+        -:  367:    typename detail::RefOrVoid<T>::type operator * () const;
+        -:  368:
+        -:  369:    /** Ordinary pointer emulation. */
+        -:  370:    T* operator -> () const;
+        -:  371:
+        -:  372:    /** Equivalent to get(). */
+        -:  373:    operator T* () const;
+        -:  374:
+        -:  375:    /** ptr.empty() is equivalent to `!ptr.get()`. */
+        -:  376:    bool empty() const;
+        -:  377:
+        -:  378:    /** Returns a Ptr that owns the same pointer as this, and stores the same
+        -:  379:       pointer as this, except converted via static_cast to Y*.
+        -:  380:    */
+        -:  381:    template<typename Y>
+        -:  382:    Ptr<Y> staticCast() const;
+        -:  383:
+        -:  384:    /** Ditto for const_cast. */
+        -:  385:    template<typename Y>
+        -:  386:    Ptr<Y> constCast() const;
+        -:  387:
+        -:  388:    /** Ditto for dynamic_cast. */
+        -:  389:    template<typename Y>
+        -:  390:    Ptr<Y> dynamicCast() const;
+        -:  391:
+        -:  392:#ifdef CV_CXX_MOVE_SEMANTICS
+        -:  393:    Ptr(Ptr&& o);
+        -:  394:    Ptr& operator = (Ptr&& o);
+        -:  395:#endif
+        -:  396:
+        -:  397:private:
+        -:  398:    detail::PtrOwner* owner;
+        -:  399:    T* stored;
+        -:  400:
+        -:  401:    template<typename Y>
+        -:  402:    friend struct Ptr; // have to do this for the cross-type copy constructor
+        -:  403:};
+        -:  404:
+        -:  405:/** Equivalent to ptr1.swap(ptr2). Provided to help write generic algorithms. */
+        -:  406:template<typename T>
+        -:  407:void swap(Ptr<T>& ptr1, Ptr<T>& ptr2);
+        -:  408:
+        -:  409:/** Return whether ptr1.get() and ptr2.get() are equal and not equal, respectively. */
+        -:  410:template<typename T>
+        -:  411:bool operator == (const Ptr<T>& ptr1, const Ptr<T>& ptr2);
+        -:  412:template<typename T>
+        -:  413:bool operator != (const Ptr<T>& ptr1, const Ptr<T>& ptr2);
+        -:  414:
+        -:  415:/** `makePtr<T>(...)` is equivalent to `Ptr<T>(new T(...))`. It is shorter than the latter, and it's
+        -:  416:marginally safer than using a constructor or Ptr::reset, since it ensures that the owned pointer
+        -:  417:is new and thus not owned by any other Ptr instance.
+        -:  418:Unfortunately, perfect forwarding is impossible to implement in C++03, and so makePtr is limited
+        -:  419:to constructors of T that have up to 10 arguments, none of which are non-const references.
+        -:  420: */
+        -:  421:template<typename T>
+        -:  422:Ptr<T> makePtr();
+        -:  423:/** @overload */
+        -:  424:template<typename T, typename A1>
+        -:  425:Ptr<T> makePtr(const A1& a1);
+        -:  426:/** @overload */
+        -:  427:template<typename T, typename A1, typename A2>
+        -:  428:Ptr<T> makePtr(const A1& a1, const A2& a2);
+        -:  429:/** @overload */
+        -:  430:template<typename T, typename A1, typename A2, typename A3>
+        -:  431:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3);
+        -:  432:/** @overload */
+        -:  433:template<typename T, typename A1, typename A2, typename A3, typename A4>
+        -:  434:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3, const A4& a4);
+        -:  435:/** @overload */
+        -:  436:template<typename T, typename A1, typename A2, typename A3, typename A4, typename A5>
+        -:  437:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3, const A4& a4, const A5& a5);
+        -:  438:/** @overload */
+        -:  439:template<typename T, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6>
+        -:  440:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3, const A4& a4, const A5& a5, const A6& a6);
+        -:  441:/** @overload */
+        -:  442:template<typename T, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7>
+        -:  443:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3, const A4& a4, const A5& a5, const A6& a6, const A7& a7);
+        -:  444:/** @overload */
+        -:  445:template<typename T, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8>
+        -:  446:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3, const A4& a4, const A5& a5, const A6& a6, const A7& a7, const A8& a8);
+        -:  447:/** @overload */
+        -:  448:template<typename T, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9>
+        -:  449:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3, const A4& a4, const A5& a5, const A6& a6, const A7& a7, const A8& a8, const A9& a9);
+        -:  450:/** @overload */
+        -:  451:template<typename T, typename A1, typename A2, typename A3, typename A4, typename A5, typename A6, typename A7, typename A8, typename A9, typename A10>
+        -:  452:Ptr<T> makePtr(const A1& a1, const A2& a2, const A3& a3, const A4& a4, const A5& a5, const A6& a6, const A7& a7, const A8& a8, const A9& a9, const A10& a10);
+        -:  453:
+        -:  454://////////////////////////////// string class ////////////////////////////////
+        -:  455:
+        -:  456:class CV_EXPORTS FileNode; //for string constructor from FileNode
+        -:  457:
+        -:  458:class CV_EXPORTS String
+        -:  459:{
+        -:  460:public:
+        -:  461:    typedef char value_type;
+        -:  462:    typedef char& reference;
+        -:  463:    typedef const char& const_reference;
+        -:  464:    typedef char* pointer;
+        -:  465:    typedef const char* const_pointer;
+        -:  466:    typedef ptrdiff_t difference_type;
+        -:  467:    typedef size_t size_type;
+        -:  468:    typedef char* iterator;
+        -:  469:    typedef const char* const_iterator;
+        -:  470:
+        -:  471:    static const size_t npos = size_t(-1);
+        -:  472:
+        -:  473:    String();
+        -:  474:    String(const String& str);
+        -:  475:    String(const String& str, size_t pos, size_t len = npos);
+        -:  476:    String(const char* s);
+        -:  477:    String(const char* s, size_t n);
+        -:  478:    String(size_t n, char c);
+        -:  479:    String(const char* first, const char* last);
+        -:  480:    template<typename Iterator> String(Iterator first, Iterator last);
+        -:  481:    explicit String(const FileNode& fn);
+        -:  482:    ~String();
+        -:  483:
+        -:  484:    String& operator=(const String& str);
+        -:  485:    String& operator=(const char* s);
+        -:  486:    String& operator=(char c);
+        -:  487:
+        -:  488:    String& operator+=(const String& str);
+        -:  489:    String& operator+=(const char* s);
+        -:  490:    String& operator+=(char c);
+        -:  491:
+        -:  492:    size_t size() const;
+        -:  493:    size_t length() const;
+        -:  494:
+        -:  495:    char operator[](size_t idx) const;
+        -:  496:    char operator[](int idx) const;
+        -:  497:
+        -:  498:    const char* begin() const;
+        -:  499:    const char* end() const;
+        -:  500:
+        -:  501:    const char* c_str() const;
+        -:  502:
+        -:  503:    bool empty() const;
+        -:  504:    void clear();
+        -:  505:
+        -:  506:    int compare(const char* s) const;
+        -:  507:    int compare(const String& str) const;
+        -:  508:
+        -:  509:    void swap(String& str);
+        -:  510:    String substr(size_t pos = 0, size_t len = npos) const;
+        -:  511:
+        -:  512:    size_t find(const char* s, size_t pos, size_t n) const;
+        -:  513:    size_t find(char c, size_t pos = 0) const;
+        -:  514:    size_t find(const String& str, size_t pos = 0) const;
+        -:  515:    size_t find(const char* s, size_t pos = 0) const;
+        -:  516:
+        -:  517:    size_t rfind(const char* s, size_t pos, size_t n) const;
+        -:  518:    size_t rfind(char c, size_t pos = npos) const;
+        -:  519:    size_t rfind(const String& str, size_t pos = npos) const;
+        -:  520:    size_t rfind(const char* s, size_t pos = npos) const;
+        -:  521:
+        -:  522:    size_t find_first_of(const char* s, size_t pos, size_t n) const;
+        -:  523:    size_t find_first_of(char c, size_t pos = 0) const;
+        -:  524:    size_t find_first_of(const String& str, size_t pos = 0) const;
+        -:  525:    size_t find_first_of(const char* s, size_t pos = 0) const;
+        -:  526:
+        -:  527:    size_t find_last_of(const char* s, size_t pos, size_t n) const;
+        -:  528:    size_t find_last_of(char c, size_t pos = npos) const;
+        -:  529:    size_t find_last_of(const String& str, size_t pos = npos) const;
+        -:  530:    size_t find_last_of(const char* s, size_t pos = npos) const;
+        -:  531:
+        -:  532:    friend String operator+ (const String& lhs, const String& rhs);
+        -:  533:    friend String operator+ (const String& lhs, const char*   rhs);
+        -:  534:    friend String operator+ (const char*   lhs, const String& rhs);
+        -:  535:    friend String operator+ (const String& lhs, char          rhs);
+        -:  536:    friend String operator+ (char          lhs, const String& rhs);
+        -:  537:
+        -:  538:    String toLowerCase() const;
+        -:  539:
+        -:  540:    String(const std::string& str);
+        -:  541:    String(const std::string& str, size_t pos, size_t len = npos);
+        -:  542:    String& operator=(const std::string& str);
+        -:  543:    String& operator+=(const std::string& str);
+        -:  544:    operator std::string() const;
+        -:  545:
+        -:  546:    friend String operator+ (const String& lhs, const std::string& rhs);
+        -:  547:    friend String operator+ (const std::string& lhs, const String& rhs);
+        -:  548:
+        -:  549:private:
+        -:  550:    char*  cstr_;
+        -:  551:    size_t len_;
+        -:  552:
+        -:  553:    char* allocate(size_t len); // len without trailing 0
+        -:  554:    void deallocate();
+        -:  555:
+        -:  556:    String(int); // disabled and invalid. Catch invalid usages like, commandLineParser.has(0) problem
+        -:  557:};
+        -:  558:
+        -:  559://! @} core_basic
+        -:  560:
+        -:  561:////////////////////////// cv::String implementation /////////////////////////
+        -:  562:
+        -:  563://! @cond IGNORED
+        -:  564:
+        -:  565:inline
+        -:  566:String::String()
+        -:  567:    : cstr_(0), len_(0)
+        -:  568:{}
+        -:  569:
+        -:  570:inline
+    #####:  571:String::String(const String& str)
+    $$$$$:  571-block  0
+    #####:  572:    : cstr_(str.cstr_), len_(str.len_)
+        -:  573:{
+    #####:  574:    if (cstr_)
+    $$$$$:  574-block  0
+    #####:  575:        CV_XADD(((int*)cstr_)-1, 1);
+    $$$$$:  575-block  0
+    #####:  576:}
+        -:  577:
+        -:  578:inline
+        -:  579:String::String(const String& str, size_t pos, size_t len)
+        -:  580:    : cstr_(0), len_(0)
+        -:  581:{
+        -:  582:    pos = min(pos, str.len_);
+        -:  583:    len = min(str.len_ - pos, len);
+        -:  584:    if (!len) return;
+        -:  585:    if (len == str.len_)
+        -:  586:    {
+        -:  587:        CV_XADD(((int*)str.cstr_)-1, 1);
+        -:  588:        cstr_ = str.cstr_;
+        -:  589:        len_ = str.len_;
+        -:  590:        return;
+        -:  591:    }
+        -:  592:    memcpy(allocate(len), str.cstr_ + pos, len);
+        -:  593:}
+        -:  594:
+        -:  595:inline
+        -:  596:String::String(const char* s)
+        -:  597:    : cstr_(0), len_(0)
+        -:  598:{
+        -:  599:    if (!s) return;
+        -:  600:    size_t len = strlen(s);
+        -:  601:    if (!len) return;
+        -:  602:    memcpy(allocate(len), s, len);
+        -:  603:}
+        -:  604:
+        -:  605:inline
+        -:  606:String::String(const char* s, size_t n)
+        -:  607:    : cstr_(0), len_(0)
+        -:  608:{
+        -:  609:    if (!n) return;
+        -:  610:    if (!s) return;
+        -:  611:    memcpy(allocate(n), s, n);
+        -:  612:}
+        -:  613:
+        -:  614:inline
+        -:  615:String::String(size_t n, char c)
+        -:  616:    : cstr_(0), len_(0)
+        -:  617:{
+        -:  618:    if (!n) return;
+        -:  619:    memset(allocate(n), c, n);
+        -:  620:}
+        -:  621:
+        -:  622:inline
+        -:  623:String::String(const char* first, const char* last)
+        -:  624:    : cstr_(0), len_(0)
+        -:  625:{
+        -:  626:    size_t len = (size_t)(last - first);
+        -:  627:    if (!len) return;
+        -:  628:    memcpy(allocate(len), first, len);
+        -:  629:}
+        -:  630:
+        -:  631:template<typename Iterator> inline
+        -:  632:String::String(Iterator first, Iterator last)
+        -:  633:    : cstr_(0), len_(0)
+        -:  634:{
+        -:  635:    size_t len = (size_t)(last - first);
+        -:  636:    if (!len) return;
+        -:  637:    char* str = allocate(len);
+        -:  638:    while (first != last)
+        -:  639:    {
+        -:  640:        *str++ = *first;
+        -:  641:        ++first;
+        -:  642:    }
+        -:  643:}
+        -:  644:
+        -:  645:inline
+    #####:  646:String::~String()
+    $$$$$:  646-block  0
+        -:  647:{
+    #####:  648:    deallocate();
+    $$$$$:  648-block  0
+    #####:  649:}
+        -:  650:
+        -:  651:inline
+    #####:  652:String& String::operator=(const String& str)
+    $$$$$:  652-block  0
+        -:  653:{
+    #####:  654:    if (&str == this) return *this;
+    $$$$$:  654-block  0
+    $$$$$:  654-block  1
+        -:  655:
+    #####:  656:    deallocate();
+    $$$$$:  656-block  0
+    #####:  657:    if (str.cstr_) CV_XADD(((int*)str.cstr_)-1, 1);
+    $$$$$:  657-block  0
+    #####:  658:    cstr_ = str.cstr_;
+    #####:  659:    len_ = str.len_;
+    #####:  660:    return *this;
+    $$$$$:  660-block  0
+        -:  661:}
+        -:  662:
+        -:  663:inline
+        -:  664:String& String::operator=(const char* s)
+        -:  665:{
+        -:  666:    deallocate();
+        -:  667:    if (!s) return *this;
+        -:  668:    size_t len = strlen(s);
+        -:  669:    if (len) memcpy(allocate(len), s, len);
+        -:  670:    return *this;
+        -:  671:}
+        -:  672:
+        -:  673:inline
+        -:  674:String& String::operator=(char c)
+        -:  675:{
+        -:  676:    deallocate();
+        -:  677:    allocate(1)[0] = c;
+        -:  678:    return *this;
+        -:  679:}
+        -:  680:
+        -:  681:inline
+        -:  682:String& String::operator+=(const String& str)
+        -:  683:{
+        -:  684:    *this = *this + str;
+        -:  685:    return *this;
+        -:  686:}
+        -:  687:
+        -:  688:inline
+        -:  689:String& String::operator+=(const char* s)
+        -:  690:{
+        -:  691:    *this = *this + s;
+        -:  692:    return *this;
+        -:  693:}
+        -:  694:
+        -:  695:inline
+        -:  696:String& String::operator+=(char c)
+        -:  697:{
+        -:  698:    *this = *this + c;
+        -:  699:    return *this;
+        -:  700:}
+        -:  701:
+        -:  702:inline
+        -:  703:size_t String::size() const
+        -:  704:{
+        -:  705:    return len_;
+        -:  706:}
+        -:  707:
+        -:  708:inline
+        -:  709:size_t String::length() const
+        -:  710:{
+        -:  711:    return len_;
+        -:  712:}
+        -:  713:
+        -:  714:inline
+        -:  715:char String::operator[](size_t idx) const
+        -:  716:{
+        -:  717:    return cstr_[idx];
+        -:  718:}
+        -:  719:
+        -:  720:inline
+        -:  721:char String::operator[](int idx) const
+        -:  722:{
+        -:  723:    return cstr_[idx];
+        -:  724:}
+        -:  725:
+        -:  726:inline
+        -:  727:const char* String::begin() const
+        -:  728:{
+        -:  729:    return cstr_;
+        -:  730:}
+        -:  731:
+        -:  732:inline
+        -:  733:const char* String::end() const
+        -:  734:{
+        -:  735:    return len_ ? cstr_ + len_ : NULL;
+        -:  736:}
+        -:  737:
+        -:  738:inline
+        -:  739:bool String::empty() const
+        -:  740:{
+        -:  741:    return len_ == 0;
+        -:  742:}
+        -:  743:
+        -:  744:inline
+    #####:  745:const char* String::c_str() const
+    $$$$$:  745-block  0
+        -:  746:{
+    #####:  747:    return cstr_ ? cstr_ : "";
+    $$$$$:  747-block  0
+    $$$$$:  747-block  1
+    $$$$$:  747-block  2
+    $$$$$:  747-block  3
+        -:  748:}
+        -:  749:
+        -:  750:inline
+        -:  751:void String::swap(String& str)
+        -:  752:{
+        -:  753:    cv::swap(cstr_, str.cstr_);
+        -:  754:    cv::swap(len_, str.len_);
+        -:  755:}
+        -:  756:
+        -:  757:inline
+        -:  758:void String::clear()
+        -:  759:{
+        -:  760:    deallocate();
+        -:  761:}
+        -:  762:
+        -:  763:inline
+        -:  764:int String::compare(const char* s) const
+        -:  765:{
+        -:  766:    if (cstr_ == s) return 0;
+        -:  767:    return strcmp(c_str(), s);
+        -:  768:}
+        -:  769:
+        -:  770:inline
+        -:  771:int String::compare(const String& str) const
+        -:  772:{
+        -:  773:    if (cstr_ == str.cstr_) return 0;
+        -:  774:    return strcmp(c_str(), str.c_str());
+        -:  775:}
+        -:  776:
+        -:  777:inline
+        -:  778:String String::substr(size_t pos, size_t len) const
+        -:  779:{
+        -:  780:    return String(*this, pos, len);
+        -:  781:}
+        -:  782:
+        -:  783:inline
+        -:  784:size_t String::find(const char* s, size_t pos, size_t n) const
+        -:  785:{
+        -:  786:    if (n == 0 || pos + n > len_) return npos;
+        -:  787:    const char* lmax = cstr_ + len_ - n;
+        -:  788:    for (const char* i = cstr_ + pos; i <= lmax; ++i)
+        -:  789:    {
+        -:  790:        size_t j = 0;
+        -:  791:        while (j < n && s[j] == i[j]) ++j;
+        -:  792:        if (j == n) return (size_t)(i - cstr_);
+        -:  793:    }
+        -:  794:    return npos;
+        -:  795:}
+        -:  796:
+        -:  797:inline
+        -:  798:size_t String::find(char c, size_t pos) const
+        -:  799:{
+        -:  800:    return find(&c, pos, 1);
+        -:  801:}
+        -:  802:
+        -:  803:inline
+        -:  804:size_t String::find(const String& str, size_t pos) const
+        -:  805:{
+        -:  806:    return find(str.c_str(), pos, str.len_);
+        -:  807:}
+        -:  808:
+        -:  809:inline
+        -:  810:size_t String::find(const char* s, size_t pos) const
+        -:  811:{
+        -:  812:    if (pos >= len_ || !s[0]) return npos;
+        -:  813:    const char* lmax = cstr_ + len_;
+        -:  814:    for (const char* i = cstr_ + pos; i < lmax; ++i)
+        -:  815:    {
+        -:  816:        size_t j = 0;
+        -:  817:        while (s[j] && s[j] == i[j])
+        -:  818:        {   if(i + j >= lmax) return npos;
+        -:  819:            ++j;
+        -:  820:        }
+        -:  821:        if (!s[j]) return (size_t)(i - cstr_);
+        -:  822:    }
+        -:  823:    return npos;
+        -:  824:}
+        -:  825:
+        -:  826:inline
+        -:  827:size_t String::rfind(const char* s, size_t pos, size_t n) const
+        -:  828:{
+        -:  829:    if (n > len_) return npos;
+        -:  830:    if (pos > len_ - n) pos = len_ - n;
+        -:  831:    for (const char* i = cstr_ + pos; i >= cstr_; --i)
+        -:  832:    {
+        -:  833:        size_t j = 0;
+        -:  834:        while (j < n && s[j] == i[j]) ++j;
+        -:  835:        if (j == n) return (size_t)(i - cstr_);
+        -:  836:    }
+        -:  837:    return npos;
+        -:  838:}
+        -:  839:
+        -:  840:inline
+        -:  841:size_t String::rfind(char c, size_t pos) const
+        -:  842:{
+        -:  843:    return rfind(&c, pos, 1);
+        -:  844:}
+        -:  845:
+        -:  846:inline
+        -:  847:size_t String::rfind(const String& str, size_t pos) const
+        -:  848:{
+        -:  849:    return rfind(str.c_str(), pos, str.len_);
+        -:  850:}
+        -:  851:
+        -:  852:inline
+        -:  853:size_t String::rfind(const char* s, size_t pos) const
+        -:  854:{
+        -:  855:    return rfind(s, pos, strlen(s));
+        -:  856:}
+        -:  857:
+        -:  858:inline
+        -:  859:size_t String::find_first_of(const char* s, size_t pos, size_t n) const
+        -:  860:{
+        -:  861:    if (n == 0 || pos + n > len_) return npos;
+        -:  862:    const char* lmax = cstr_ + len_;
+        -:  863:    for (const char* i = cstr_ + pos; i < lmax; ++i)
+        -:  864:    {
+        -:  865:        for (size_t j = 0; j < n; ++j)
+        -:  866:            if (s[j] == *i)
+        -:  867:                return (size_t)(i - cstr_);
+        -:  868:    }
+        -:  869:    return npos;
+        -:  870:}
+        -:  871:
+        -:  872:inline
+        -:  873:size_t String::find_first_of(char c, size_t pos) const
+        -:  874:{
+        -:  875:    return find_first_of(&c, pos, 1);
+        -:  876:}
+        -:  877:
+        -:  878:inline
+        -:  879:size_t String::find_first_of(const String& str, size_t pos) const
+        -:  880:{
+        -:  881:    return find_first_of(str.c_str(), pos, str.len_);
+        -:  882:}
+        -:  883:
+        -:  884:inline
+        -:  885:size_t String::find_first_of(const char* s, size_t pos) const
+        -:  886:{
+        -:  887:    if (len_ == 0) return npos;
+        -:  888:    if (pos >= len_ || !s[0]) return npos;
+        -:  889:    const char* lmax = cstr_ + len_;
+        -:  890:    for (const char* i = cstr_ + pos; i < lmax; ++i)
+        -:  891:    {
+        -:  892:        for (size_t j = 0; s[j]; ++j)
+        -:  893:            if (s[j] == *i)
+        -:  894:                return (size_t)(i - cstr_);
+        -:  895:    }
+        -:  896:    return npos;
+        -:  897:}
+        -:  898:
+        -:  899:inline
+        -:  900:size_t String::find_last_of(const char* s, size_t pos, size_t n) const
+        -:  901:{
+        -:  902:    if (len_ == 0) return npos;
+        -:  903:    if (pos >= len_) pos = len_ - 1;
+        -:  904:    for (const char* i = cstr_ + pos; i >= cstr_; --i)
+        -:  905:    {
+        -:  906:        for (size_t j = 0; j < n; ++j)
+        -:  907:            if (s[j] == *i)
+        -:  908:                return (size_t)(i - cstr_);
+        -:  909:    }
+        -:  910:    return npos;
+        -:  911:}
+        -:  912:
+        -:  913:inline
+        -:  914:size_t String::find_last_of(char c, size_t pos) const
+        -:  915:{
+        -:  916:    return find_last_of(&c, pos, 1);
+        -:  917:}
+        -:  918:
+        -:  919:inline
+        -:  920:size_t String::find_last_of(const String& str, size_t pos) const
+        -:  921:{
+        -:  922:    return find_last_of(str.c_str(), pos, str.len_);
+        -:  923:}
+        -:  924:
+        -:  925:inline
+        -:  926:size_t String::find_last_of(const char* s, size_t pos) const
+        -:  927:{
+        -:  928:    if (len_ == 0) return npos;
+        -:  929:    if (pos >= len_) pos = len_ - 1;
+        -:  930:    for (const char* i = cstr_ + pos; i >= cstr_; --i)
+        -:  931:    {
+        -:  932:        for (size_t j = 0; s[j]; ++j)
+        -:  933:            if (s[j] == *i)
+        -:  934:                return (size_t)(i - cstr_);
+        -:  935:    }
+        -:  936:    return npos;
+        -:  937:}
+        -:  938:
+        -:  939:inline
+        -:  940:String String::toLowerCase() const
+        -:  941:{
+        -:  942:    if (!cstr_)
+        -:  943:        return String();
+        -:  944:    String res(cstr_, len_);
+        -:  945:    for (size_t i = 0; i < len_; ++i)
+        -:  946:        res.cstr_[i] = (char) ::tolower(cstr_[i]);
+        -:  947:
+        -:  948:    return res;
+        -:  949:}
+        -:  950:
+        -:  951://! @endcond
+        -:  952:
+        -:  953:// ************************* cv::String non-member functions *************************
+        -:  954:
+        -:  955://! @relates cv::String
+        -:  956://! @{
+        -:  957:
+        -:  958:inline
+        -:  959:String operator + (const String& lhs, const String& rhs)
+        -:  960:{
+        -:  961:    String s;
+        -:  962:    s.allocate(lhs.len_ + rhs.len_);
+        -:  963:    if (lhs.len_) memcpy(s.cstr_, lhs.cstr_, lhs.len_);
+        -:  964:    if (rhs.len_) memcpy(s.cstr_ + lhs.len_, rhs.cstr_, rhs.len_);
+        -:  965:    return s;
+        -:  966:}
+        -:  967:
+        -:  968:inline
+        -:  969:String operator + (const String& lhs, const char* rhs)
+        -:  970:{
+        -:  971:    String s;
+        -:  972:    size_t rhslen = strlen(rhs);
+        -:  973:    s.allocate(lhs.len_ + rhslen);
+        -:  974:    if (lhs.len_) memcpy(s.cstr_, lhs.cstr_, lhs.len_);
+        -:  975:    if (rhslen) memcpy(s.cstr_ + lhs.len_, rhs, rhslen);
+        -:  976:    return s;
+        -:  977:}
+        -:  978:
+        -:  979:inline
+        -:  980:String operator + (const char* lhs, const String& rhs)
+        -:  981:{
+        -:  982:    String s;
+        -:  983:    size_t lhslen = strlen(lhs);
+        -:  984:    s.allocate(lhslen + rhs.len_);
+        -:  985:    if (lhslen) memcpy(s.cstr_, lhs, lhslen);
+        -:  986:    if (rhs.len_) memcpy(s.cstr_ + lhslen, rhs.cstr_, rhs.len_);
+        -:  987:    return s;
+        -:  988:}
+        -:  989:
+        -:  990:inline
+        -:  991:String operator + (const String& lhs, char rhs)
+        -:  992:{
+        -:  993:    String s;
+        -:  994:    s.allocate(lhs.len_ + 1);
+        -:  995:    if (lhs.len_) memcpy(s.cstr_, lhs.cstr_, lhs.len_);
+        -:  996:    s.cstr_[lhs.len_] = rhs;
+        -:  997:    return s;
+        -:  998:}
+        -:  999:
+        -: 1000:inline
+        -: 1001:String operator + (char lhs, const String& rhs)
+        -: 1002:{
+        -: 1003:    String s;
+        -: 1004:    s.allocate(rhs.len_ + 1);
+        -: 1005:    s.cstr_[0] = lhs;
+        -: 1006:    if (rhs.len_) memcpy(s.cstr_ + 1, rhs.cstr_, rhs.len_);
+        -: 1007:    return s;
+        -: 1008:}
+        -: 1009:
+        -: 1010:static inline bool operator== (const String& lhs, const String& rhs) { return 0 == lhs.compare(rhs); }
+        -: 1011:static inline bool operator== (const char*   lhs, const String& rhs) { return 0 == rhs.compare(lhs); }
+        -: 1012:static inline bool operator== (const String& lhs, const char*   rhs) { return 0 == lhs.compare(rhs); }
+        -: 1013:static inline bool operator!= (const String& lhs, const String& rhs) { return 0 != lhs.compare(rhs); }
+        -: 1014:static inline bool operator!= (const char*   lhs, const String& rhs) { return 0 != rhs.compare(lhs); }
+        -: 1015:static inline bool operator!= (const String& lhs, const char*   rhs) { return 0 != lhs.compare(rhs); }
+        -: 1016:static inline bool operator<  (const String& lhs, const String& rhs) { return lhs.compare(rhs) <  0; }
+        -: 1017:static inline bool operator<  (const char*   lhs, const String& rhs) { return rhs.compare(lhs) >  0; }
+        -: 1018:static inline bool operator<  (const String& lhs, const char*   rhs) { return lhs.compare(rhs) <  0; }
+        -: 1019:static inline bool operator<= (const String& lhs, const String& rhs) { return lhs.compare(rhs) <= 0; }
+        -: 1020:static inline bool operator<= (const char*   lhs, const String& rhs) { return rhs.compare(lhs) >= 0; }
+        -: 1021:static inline bool operator<= (const String& lhs, const char*   rhs) { return lhs.compare(rhs) <= 0; }
+        -: 1022:static inline bool operator>  (const String& lhs, const String& rhs) { return lhs.compare(rhs) >  0; }
+        -: 1023:static inline bool operator>  (const char*   lhs, const String& rhs) { return rhs.compare(lhs) <  0; }
+        -: 1024:static inline bool operator>  (const String& lhs, const char*   rhs) { return lhs.compare(rhs) >  0; }
+        -: 1025:static inline bool operator>= (const String& lhs, const String& rhs) { return lhs.compare(rhs) >= 0; }
+        -: 1026:static inline bool operator>= (const char*   lhs, const String& rhs) { return rhs.compare(lhs) <= 0; }
+        -: 1027:static inline bool operator>= (const String& lhs, const char*   rhs) { return lhs.compare(rhs) >= 0; }
+        -: 1028:
+        -: 1029://! @} relates cv::String
+        -: 1030:
+        -: 1031:} // cv
+        -: 1032:
+        -: 1033:namespace std
+        -: 1034:{
+        -: 1035:    static inline void swap(cv::String& a, cv::String& b) { a.swap(b); }
+        -: 1036:}
+        -: 1037:
+        -: 1038:#include "opencv2/core/ptr.inl.hpp"
+        -: 1039:
+        -: 1040:#endif //OPENCV_CORE_CVSTD_HPP

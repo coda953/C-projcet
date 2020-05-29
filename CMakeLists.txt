@@ -24,3 +24,6 @@ add_executable(cppProject main.cpp Matrix.hpp Vector.hpp)
 target_link_libraries(cppProject ${OpenCV_LIBS})
 target_link_libraries(cppProject gtest gtest_main)
 target_link_libraries(cppProject gmock gmock_main)
+
+message("Building with lcov Code Coverage Tools")
+set(CMAKE_CXX_FLAGS "--coverage")

@@ -1,4 +1,4 @@
-# C-projcet
+# C-project
 ## 短期目标：
 
 1) 矩阵点积叉积，向量叉积。
@@ -7,10 +7,21 @@
 4) 它应该尽可能多地处理可能出现的异常。
 
 **已添加部分测试**
+
+目前测试覆盖率：
+
+![image-20200529155420537](C:\Users\10505\AppData\Roaming\Typora\typora-user-images\image-20200529155420537.png)
+
+覆盖率测试添加：
+
+工具为gcov
+
+![image-20200529155503600](C:\Users\10505\AppData\Roaming\Typora\typora-user-images\image-20200529155503600.png)
+
 ## 已完成（矩阵部分）：
 
 ### 基本属性
-`vector<vector<complex<double>>> vector` 每个元素为std::complex<double>的二维vector
+`vector<vector<complex<double>>> vector` 每个元素为`std::complex<double>`的二维vector
 
 `int row, column;` 矩阵的行，列。
 
