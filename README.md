@@ -10,13 +10,13 @@
 
 目前测试覆盖率：
 
-![image-20200529155420537](C:\Users\10505\AppData\Roaming\Typora\typora-user-images\image-20200529155420537.png)
+![image-1](img/coverage.png)
 
 覆盖率测试添加：
 
 工具为gcov
 
-![image-20200529155503600](C:\Users\10505\AppData\Roaming\Typora\typora-user-images\image-20200529155503600.png)
+![image-2](img/usage.png)
 
 ## 已完成（矩阵部分）：
 
