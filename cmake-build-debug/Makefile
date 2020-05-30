@@ -221,32 +221,32 @@ gtest/fast:
 	$(MAKE) -f googletest/googletest/CMakeFiles/gtest.dir/build.make googletest/googletest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
-main.o: main.cpp.o
+code/main.o: code/main.cpp.o
 
-.PHONY : main.o
+.PHONY : code/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/main.cpp.o
-.PHONY : main.cpp.o
+code/main.cpp.o:
+	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/main.cpp.o
+.PHONY : code/main.cpp.o
 
-main.i: main.cpp.i
+code/main.i: code/main.cpp.i
 
-.PHONY : main.i
+.PHONY : code/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/main.cpp.i
-.PHONY : main.cpp.i
+code/main.cpp.i:
+	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/main.cpp.i
+.PHONY : code/main.cpp.i
 
-main.s: main.cpp.s
+code/main.s: code/main.cpp.s
 
-.PHONY : main.s
+.PHONY : code/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/main.cpp.s
-.PHONY : main.cpp.s
+code/main.cpp.s:
+	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/main.cpp.s
+.PHONY : code/main.cpp.s
 
 # Help Target
 help:
@@ -265,9 +265,9 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... code/main.o"
+	@echo "... code/main.i"
+	@echo "... code/main.s"
 .PHONY : help
 
 

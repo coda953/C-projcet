@@ -1,0 +1,16 @@
+digraph "Matrix::showSize"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="Matrix::showSize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Matrix::element_wise\l_multiplication",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a074ec8dde657517200ceebf92c6bf4d0",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Matrix::element_wise\l_multiplication_change",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a1ece0fec95976aeb03a6cba01d37d50a",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Matrix::operator+",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a0173619a6c29c89c6700bca328a9b028",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Matrix::operator-",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#ab6e0db62e0bfa92bb82bcbabc7818d5b",tooltip=" "];
+}

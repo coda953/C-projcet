@@ -57,27 +57,27 @@ include CMakeFiles/cppProject.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cppProject.dir/flags.make
 
-CMakeFiles/cppProject.dir/main.cpp.o: CMakeFiles/cppProject.dir/flags.make
-CMakeFiles/cppProject.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppProject.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppProject.dir/main.cpp.o -c /cygdrive/c/Users/10505/CLionProjects/C-projcet/main.cpp
+CMakeFiles/cppProject.dir/code/main.cpp.o: CMakeFiles/cppProject.dir/flags.make
+CMakeFiles/cppProject.dir/code/main.cpp.o: ../code/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppProject.dir/code/main.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppProject.dir/code/main.cpp.o -c /cygdrive/c/Users/10505/CLionProjects/C-projcet/code/main.cpp
 
-CMakeFiles/cppProject.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppProject.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/10505/CLionProjects/C-projcet/main.cpp > CMakeFiles/cppProject.dir/main.cpp.i
+CMakeFiles/cppProject.dir/code/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppProject.dir/code/main.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/10505/CLionProjects/C-projcet/code/main.cpp > CMakeFiles/cppProject.dir/code/main.cpp.i
 
-CMakeFiles/cppProject.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppProject.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/10505/CLionProjects/C-projcet/main.cpp -o CMakeFiles/cppProject.dir/main.cpp.s
+CMakeFiles/cppProject.dir/code/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppProject.dir/code/main.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/10505/CLionProjects/C-projcet/code/main.cpp -o CMakeFiles/cppProject.dir/code/main.cpp.s
 
 # Object files for target cppProject
 cppProject_OBJECTS = \
-"CMakeFiles/cppProject.dir/main.cpp.o"
+"CMakeFiles/cppProject.dir/code/main.cpp.o"
 
 # External object files for target cppProject
 cppProject_EXTERNAL_OBJECTS =
 
-cppProject.exe: CMakeFiles/cppProject.dir/main.cpp.o
+cppProject.exe: CMakeFiles/cppProject.dir/code/main.cpp.o
 cppProject.exe: CMakeFiles/cppProject.dir/build.make
 cppProject.exe: /usr/lib/libopencv_aruco.dll.a
 cppProject.exe: /usr/lib/libopencv_bgsegm.dll.a

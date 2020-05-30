@@ -17,7 +17,7 @@ include_directories(
         "/usr/include/opencv2"
 )
 set(CMAKE_CXX_STANDARD 14)
-add_executable(cppProject main.cpp Matrix.hpp Vector.hpp)
+add_executable(cppProject code/main.cpp code/Matrix.hpp code/Vector.hpp)
 target_link_libraries(cppProject ${OpenCV_LIBS})
 target_link_libraries(cppProject gtest gtest_main)
 target_link_libraries(cppProject gmock gmock_main)

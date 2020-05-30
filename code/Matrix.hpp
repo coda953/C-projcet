@@ -10,23 +10,39 @@ using namespace cv;
 
 template<class T>
 class Vector;
-
+/**
+ * the class of Matrix
+ * @authors Zhu Junda Zheng Ruiqi Wang Yifan
+ * @version 1.0
+ * @tparam T the data type
+ */
 template<class T>
 class Matrix {
 public:
+    /**
+     * initial a Matrix with row=0,and column=0
+     */
     Matrix() {
         this->row = 0;
         this->column = 0;
         this->matrix.resize(0);
     }
-
+/**
+ * overload [] to access matrix data
+ * @param i  the row of the matrix
+ * @return  the row of the matrix
+ */
     vector<T> &operator[](int i) {
         if (i >= row) {
             cerr << "the input row is lager than row";
         }
         return this->matrix[i];
     }
-
+/**
+ * initial a matrix with certain row and column
+ * @param row the row of the matrix
+ * @param column the column of the matrix
+ */
     Matrix(int row, int column) {
         this->row = row;
         this->column = column;
@@ -35,20 +51,31 @@ public:
             this->matrix[i].resize(column);
         }
     }
-
+/**
+ * initial a matrix with row equals 1 and column equals length
+ * like a vector
+ * @param length the length of the matrix
+ */
     Matrix(int length) {
         this->row = 1;
         this->column = length;
         this->matrix.resize(this->row);
         this->matrix[0].resize(this->column);
     }
-
+/**
+ * initial a matrix with other matrix
+ * @param other the other matrix
+ */
     Matrix(Matrix const &other) {
         this->row = other.row;
         this->column = other.column;
         this->matrix = other.matrix;
     }
-
+/**
+ * initial a matrix with a vector
+ * the matrix has row equals 1 and column equals vector's length
+ * @param other the vector
+ */
     Matrix(Vector<T> other) {
         Matrix ans = Matrix(1, other.getLength());
         for (int i = 0; i < other.getLength(); ++i) {
@@ -58,7 +85,10 @@ public:
         this->column = ans.column;
         this->matrix = ans.matrix;
     }
-
+/**
+ * a function to get the minimium element of the matrix
+ * @return  the minimium element of the matrix
+ */
     T findMin() {
         if (this->row == 0 || this->column == 0) {
             cerr << "The vector is empty,can not get sum" << endl;
