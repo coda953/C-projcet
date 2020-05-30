@@ -170,10 +170,10 @@
         -:  165:#endif // __cpp_aligned_new
         -:  166:
         -:  167:// Default placement versions of operator new.
-       84:  168:inline void* operator new(std::size_t, void* __p) _GLIBCXX_USE_NOEXCEPT
-       84:  168-block  0
-       84:  169:{ return __p; }
-       84:  169-block  0
+      122:  168:inline void* operator new(std::size_t, void* __p) _GLIBCXX_USE_NOEXCEPT
+      122:  168-block  0
+      122:  169:{ return __p; }
+      122:  169-block  0
         -:  170:inline void* operator new[](std::size_t, void* __p) _GLIBCXX_USE_NOEXCEPT
         -:  171:{ return __p; }
         -:  172:

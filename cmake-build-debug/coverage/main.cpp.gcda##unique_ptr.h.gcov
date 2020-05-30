@@ -74,20 +74,20 @@
         -:   69:
         -:   70:      /// Calls @c delete @p __ptr
         -:   71:      void
-       71:   72:      operator()(_Tp* __ptr) const
+       75:   72:      operator()(_Tp* __ptr) const
     $$$$$:   72-block  0
-       71:   72-block  1
+       75:   72-block  1
         -:   73:      {
         -:   74:	static_assert(!is_void<_Tp>::value,
         -:   75:		      "can't delete pointer to incomplete type");
         -:   76:	static_assert(sizeof(_Tp)>0,
         -:   77:		      "can't delete pointer to incomplete type");
-       71:   78:	delete __ptr;
+       75:   78:	delete __ptr;
     $$$$$:   78-block  0
     $$$$$:   78-block  1
-       71:   78-block  2
-       71:   78-block  3
-       71:   79:      }
+       75:   78-block  2
+       75:   78-block  3
+       75:   79:      }
         -:   80:    };
         -:   81:
         -:   82:  // _GLIBCXX_RESOLVE_LIB_DEFECTS
@@ -154,19 +154,19 @@
         -:  143:      __uniq_ptr_impl(pointer __p, _Del&& __d)
         -:  144:	: _M_t(__p, std::forward<_Del>(__d)) { }
         -:  145:
-      420:  146:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
-       68:  146-block  0
-       68:  146-block  1
-      142:  146-block  2
-      142:  146-block  3
+      474:  146:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
+       87:  146-block  0
+       87:  146-block  1
+      150:  146-block  2
+      150:  146-block  3
     #####:  147:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
     $$$$$:  147-block  0
     $$$$$:  147-block  1
-      142:  148:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
+      150:  148:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
     $$$$$:  148-block  0
     $$$$$:  148-block  1
-       71:  148-block  2
-       71:  148-block  3
+       75:  148-block  2
+       75:  148-block  3
         -:  149:      const _Dp& _M_deleter() const { return std::get<1>(_M_t); }
         -:  150:
         -:  151:    private:
@@ -282,19 +282,19 @@
         -:  261:#endif
         -:  262:
         -:  263:      /// Destructor, invokes the deleter if the stored pointer is not null.
-      139:  264:      ~unique_ptr() noexcept
-       68:  264-block  0
-       71:  264-block  1
+      162:  264:      ~unique_ptr() noexcept
+       87:  264-block  0
+       75:  264-block  1
         -:  265:      {
-      139:  266:	auto& __ptr = _M_t._M_ptr();
-       68:  266-block  0
-       71:  266-block  1
-      139:  267:	if (__ptr != nullptr)
-       71:  268:	  get_deleter()(__ptr);
+      162:  266:	auto& __ptr = _M_t._M_ptr();
+       87:  266-block  0
+       75:  266-block  1
+      162:  267:	if (__ptr != nullptr)
+       75:  268:	  get_deleter()(__ptr);
     $$$$$:  268-block  0
-       71:  268-block  1
-      139:  269:	__ptr = pointer();
-      139:  270:      }
+       75:  268-block  1
+      162:  269:	__ptr = pointer();
+      162:  270:      }
         -:  271:
         -:  272:      // Assignment.
         -:  273:
@@ -369,12 +369,12 @@
         -:  338:
         -:  339:      /// Return a reference to the stored deleter.
         -:  340:      deleter_type&
-       71:  341:      get_deleter() noexcept
+       75:  341:      get_deleter() noexcept
     $$$$$:  341-block  0
-       71:  341-block  1
-       71:  342:      { return _M_t._M_deleter(); }
+       75:  341-block  1
+       75:  342:      { return _M_t._M_deleter(); }
     $$$$$:  342-block  0
-       71:  342-block  1
+       75:  342-block  1
         -:  343:
         -:  344:      /// Return a reference to the stored deleter.
         -:  345:      const deleter_type&

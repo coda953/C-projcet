@@ -784,16 +784,16 @@
         -:  779:      : _M_current(_Iterator()) { }
         -:  780:
         -:  781:      explicit
-      144:  782:      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
-       84:  782-block  0
+      223:  782:      __normal_iterator(const _Iterator& __i) _GLIBCXX_NOEXCEPT
+      138:  782-block  0
     $$$$$:  782-block  1
     $$$$$:  782-block  2
         4:  782-block  3
-       24:  782-block  4
-    $$$$$:  782-block  5
-       20:  782-block  6
-       12:  782-block  7
-      144:  783:      : _M_current(__i) { }
+       36:  782-block  4
+       22:  782-block  5
+       12:  782-block  6
+       11:  782-block  7
+      223:  783:      : _M_current(__i) { }
         -:  784:
         -:  785:      // Allow iterator to const_iterator conversion
         -:  786:      template<typename _Iter>
@@ -805,34 +805,38 @@
         -:  792:
         -:  793:      // Forward iterator requirements
         -:  794:      reference
-       42:  795:      operator*() const _GLIBCXX_NOEXCEPT
+       78:  795:      operator*() const _GLIBCXX_NOEXCEPT
         6:  795-block  0
     $$$$$:  795-block  1
     $$$$$:  795-block  2
-       36:  795-block  3
-       42:  796:      { return *_M_current; }
+       56:  795-block  3
+       16:  795-block  4
+       78:  796:      { return *_M_current; }
         6:  796-block  0
     $$$$$:  796-block  1
     $$$$$:  796-block  2
-       36:  796-block  3
+       56:  796-block  3
+       16:  796-block  4
         -:  797:
         -:  798:      pointer
         -:  799:      operator->() const _GLIBCXX_NOEXCEPT
         -:  800:      { return _M_current; }
         -:  801:
         -:  802:      __normal_iterator&
-       42:  803:      operator++() _GLIBCXX_NOEXCEPT
+       67:  803:      operator++() _GLIBCXX_NOEXCEPT
         6:  803-block  0
     $$$$$:  803-block  1
     $$$$$:  803-block  2
-       36:  803-block  3
+       56:  803-block  3
+        5:  803-block  4
         -:  804:      {
-       42:  805:	++_M_current;
-       42:  806:	return *this;
+       67:  805:	++_M_current;
+       67:  806:	return *this;
         6:  806-block  0
     $$$$$:  806-block  1
     $$$$$:  806-block  2
-       36:  806-block  3
+       56:  806-block  3
+        5:  806-block  4
         -:  807:      }
         -:  808:
         -:  809:      __normal_iterator
@@ -841,10 +845,12 @@
         -:  812:
         -:  813:      // Bidirectional iterator requirements
         -:  814:      __normal_iterator&
-        -:  815:      operator--() _GLIBCXX_NOEXCEPT
+        3:  815:      operator--() _GLIBCXX_NOEXCEPT
+        3:  815-block  0
         -:  816:      {
-        -:  817:	--_M_current;
-        -:  818:	return *this;
+        3:  817:	--_M_current;
+        3:  818:	return *this;
+        3:  818-block  0
         -:  819:      }
         -:  820:
         -:  821:      __normal_iterator
@@ -861,36 +867,40 @@
         -:  832:      { _M_current += __n; return *this; }
         -:  833:
         -:  834:      __normal_iterator
-        -:  835:      operator+(difference_type __n) const _GLIBCXX_NOEXCEPT
-        -:  836:      { return __normal_iterator(_M_current + __n); }
+        1:  835:      operator+(difference_type __n) const _GLIBCXX_NOEXCEPT
+        1:  835-block  0
+        1:  836:      { return __normal_iterator(_M_current + __n); }
+        1:  836-block  0
         -:  837:
         -:  838:      __normal_iterator&
         -:  839:      operator-=(difference_type __n) _GLIBCXX_NOEXCEPT
         -:  840:      { _M_current -= __n; return *this; }
         -:  841:
         -:  842:      __normal_iterator
-        -:  843:      operator-(difference_type __n) const _GLIBCXX_NOEXCEPT
-        -:  844:      { return __normal_iterator(_M_current - __n); }
+    #####:  843:      operator-(difference_type __n) const _GLIBCXX_NOEXCEPT
+    $$$$$:  843-block  0
+    #####:  844:      { return __normal_iterator(_M_current - __n); }
+    $$$$$:  844-block  0
         -:  845:
         -:  846:      const _Iterator&
-      248:  847:      base() const _GLIBCXX_NOEXCEPT
-       84:  847-block  0
+      394:  847:      base() const _GLIBCXX_NOEXCEPT
+      138:  847-block  0
     $$$$$:  847-block  1
-       96:  847-block  2
+      148:  847-block  2
        12:  847-block  3
     $$$$$:  847-block  4
        16:  847-block  5
-    $$$$$:  847-block  6
-       40:  847-block  7
-      248:  848:      { return _M_current; }
-       84:  848-block  0
+       44:  847-block  6
+       36:  847-block  7
+      394:  848:      { return _M_current; }
+      138:  848-block  0
     $$$$$:  848-block  1
-       96:  848-block  2
+      148:  848-block  2
        12:  848-block  3
     $$$$$:  848-block  4
        16:  848-block  5
-    $$$$$:  848-block  6
-       40:  848-block  7
+       44:  848-block  6
+       36:  848-block  7
         -:  849:    };
         -:  850:
         -:  851:  // Note: In what follows, the left- and right-hand-side iterators are
@@ -911,10 +921,12 @@
         -:  866:
         -:  867:  template<typename _Iterator, typename _Container>
         -:  868:    inline bool
-        -:  869:    operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+        1:  869:    operator==(const __normal_iterator<_Iterator, _Container>& __lhs,
+        1:  869-block  0
         -:  870:	       const __normal_iterator<_Iterator, _Container>& __rhs)
         -:  871:    _GLIBCXX_NOEXCEPT
-        -:  872:    { return __lhs.base() == __rhs.base(); }
+        1:  872:    { return __lhs.base() == __rhs.base(); }
+        1:  872-block  0
         -:  873:
         -:  874:  template<typename _IteratorL, typename _IteratorR, typename _Container>
         -:  875:    inline bool
@@ -925,18 +937,20 @@
         -:  880:
         -:  881:  template<typename _Iterator, typename _Container>
         -:  882:    inline bool
-       56:  883:    operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
+       90:  883:    operator!=(const __normal_iterator<_Iterator, _Container>& __lhs,
         8:  883-block  0
     $$$$$:  883-block  1
     $$$$$:  883-block  2
-       48:  883-block  3
+       74:  883-block  3
+        8:  883-block  4
         -:  884:	       const __normal_iterator<_Iterator, _Container>& __rhs)
         -:  885:    _GLIBCXX_NOEXCEPT
-       56:  886:    { return __lhs.base() != __rhs.base(); }
+       90:  886:    { return __lhs.base() != __rhs.base(); }
         8:  886-block  0
     $$$$$:  886-block  1
     $$$$$:  886-block  2
-       48:  886-block  3
+       74:  886-block  3
+        8:  886-block  4
         -:  887:
         -:  888:  // Random access iterator requirements
         -:  889:  template<typename _IteratorL, typename _IteratorR, typename _Container>
@@ -948,10 +962,12 @@
         -:  895:
         -:  896:  template<typename _Iterator, typename _Container>
         -:  897:    inline bool
-        -:  898:    operator<(const __normal_iterator<_Iterator, _Container>& __lhs,
+    #####:  898:    operator<(const __normal_iterator<_Iterator, _Container>& __lhs,
+    $$$$$:  898-block  0
         -:  899:	      const __normal_iterator<_Iterator, _Container>& __rhs)
         -:  900:    _GLIBCXX_NOEXCEPT
-        -:  901:    { return __lhs.base() < __rhs.base(); }
+    #####:  901:    { return __lhs.base() < __rhs.base(); }
+    $$$$$:  901-block  0
         -:  902:
         -:  903:  template<typename _IteratorL, typename _IteratorR, typename _Container>
         -:  904:    inline bool
@@ -1015,10 +1031,12 @@
         -:  962:
         -:  963:  template<typename _Iterator, typename _Container>
         -:  964:    inline typename __normal_iterator<_Iterator, _Container>::difference_type
-        -:  965:    operator-(const __normal_iterator<_Iterator, _Container>& __lhs,
+        6:  965:    operator-(const __normal_iterator<_Iterator, _Container>& __lhs,
+        6:  965-block  0
         -:  966:	      const __normal_iterator<_Iterator, _Container>& __rhs)
         -:  967:    _GLIBCXX_NOEXCEPT
-        -:  968:    { return __lhs.base() - __rhs.base(); }
+        6:  968:    { return __lhs.base() - __rhs.base(); }
+        6:  968-block  0
         -:  969:
         -:  970:  template<typename _Iterator, typename _Container>
         -:  971:    inline __normal_iterator<_Iterator, _Container>
@@ -1036,18 +1054,18 @@
         -:  983:
         -:  984:  template<typename _Iterator, typename _Container>
         -:  985:    _Iterator
-       96:  986:    __niter_base(__gnu_cxx::__normal_iterator<_Iterator, _Container> __it)
-    $$$$$:  986-block  0
-       84:  986-block  1
+      150:  986:    __niter_base(__gnu_cxx::__normal_iterator<_Iterator, _Container> __it)
+      138:  986-block  0
+    $$$$$:  986-block  1
     $$$$$:  986-block  2
        12:  986-block  3
     $$$$$:  986-block  4
     $$$$$:  986-block  5
     $$$$$:  986-block  6
     $$$$$:  986-block  7
-       96:  987:    { return __it.base(); }
-    $$$$$:  987-block  0
-       84:  987-block  1
+      150:  987:    { return __it.base(); }
+      138:  987-block  0
+    $$$$$:  987-block  1
     $$$$$:  987-block  2
        12:  987-block  3
     $$$$$:  987-block  4
@@ -1105,10 +1123,12 @@
         -: 1036:      : _M_current() { }
         -: 1037:
         -: 1038:      explicit _GLIBCXX17_CONSTEXPR
-       64: 1039:      move_iterator(iterator_type __i)
-        6: 1039-block  0
-       58: 1039-block  1
-       64: 1040:      : _M_current(__i) { }
+       90: 1039:      move_iterator(iterator_type __i)
+        2: 1039-block  0
+        6: 1039-block  1
+       20: 1039-block  2
+       62: 1039-block  3
+       90: 1040:      : _M_current(__i) { }
         -: 1041:
         -: 1042:      template<typename _Iter>
         -: 1043:	_GLIBCXX17_CONSTEXPR
@@ -1116,18 +1136,24 @@
         -: 1045:	: _M_current(__i.base()) { }
         -: 1046:
         -: 1047:      _GLIBCXX17_CONSTEXPR iterator_type
-       64: 1048:      base() const
-        6: 1048-block  0
-       58: 1048-block  1
-       64: 1049:      { return _M_current; }
-        6: 1049-block  0
-       58: 1049-block  1
+       90: 1048:      base() const
+        2: 1048-block  0
+        6: 1048-block  1
+       20: 1048-block  2
+       62: 1048-block  3
+       90: 1049:      { return _M_current; }
+        2: 1049-block  0
+        6: 1049-block  1
+       20: 1049-block  2
+       62: 1049-block  3
         -: 1050:
         -: 1051:      _GLIBCXX17_CONSTEXPR reference
     #####: 1052:      operator*() const
     $$$$$: 1052-block  0
+    $$$$$: 1052-block  1
     #####: 1053:      { return static_cast<reference>(*_M_current); }
     $$$$$: 1053-block  0
+    $$$$$: 1053-block  1
         -: 1054:
         -: 1055:      _GLIBCXX17_CONSTEXPR pointer
         -: 1056:      operator->() const
@@ -1136,10 +1162,12 @@
         -: 1059:      _GLIBCXX17_CONSTEXPR move_iterator&
     #####: 1060:      operator++()
     $$$$$: 1060-block  0
+    $$$$$: 1060-block  1
         -: 1061:      {
     #####: 1062:	++_M_current;
     #####: 1063:	return *this;
     $$$$$: 1063-block  0
+    $$$$$: 1063-block  1
         -: 1064:      }
         -: 1065:
         -: 1066:      _GLIBCXX17_CONSTEXPR move_iterator
@@ -1203,11 +1231,13 @@
         -: 1124:
         -: 1125:  template<typename _Iterator>
         -: 1126:    inline _GLIBCXX17_CONSTEXPR bool
-        3: 1127:    operator==(const move_iterator<_Iterator>& __x,
-        3: 1127-block  0
+        4: 1127:    operator==(const move_iterator<_Iterator>& __x,
+        1: 1127-block  0
+        3: 1127-block  1
         -: 1128:	       const move_iterator<_Iterator>& __y)
-        3: 1129:    { return __x.base() == __y.base(); }
-        3: 1129-block  0
+        4: 1129:    { return __x.base() == __y.base(); }
+        1: 1129-block  0
+        3: 1129-block  1
         -: 1130:
         -: 1131:  template<typename _IteratorL, typename _IteratorR>
         -: 1132:    inline _GLIBCXX17_CONSTEXPR bool
@@ -1217,11 +1247,13 @@
         -: 1136:
         -: 1137:  template<typename _Iterator>
         -: 1138:    inline _GLIBCXX17_CONSTEXPR bool
-        3: 1139:    operator!=(const move_iterator<_Iterator>& __x,
-        3: 1139-block  0
+        4: 1139:    operator!=(const move_iterator<_Iterator>& __x,
+        1: 1139-block  0
+        3: 1139-block  1
         -: 1140:	       const move_iterator<_Iterator>& __y)
-        3: 1141:    { return !(__x == __y); }
-        3: 1141-block  0
+        4: 1141:    { return !(__x == __y); }
+        1: 1141-block  0
+        3: 1141-block  1
         -: 1142:
         -: 1143:  template<typename _IteratorL, typename _IteratorR>
         -: 1144:    inline _GLIBCXX17_CONSTEXPR bool
@@ -1304,12 +1336,16 @@
         -: 1221:    = typename conditional<__move_if_noexcept_cond<_Tp>::value,
         -: 1222:			   const _Tp*, move_iterator<_Tp*>>::type>
         -: 1223:    inline _GLIBCXX17_CONSTEXPR _ReturnType
-       64: 1224:    __make_move_if_noexcept_iterator(_Tp* __i)
-        6: 1224-block  0
-       58: 1224-block  1
-       64: 1225:    { return _ReturnType(__i); }
-        6: 1225-block  0
-       58: 1225-block  1
+       90: 1224:    __make_move_if_noexcept_iterator(_Tp* __i)
+        2: 1224-block  0
+        6: 1224-block  1
+       20: 1224-block  2
+       62: 1224-block  3
+       90: 1225:    { return _ReturnType(__i); }
+        2: 1225-block  0
+        6: 1225-block  1
+       20: 1225-block  2
+       62: 1225-block  3
         -: 1226:
         -: 1227:  // @} group iterators
         -: 1228:
@@ -1328,11 +1364,13 @@
         -: 1241:
         -: 1242:  template<typename _Iterator>
         -: 1243:    auto
-       58: 1244:    __miter_base(move_iterator<_Iterator> __it)
-       58: 1244-block  0
+       82: 1244:    __miter_base(move_iterator<_Iterator> __it)
+       20: 1244-block  0
+       62: 1244-block  1
         -: 1245:    -> decltype(__miter_base(__it.base()))
-       58: 1246:    { return __miter_base(__it.base()); }
-       58: 1246-block  0
+       82: 1246:    { return __miter_base(__it.base()); }
+       20: 1246-block  0
+       62: 1246-block  1
         -: 1247:
         -: 1248:_GLIBCXX_END_NAMESPACE_VERSION
         -: 1249:} // namespace

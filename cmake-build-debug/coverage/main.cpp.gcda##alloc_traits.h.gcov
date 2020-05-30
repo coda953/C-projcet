@@ -96,27 +96,27 @@
         -:   91:      destroy(_Alloc& __a, _Ptr __p)
         -:   92:      { _Base_type::destroy(__a, std::addressof(*__p)); }
         -:   93:
-       54:   94:    static _Alloc _S_select_on_copy(const _Alloc& __a)
-       42:   94-block  0
-        6:   94-block  1
+       84:   94:    static _Alloc _S_select_on_copy(const _Alloc& __a)
+       69:   94-block  0
+        9:   94-block  1
         6:   94-block  2
-       54:   95:    { return _Base_type::select_on_container_copy_construction(__a); }
-       42:   95-block  0
-        6:   95-block  1
+       84:   95:    { return _Base_type::select_on_container_copy_construction(__a); }
+       69:   95-block  0
+        9:   95-block  1
         6:   95-block  2
         -:   96:
         -:   97:    static void _S_on_swap(_Alloc& __a, _Alloc& __b)
         -:   98:    { std::__alloc_on_swap(__a, __b); }
         -:   99:
-        8:  100:    static constexpr bool _S_propagate_on_copy_assign()
+       11:  100:    static constexpr bool _S_propagate_on_copy_assign()
     $$$$$:  100-block  0
     $$$$$:  100-block  1
-        6:  100-block  2
+        9:  100-block  2
         2:  100-block  3
-        8:  101:    { return _Base_type::propagate_on_container_copy_assignment::value; }
+       11:  101:    { return _Base_type::propagate_on_container_copy_assignment::value; }
     $$$$$:  101-block  0
     $$$$$:  101-block  1
-        6:  101-block  2
+        9:  101-block  2
         2:  101-block  3
         -:  102:
         -:  103:    static constexpr bool _S_propagate_on_move_assign()

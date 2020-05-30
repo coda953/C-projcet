@@ -81,24 +81,24 @@
         -:   76:      typedef std::true_type propagate_on_container_move_assignment;
         -:   77:#endif
         -:   78:
-       35:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+       54:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
         5:   79-block  0
-        8:   79-block  1
-        6:   79-block  2
-       16:   79-block  3
+       14:   79-block  1
+       18:   79-block  2
+       17:   79-block  3
         -:   80:
-      116:   81:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
-       90:   81-block  0
-       14:   81-block  1
+      186:   81:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
+      152:   81-block  0
+       22:   81-block  1
        12:   81-block  2
         -:   82:
         -:   83:      template<typename _Tp1>
         -:   84:	new_allocator(const new_allocator<_Tp1>&) _GLIBCXX_USE_NOEXCEPT { }
         -:   85:
-      136:   86:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+      215:   86:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
         5:   86-block  0
-       20:   86-block  1
-       90:   86-block  2
+       32:   86-block  1
+      157:   86-block  2
        21:   86-block  3
         -:   87:
         -:   88:      pointer
@@ -112,17 +112,17 @@
         -:   96:      // NB: __n is permitted to be 0.  The C++ standard says nothing
         -:   97:      // about what the return value is when __n == 0.
         -:   98:      pointer
-       92:   99:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+      143:   99:      allocate(size_type __n, const void* = static_cast<const void*>(0))
         5:   99-block  0
-       14:   99-block  1
-       48:   99-block  2
-       25:   99-block  3
+       23:   99-block  1
+       89:   99-block  2
+       26:   99-block  3
         -:  100:      {
-       92:  101:	if (__n > this->max_size())
+      143:  101:	if (__n > this->max_size())
         5:  101-block  0
-       14:  101-block  1
-       48:  101-block  2
-       25:  101-block  3
+       23:  101-block  1
+       89:  101-block  2
+       26:  101-block  3
     #####:  102:	  std::__throw_bad_alloc();
     $$$$$:  102-block  0
     $$$$$:  102-block  1
@@ -136,18 +136,18 @@
         -:  108:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
         -:  109:	  }
         -:  110:#endif
-       92:  111:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+      143:  111:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
         5:  111-block  0
-       14:  111-block  1
-       48:  111-block  2
-       25:  111-block  3
+       23:  111-block  1
+       89:  111-block  2
+       26:  111-block  3
         -:  112:      }
         -:  113:
         -:  114:      // __p is not permitted to be a null pointer.
         -:  115:      void
-       77:  116:      deallocate(pointer __p, size_type)
-       12:  116-block  0
-       42:  116-block  1
+      118:  116:      deallocate(pointer __p, size_type)
+       19:  116-block  0
+       76:  116-block  1
        18:  116-block  2
         5:  116-block  3
         -:  117:      {
@@ -158,34 +158,39 @@
         -:  122:	    return;
         -:  123:	  }
         -:  124:#endif
-       77:  125:	::operator delete(__p);
-       12:  125-block  0
-       42:  125-block  1
+      118:  125:	::operator delete(__p);
+       19:  125-block  0
+       76:  125-block  1
        18:  125-block  2
         5:  125-block  3
-       77:  126:      }
+      118:  126:      }
         -:  127:
         -:  128:      size_type
-      136:  129:      max_size() const _GLIBCXX_USE_NOEXCEPT
+      205:  129:      max_size() const _GLIBCXX_USE_NOEXCEPT
        11:  129-block  0
-       14:  129-block  1
-       48:  129-block  2
-       63:  129-block  3
-      136:  130:      { return size_t(-1) / sizeof(_Tp); }
+       25:  129-block  1
+      103:  129-block  2
+       66:  129-block  3
+      205:  130:      { return size_t(-1) / sizeof(_Tp); }
        11:  130-block  0
-       14:  130-block  1
-       48:  130-block  2
-       63:  130-block  3
+       25:  130-block  1
+      103:  130-block  2
+       66:  130-block  3
         -:  131:
         -:  132:#if __cplusplus >= 201103L
         -:  133:      template<typename _Up, typename... _Args>
         -:  134:	void
-        -:  135:	construct(_Up* __p, _Args&&... __args)
-        -:  136:	{ ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+        3:  135:	construct(_Up* __p, _Args&&... __args)
+        3:  135-block  0
+        3:  136:	{ ::new((void *)__p) _Up(std::forward<_Args>(__args)...); }
+        3:  136-block  0
+        3:  136-block  1
+    $$$$$:  136-block  2
         -:  137:
         -:  138:      template<typename _Up>
         -:  139:	void
-        -:  140:	destroy(_Up* __p) { __p->~_Up(); }
+    #####:  140:	destroy(_Up* __p) { __p->~_Up(); }
+    $$$$$:  140-block  0
         -:  141:#else
         -:  142:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  143:      // 402. wrong new expression in [some_] allocator::construct

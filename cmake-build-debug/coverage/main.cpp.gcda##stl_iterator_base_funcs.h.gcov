@@ -100,17 +100,17 @@
         -:   95:  template<typename _RandomAccessIterator>
         -:   96:    inline _GLIBCXX14_CONSTEXPR
         -:   97:    typename iterator_traits<_RandomAccessIterator>::difference_type
-        8:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
-        2:   98-block  0
-        6:   98-block  1
+       17:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
+        4:   98-block  0
+       13:   98-block  1
         -:   99:               random_access_iterator_tag)
         -:  100:    {
         -:  101:      // concept requirements
         -:  102:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
         -:  103:				  _RandomAccessIterator>)
-        8:  104:      return __last - __first;
-        2:  104-block  0
-        6:  104-block  1
+       17:  104:      return __last - __first;
+        4:  104-block  0
+       13:  104-block  1
         -:  105:    }
         -:  106:
         -:  107:#if _GLIBCXX_USE_CXX11_ABI
@@ -144,15 +144,15 @@
         -:  135:  template<typename _InputIterator>
         -:  136:    inline _GLIBCXX17_CONSTEXPR
         -:  137:    typename iterator_traits<_InputIterator>::difference_type
-        8:  138:    distance(_InputIterator __first, _InputIterator __last)
-        2:  138-block  0
-        6:  138-block  1
+       17:  138:    distance(_InputIterator __first, _InputIterator __last)
+        4:  138-block  0
+       13:  138-block  1
         -:  139:    {
         -:  140:      // concept requirements -- taken care of in __distance
-        8:  141:      return std::__distance(__first, __last,
-        8:  142:			     std::__iterator_category(__first));
-        2:  142-block  0
-        6:  142-block  1
+       17:  141:      return std::__distance(__first, __last,
+       17:  142:			     std::__iterator_category(__first));
+        4:  142-block  0
+       13:  142-block  1
         -:  143:    }
         -:  144:
         -:  145:  template<typename _InputIterator, typename _Distance>

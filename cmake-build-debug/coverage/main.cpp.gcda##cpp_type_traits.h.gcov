@@ -410,26 +410,28 @@
         -:  405:  // remove the move_iterator wrapper.
         -:  406:  template<typename _Iterator>
         -:  407:    inline _Iterator
-      166:  408:    __miter_base(_Iterator __it)
-       84:  408-block  0
-    $$$$$:  408-block  1
-       58:  408-block  2
-       12:  408-block  3
-       12:  408-block  4
-    $$$$$:  408-block  5
+      258:  408:    __miter_base(_Iterator __it)
+      138:  408-block  0
+       20:  408-block  1
+       62:  408-block  2
+       26:  408-block  3
+    $$$$$:  408-block  4
+       12:  408-block  5
     $$$$$:  408-block  6
     $$$$$:  408-block  7
     $$$$$:  408-block  8
-      166:  409:    { return __it; }
-       84:  409-block  0
-    $$$$$:  409-block  1
-       58:  409-block  2
-       12:  409-block  3
-       12:  409-block  4
-    $$$$$:  409-block  5
+    $$$$$:  408-block  9
+      258:  409:    { return __it; }
+      138:  409-block  0
+       20:  409-block  1
+       62:  409-block  2
+       26:  409-block  3
+    $$$$$:  409-block  4
+       12:  409-block  5
     $$$$$:  409-block  6
     $$$$$:  409-block  7
     $$$$$:  409-block  8
+    $$$$$:  409-block  9
         -:  410:
         -:  411:_GLIBCXX_END_NAMESPACE_VERSION
         -:  412:} // namespace

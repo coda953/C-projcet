@@ -181,24 +181,24 @@
         -:  176:
         -:  177:  template<typename _Tp, typename _Alloc>
         -:  178:    vector<_Tp, _Alloc>&
-        8:  179:    vector<_Tp, _Alloc>::
+       11:  179:    vector<_Tp, _Alloc>::
     $$$$$:  179-block  0
     $$$$$:  179-block  1
-        6:  179-block  2
+        9:  179-block  2
         2:  179-block  3
         -:  180:    operator=(const vector<_Tp, _Alloc>& __x)
         -:  181:    {
-        8:  182:      if (&__x != this)
+       11:  182:      if (&__x != this)
     $$$$$:  182-block  0
     $$$$$:  182-block  1
-        6:  182-block  2
+        9:  182-block  2
         2:  182-block  3
         -:  183:	{
         -:  184:#if __cplusplus >= 201103L
-        8:  185:	  if (_Alloc_traits::_S_propagate_on_copy_assign())
+       11:  185:	  if (_Alloc_traits::_S_propagate_on_copy_assign())
     $$$$$:  185-block  0
     $$$$$:  185-block  1
-        6:  185-block  2
+        9:  185-block  2
         2:  185-block  3
         -:  186:	    {
     #####:  187:	      if (!_Alloc_traits::_S_always_equal()
@@ -245,26 +245,26 @@
         -:  200:				   __x._M_get_Tp_allocator());
         -:  201:	    }
         -:  202:#endif
-        8:  203:	  const size_type __xlen = __x.size();
+       11:  203:	  const size_type __xlen = __x.size();
     $$$$$:  203-block  0
     $$$$$:  203-block  1
-        6:  203-block  2
+        9:  203-block  2
         2:  203-block  3
-        8:  204:	  if (__xlen > capacity())
+       11:  204:	  if (__xlen > capacity())
         -:  205:	    {
-        8:  206:	      pointer __tmp = _M_allocate_and_copy(__xlen, __x.begin(),
+       11:  206:	      pointer __tmp = _M_allocate_and_copy(__xlen, __x.begin(),
     $$$$$:  206-block  0
     $$$$$:  206-block  1
-        6:  206-block  2
+        9:  206-block  2
         2:  206-block  3
         -:  207:						   __x.end());
-        8:  208:	      std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
-        8:  209:			    _M_get_Tp_allocator());
-        8:  210:	      _M_deallocate(this->_M_impl._M_start,
-        8:  211:			    this->_M_impl._M_end_of_storage
-        8:  212:			    - this->_M_impl._M_start);
-        8:  213:	      this->_M_impl._M_start = __tmp;
-        8:  214:	      this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __xlen;
+       11:  208:	      std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
+       11:  209:			    _M_get_Tp_allocator());
+       11:  210:	      _M_deallocate(this->_M_impl._M_start,
+       11:  211:			    this->_M_impl._M_end_of_storage
+       11:  212:			    - this->_M_impl._M_start);
+       11:  213:	      this->_M_impl._M_start = __tmp;
+       11:  214:	      this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __xlen;
         -:  215:	    }
     #####:  216:	  else if (size() >= __xlen)
     $$$$$:  216-block  0
@@ -292,16 +292,16 @@
         -:  227:					  this->_M_impl._M_finish,
     #####:  228:					  _M_get_Tp_allocator());
         -:  229:	    }
-        8:  230:	  this->_M_impl._M_finish = this->_M_impl._M_start + __xlen;
+       11:  230:	  this->_M_impl._M_finish = this->_M_impl._M_start + __xlen;
     $$$$$:  230-block  0
     $$$$$:  230-block  1
-        6:  230-block  2
+        9:  230-block  2
         2:  230-block  3
         -:  231:	}
-        8:  232:      return *this;
+       11:  232:      return *this;
     $$$$$:  232-block  0
     $$$$$:  232-block  1
-        6:  232-block  2
+        9:  232-block  2
         2:  232-block  3
         -:  233:    }
         -:  234:
@@ -464,7 +464,8 @@
         -:  391:  template<typename _Tp, typename _Alloc>
         -:  392:    template<typename... _Args>
         -:  393:      void
-        -:  394:      vector<_Tp, _Alloc>::
+        3:  394:      vector<_Tp, _Alloc>::
+        3:  394-block  0
         -:  395:      _M_realloc_insert(iterator __position, _Args&&... __args)
         -:  396:#else
         -:  397:  template<typename _Tp, typename _Alloc>
@@ -473,11 +474,12 @@
         -:  400:    _M_realloc_insert(iterator __position, const _Tp& __x)
         -:  401:#endif
         -:  402:    {
-        -:  403:      const size_type __len =
+        3:  403:      const size_type __len =
+        3:  403-block  0
         -:  404:	_M_check_len(size_type(1), "vector::_M_realloc_insert");
-        -:  405:      const size_type __elems_before = __position - begin();
-        -:  406:      pointer __new_start(this->_M_allocate(__len));
-        -:  407:      pointer __new_finish(__new_start);
+        3:  405:      const size_type __elems_before = __position - begin();
+        3:  406:      pointer __new_start(this->_M_allocate(__len));
+        3:  407:      pointer __new_finish(__new_start);
         -:  408:      __try
         -:  409:	{
         -:  410:	  // The order of the three operations is dictated by the C++11
@@ -485,46 +487,57 @@
         -:  412:	  // to the existing vector.  This is an issue only for callers
         -:  413:	  // taking the element by lvalue ref (see last bullet of C++11
         -:  414:	  // [res.on.arguments]).
-        -:  415:	  _Alloc_traits::construct(this->_M_impl,
-        -:  416:				   __new_start + __elems_before,
+        3:  415:	  _Alloc_traits::construct(this->_M_impl,
+        3:  416:				   __new_start + __elems_before,
         -:  417:#if __cplusplus >= 201103L
         -:  418:				   std::forward<_Args>(__args)...);
         -:  419:#else
         -:  420:				   __x);
         -:  421:#endif
-        -:  422:	  __new_finish = pointer();
+        3:  422:	  __new_finish = pointer();
         -:  423:
-        -:  424:	  __new_finish
+        3:  424:	  __new_finish
         -:  425:	    = std::__uninitialized_move_if_noexcept_a
-        -:  426:	    (this->_M_impl._M_start, __position.base(),
-        -:  427:	     __new_start, _M_get_Tp_allocator());
+        3:  426:	    (this->_M_impl._M_start, __position.base(),
+        3:  427:	     __new_start, _M_get_Tp_allocator());
+        3:  427-block  0
         -:  428:
-        -:  429:	  ++__new_finish;
+        3:  429:	  ++__new_finish;
         -:  430:
-        -:  431:	  __new_finish
+        3:  431:	  __new_finish
         -:  432:	    = std::__uninitialized_move_if_noexcept_a
-        -:  433:	    (__position.base(), this->_M_impl._M_finish,
-        -:  434:	     __new_finish, _M_get_Tp_allocator());
+        3:  433:	    (__position.base(), this->_M_impl._M_finish,
+        3:  434:	     __new_finish, _M_get_Tp_allocator());
+        3:  434-block  0
         -:  435:	}
-        -:  436:      __catch(...)
+    =====:  436:      __catch(...)
+    %%%%%:  436-block  0
+    %%%%%:  436-block  1
         -:  437:	{
-        -:  438:	  if (!__new_finish)
-        -:  439:	    _Alloc_traits::destroy(this->_M_impl,
-        -:  440:				   __new_start + __elems_before);
+    =====:  438:	  if (!__new_finish)
+    =====:  439:	    _Alloc_traits::destroy(this->_M_impl,
+    %%%%%:  439-block  0
+    %%%%%:  439-block  1
+    =====:  440:				   __new_start + __elems_before);
         -:  441:	  else
-        -:  442:	    std::_Destroy(__new_start, __new_finish, _M_get_Tp_allocator());
-        -:  443:	  _M_deallocate(__new_start, __len);
-        -:  444:	  __throw_exception_again;
+    =====:  442:	    std::_Destroy(__new_start, __new_finish, _M_get_Tp_allocator());
+    %%%%%:  442-block  0
+    =====:  443:	  _M_deallocate(__new_start, __len);
+    %%%%%:  443-block  0
+    =====:  444:	  __throw_exception_again;
+    %%%%%:  444-block  0
         -:  445:	}
-        -:  446:      std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
-        -:  447:		    _M_get_Tp_allocator());
-        -:  448:      _M_deallocate(this->_M_impl._M_start,
-        -:  449:		    this->_M_impl._M_end_of_storage
-        -:  450:		    - this->_M_impl._M_start);
-        -:  451:      this->_M_impl._M_start = __new_start;
-        -:  452:      this->_M_impl._M_finish = __new_finish;
-        -:  453:      this->_M_impl._M_end_of_storage = __new_start + __len;
-        -:  454:    }
+        3:  446:      std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
+        3:  447:		    _M_get_Tp_allocator());
+        3:  447-block  0
+        3:  448:      _M_deallocate(this->_M_impl._M_start,
+        3:  449:		    this->_M_impl._M_end_of_storage
+        3:  450:		    - this->_M_impl._M_start);
+        3:  451:      this->_M_impl._M_start = __new_start;
+        3:  452:      this->_M_impl._M_finish = __new_finish;
+        3:  453:      this->_M_impl._M_end_of_storage = __new_start + __len;
+        3:  454:    }
+    %%%%%:  454-block  0
         -:  455:
         -:  456:  template<typename _Tp, typename _Alloc>
         -:  457:    void
@@ -624,85 +637,117 @@
         -:  551:#if __cplusplus >= 201103L
         -:  552:  template<typename _Tp, typename _Alloc>
         -:  553:    void
-       12:  554:    vector<_Tp, _Alloc>::
-        3:  554-block  0
-        9:  554-block  1
+       17:  554:    vector<_Tp, _Alloc>::
+        4:  554-block  0
+        1:  554-block  1
+        3:  554-block  2
+        9:  554-block  3
         -:  555:    _M_default_append(size_type __n)
         -:  556:    {
-       12:  557:      if (__n != 0)
-        3:  557-block  0
-        9:  557-block  1
+       17:  557:      if (__n != 0)
+        4:  557-block  0
+        1:  557-block  1
+        3:  557-block  2
+        9:  557-block  3
         -:  558:	{
-       12:  559:	  if (size_type(this->_M_impl._M_end_of_storage
-        3:  559-block  0
-        9:  559-block  1
-       12:  560:			- this->_M_impl._M_finish) >= __n)
+       17:  559:	  if (size_type(this->_M_impl._M_end_of_storage
+        4:  559-block  0
+        1:  559-block  1
+        3:  559-block  2
+        9:  559-block  3
+       17:  560:			- this->_M_impl._M_finish) >= __n)
         -:  561:	    {
     #####:  562:	      this->_M_impl._M_finish =
     #####:  563:		std::__uninitialized_default_n_a(this->_M_impl._M_finish,
     #####:  564:						 __n, _M_get_Tp_allocator());
     $$$$$:  564-block  0
     $$$$$:  564-block  1
+    $$$$$:  564-block  2
+    $$$$$:  564-block  3
         -:  565:	    }
         -:  566:	  else
         -:  567:	    {
-       12:  568:	      const size_type __len =
-        3:  568-block  0
-        9:  568-block  1
+       17:  568:	      const size_type __len =
+        4:  568-block  0
+        1:  568-block  1
+        3:  568-block  2
+        9:  568-block  3
         -:  569:		_M_check_len(__n, "vector::_M_default_append");
-       12:  570:	      const size_type __size = this->size();
-       12:  571:	      pointer __new_start(this->_M_allocate(__len));
-       12:  572:	      pointer __destroy_from = pointer();
+       17:  570:	      const size_type __size = this->size();
+       17:  571:	      pointer __new_start(this->_M_allocate(__len));
+       17:  572:	      pointer __destroy_from = pointer();
         -:  573:	      __try
         -:  574:		{
-       12:  575:		  std::__uninitialized_default_n_a(__new_start + __size,
-       12:  576:						   __n, _M_get_Tp_allocator());
-       12:  577:		  __destroy_from = __new_start + __size;
-       12:  578:		  std::__uninitialized_move_if_noexcept_a(
+       17:  575:		  std::__uninitialized_default_n_a(__new_start + __size,
+       17:  576:						   __n, _M_get_Tp_allocator());
+       17:  577:		  __destroy_from = __new_start + __size;
+       17:  578:		  std::__uninitialized_move_if_noexcept_a(
         -:  579:		      this->_M_impl._M_start, this->_M_impl._M_finish,
-       12:  580:		      __new_start, _M_get_Tp_allocator());
-        3:  580-block  0
-        9:  580-block  1
+       17:  580:		      __new_start, _M_get_Tp_allocator());
+        4:  580-block  0
+        1:  580-block  1
+        3:  580-block  2
+        9:  580-block  3
         -:  581:		}
     =====:  582:	      __catch(...)
     %%%%%:  582-block  0
     %%%%%:  582-block  1
     %%%%%:  582-block  2
     %%%%%:  582-block  3
+    %%%%%:  582-block  4
+    %%%%%:  582-block  5
+    %%%%%:  582-block  6
+    %%%%%:  582-block  7
         -:  583:		{
     =====:  584:		  if (__destroy_from)
     =====:  585:		    std::_Destroy(__destroy_from, __destroy_from + __n,
     %%%%%:  585-block  0
     %%%%%:  585-block  1
+    %%%%%:  585-block  2
+    %%%%%:  585-block  3
     =====:  586:				  _M_get_Tp_allocator());
     %%%%%:  586-block  0
     %%%%%:  586-block  1
+    %%%%%:  586-block  2
+    %%%%%:  586-block  3
     =====:  587:		  _M_deallocate(__new_start, __len);
     %%%%%:  587-block  0
     %%%%%:  587-block  1
+    %%%%%:  587-block  2
+    %%%%%:  587-block  3
     =====:  588:		  __throw_exception_again;
     %%%%%:  588-block  0
     %%%%%:  588-block  1
+    %%%%%:  588-block  2
+    %%%%%:  588-block  3
         -:  589:		}
-       12:  590:	      std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
-       12:  591:			    _M_get_Tp_allocator());
-        3:  591-block  0
-        9:  591-block  1
-       12:  592:	      _M_deallocate(this->_M_impl._M_start,
-       12:  593:			    this->_M_impl._M_end_of_storage
-       12:  594:			    - this->_M_impl._M_start);
-       12:  595:	      this->_M_impl._M_start = __new_start;
-       12:  596:	      this->_M_impl._M_finish = __new_start + __size + __n;
-       12:  597:	      this->_M_impl._M_end_of_storage = __new_start + __len;
-        3:  597-block  0
-        9:  597-block  1
+       17:  590:	      std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
+       17:  591:			    _M_get_Tp_allocator());
+        4:  591-block  0
+        1:  591-block  1
+        3:  591-block  2
+        9:  591-block  3
+       17:  592:	      _M_deallocate(this->_M_impl._M_start,
+       17:  593:			    this->_M_impl._M_end_of_storage
+       17:  594:			    - this->_M_impl._M_start);
+       17:  595:	      this->_M_impl._M_start = __new_start;
+       17:  596:	      this->_M_impl._M_finish = __new_start + __size + __n;
+       17:  597:	      this->_M_impl._M_end_of_storage = __new_start + __len;
+        4:  597-block  0
+        1:  597-block  1
+        3:  597-block  2
+        9:  597-block  3
         -:  598:	    }
         -:  599:	}
-       12:  600:    }
-        3:  600-block  0
+       17:  600:    }
+        4:  600-block  0
     %%%%%:  600-block  1
-        9:  600-block  2
+        1:  600-block  2
     %%%%%:  600-block  3
+        3:  600-block  4
+    %%%%%:  600-block  5
+        9:  600-block  6
+    %%%%%:  600-block  7
         -:  601:
         -:  602:  template<typename _Tp, typename _Alloc>
         -:  603:    bool

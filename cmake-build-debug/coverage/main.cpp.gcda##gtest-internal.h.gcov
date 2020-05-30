@@ -306,8 +306,8 @@
         -:  301:            // around may change its bits, although the new value is guaranteed
         -:  302:            // to be also a NAN.  Therefore, don't expect this constructor to
         -:  303:            // preserve the bits in x when x is a NAN.
-        4:  304:            explicit FloatingPoint(const RawType &x) { u_.value_ = x; }
-        4:  304-block  0
+       36:  304:            explicit FloatingPoint(const RawType &x) { u_.value_ = x; }
+       36:  304-block  0
         -:  305:
         -:  306:            // Static methods
         -:  307:
@@ -334,9 +334,9 @@
         -:  328:            const Bits &bits() const { return u_.bits_; }
         -:  329:
         -:  330:            // Returns the exponent bits of this number.
-        8:  331:            Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
-        4:  331-block  0
-        4:  331-block  1
+       72:  331:            Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
+       36:  331-block  0
+       36:  331-block  1
         -:  332:
         -:  333:            // Returns the fraction bits of this number.
     #####:  334:            Bits fraction_bits() const { return kFractionBitMask & u_.bits_; }
@@ -347,16 +347,16 @@
         -:  337:            Bits sign_bit() const { return kSignBitMask & u_.bits_; }
         -:  338:
         -:  339:            // Returns true if and only if this is NAN (not a number).
-        4:  340:            bool is_nan() const {
-        4:  340-block  0
+       36:  340:            bool is_nan() const {
+       36:  340-block  0
         -:  341:                // It's a NAN if the exponent bits are all ones and the fraction
         -:  342:                // bits are not entirely zeros.
-        4:  343:                return (exponent_bits() == kExponentBitMask) && (fraction_bits() != 0);
-        4:  343-block  0
+       36:  343:                return (exponent_bits() == kExponentBitMask) && (fraction_bits() != 0);
+       36:  343-block  0
     $$$$$:  343-block  1
     $$$$$:  343-block  2
-        4:  343-block  3
-        4:  343-block  4
+       36:  343-block  3
+       36:  343-block  4
         -:  344:            }
         -:  345:
         -:  346:            // Returns true if and only if this number is at most kMaxUlps ULP's away
@@ -365,21 +365,21 @@
         -:  349:            //   - returns false if either number is (or both are) NAN.
         -:  350:            //   - treats really large numbers as almost equal to infinity.
         -:  351:            //   - thinks +0.0 and -0.0 are 0 DLP's apart.
-        2:  352:            bool AlmostEquals(const FloatingPoint &rhs) const {
-        2:  352-block  0
+       18:  352:            bool AlmostEquals(const FloatingPoint &rhs) const {
+       18:  352-block  0
         -:  353:                // The IEEE standard says that any comparison operation involving
         -:  354:                // a NAN must return false.
-        2:  355:                if (is_nan() || rhs.is_nan()) return false;
-        2:  355-block  0
-        2:  355-block  1
+       18:  355:                if (is_nan() || rhs.is_nan()) return false;
+       18:  355-block  0
+       18:  355-block  1
     $$$$$:  355-block  2
-        2:  355-block  3
-        2:  355-block  4
+       18:  355-block  3
+       18:  355-block  4
     $$$$$:  355-block  5
         -:  356:
-        2:  357:                return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
-        2:  357-block  0
-        2:  358:                       <= kMaxUlps;
+       18:  357:                return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
+       18:  357-block  0
+       18:  358:                       <= kMaxUlps;
         -:  359:            }
         -:  360:
         -:  361:        private:
@@ -404,32 +404,32 @@
         -:  380:            //
         -:  381:            // Read http://en.wikipedia.org/wiki/Signed_number_representations
         -:  382:            // for more details on signed number representations.
-        4:  383:            static Bits SignAndMagnitudeToBiased(const Bits &sam) {
-        4:  383-block  0
-        4:  384:                if (kSignBitMask & sam) {
-        4:  384-block  0
+       36:  383:            static Bits SignAndMagnitudeToBiased(const Bits &sam) {
+       36:  383-block  0
+       36:  384:                if (kSignBitMask & sam) {
+       36:  384-block  0
         -:  385:                    // sam represents a negative number.
-    #####:  386:                    return ~sam + 1;
-    $$$$$:  386-block  0
+       24:  386:                    return ~sam + 1;
+       24:  386-block  0
         -:  387:                } else {
         -:  388:                    // sam represents a positive number.
-        4:  389:                    return kSignBitMask | sam;
-        4:  389-block  0
+       12:  389:                    return kSignBitMask | sam;
+       12:  389-block  0
         -:  390:                }
         -:  391:            }
         -:  392:
         -:  393:            // Given two numbers in the sign-and-magnitude representation,
         -:  394:            // returns the distance between them as an unsigned number.
-        2:  395:            static Bits DistanceBetweenSignAndMagnitudeNumbers(const Bits &sam1,
-        2:  395-block  0
+       18:  395:            static Bits DistanceBetweenSignAndMagnitudeNumbers(const Bits &sam1,
+       18:  395-block  0
         -:  396:                                                               const Bits &sam2) {
-        2:  397:                const Bits biased1 = SignAndMagnitudeToBiased(sam1);
-        2:  397-block  0
-        2:  398:                const Bits biased2 = SignAndMagnitudeToBiased(sam2);
-        2:  399:                return (biased1 >= biased2) ? (biased1 - biased2) : (biased2 - biased1);
-        2:  399-block  0
+       18:  397:                const Bits biased1 = SignAndMagnitudeToBiased(sam1);
+       18:  397-block  0
+       18:  398:                const Bits biased2 = SignAndMagnitudeToBiased(sam2);
+       18:  399:                return (biased1 >= biased2) ? (biased1 - biased2) : (biased2 - biased1);
+       18:  399-block  0
     $$$$$:  399-block  1
-        2:  399-block  2
+       18:  399-block  2
         -:  400:            }
         -:  401:
         -:  402:            FloatingPointUnion u_;
@@ -499,8 +499,8 @@
         -:  465:            virtual Test *CreateTest() = 0;
         -:  466:
         -:  467:        protected:
-        6:  468:            TestFactoryBase() {}
-        6:  468-block  0
+        7:  468:            TestFactoryBase() {}
+        7:  468-block  0
         -:  469:
         -:  470:        private:
         -:  471:            GTEST_DISALLOW_COPY_AND_ASSIGN_(TestFactoryBase);
@@ -509,7 +509,7 @@
         -:  474:// This class provides implementation of TeastFactoryBase interface.
         -:  475:// It is used in TEST and TEST_F macros.
         -:  476:        template<class TestClass>
-       12:  477:        class TestFactoryImpl : public TestFactoryBase {
+       14:  477:        class TestFactoryImpl : public TestFactoryBase {
     $$$$$:  477-block  0
     $$$$$:  477-block  1
     $$$$$:  477-block  2
@@ -534,10 +534,10 @@
     $$$$$:  477-block 21
     $$$$$:  477-block 22
     $$$$$:  477-block 23
-        1:  477-block 24
-        1:  477-block 25
-        1:  477-block 26
-        1:  477-block 27
+    $$$$$:  477-block 24
+    $$$$$:  477-block 25
+    $$$$$:  477-block 26
+    $$$$$:  477-block 27
         1:  477-block 28
         1:  477-block 29
         1:  477-block 30
@@ -546,8 +546,14 @@
         1:  477-block 33
         1:  477-block 34
         1:  477-block 35
+        1:  477-block 36
+        1:  477-block 37
+        1:  477-block 38
+        1:  477-block 39
+        1:  477-block 40
+        1:  477-block 41
         -:  478:        public:
-        6:  479:            Test *CreateTest() override { return new TestClass; }
+        7:  479:            Test *CreateTest() override { return new TestClass; }
         1:  479-block  0
         1:  479-block  1
         1:  479-block  2
@@ -578,6 +584,11 @@
         1:  479-block 27
         1:  479-block 28
     %%%%%:  479-block 29
+        1:  479-block 30
+        1:  479-block 31
+        1:  479-block 32
+        1:  479-block 33
+    %%%%%:  479-block 34
         -:  480:        };
         -:  481:
         -:  482:#if GTEST_OS_WINDOWS
@@ -597,13 +608,13 @@
         -:  496:        using SetUpTestSuiteFunc = void (*)();
         -:  497:        using TearDownTestSuiteFunc = void (*)();
         -:  498:
-       24:  499:        struct CodeLocation {
-       12:  499-block  0
-       12:  499-block  1
-        6:  500:            CodeLocation(const std::string &a_file, int a_line)
-        6:  500-block  0
-        6:  501:                    : file(a_file), line(a_line) {}
-        6:  501-block  0
+       28:  499:        struct CodeLocation {
+       14:  499-block  0
+       14:  499-block  1
+        7:  500:            CodeLocation(const std::string &a_file, int a_line)
+        7:  500-block  0
+        7:  501:                    : file(a_file), line(a_line) {}
+        7:  501-block  0
         -:  502:
         -:  503:            std::string file;
         -:  504:            int line;
@@ -615,14 +626,14 @@
         -:  510:// Utility functions to help SuiteApiResolver
         -:  511:        using SetUpTearDownSuiteFuncType = void (*)();
         -:  512:
-       24:  513:        inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
-       24:  513-block  0
+       28:  513:        inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
+       28:  513-block  0
         -:  514:                SetUpTearDownSuiteFuncType a, SetUpTearDownSuiteFuncType def) {
-       24:  515:            return a == def ? nullptr : a;
-       24:  515-block  0
+       28:  515:            return a == def ? nullptr : a;
+       28:  515-block  0
     $$$$$:  515-block  1
-       24:  515-block  2
-       24:  515-block  3
+       28:  515-block  2
+       28:  515-block  3
         -:  516:        }
         -:  517:
         -:  518:        template<typename T>
@@ -635,20 +646,20 @@
         -:  525:            using Test =
         -:  526:            typename std::conditional<sizeof(T) != 0, ::testing::Test, void>::type;
         -:  527:
-        6:  528:            static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char *filename,
-        6:  528-block  0
+        7:  528:            static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char *filename,
+        7:  528-block  0
         -:  529:                                                                  int line_num) {
-        6:  530:                SetUpTearDownSuiteFuncType test_case_fp =
-        6:  530-block  0
+        7:  530:                SetUpTearDownSuiteFuncType test_case_fp =
+        7:  530-block  0
         -:  531:                        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
-        6:  532:                SetUpTearDownSuiteFuncType test_suite_fp =
+        7:  532:                SetUpTearDownSuiteFuncType test_suite_fp =
         -:  533:                        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
         -:  534:
-        6:  535:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+        7:  535:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     $$$$$:  535-block  0
-        6:  535-block  1
+        7:  535-block  1
     $$$$$:  535-block  2
-        6:  535-block  3
+        7:  535-block  3
     $$$$$:  535-block  4
     $$$$$:  535-block  5
     $$$$$:  535-block  6
@@ -660,28 +671,28 @@
     $$$$$:  538-block  1
     $$$$$:  538-block  2
         -:  539:
-        6:  540:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        6:  540-block  0
+        7:  540:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        7:  540-block  0
     $$$$$:  540-block  1
-        6:  540-block  2
-        6:  540-block  3
-        6:  540-block  4
+        7:  540-block  2
+        7:  540-block  3
+        7:  540-block  4
         -:  541:            }
         -:  542:
-        6:  543:            static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char *filename,
-        6:  543-block  0
+        7:  543:            static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char *filename,
+        7:  543-block  0
         -:  544:                                                                     int line_num) {
-        6:  545:                SetUpTearDownSuiteFuncType test_case_fp =
-        6:  545-block  0
+        7:  545:                SetUpTearDownSuiteFuncType test_case_fp =
+        7:  545-block  0
         -:  546:                        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
-        6:  547:                SetUpTearDownSuiteFuncType test_suite_fp =
+        7:  547:                SetUpTearDownSuiteFuncType test_suite_fp =
         -:  548:                        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
         -:  549:
-        6:  550:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+        7:  550:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     $$$$$:  550-block  0
-        6:  550-block  1
+        7:  550-block  1
     $$$$$:  550-block  2
-        6:  550-block  3
+        7:  550-block  3
     $$$$$:  550-block  4
     $$$$$:  550-block  5
     $$$$$:  550-block  6
@@ -693,12 +704,12 @@
     $$$$$:  553-block  1
     $$$$$:  553-block  2
         -:  554:
-        6:  555:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        6:  555-block  0
+        7:  555:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        7:  555-block  0
     $$$$$:  555-block  1
-        6:  555-block  2
-        6:  555-block  3
-        6:  555-block  4
+        7:  555-block  2
+        7:  555-block  3
+        7:  555-block  4
         -:  556:            }
         -:  557:        };
         -:  558:

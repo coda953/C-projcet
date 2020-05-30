@@ -17,13 +17,13 @@
         -:   12:class Vector;
         -:   13:
         -:   14:template<class T>
-       24:   15:class Matrix {
+       32:   15:class Matrix {
         1:   15-block  0
         1:   15-block  1
         5:   15-block  2
         5:   15-block  3
-        6:   15-block  4
-        6:   15-block  5
+       10:   15-block  4
+       10:   15-block  5
         -:   16:public:
         2:   17:    Matrix() {
         1:   17-block  0
@@ -35,37 +35,45 @@
         1:   21:    }
         1:   21-block  0
         -:   22:
-       54:   23:    vector<T> &operator[](int i) {
+      270:   23:    vector<T> &operator[](int i) {
        36:   23-block  0
-       18:   23-block  1
-       54:   24:        if (i >= row) {
+      234:   23-block  1
+      270:   24:        if (i >= row) {
        36:   24-block  0
-       18:   24-block  1
+      234:   24-block  1
     #####:   25:            cerr << "the input row is lager than row";
     $$$$$:   25-block  0
     $$$$$:   25-block  1
         -:   26:        }
-       54:   27:        return this->matrix[i];
+      270:   27:        return this->matrix[i];
        36:   27-block  0
-       18:   27-block  1
+      234:   27-block  1
         -:   28:    }
         -:   29:
-        6:   30:    Matrix(int row, int column) {
-        3:   30-block  0
-        3:   30-block  1
+        8:   30:    Matrix(int row, int column) {
+        1:   30-block  0
+        1:   30-block  1
     %%%%%:   30-block  2
-        3:   31:        this->row = row;
-        3:   32:        this->column = column;
-        3:   33:        this->matrix.resize(row);
-       12:   34:        for (int i = 0; i < row; ++i) {
-        3:   34-block  0
-       12:   34-block  1
-        9:   34-block  2
-        9:   35:            this->matrix[i].resize(column);
-        9:   35-block  0
+        3:   30-block  3
+        3:   30-block  4
+    %%%%%:   30-block  5
+        4:   31:        this->row = row;
+        4:   32:        this->column = column;
+        4:   33:        this->matrix.resize(row);
+       17:   34:        for (int i = 0; i < row; ++i) {
+        1:   34-block  0
+        5:   34-block  1
+        4:   34-block  2
+        3:   34-block  3
+       12:   34-block  4
+        9:   34-block  5
+       13:   35:            this->matrix[i].resize(column);
+        4:   35-block  0
+        9:   35-block  1
         -:   36:        }
-        3:   37:    }
-        3:   37-block  0
+        4:   37:    }
+        1:   37-block  0
+        3:   37-block  1
         -:   38:
         -:   39:    Matrix(int length) {
         -:   40:        this->row = 1;
@@ -400,308 +408,716 @@
         -:  250:
         -:  251:    }
         -:  252:
-        -:  253:    Matrix transposition() {
-        -:  254:        Matrix ans = Matrix(this->column, this->row);
-        -:  255:        for (int i = 0; i < this->row; ++i) {
-        -:  256:            for (int j = 0; j < this->column; ++j) {
-        -:  257:                ans[j][i] = this->matrix[i][j];
-        -:  258:            }
-        -:  259:        }
-        -:  260:        return ans;
-        -:  261:    }
-        -:  262:
-        -:  263:    Matrix transposition_change() {
-        -:  264:        Matrix ans = this->transposition();
-        -:  265:        this->row = ans.row;
-        -:  266:        this->column = ans.column;
-        -:  267:        this->matrix = ans.matrix;
-        -:  268:        return ans;
-        -:  269:    }
-        -:  270:
-        -:  271:    Matrix conjugation() {
-        -:  272:        Matrix ans = Matrix(this->row, this->column);
-        -:  273:        for (int i = 0; i < this->row; ++i) {
-        -:  274:            for (int j = 0; j < this->column; ++j) {
-        -:  275:                T cur(this->matrix[i][j].real(), -this->matrix[i][j].imag());
-        -:  276:                ans[i][j] = cur;
-        -:  277:            }
-        -:  278:        }
-        -:  279:        return ans;
-        -:  280:    }
-        -:  281:
-        -:  282:    Matrix conjugation_change() {
-        -:  283:        Matrix ans = this->conjugation();
-        -:  284:        this->matrix = ans.matrix;
-        -:  285:        return ans;
-        -:  286:    }
-        -:  287:
-        -:  288:    Matrix element_wise_multiplication(Matrix &other) {
-        -:  289:        if (this->row != other.row || this->column != other.column) {
-        -:  290:            cerr << "the size of these two vector is not equal" << endl;
-        -:  291:            cerr << "left size is:";
-        -:  292:            this->showSize();
-        -:  293:            cerr << "right size is:";
-        -:  294:            other.showSize();
-        -:  295:            return Matrix(0, 0);
-        -:  296:        }
-        -:  297:        Matrix ans = Matrix(this->row, this->column);
-        -:  298:        for (int i = 0; i < this->row; ++i) {
-        -:  299:            for (int j = 0; j < this->column; ++j) {
-        -:  300:                ans[i][j] = this->matrix[i][j] * other.matrix[i][j];
-        -:  301:            }
-        -:  302:        }
-        -:  303:        return ans;
-        -:  304:    }
-        -:  305:
-        -:  306:    Matrix element_wise_multiplication_change(Matrix &other) {
-        -:  307:        if (this->row != other.row || this->column != other.column) {
-        -:  308:            cerr << "the size of these two vector is not equal" << endl;
-        -:  309:            cerr << "left size is:";
-        -:  310:            this->showSize();
-        -:  311:            cerr << "right size is:";
-        -:  312:            other.showSize();
-        -:  313:            return Matrix(0, 0);
-        -:  314:        }
-        -:  315:        Matrix ans = Matrix(this->row, this->column);
-        -:  316:        for (int i = 0; i < this->row; ++i) {
-        -:  317:            for (int j = 0; j < this->column; ++j) {
-        -:  318:                ans[i][j] = this->matrix[i][j] * other.matrix[i][j];
-        -:  319:            }
-        -:  320:        }
-        -:  321:        this->row = ans.row;
-        -:  322:        this->column = ans.column;
-        -:  323:        this->matrix = ans.matrix;
-        -:  324:        return ans;
-        -:  325:    }
-        -:  326:
-        -:  327:    Matrix reshape(int row, int column) {
-        -:  328:        Matrix ans = Matrix(row, column);
-        -:  329:        int other = row * column;
-        -:  330:        int cur = this->row * this->column;
-        -:  331:        int count = 0;
-        -:  332:        while (count < min(other, cur)) {
-        -:  333:            int curRow = count / this->column;
-        -:  334:            int curColumn = count % this->column;
-        -:  335:            int ansRow = count / column;
-        -:  336:            int ansColumn = count % column;
-        -:  337:            ans[ansRow][ansColumn] = this->matrix[curRow][curColumn];
-        -:  338:            count++;
-        -:  339:        }
-        -:  340:        return ans;
-        -:  341:    }
-        -:  342:
-        -:  343:    Matrix reshape_change(int row, int column) {
-        -:  344:        Matrix ans = this->reshape(row, column);
-        -:  345:        this->row = row;
-        -:  346:        this->column = column;
-        -:  347:        this->matrix = ans.matrix;
-        -:  348:        return ans;
-        -:  349:    }
-        -:  350:
-        -:  351:    Vector<T> slicing(int from, int to) {
-        -:  352:        Matrix cur = this->reshape(1, this->row * this->column);
-        -:  353:        if (to > cur.column) {
-        -:  354:            cerr << "slicing error" << endl;
-        -:  355:            cerr << "slicing bound is large than matrix size" << endl;
-        -:  356:            return Vector<T>(0);
-        -:  357:        }
-        -:  358:        if (from < 0) {
-        -:  359:            cerr << "slicing error" << endl;
-        -:  360:            cerr << "slicing left bound is little than 0" << endl;
-        -:  361:            return Vector<T>(0);
-        -:  362:        }
-        -:  363:        Vector<T> ans = Vector<T>(to - from);
-        -:  364:        for (int i = 0; i < ans.getLength(); ++i) {
-        -:  365:            ans[i] = cur.matrix[0][from + i];
-        -:  366:        }
-        -:  367:        return ans;
-        -:  368:    }
-        -:  369:
-        1:  370:    Matrix operator+(Matrix &other) {
-        1:  370-block  0
-        1:  371:        if (this->row != other.row || this->column != other.column) {
-        1:  371-block  0
-        1:  371-block  1
-    #####:  372:            cerr << "the size of these two vector is not equal" << endl;
-    $$$$$:  372-block  0
-    $$$$$:  372-block  1
-    #####:  373:            cerr << "left size is:";
-    $$$$$:  373-block  0
-    #####:  374:            showSize();
-    $$$$$:  374-block  0
-    #####:  375:            cerr << "right size is:";
-    $$$$$:  375-block  0
-    #####:  376:            other.showSize();
-    $$$$$:  376-block  0
-    #####:  377:            return Matrix(0, 0);
-    $$$$$:  377-block  0
-    $$$$$:  377-block  1
-        -:  378:        }
-        2:  379:        Matrix ans = Matrix(row, column);
-        1:  379-block  0
-        1:  379-block  1
-        1:  379-block  2
-        1:  379-block  3
-    %%%%%:  379-block  4
-        4:  380:        for (int i = 0; i < row; ++i) {
-        1:  380-block  0
-        4:  380-block  1
-        3:  380-block  2
-       12:  381:            for (int j = 0; j < column; ++j) {
-        3:  381-block  0
-       12:  381-block  1
-        9:  382:                ans[i][j] = this->matrix[i][j] + other.matrix[i][j];
-        9:  382-block  0
-        9:  382-block  1
-        -:  383:            }
-        -:  384:        }
-        1:  385:        return ans;
-        1:  385-block  0
-        1:  385-block  1
-        -:  386:    }
-        -:  387:
-        -:  388:    Matrix operator+(Vector<T> other) const {
-        -:  389:        if (this->column != other.getLength()) {
-        -:  390:            cerr << "The column of the matrix is not equal to the vector length" << endl;
-        -:  391:            return Matrix(0, 0);
-        -:  392:        }
-        -:  393:        Matrix ans = Matrix(this->row, this->column);
-        -:  394:        for (int i = 0; i < row; ++i) {
-        -:  395:            for (int j = 0; j < column; ++j) {
-        -:  396:                ans[i][j] = this->matrix[i][j] + other[j];
-        -:  397:            }
-        -:  398:        }
-        -:  399:        return ans;
-        -:  400:    }
-        -:  401:
-        -:  402:    Matrix operator-(const Matrix &other) const {
-        -:  403:        if (this->row != other.row || this->column != other.column) {
-        -:  404:            cerr << "the size of these two vector is not equal" << endl;
-        -:  405:            cerr << "left size is:";
-        -:  406:            this->showSize();
-        -:  407:            cerr << "right size is:";
-        -:  408:            other.showSize();
-        -:  409:            return Matrix(0, 0);
-        -:  410:        }
-        -:  411:        Matrix ans = Matrix(row, column);
-        -:  412:        for (int i = 0; i < row; ++i) {
-        -:  413:            for (int j = 0; j < column; ++j) {
-        -:  414:                ans[i][j] = this->matrix[i][j] - other.matrix[i][j];
-        -:  415:            }
-        -:  416:        }
-        -:  417:        return ans;
-        -:  418:    }
-        -:  419:
-        -:  420:    Matrix operator-(Vector<T> other) const {
-        -:  421:        if (this->column != other.getLength()) {
-        -:  422:            cerr << "The column of the matrix is not equal to the vector length" << endl;
-        -:  423:            return Matrix(0, 0);
-        -:  424:        }
-        -:  425:        Matrix ans = Matrix(this->row, this->column);
-        -:  426:        for (int i = 0; i < row; ++i) {
-        -:  427:            for (int j = 0; j < column; ++j) {
-        -:  428:                ans[i][j] = this->matrix[i][j] - other[j];
-        -:  429:            }
-        -:  430:        }
-        -:  431:        return ans;
-        -:  432:    }
-        -:  433:
-        -:  434:    Matrix operator*(const Matrix &other) const {
-        -:  435:        if (this->column != other.row) {
-        -:  436:            cerr << "multiple error!" << endl;
-        -:  437:            cerr << "the left matrix column is not equal right matrix row" << endl;
-        -:  438:        }
-        -:  439:        Matrix ans = Matrix(this->row, other.column);
-        -:  440:        for (int i = 0; i < this->row; ++i) {
-        -:  441:            for (int j = 0; j < other.column; ++j) {
-        -:  442:                for (int k = 0; k < this->column; ++k) {
-        -:  443:                    ans[i][j] += this->matrix[i][k] * other.matrix[k][j];
-        -:  444:                }
-        -:  445:            }
-        -:  446:        }
-        -:  447:        return ans;
-        -:  448:    }
-        -:  449:
-        -:  450:    Vector<T> operator*(Vector<T> other) const {
-        -:  451:        if (this->column != other.getLength()) {
-        -:  452:            cerr << "Matrix * Vector error!" << endl;
-        -:  453:            cerr << "The left Matrix column is not equal right length" << endl;
-        -:  454:            return Vector<T>(0);
-        -:  455:        }
-        -:  456:        Vector<T> ans = Vector<T>(other.getLength());
-        -:  457:        for (int i = 0; i < other.getLength(); ++i) {
-        -:  458:            for (int j = 0; j < other.getLength(); ++j) {
-        -:  459:                ans[i] += this->matrix[i][j] * other[j];
-        -:  460:            }
-        -:  461:        }
-        -:  462:        return ans;
-        -:  463:    }
-        -:  464:
-        -:  465:    Matrix(vector<vector<T>> other);
-        -:  466:
-        -:  467:    Matrix(Mat other);
-        -:  468:
-        -:  469:    Mat to_opencv_32FC1();
-        -:  470:
-        -:  471:    Mat to_opencv_8UC1();
-        -:  472:
-        -:  473:private:
-        -:  474:    vector<vector<T>> matrix;
-        -:  475:    int row{}, column{};
-        -:  476:};
-        -:  477:
-        -:  478:template<class T>
-       12:  479:Matrix<T>::Matrix(vector<vector<T>> other) {
-        6:  479-block  0
-        6:  479-block  1
-    %%%%%:  479-block  2
-        6:  480:    this->row = other.size();
-        6:  481:    this->column = other[0].size();
-        6:  482:    this->matrix = other;
-        6:  483:}
-        6:  483-block  0
-        -:  484:
-        -:  485:template<class T>
-        -:  486:Mat Matrix<T>::to_opencv_8UC1() {
-        -:  487:    Mat ans = Mat::zeros(Size(this->column, this->row), CV_8UC1);
-        -:  488:    for (int i = 0; i < this->row; ++i) {
-        -:  489:        for (int j = 0; j < this->column; ++j) {
-        -:  490:            ans.at<float>(i, j) = this->matrix[i][j];
-        -:  491:        }
-        -:  492:    }
-        -:  493:    return ans;
-        -:  494:}
-        -:  495:
-        -:  496:template<class T>
-        -:  497:Mat Matrix<T>::to_opencv_32FC1() {
-        -:  498:    Mat ans = Mat::zeros(Size(this->column, this->row), CV_32FC1);
-        -:  499:    for (int i = 0; i < this->row; ++i) {
-        -:  500:        for (int j = 0; j < this->column; ++j) {
-        -:  501:            ans.at<float>(i, j) = this->matrix[i][j];
-        -:  502:        }
-        -:  503:    }
-        -:  504:    return ans;
-        -:  505:}
-        -:  506:
-        -:  507:template<class T>
-        -:  508:Matrix<T>::Matrix(Mat other) {
-        -:  509:    Matrix ans = Matrix(other.rows, other.cols);
-        -:  510:    if (other.type() == CV_32FC1) {
-        -:  511:        for (int i = 0; i < other.rows; ++i) {
-        -:  512:            for (int j = 0; j < other.cols; ++j) {
-        -:  513:                ans[i][j] = other.at<float>(i, j);
-        -:  514:            }
-        -:  515:        }
-        -:  516:    } else if (other.type() == CV_8UC1) {
-        -:  517:        for (int i = 0; i < other.rows; ++i) {
-        -:  518:            for (int j = 0; j < other.cols; ++j) {
-        -:  519:                ans[i][j] = other.at<uchar>(i, j);
-        -:  520:            }
-        -:  521:        }
-        -:  522:    }
-        -:  523:    this->row = ans.row;
-        -:  524:    this->column = ans.column;
-        -:  525:    this->matrix = ans.matrix;
-        -:  526:}
-        -:  527:
-        -:  528:#endif //CPPPROJECT_MATRIX_HPP
+        1:  253:    vector<T> getEigenvalue() {
+        1:  253-block  0
+        1:  254:        if (this->row != this->column) {
+        1:  254-block  0
+    #####:  255:            cerr << "The matrix is not a square matrix" << endl;
+    $$$$$:  255-block  0
+    $$$$$:  255-block  1
+    #####:  256:            vector<T> k;
+    $$$$$:  256-block  0
+    #####:  257:            return k;
+        -:  258:        }
+        -:  259:        class temp {
+        -:  260:        public:
+        -:  261:            double K1[1000];
+        -:  262:            double Ret[1000];
+        -:  263:
+        1:  264:            void Matrix_Hessenberg(double *A1, int n, double *ret) {
+        1:  264-block  0
+        -:  265:                int i, j, k, MaxNumber;
+        -:  266:                double temp, *A;
+        1:  267:                A = new double[n * n];
+        1:  267-block  0
+        1:  267-block  1
+    $$$$$:  267-block  2
+        1:  267-block  3
+        4:  268:                for (i = 0; i < n; i++) {
+        4:  268-block  0
+        3:  268-block  1
+        3:  269:                    k = i * n;
+       12:  270:                    for (j = 0; j < n; j++) {
+        3:  270-block  0
+       12:  270-block  1
+        9:  270-block  2
+        9:  271:                        A[k + j] = A1[k + j];
+        -:  272:                    }
+        -:  273:                }
+        2:  274:                for (k = 1; k < n - 1; k++) {
+        1:  274-block  0
+        2:  274-block  1
+        1:  274-block  2
+        1:  275:                    i = k - 1;
+        1:  276:                    MaxNumber = k;
+        1:  277:                    temp = abs(A[k * n + i]);
+        1:  277-block  0
+        2:  278:                    for (j = k + 1; j < n; j++) {
+        2:  278-block  0
+        1:  278-block  1
+        1:  279:                        if (abs(A[j * n + i]) > temp) {
+        1:  279-block  0
+        1:  280:                            temp = abs(A[j * n + i]);
+        1:  280-block  0
+        1:  281:                            MaxNumber = j;
+        -:  282:                        }
+        -:  283:                    }
+        1:  284:                    ret[0] = A[MaxNumber * n + i];
+        1:  285:                    i = MaxNumber;
+        1:  286:                    if (ret[0] != 0) {
+        1:  286-block  0
+        1:  287:                        if (i != k) {
+        1:  287-block  0
+        4:  288:                            for (j = k - 1; j < n; j++) {
+        1:  288-block  0
+        4:  288-block  1
+        3:  288-block  2
+        3:  289:                                temp = A[i * n + j];
+        3:  290:                                A[i * n + j] = A[k * n + j];
+        3:  291:                                A[k * n + j] = temp;
+        -:  292:                            }
+        4:  293:                            for (j = 0; j < n; j++) {
+        1:  293-block  0
+        4:  293-block  1
+        3:  293-block  2
+        3:  294:                                temp = A[j * n + i];
+        3:  295:                                A[j * n + i] = A[j * n + k];
+        3:  296:                                A[j * n + k] = temp;
+        -:  297:                            }
+        -:  298:                        }
+        2:  299:                        for (i = k + 1; i < n; i++) {
+        1:  299-block  0
+        2:  299-block  1
+        1:  299-block  2
+        1:  300:                            temp = A[i * n + k - 1] / ret[0];
+        1:  301:                            A[i * n + k - 1] = 0;
+        3:  302:                            for (j = k; j < n; j++) {
+        1:  302-block  0
+        3:  302-block  1
+        2:  302-block  2
+        2:  303:                                A[i * n + j] -= temp * A[k * n + j];
+        -:  304:                            }
+        4:  305:                            for (j = 0; j < n; j++) {
+        1:  305-block  0
+        4:  305-block  1
+        3:  305-block  2
+        3:  306:                                A[j * n + k] += temp * A[j * n + i];
+        -:  307:                            }
+        -:  308:                        }
+        -:  309:                    }
+        -:  310:
+        -:  311:                }
+        4:  312:                for (i = 0; i < n; i++) {
+        1:  312-block  0
+        4:  312-block  1
+        3:  312-block  2
+        3:  313:                    k = i * n;
+       12:  314:                    for (j = 0; j < n; j++) {
+        3:  314-block  0
+       12:  314-block  1
+        9:  314-block  2
+        9:  315:                        ret[k + j] = A[k + j];
+        -:  316:                    }
+        -:  317:                }
+        1:  318:                delete[]A;
+        1:  318-block  0
+        1:  318-block  1
+        1:  319:            }
+        -:  320:
+        1:  321:            bool Matrix_EigenValue(int n, int LoopNumber, double Error1) {
+        1:  321-block  0
+        -:  322:                int i, j, k, t, m, Loop1;
+        -:  323:                double b, c, d, g, xy, p, q, r, x, s, e, f, z, y, temp, *A;
+        1:  324:                A = new double[n * n];
+        1:  324-block  0
+        1:  324-block  1
+    $$$$$:  324-block  2
+        1:  324-block  3
+        1:  325:                Matrix_Hessenberg(K1, n, A);
+        1:  326:                m = n;
+        1:  327:                Loop1 = LoopNumber;
+        6:  328:                while (m != 0) {
+        6:  328-block  0
+        5:  328-block  1
+        5:  329:                    t = m - 1;
+        5:  329-block  0
+       12:  330:                    while (t > 0) {
+       12:  330-block  0
+        7:  330-block  1
+        8:  331:                        temp = abs(A[(t - 1) * n + t - 1]);
+        8:  331-block  0
+        8:  332:                        temp += abs(A[t * n + t]);
+        8:  333:                        temp = temp * Error1;
+        8:  334:                        if (abs(A[t * n + t - 1]) > temp) {
+        7:  335:                            t--;
+        7:  335-block  0
+        -:  336:                        } else {
+        1:  337:                            break;
+        1:  337-block  0
+        -:  338:                        }
+        -:  339:                    }
+        5:  340:                    if (t == m - 1) {
+        5:  340-block  0
+        1:  341:                        Ret[(m - 1) * 2] = A[(m - 1) * n + m - 1];
+        1:  342:                        Ret[(m - 1) * 2 + 1] = 0;
+        1:  343:                        m -= 1;
+        1:  344:                        Loop1 = LoopNumber;
+        1:  344-block  0
+        4:  345:                    } else if (t == m - 2) {
+        4:  345-block  0
+        1:  346:                        b = -A[(m - 1) * n + m - 1] - A[(m - 2) * n + m - 2];
+        2:  347:                        c = A[(m - 1) * n + m - 1] * A[(m - 2) * n + m - 2] -
+        1:  348:                            A[(m - 1) * n + m - 2] * A[(m - 2) * n + m - 1];
+        1:  349:                        d = b * b - 4 * c;
+        1:  350:                        y = sqrt(abs(d));
+        1:  350-block  0
+        1:  351:                        if (d > 0) {
+        1:  352:                            xy = 1;
+        1:  353:                            if (b < 0) {
+        1:  353-block  0
+        1:  354:                                xy = -1;
+        1:  354-block  0
+        -:  355:                            }
+        1:  356:                            Ret[(m - 1) * 2] = -(b + xy * y) / 2;
+        1:  357:                            Ret[(m - 1) * 2 + 1] = 0;
+        1:  358:                            Ret[(m - 2) * 2] = c / Ret[(m - 1) * 2];
+        1:  359:                            Ret[(m - 2) * 2 + 1] = 0;
+        1:  359-block  0
+        -:  360:                        } else {
+    #####:  361:                            Ret[(m - 1) * 2] = -b / 2;
+    #####:  362:                            Ret[(m - 2) * 2] = -b / 2;
+    #####:  363:                            Ret[(m - 1) * 2 + 1] = y / 2;
+    #####:  364:                            Ret[(m - 2) * 2 + 1] = -y / 2;
+    $$$$$:  364-block  0
+        -:  365:                        }
+        1:  366:                        m -= 2;
+        1:  367:                        Loop1 = LoopNumber;
+        1:  367-block  0
+        -:  368:                    } else {
+        3:  369:                        if (Loop1 < 1) {
+        3:  369-block  0
+    #####:  370:                            return false;
+    $$$$$:  370-block  0
+        -:  371:                        }
+        3:  372:                        Loop1--;
+        3:  373:                        j = t + 2;
+        3:  373-block  0
+        6:  374:                        while (j < m) {
+        6:  374-block  0
+        3:  374-block  1
+        3:  375:                            A[j * n + j - 2] = 0;
+        3:  376:                            j++;
+        -:  377:                        }
+        3:  378:                        j = t + 3;
+        3:  378-block  0
+        3:  379:                        while (j < m) {
+        3:  379-block  0
+    $$$$$:  379-block  1
+    #####:  380:                            A[j * n + j - 3] = 0;
+    #####:  381:                            j++;
+        -:  382:                        }
+        3:  383:                        k = t;
+        3:  383-block  0
+        9:  384:                        while (k < m - 1) {
+        9:  384-block  0
+        6:  384-block  1
+        6:  385:                            if (k != t) {
+        6:  385-block  0
+        3:  386:                                p = A[k * n + k - 1];
+        3:  387:                                q = A[(k + 1) * n + k - 1];
+        3:  388:                                if (k != m - 2) {
+        3:  388-block  0
+    #####:  389:                                    r = A[(k + 2) * n + k - 1];
+    $$$$$:  389-block  0
+        -:  390:                                } else {
+        3:  391:                                    r = 0;
+        3:  391-block  0
+        3:  391-block  1
+        -:  392:                                }
+        -:  393:                            } else {
+        3:  394:                                b = A[(m - 1) * n + m - 1];
+        3:  395:                                c = A[(m - 2) * n + m - 2];
+        3:  396:                                x = b + c;
+        3:  397:                                y = b * c - A[(m - 2) * n + m - 1] * A[(m - 1) * n + m - 2];
+        3:  398:                                p = A[t * n + t] * (A[t * n + t] - x) + A[t * n + t + 1] * A[(t + 1) * n + t] + y;
+        3:  399:                                q = A[(t + 1) * n + t] * (A[t * n + t] + A[(t + 1) * n + t + 1] - x);
+        3:  400:                                r = A[(t + 1) * n + t] * A[(t + 2) * n + t + 1];
+        3:  400-block  0
+        -:  401:                            }
+        6:  402:                            if (p != 0 || q != 0 || r != 0) {
+        6:  402-block  0
+    $$$$$:  402-block  1
+    $$$$$:  402-block  2
+        6:  403:                                if (p < 0) {
+        6:  403-block  0
+        2:  404:                                    xy = -1;
+        2:  404-block  0
+        -:  405:                                } else {
+        4:  406:                                    xy = 1;
+        4:  406-block  0
+        -:  407:                                }
+        6:  408:                                s = xy * sqrt(p * p + q * q + r * r);
+        6:  409:                                if (k != t) {
+        6:  409-block  0
+        3:  410:                                    A[k * n + k - 1] = -s;
+        3:  410-block  0
+        -:  411:                                }
+        6:  412:                                e = -q / s;
+        6:  413:                                f = -r / s;
+        6:  414:                                x = -p / s;
+        6:  415:                                y = -x - f * r / (p + s);
+        6:  416:                                g = e * r / (p + s);
+        6:  417:                                z = -x - e * q / (p + s);
+       21:  418:                                for (j = k; j < m; j++) {
+        6:  418-block  0
+       21:  418-block  1
+       15:  418-block  2
+       15:  419:                                    b = A[k * n + j];
+       15:  420:                                    c = A[(k + 1) * n + j];
+       15:  421:                                    p = x * b + e * c;
+       15:  422:                                    q = e * b + y * c;
+       15:  423:                                    r = f * b + g * c;
+       15:  424:                                    if (k != m - 2) {
+       15:  424-block  0
+        9:  425:                                        b = A[(k + 2) * n + j];
+        9:  426:                                        p += f * b;
+        9:  427:                                        q += g * b;
+        9:  428:                                        r += z * b;
+        9:  429:                                        A[(k + 2) * n + j] = r;
+        9:  429-block  0
+        -:  430:                                    }
+       15:  431:                                    A[(k + 1) * n + j] = q;
+       15:  432:                                    A[k * n + j] = p;
+        -:  433:                                }
+        6:  434:                                j = k + 3;
+        6:  435:                                if (j > m - 2) {
+        6:  435-block  0
+        6:  436:                                    j = m - 1;
+        6:  436-block  0
+        -:  437:                                }
+       24:  438:                                for (i = t; i < j + 1; i++) {
+        6:  438-block  0
+       24:  438-block  1
+       18:  438-block  2
+       18:  439:                                    b = A[i * n + k];
+       18:  440:                                    c = A[i * n + k + 1];
+       18:  441:                                    p = x * b + e * c;
+       18:  442:                                    q = e * b + y * c;
+       18:  443:                                    r = f * b + g * c;
+       18:  444:                                    if (k != m - 2) {
+       18:  444-block  0
+        9:  445:                                        b = A[i * n + k + 2];
+        9:  446:                                        p += f * b;
+        9:  447:                                        q += g * b;
+        9:  448:                                        r += z * b;
+        9:  449:                                        A[i * n + k + 2] = r;
+        9:  449-block  0
+        -:  450:                                    }
+       18:  451:                                    A[i * n + k + 1] = q;
+       18:  452:                                    A[i * n + k] = p;
+        -:  453:                                }
+        -:  454:                            }
+        6:  455:                            k++;
+        -:  456:                        }
+        -:  457:                    }
+        -:  458:                }
+        1:  459:                delete[]A;
+        1:  459-block  0
+        1:  459-block  1
+        1:  460:                return true;
+        1:  460-block  0
+        -:  461:            }
+        -:  462:        };
+        -:  463:        temp ans;
+        1:  464:        int count = 0;
+        4:  465:        for (int i = 0; i < this->row; ++i) {
+        1:  465-block  0
+        4:  465-block  1
+        3:  465-block  2
+       12:  466:            for (int j = 0; j < this->column; ++j) {
+        3:  466-block  0
+       12:  466-block  1
+        9:  467:                ans.K1[count++] = this->matrix[i][j];
+        9:  467-block  0
+        -:  468:            }
+        -:  469:        }
+        2:  470:        vector<T> result;
+        1:  470-block  0
+        1:  470-block  1
+        1:  470-block  2
+    %%%%%:  470-block  3
+    %%%%%:  470-block  4
+        1:  471:        ans.Matrix_EigenValue(this->row, 1000, 0.00001);
+        4:  472:        for (int i = 0; i < this->row; ++i) {
+        1:  472-block  0
+        4:  472-block  1
+        3:  472-block  2
+        3:  473:            result.push_back(ans.Ret[i * 2]);
+        3:  473-block  0
+        -:  474:        }
+        -:  475:
+        1:  476:        return result;
+        1:  476-block  0
+        -:  477:    }
+        -:  478:
+        -:  479:    Matrix transposition() {
+        -:  480:        Matrix ans = Matrix(this->column, this->row);
+        -:  481:        for (int i = 0; i < this->row; ++i) {
+        -:  482:            for (int j = 0; j < this->column; ++j) {
+        -:  483:                ans[j][i] = this->matrix[i][j];
+        -:  484:            }
+        -:  485:        }
+        -:  486:        return ans;
+        -:  487:    }
+        -:  488:
+        -:  489:    Matrix transposition_change() {
+        -:  490:        Matrix ans = this->transposition();
+        -:  491:        this->row = ans.row;
+        -:  492:        this->column = ans.column;
+        -:  493:        this->matrix = ans.matrix;
+        -:  494:        return ans;
+        -:  495:    }
+        -:  496:
+        -:  497:    Matrix conjugation() {
+        -:  498:        Matrix ans = Matrix(this->row, this->column);
+        -:  499:        for (int i = 0; i < this->row; ++i) {
+        -:  500:            for (int j = 0; j < this->column; ++j) {
+        -:  501:                T cur(this->matrix[i][j].real(), -this->matrix[i][j].imag());
+        -:  502:                ans[i][j] = cur;
+        -:  503:            }
+        -:  504:        }
+        -:  505:        return ans;
+        -:  506:    }
+        -:  507:
+        -:  508:    Matrix conjugation_change() {
+        -:  509:        Matrix ans = this->conjugation();
+        -:  510:        this->matrix = ans.matrix;
+        -:  511:        return ans;
+        -:  512:    }
+        -:  513:
+        -:  514:    Matrix element_wise_multiplication(Matrix &other) {
+        -:  515:        if (this->row != other.row || this->column != other.column) {
+        -:  516:            cerr << "the size of these two vector is not equal" << endl;
+        -:  517:            cerr << "left size is:";
+        -:  518:            this->showSize();
+        -:  519:            cerr << "right size is:";
+        -:  520:            other.showSize();
+        -:  521:            return Matrix(0, 0);
+        -:  522:        }
+        -:  523:        Matrix ans = Matrix(this->row, this->column);
+        -:  524:        for (int i = 0; i < this->row; ++i) {
+        -:  525:            for (int j = 0; j < this->column; ++j) {
+        -:  526:                ans[i][j] = this->matrix[i][j] * other.matrix[i][j];
+        -:  527:            }
+        -:  528:        }
+        -:  529:        return ans;
+        -:  530:    }
+        -:  531:
+        -:  532:    Matrix element_wise_multiplication_change(Matrix &other) {
+        -:  533:        if (this->row != other.row || this->column != other.column) {
+        -:  534:            cerr << "the size of these two vector is not equal" << endl;
+        -:  535:            cerr << "left size is:";
+        -:  536:            this->showSize();
+        -:  537:            cerr << "right size is:";
+        -:  538:            other.showSize();
+        -:  539:            return Matrix(0, 0);
+        -:  540:        }
+        -:  541:        Matrix ans = Matrix(this->row, this->column);
+        -:  542:        for (int i = 0; i < this->row; ++i) {
+        -:  543:            for (int j = 0; j < this->column; ++j) {
+        -:  544:                ans[i][j] = this->matrix[i][j] * other.matrix[i][j];
+        -:  545:            }
+        -:  546:        }
+        -:  547:        this->row = ans.row;
+        -:  548:        this->column = ans.column;
+        -:  549:        this->matrix = ans.matrix;
+        -:  550:        return ans;
+        -:  551:    }
+        -:  552:
+        -:  553:    Matrix reshape(int row, int column) {
+        -:  554:        Matrix ans = Matrix(row, column);
+        -:  555:        int other = row * column;
+        -:  556:        int cur = this->row * this->column;
+        -:  557:        int count = 0;
+        -:  558:        while (count < min(other, cur)) {
+        -:  559:            int curRow = count / this->column;
+        -:  560:            int curColumn = count % this->column;
+        -:  561:            int ansRow = count / column;
+        -:  562:            int ansColumn = count % column;
+        -:  563:            ans[ansRow][ansColumn] = this->matrix[curRow][curColumn];
+        -:  564:            count++;
+        -:  565:        }
+        -:  566:        return ans;
+        -:  567:    }
+        -:  568:
+        -:  569:    Matrix reshape_change(int row, int column) {
+        -:  570:        Matrix ans = this->reshape(row, column);
+        -:  571:        this->row = row;
+        -:  572:        this->column = column;
+        -:  573:        this->matrix = ans.matrix;
+        -:  574:        return ans;
+        -:  575:    }
+        -:  576:
+        -:  577:    Vector<T> slicing(int from, int to) {
+        -:  578:        Matrix cur = this->reshape(1, this->row * this->column);
+        -:  579:        if (to > cur.column) {
+        -:  580:            cerr << "slicing error" << endl;
+        -:  581:            cerr << "slicing bound is large than matrix size" << endl;
+        -:  582:            return Vector<T>(0);
+        -:  583:        }
+        -:  584:        if (from < 0) {
+        -:  585:            cerr << "slicing error" << endl;
+        -:  586:            cerr << "slicing left bound is little than 0" << endl;
+        -:  587:            return Vector<T>(0);
+        -:  588:        }
+        -:  589:        Vector<T> ans = Vector<T>(to - from);
+        -:  590:        for (int i = 0; i < ans.getLength(); ++i) {
+        -:  591:            ans[i] = cur.matrix[0][from + i];
+        -:  592:        }
+        -:  593:        return ans;
+        -:  594:    }
+        -:  595:
+        1:  596:    Matrix operator+(Matrix &other) {
+        1:  596-block  0
+        1:  597:        if (this->row != other.row || this->column != other.column) {
+        1:  597-block  0
+        1:  597-block  1
+    #####:  598:            cerr << "the size of these two vector is not equal" << endl;
+    $$$$$:  598-block  0
+    $$$$$:  598-block  1
+    #####:  599:            cerr << "left size is:";
+    $$$$$:  599-block  0
+    #####:  600:            showSize();
+    $$$$$:  600-block  0
+    #####:  601:            cerr << "right size is:";
+    $$$$$:  601-block  0
+    #####:  602:            other.showSize();
+    $$$$$:  602-block  0
+    #####:  603:            return Matrix(0, 0);
+    $$$$$:  603-block  0
+    $$$$$:  603-block  1
+        -:  604:        }
+        2:  605:        Matrix ans = Matrix(row, column);
+        1:  605-block  0
+        1:  605-block  1
+        1:  605-block  2
+        1:  605-block  3
+    %%%%%:  605-block  4
+        4:  606:        for (int i = 0; i < row; ++i) {
+        1:  606-block  0
+        4:  606-block  1
+        3:  606-block  2
+       12:  607:            for (int j = 0; j < column; ++j) {
+        3:  607-block  0
+       12:  607-block  1
+        9:  608:                ans[i][j] = this->matrix[i][j] + other.matrix[i][j];
+        9:  608-block  0
+        9:  608-block  1
+        -:  609:            }
+        -:  610:        }
+        1:  611:        return ans;
+        1:  611-block  0
+        1:  611-block  1
+        -:  612:    }
+        -:  613:
+        -:  614:    Matrix operator+(Vector<T> other) const {
+        -:  615:        if (this->column != other.getLength()) {
+        -:  616:            cerr << "The column of the matrix is not equal to the vector length" << endl;
+        -:  617:            return Matrix(0, 0);
+        -:  618:        }
+        -:  619:        Matrix ans = Matrix(this->row, this->column);
+        -:  620:        for (int i = 0; i < row; ++i) {
+        -:  621:            for (int j = 0; j < column; ++j) {
+        -:  622:                ans[i][j] = this->matrix[i][j] + other[j];
+        -:  623:            }
+        -:  624:        }
+        -:  625:        return ans;
+        -:  626:    }
+        -:  627:
+        -:  628:    Matrix operator-(const Matrix &other) const {
+        -:  629:        if (this->row != other.row || this->column != other.column) {
+        -:  630:            cerr << "the size of these two vector is not equal" << endl;
+        -:  631:            cerr << "left size is:";
+        -:  632:            this->showSize();
+        -:  633:            cerr << "right size is:";
+        -:  634:            other.showSize();
+        -:  635:            return Matrix(0, 0);
+        -:  636:        }
+        -:  637:        Matrix ans = Matrix(row, column);
+        -:  638:        for (int i = 0; i < row; ++i) {
+        -:  639:            for (int j = 0; j < column; ++j) {
+        -:  640:                ans[i][j] = this->matrix[i][j] - other.matrix[i][j];
+        -:  641:            }
+        -:  642:        }
+        -:  643:        return ans;
+        -:  644:    }
+        -:  645:
+        -:  646:    Matrix operator-(Vector<T> other) const {
+        -:  647:        if (this->column != other.getLength()) {
+        -:  648:            cerr << "The column of the matrix is not equal to the vector length" << endl;
+        -:  649:            return Matrix(0, 0);
+        -:  650:        }
+        -:  651:        Matrix ans = Matrix(this->row, this->column);
+        -:  652:        for (int i = 0; i < row; ++i) {
+        -:  653:            for (int j = 0; j < column; ++j) {
+        -:  654:                ans[i][j] = this->matrix[i][j] - other[j];
+        -:  655:            }
+        -:  656:        }
+        -:  657:        return ans;
+        -:  658:    }
+        -:  659:
+        -:  660:    Matrix operator*(const Matrix &other) const {
+        -:  661:        if (this->column != other.row) {
+        -:  662:            cerr << "multiple error!" << endl;
+        -:  663:            cerr << "the left matrix column is not equal right matrix row" << endl;
+        -:  664:        }
+        -:  665:        Matrix ans = Matrix(this->row, other.column);
+        -:  666:        for (int i = 0; i < this->row; ++i) {
+        -:  667:            for (int j = 0; j < other.column; ++j) {
+        -:  668:                for (int k = 0; k < this->column; ++k) {
+        -:  669:                    ans[i][j] += this->matrix[i][k] * other.matrix[k][j];
+        -:  670:                }
+        -:  671:            }
+        -:  672:        }
+        -:  673:        return ans;
+        -:  674:    }
+        -:  675:
+        -:  676:    Vector<T> operator*(Vector<T> other) const {
+        -:  677:        if (this->column != other.getLength()) {
+        -:  678:            cerr << "Matrix * Vector error!" << endl;
+        -:  679:            cerr << "The left Matrix column is not equal right length" << endl;
+        -:  680:            return Vector<T>(0);
+        -:  681:        }
+        -:  682:        Vector<T> ans = Vector<T>(other.getLength());
+        -:  683:        for (int i = 0; i < other.getLength(); ++i) {
+        -:  684:            for (int j = 0; j < other.getLength(); ++j) {
+        -:  685:                ans[i] += this->matrix[i][j] * other[j];
+        -:  686:            }
+        -:  687:        }
+        -:  688:        return ans;
+        -:  689:    }
+        -:  690:
+        -:  691:    Matrix(vector<vector<T>> other);
+        -:  692:
+        -:  693:    Matrix(Mat other);
+        -:  694:
+        -:  695:    Mat to_opencv_32FC1();
+        -:  696:
+        -:  697:    Mat to_opencv_8UC1();
+        -:  698:
+        1:  699:    Matrix convolution_2D(Matrix &kernel) {
+        1:  699-block  0
+        -:  700:        // find center position of kernel (half of kernel size)
+        1:  701:        int kCenterX = kernel.column / 2;
+        1:  702:        int kCenterY = kernel.row / 2;
+        1:  703:        Matrix ans = Matrix(this->row, this->column);
+        1:  703-block  0
+        5:  704:        for (int i = 0; i < this->row; ++i) // rows
+        5:  704-block  0
+        4:  704-block  1
+        -:  705:        {
+       20:  706:            for (int j = 0; j < this->column; ++j) // columns
+        4:  706-block  0
+       20:  706-block  1
+       16:  706-block  2
+        -:  707:            {
+       64:  708:                for (int m = 0; m < kernel.row; ++m) // kernel rows
+       16:  708-block  0
+       64:  708-block  1
+       48:  708-block  2
+        -:  709:                {
+       48:  710:                    int mm = kernel.row - 1 - m; // row index
+        -:  711:
+      192:  712:                    for (int n = 0; n < kernel.column; ++n) // kernel columns
+       48:  712-block  0
+      192:  712-block  1
+      144:  712-block  2
+        -:  713:                    {
+      144:  714:                        int nn = kernel.column - 1 - n; // column index
+        -:  715:
+        -:  716:                        // index of input signal, used for checking boundary
+      144:  717:                        int ii = i + (m - kCenterY);
+      144:  718:                        int jj = j + (n - kCenterX);
+        -:  719:
+        -:  720:                        // ignore input samples which are out of bound
+      144:  721:                        if (ii >= 0 && ii < this->row && jj >= 0 && jj < this->column)
+      144:  721-block  0
+      132:  721-block  1
+      120:  721-block  2
+      110:  721-block  3
+      100:  722:                            ans[i][j] += this->matrix[ii][jj] * kernel[m][n];
+      100:  722-block  0
+      100:  722-block  1
+      100:  722-block  2
+        -:  723:                    }
+        -:  724:                }
+        -:  725:            }
+        -:  726:        }
+        1:  727:        return ans;
+        1:  727-block  0
+        1:  727-block  1
+    %%%%%:  727-block  2
+        -:  728:
+        -:  729:    }
+        -:  730:
+        -:  731:private:
+        -:  732:    vector<vector<T>> matrix;
+        -:  733:    int row{}, column{};
+        -:  734:};
+        -:  735:
+        -:  736:
+        -:  737:template<class T>
+       18:  738:Matrix<T>::Matrix(vector<vector<T>> other) {
+        9:  738-block  0
+        9:  738-block  1
+    %%%%%:  738-block  2
+        9:  739:    this->row = other.size();
+        9:  740:    this->column = other[0].size();
+        9:  741:    this->matrix = other;
+        9:  742:}
+        9:  742-block  0
+        -:  743:
+        -:  744:template<class T>
+        -:  745:Mat Matrix<T>::to_opencv_8UC1() {
+        -:  746:    Mat ans = Mat::zeros(Size(this->column, this->row), CV_8UC1);
+        -:  747:    for (int i = 0; i < this->row; ++i) {
+        -:  748:        for (int j = 0; j < this->column; ++j) {
+        -:  749:            ans.at<float>(i, j) = this->matrix[i][j];
+        -:  750:        }
+        -:  751:    }
+        -:  752:    return ans;
+        -:  753:}
+        -:  754:
+        -:  755:template<class T>
+        -:  756:Mat Matrix<T>::to_opencv_32FC1() {
+        -:  757:    Mat ans = Mat::zeros(Size(this->column, this->row), CV_32FC1);
+        -:  758:    for (int i = 0; i < this->row; ++i) {
+        -:  759:        for (int j = 0; j < this->column; ++j) {
+        -:  760:            ans.at<float>(i, j) = this->matrix[i][j];
+        -:  761:        }
+        -:  762:    }
+        -:  763:    return ans;
+        -:  764:}
+        -:  765:
+        -:  766:template<class T>
+        -:  767:Matrix<T>::Matrix(Mat other) {
+        -:  768:    Matrix ans = Matrix(other.rows, other.cols);
+        -:  769:    if (other.type() == CV_32FC1) {
+        -:  770:        for (int i = 0; i < other.rows; ++i) {
+        -:  771:            for (int j = 0; j < other.cols; ++j) {
+        -:  772:                ans[i][j] = other.at<float>(i, j);
+        -:  773:            }
+        -:  774:        }
+        -:  775:    } else if (other.type() == CV_8UC1) {
+        -:  776:        for (int i = 0; i < other.rows; ++i) {
+        -:  777:            for (int j = 0; j < other.cols; ++j) {
+        -:  778:                ans[i][j] = other.at<uchar>(i, j);
+        -:  779:            }
+        -:  780:        }
+        -:  781:    }
+        -:  782:    this->row = ans.row;
+        -:  783:    this->column = ans.column;
+        -:  784:    this->matrix = ans.matrix;
+        -:  785:}
+        -:  786:
+        -:  787:#endif //CPPPROJECT_MATRIX_HPP

@@ -49,12 +49,12 @@
         -:   44:   */
         -:   45:  template<typename _Tp>
         -:   46:    inline _GLIBCXX_CONSTEXPR _Tp*
-      108:   47:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+      163:   47:    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
        30:   47-block  0
-       78:   47-block  1
-      108:   48:    { return __builtin_addressof(__r); }
+      133:   47-block  1
+      163:   48:    { return __builtin_addressof(__r); }
        30:   48-block  0
-       78:   48-block  1
+      133:   48-block  1
         -:   49:
         -:   50:_GLIBCXX_END_NAMESPACE_VERSION
         -:   51:} // namespace
@@ -79,18 +79,22 @@
         -:   70:   */
         -:   71:  template<typename _Tp>
         -:   72:    constexpr _Tp&&
-       48:   73:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
+       84:   73:    forward(typename std::remove_reference<_Tp>::type& __t) noexcept
     $$$$$:   73-block  0
-        6:   73-block  1
-    $$$$$:   73-block  2
+    $$$$$:   73-block  1
+        6:   73-block  2
     $$$$$:   73-block  3
-       42:   73-block  4
-       48:   74:    { return static_cast<_Tp&&>(__t); }
+    $$$$$:   73-block  4
+       69:   73-block  5
+        9:   73-block  6
+       84:   74:    { return static_cast<_Tp&&>(__t); }
     $$$$$:   74-block  0
-        6:   74-block  1
-    $$$$$:   74-block  2
+    $$$$$:   74-block  1
+        6:   74-block  2
     $$$$$:   74-block  3
-       42:   74-block  4
+    $$$$$:   74-block  4
+       69:   74-block  5
+        9:   74-block  6
         -:   75:
         -:   76:  /**
         -:   77:   *  @brief  Forward an rvalue.
@@ -114,14 +118,24 @@
         -:   95:  */
         -:   96:  template<typename _Tp>
         -:   97:    constexpr typename std::remove_reference<_Tp>::type&&
-    #####:   98:    move(_Tp&& __t) noexcept
+       17:   98:    move(_Tp&& __t) noexcept
     $$$$$:   98-block  0
     $$$$$:   98-block  1
     $$$$$:   98-block  2
-    #####:   99:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+        5:   98-block  3
+        9:   98-block  4
+        2:   98-block  5
+        1:   98-block  6
+    $$$$$:   98-block  7
+       17:   99:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
     $$$$$:   99-block  0
     $$$$$:   99-block  1
     $$$$$:   99-block  2
+        5:   99-block  3
+        9:   99-block  4
+        2:   99-block  5
+        1:   99-block  6
+    $$$$$:   99-block  7
         -:  100:
         -:  101:
         -:  102:  template<typename _Tp>
@@ -209,8 +223,10 @@
         -:  184:    typename enable_if<__and_<__not_<__is_tuple_like<_Tp>>,
         -:  185:			      is_move_constructible<_Tp>,
         -:  186:			      is_move_assignable<_Tp>>::value>::type
-    #####:  187:    swap(_Tp& __a, _Tp& __b)
+        3:  187:    swap(_Tp& __a, _Tp& __b)
     $$$$$:  187-block  0
+        3:  187-block  1
+    $$$$$:  187-block  2
         -:  188:    noexcept(__and_<is_nothrow_move_constructible<_Tp>,
         -:  189:	            is_nothrow_move_assignable<_Tp>>::value)
         -:  190:#else
@@ -221,11 +237,13 @@
         -:  195:      // concept requirements
         -:  196:      __glibcxx_function_requires(_SGIAssignableConcept<_Tp>)
         -:  197:
-    #####:  198:      _Tp __tmp = _GLIBCXX_MOVE(__a);
+        3:  198:      _Tp __tmp = _GLIBCXX_MOVE(__a);
     $$$$$:  198-block  0
-    #####:  199:      __a = _GLIBCXX_MOVE(__b);
-    #####:  200:      __b = _GLIBCXX_MOVE(__tmp);
-    #####:  201:    }
+        3:  198-block  1
+    $$$$$:  198-block  2
+        3:  199:      __a = _GLIBCXX_MOVE(__b);
+        3:  200:      __b = _GLIBCXX_MOVE(__tmp);
+        3:  201:    }
         -:  202:
         -:  203:  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  204:  // DR 809. std::swap should be overloaded for array types.

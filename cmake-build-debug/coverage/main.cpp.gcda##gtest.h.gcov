@@ -303,9 +303,9 @@
         -:  298://   Expected: Foo() is even
         -:  299://     Actual: it's 5
         -:  300://
-      136:  301:    class GTEST_API_ AssertionResult {
-       68:  301-block  0
-       68:  301-block  1
+      174:  301:    class GTEST_API_ AssertionResult {
+       87:  301-block  0
+       87:  301-block  1
         -:  302:    public:
         -:  303:        // Copy constructor.
         -:  304:        // Used in EXPECT_TRUE/FALSE(assertion_result).
@@ -346,9 +346,9 @@
         -:  339:        }
         -:  340:
         -:  341:        // Returns true if and only if the assertion succeeded.
-      136:  342:        operator bool() const { return success_; }  // NOLINT
-       68:  342-block  0
-       68:  342-block  1
+      174:  342:        operator bool() const { return success_; }  // NOLINT
+       87:  342-block  0
+       87:  342-block  1
         -:  343:
         -:  344:        // Returns the assertion's negation. Used with EXPECT/ASSERT_FALSE.
         -:  345:        AssertionResult operator!() const;
@@ -1669,18 +1669,18 @@
         -: 1631:
         -: 1632:// The helper function for {ASSERT|EXPECT}_EQ.
         -: 1633:        template<typename T1, typename T2>
-       66: 1634:        AssertionResult CmpHelperEQ(const char *lhs_expression,
+       65: 1634:        AssertionResult CmpHelperEQ(const char *lhs_expression,
        52: 1634-block  0
-       14: 1634-block  1
+       13: 1634-block  1
         -: 1635:                                    const char *rhs_expression,
         -: 1636:                                    const T1 &lhs,
         -: 1637:                                    const T2 &rhs) {
-       66: 1638:            if (lhs == rhs) {
+       65: 1638:            if (lhs == rhs) {
        52: 1638-block  0
-       14: 1638-block  1
-       66: 1639:                return AssertionSuccess();
+       13: 1638-block  1
+       65: 1639:                return AssertionSuccess();
        52: 1639-block  0
-       14: 1639-block  1
+       13: 1639-block  1
         -: 1640:            }
         -: 1641:
     #####: 1642:            return CmpHelperEQFailure(lhs_expression, rhs_expression, lhs, rhs);
@@ -1705,14 +1705,14 @@
         -: 1659:                    // and the other is the null pointer constant.
         -: 1660:                    typename std::enable_if<!std::is_integral<T1>::value ||
         -: 1661:                                            !std::is_pointer<T2>::value>::type * = nullptr>
-       66: 1662:            static AssertionResult Compare(const char *lhs_expression,
+       65: 1662:            static AssertionResult Compare(const char *lhs_expression,
        52: 1662-block  0
-       14: 1662-block  1
+       13: 1662-block  1
         -: 1663:                                           const char *rhs_expression, const T1 &lhs,
         -: 1664:                                           const T2 &rhs) {
-       66: 1665:                return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
+       65: 1665:                return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
        52: 1665-block  0
-       14: 1665-block  1
+       13: 1665-block  1
         -: 1666:            }
         -: 1667:
         -: 1668:            // With this overloaded version, we allow anonymous enums to be used
@@ -1893,25 +1893,25 @@
         -: 1843://
         -: 1844:// INTERNAL IMPLEMENTATION - DO NOT USE IN A USER PROGRAM.
         -: 1845:        template<typename RawType>
-        2: 1846:        AssertionResult CmpHelperFloatingPointEQ(const char *lhs_expression,
-        2: 1846-block  0
+       18: 1846:        AssertionResult CmpHelperFloatingPointEQ(const char *lhs_expression,
+       18: 1846-block  0
         -: 1847:                                                 const char *rhs_expression,
         -: 1848:                                                 RawType lhs_value,
         -: 1849:                                                 RawType rhs_value) {
-        2: 1850:            const FloatingPoint <RawType> lhs(lhs_value), rhs(rhs_value);
-        2: 1850-block  0
+       18: 1850:            const FloatingPoint <RawType> lhs(lhs_value), rhs(rhs_value);
+       18: 1850-block  0
         -: 1851:
-        2: 1852:            if (lhs.AlmostEquals(rhs)) {
-        2: 1852-block  0
-        2: 1853:                return AssertionSuccess();
-        2: 1853-block  0
-        2: 1853-block  1
+       18: 1852:            if (lhs.AlmostEquals(rhs)) {
+       18: 1852-block  0
+       18: 1853:                return AssertionSuccess();
+       18: 1853-block  0
+       18: 1853-block  1
         -: 1854:            }
         -: 1855:
-        2: 1856:            ::std::stringstream lhs_ss;
+       18: 1856:            ::std::stringstream lhs_ss;
     $$$$$: 1856-block  0
-        2: 1856-block  1
-        2: 1856-block  2
+       18: 1856-block  1
+       18: 1856-block  2
     %%%%%: 1856-block  3
     #####: 1857:            lhs_ss << std::setprecision(std::numeric_limits<RawType>::digits10 + 2)
     $$$$$: 1857-block  0

@@ -73,27 +73,27 @@
         -:   68:
         -:   69:      // Number of elements.
         -:   70:      constexpr size_type
-       16:   71:      size() const noexcept { return _M_len; }
-        2:   71-block  0
-        2:   71-block  1
-        6:   71-block  2
-        6:   71-block  3
+       34:   71:      size() const noexcept { return _M_len; }
+        4:   71-block  0
+        4:   71-block  1
+       13:   71-block  2
+       13:   71-block  3
         -:   72:
         -:   73:      // First element.
         -:   74:      constexpr const_iterator
-       32:   75:      begin() const noexcept { return _M_array; }
-        4:   75-block  0
-        4:   75-block  1
-       12:   75-block  2
-       12:   75-block  3
+       68:   75:      begin() const noexcept { return _M_array; }
+        8:   75-block  0
+        8:   75-block  1
+       26:   75-block  2
+       26:   75-block  3
         -:   76:
         -:   77:      // One past the last element.
         -:   78:      constexpr const_iterator
-       16:   79:      end() const noexcept { return begin() + size(); }
-        2:   79-block  0
-        2:   79-block  1
-        6:   79-block  2
-        6:   79-block  3
+       34:   79:      end() const noexcept { return begin() + size(); }
+        4:   79-block  0
+        4:   79-block  1
+       13:   79-block  2
+       13:   79-block  3
         -:   80:    };
         -:   81:
         -:   82:  /**

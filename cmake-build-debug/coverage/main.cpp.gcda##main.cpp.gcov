@@ -9,1072 +9,1560 @@
         -:    4:
         -:    5:using namespace std;
         -:    6:using namespace cv;
-        -:    7:
-        -:    8:#include "gtest/gtest.h"
-        -:    9:
-        4:   10:vector<vector<double>> m1 = {{1, 2, 3},
-        1:   10-block  0
-        1:   10-block  1
-        1:   10-block  2
-        1:   10-block  3
-        1:   10-block  4
-        4:   10-block  5
-        1:   10-block  6
-    %%%%%:   10-block  7
-    %%%%%:   10-block  8
-    %%%%%:   10-block  9
-    %%%%%:   10-block 10
-    %%%%%:   10-block 11
-    %%%%%:   10-block 12
-    %%%%%:   10-block 13
-    %%%%%:   10-block 14
-    %%%%%:   10-block 15
-    %%%%%:   10-block 16
-    %%%%%:   10-block 17
-    %%%%%:   10-block 18
-    %%%%%:   10-block 19
-        -:   11:                             {4, 5, 6},
-        3:   12:                             {7, 8, 9}};
-        3:   12-block  0
-    %%%%%:   12-block  1
-        4:   13:vector<vector<double>> m2 = {{9, 8, 7},
-        1:   13-block  0
-        1:   13-block  1
-        1:   13-block  2
-        1:   13-block  3
-        1:   13-block  4
-        4:   13-block  5
-        1:   13-block  6
-    %%%%%:   13-block  7
-    %%%%%:   13-block  8
-    %%%%%:   13-block  9
-    %%%%%:   13-block 10
-    %%%%%:   13-block 11
-    %%%%%:   13-block 12
-    %%%%%:   13-block 13
-    %%%%%:   13-block 14
-    %%%%%:   13-block 15
-    %%%%%:   13-block 16
-    %%%%%:   13-block 17
-    %%%%%:   13-block 18
-    %%%%%:   13-block 19
-        -:   14:                             {6, 5, 4},
-        3:   15:                             {3, 2, 1}};
-        3:   15-block  0
-    %%%%%:   15-block  1
-        8:   16:TEST(test1, ok) {
-        1:   16-block  0
-        1:   16-block  1
-        1:   16-block  2
-    %%%%%:   16-block  3
-    %%%%%:   16-block  4
-    %%%%%:   16-block  5
-    %%%%%:   16-block  6
-    %%%%%:   16-block  7
-    %%%%%:   16-block  8
-        1:   16-block  9
-        1:   16-block 10
-        1:   16-block 11
-        1:   16-block 12
-        1:   16-block 13
-        1:   16-block 14
-        1:   16-block 15
-        1:   17:    EXPECT_EQ(1, 2 - 1);
-        1:   17-block  0
-        1:   17-block  1
-    $$$$$:   17-block  2
-    $$$$$:   17-block  3
-    $$$$$:   17-block  4
-    $$$$$:   17-block  5
-        1:   17-block  6
-    %%%%%:   17-block  7
-    %%%%%:   17-block  8
-    %%%%%:   17-block  9
-    %%%%%:   17-block 10
-    %%%%%:   17-block 11
-    %%%%%:   17-block 12
-    %%%%%:   17-block 13
-    %%%%%:   17-block 14
-        1:   18:}
-    %%%%%:   18-block  0
-        -:   19://init a Matrix by vector<vector<double>>
-        8:   20:TEST(Matrix_init_vector, test) {
-        1:   20-block  0
-        1:   20-block  1
-        1:   20-block  2
-    %%%%%:   20-block  3
-    %%%%%:   20-block  4
-    %%%%%:   20-block  5
-    %%%%%:   20-block  6
-    %%%%%:   20-block  7
-    %%%%%:   20-block  8
-        1:   20-block  9
-        1:   20-block 10
-        1:   20-block 11
-        1:   20-block 12
-        1:   20-block 13
-        1:   20-block 14
-        1:   20-block 15
-        2:   21:    Matrix<double> a = m1;
-        1:   21-block  0
-        1:   21-block  1
-        1:   21-block  2
-    %%%%%:   21-block  3
-    %%%%%:   21-block  4
-    %%%%%:   21-block  5
-        2:   22:    Matrix<double> b = m2;
-        1:   22-block  0
-        1:   22-block  1
-        1:   22-block  2
-    %%%%%:   22-block  3
-    %%%%%:   22-block  4
-    %%%%%:   22-block  5
-        1:   23:    EXPECT_EQ(a.getRow(), 3);
-        1:   23-block  0
-    $$$$$:   23-block  1
-    $$$$$:   23-block  2
-    $$$$$:   23-block  3
-    $$$$$:   23-block  4
-        1:   23-block  5
-    %%%%%:   23-block  6
-    %%%%%:   23-block  7
-    %%%%%:   23-block  8
-    %%%%%:   23-block  9
-    %%%%%:   23-block 10
-    %%%%%:   23-block 11
-    %%%%%:   23-block 12
-    %%%%%:   23-block 13
-    %%%%%:   23-block 14
-    %%%%%:   23-block 15
-        1:   24:    EXPECT_EQ(a.getColumn(), 3);
-        1:   24-block  0
-    $$$$$:   24-block  1
-    $$$$$:   24-block  2
-    $$$$$:   24-block  3
-    $$$$$:   24-block  4
-        1:   24-block  5
-    %%%%%:   24-block  6
-    %%%%%:   24-block  7
-    %%%%%:   24-block  8
-    %%%%%:   24-block  9
-    %%%%%:   24-block 10
-    %%%%%:   24-block 11
-    %%%%%:   24-block 12
-    %%%%%:   24-block 13
-    %%%%%:   24-block 14
-    %%%%%:   24-block 15
-        1:   25:    EXPECT_EQ(b.getRow(), 3);
-        1:   25-block  0
-    $$$$$:   25-block  1
-    $$$$$:   25-block  2
-    $$$$$:   25-block  3
-    $$$$$:   25-block  4
-        1:   25-block  5
-    %%%%%:   25-block  6
-    %%%%%:   25-block  7
-    %%%%%:   25-block  8
-    %%%%%:   25-block  9
-    %%%%%:   25-block 10
-    %%%%%:   25-block 11
-    %%%%%:   25-block 12
-    %%%%%:   25-block 13
-    %%%%%:   25-block 14
-    %%%%%:   25-block 15
-        1:   26:    EXPECT_EQ(b.getColumn(), 3);
-        1:   26-block  0
-    $$$$$:   26-block  1
-    $$$$$:   26-block  2
-    $$$$$:   26-block  3
-    $$$$$:   26-block  4
-        1:   26-block  5
-    %%%%%:   26-block  6
-    %%%%%:   26-block  7
-    %%%%%:   26-block  8
-    %%%%%:   26-block  9
-    %%%%%:   26-block 10
-    %%%%%:   26-block 11
-    %%%%%:   26-block 12
-    %%%%%:   26-block 13
-    %%%%%:   26-block 14
-        1:   27:    int count = 1;
-        4:   28:    for (int i = 0; i < a.getRow(); ++i) {
-        4:   28-block  0
-        3:   28-block  1
-       12:   29:        for (int j = 0; j < a.getColumn(); ++j) {
-        3:   29-block  0
-       12:   29-block  1
-        9:   30:            EXPECT_EQ(a[i][j], count);
-        9:   30-block  0
-        9:   30-block  1
-        9:   30-block  2
-    $$$$$:   30-block  3
-    $$$$$:   30-block  4
-    $$$$$:   30-block  5
-    $$$$$:   30-block  6
-        9:   30-block  7
-    %%%%%:   30-block  8
-    %%%%%:   30-block  9
-    %%%%%:   30-block 10
-    %%%%%:   30-block 11
-    %%%%%:   30-block 12
-    %%%%%:   30-block 13
-        9:   31:            count++;
-        -:   32:        }
-        -:   33:    }
-        4:   34:    for (int i = 0; i < a.getRow(); ++i) {
-        1:   34-block  0
-        4:   34-block  1
-        3:   34-block  2
-       12:   35:        for (int j = 0; j < a.getColumn(); ++j) {
-        3:   35-block  0
-       12:   35-block  1
-        9:   36:            count--;
-        9:   37:            EXPECT_EQ(b[i][j], count);
-        9:   37-block  0
-        9:   37-block  1
-        9:   37-block  2
-    $$$$$:   37-block  3
-    $$$$$:   37-block  4
-    $$$$$:   37-block  5
-    $$$$$:   37-block  6
-        9:   37-block  7
-    %%%%%:   37-block  8
-    %%%%%:   37-block  9
-    %%%%%:   37-block 10
-    %%%%%:   37-block 11
-    %%%%%:   37-block 12
-    %%%%%:   37-block 13
-        -:   38:        }
-        -:   39:    }
-        1:   40:}
-    %%%%%:   40-block  0
-        -:   41://matrix + matrix
-        8:   42:TEST(Matrix_add_matrix, overload_plus) {
-        1:   42-block  0
-        1:   42-block  1
-        1:   42-block  2
-    %%%%%:   42-block  3
-    %%%%%:   42-block  4
-    %%%%%:   42-block  5
-    %%%%%:   42-block  6
-    %%%%%:   42-block  7
-    %%%%%:   42-block  8
-        1:   42-block  9
-        1:   42-block 10
-        1:   42-block 11
-        1:   42-block 12
-        1:   42-block 13
-        1:   42-block 14
-        1:   42-block 15
-        2:   43:    Matrix<int> a = Matrix<int>(3, 3);
-        1:   43-block  0
-    %%%%%:   43-block  1
-        2:   44:    Matrix<int> b = Matrix<int>(3, 3);
-        1:   44-block  0
-    %%%%%:   44-block  1
-        1:   45:    int count = 0;
-        4:   46:    for (int i = 0; i < 3; ++i) {
-        1:   46-block  0
-        4:   46-block  1
-        3:   46-block  2
-       12:   47:        for (int j = 0; j < 3; ++j) {
-        3:   47-block  0
-       12:   47-block  1
-        9:   48:            a[i][j] = count;
-        9:   48-block  0
-        9:   48-block  1
-        9:   49:            b[i][j] = 100 - count;
-        9:   49-block  0
-        9:   50:            count++;
-        -:   51:        }
-        -:   52:    }
-        2:   53:    Matrix<int> c;
-        1:   53-block  0
-        1:   53-block  1
-    %%%%%:   53-block  2
-        1:   54:    c = a + b;
-        1:   54-block  0
-        1:   54-block  1
-        1:   54-block  2
-    %%%%%:   54-block  3
-    %%%%%:   54-block  4
-    %%%%%:   54-block  5
-        4:   55:    for (int i = 0; i < 3; ++i) {
-        4:   55-block  0
-        3:   55-block  1
-       12:   56:        for (int j = 0; j < 3; ++j) {
-        3:   56-block  0
-       12:   56-block  1
-        9:   57:            EXPECT_EQ(c[i][j], 100);
-        9:   57-block  0
-        9:   57-block  1
-        9:   57-block  2
-    $$$$$:   57-block  3
-    $$$$$:   57-block  4
-    $$$$$:   57-block  5
-    $$$$$:   57-block  6
-        9:   57-block  7
-    %%%%%:   57-block  8
-    %%%%%:   57-block  9
-    %%%%%:   57-block 10
-    %%%%%:   57-block 11
-    %%%%%:   57-block 12
-    %%%%%:   57-block 13
-    %%%%%:   57-block 14
-        -:   58:        }
-        -:   59:    }
-        1:   60:}
-        -:   61://find min max in the matrix
-        8:   62:TEST(Matrix_find_max_and_min, task4) {
-        1:   62-block  0
-        1:   62-block  1
-        1:   62-block  2
-    %%%%%:   62-block  3
-    %%%%%:   62-block  4
-    %%%%%:   62-block  5
-    %%%%%:   62-block  6
-    %%%%%:   62-block  7
-    %%%%%:   62-block  8
-        1:   62-block  9
-        1:   62-block 10
-        1:   62-block 11
-        1:   62-block 12
-        1:   62-block 13
-        1:   62-block 14
-        1:   62-block 15
-        2:   63:    Matrix<double> a = m1;
-        1:   63-block  0
-        1:   63-block  1
-        1:   63-block  2
-    %%%%%:   63-block  3
-    %%%%%:   63-block  4
-    %%%%%:   63-block  5
-        2:   64:    Matrix<double> b = m2;
-        1:   64-block  0
-        1:   64-block  1
-    %%%%%:   64-block  2
-    %%%%%:   64-block  3
-    %%%%%:   64-block  4
-        1:   65:    EXPECT_EQ(a.findMax(), 9);
-        1:   65-block  0
-        1:   65-block  1
-    $$$$$:   65-block  2
-    $$$$$:   65-block  3
-    $$$$$:   65-block  4
-    $$$$$:   65-block  5
-        1:   65-block  6
-    %%%%%:   65-block  7
-    %%%%%:   65-block  8
-    %%%%%:   65-block  9
-    %%%%%:   65-block 10
-    %%%%%:   65-block 11
-    %%%%%:   65-block 12
-    %%%%%:   65-block 13
-    %%%%%:   65-block 14
-    %%%%%:   65-block 15
-    %%%%%:   65-block 16
-        1:   66:    EXPECT_EQ(b.findMax(), 9);
-        1:   66-block  0
-        1:   66-block  1
-    $$$$$:   66-block  2
-    $$$$$:   66-block  3
-    $$$$$:   66-block  4
-    $$$$$:   66-block  5
-        1:   66-block  6
-    %%%%%:   66-block  7
-    %%%%%:   66-block  8
-    %%%%%:   66-block  9
-    %%%%%:   66-block 10
-    %%%%%:   66-block 11
-    %%%%%:   66-block 12
-    %%%%%:   66-block 13
-    %%%%%:   66-block 14
-    %%%%%:   66-block 15
-    %%%%%:   66-block 16
-        1:   67:    EXPECT_EQ(a.findMin(), 1);
-        1:   67-block  0
-        1:   67-block  1
-    $$$$$:   67-block  2
-    $$$$$:   67-block  3
-    $$$$$:   67-block  4
-    $$$$$:   67-block  5
-        1:   67-block  6
-    %%%%%:   67-block  7
-    %%%%%:   67-block  8
-    %%%%%:   67-block  9
-    %%%%%:   67-block 10
-    %%%%%:   67-block 11
-    %%%%%:   67-block 12
-    %%%%%:   67-block 13
-    %%%%%:   67-block 14
-    %%%%%:   67-block 15
-    %%%%%:   67-block 16
-        1:   68:    EXPECT_EQ(b.findMin(), 1);
-        1:   68-block  0
-        1:   68-block  1
-    $$$$$:   68-block  2
-    $$$$$:   68-block  3
-    $$$$$:   68-block  4
-    $$$$$:   68-block  5
-        1:   68-block  6
-    %%%%%:   68-block  7
-    %%%%%:   68-block  8
-    %%%%%:   68-block  9
-    %%%%%:   68-block 10
-    %%%%%:   68-block 11
-    %%%%%:   68-block 12
-    %%%%%:   68-block 13
-    %%%%%:   68-block 14
-    %%%%%:   68-block 15
-    %%%%%:   68-block 16
-        1:   69:    EXPECT_EQ(a.findMaxAtRow(0), 3);
-        1:   69-block  0
-        1:   69-block  1
-    $$$$$:   69-block  2
-    $$$$$:   69-block  3
-    $$$$$:   69-block  4
-    $$$$$:   69-block  5
-        1:   69-block  6
-    %%%%%:   69-block  7
-    %%%%%:   69-block  8
-    %%%%%:   69-block  9
-    %%%%%:   69-block 10
-    %%%%%:   69-block 11
-    %%%%%:   69-block 12
-    %%%%%:   69-block 13
-    %%%%%:   69-block 14
-    %%%%%:   69-block 15
-    %%%%%:   69-block 16
-        1:   70:    EXPECT_EQ(a.findMaxAtRow(1), 6);
-        1:   70-block  0
-        1:   70-block  1
-    $$$$$:   70-block  2
-    $$$$$:   70-block  3
-    $$$$$:   70-block  4
-    $$$$$:   70-block  5
-        1:   70-block  6
-    %%%%%:   70-block  7
-    %%%%%:   70-block  8
-    %%%%%:   70-block  9
-    %%%%%:   70-block 10
-    %%%%%:   70-block 11
-    %%%%%:   70-block 12
-    %%%%%:   70-block 13
-    %%%%%:   70-block 14
-    %%%%%:   70-block 15
-    %%%%%:   70-block 16
-        1:   71:    EXPECT_EQ(a.findMaxAtRow(2), 9);
-        1:   71-block  0
-        1:   71-block  1
-    $$$$$:   71-block  2
-    $$$$$:   71-block  3
-    $$$$$:   71-block  4
-    $$$$$:   71-block  5
-        1:   71-block  6
-    %%%%%:   71-block  7
-    %%%%%:   71-block  8
-    %%%%%:   71-block  9
-    %%%%%:   71-block 10
-    %%%%%:   71-block 11
-    %%%%%:   71-block 12
-    %%%%%:   71-block 13
-    %%%%%:   71-block 14
-    %%%%%:   71-block 15
-    %%%%%:   71-block 16
-        1:   72:    EXPECT_EQ(a.findMinAtRow(0), 1);
-        1:   72-block  0
-        1:   72-block  1
-    $$$$$:   72-block  2
-    $$$$$:   72-block  3
-    $$$$$:   72-block  4
-    $$$$$:   72-block  5
-        1:   72-block  6
-    %%%%%:   72-block  7
-    %%%%%:   72-block  8
-    %%%%%:   72-block  9
-    %%%%%:   72-block 10
-    %%%%%:   72-block 11
-    %%%%%:   72-block 12
-    %%%%%:   72-block 13
-    %%%%%:   72-block 14
-    %%%%%:   72-block 15
-    %%%%%:   72-block 16
-        1:   73:    EXPECT_EQ(a.findMinAtRow(1), 4);
-        1:   73-block  0
-        1:   73-block  1
-    $$$$$:   73-block  2
-    $$$$$:   73-block  3
-    $$$$$:   73-block  4
-    $$$$$:   73-block  5
-        1:   73-block  6
-    %%%%%:   73-block  7
-    %%%%%:   73-block  8
-    %%%%%:   73-block  9
-    %%%%%:   73-block 10
-    %%%%%:   73-block 11
-    %%%%%:   73-block 12
-    %%%%%:   73-block 13
-    %%%%%:   73-block 14
-    %%%%%:   73-block 15
-    %%%%%:   73-block 16
-        1:   74:    EXPECT_EQ(a.findMinAtRow(2), 7);
-        1:   74-block  0
-        1:   74-block  1
-    $$$$$:   74-block  2
-    $$$$$:   74-block  3
-    $$$$$:   74-block  4
-    $$$$$:   74-block  5
-        1:   74-block  6
-    %%%%%:   74-block  7
-    %%%%%:   74-block  8
-    %%%%%:   74-block  9
-    %%%%%:   74-block 10
-    %%%%%:   74-block 11
-    %%%%%:   74-block 12
-    %%%%%:   74-block 13
-    %%%%%:   74-block 14
-    %%%%%:   74-block 15
-    %%%%%:   74-block 16
-        1:   75:    EXPECT_EQ(a.findMaxAtColumn(0), 7);
-        1:   75-block  0
-        1:   75-block  1
-    $$$$$:   75-block  2
-    $$$$$:   75-block  3
-    $$$$$:   75-block  4
-    $$$$$:   75-block  5
-        1:   75-block  6
-    %%%%%:   75-block  7
-    %%%%%:   75-block  8
-    %%%%%:   75-block  9
-    %%%%%:   75-block 10
-    %%%%%:   75-block 11
-    %%%%%:   75-block 12
-    %%%%%:   75-block 13
-    %%%%%:   75-block 14
-    %%%%%:   75-block 15
-    %%%%%:   75-block 16
-        1:   76:    EXPECT_EQ(a.findMaxAtColumn(1), 8);
-        1:   76-block  0
-        1:   76-block  1
-    $$$$$:   76-block  2
-    $$$$$:   76-block  3
-    $$$$$:   76-block  4
-    $$$$$:   76-block  5
-        1:   76-block  6
-    %%%%%:   76-block  7
-    %%%%%:   76-block  8
-    %%%%%:   76-block  9
-    %%%%%:   76-block 10
-    %%%%%:   76-block 11
-    %%%%%:   76-block 12
-    %%%%%:   76-block 13
-    %%%%%:   76-block 14
-    %%%%%:   76-block 15
-    %%%%%:   76-block 16
-        1:   77:    EXPECT_EQ(a.findMaxAtColumn(2), 9);
-        1:   77-block  0
-        1:   77-block  1
-    $$$$$:   77-block  2
-    $$$$$:   77-block  3
-    $$$$$:   77-block  4
-    $$$$$:   77-block  5
-        1:   77-block  6
-    %%%%%:   77-block  7
-    %%%%%:   77-block  8
-    %%%%%:   77-block  9
-    %%%%%:   77-block 10
-    %%%%%:   77-block 11
-    %%%%%:   77-block 12
-    %%%%%:   77-block 13
-    %%%%%:   77-block 14
-    %%%%%:   77-block 15
-    %%%%%:   77-block 16
-        1:   78:    EXPECT_EQ(a.findMinAtColumn(0), 1);
-        1:   78-block  0
-        1:   78-block  1
-    $$$$$:   78-block  2
-    $$$$$:   78-block  3
-    $$$$$:   78-block  4
-    $$$$$:   78-block  5
-        1:   78-block  6
-    %%%%%:   78-block  7
-    %%%%%:   78-block  8
-    %%%%%:   78-block  9
-    %%%%%:   78-block 10
-    %%%%%:   78-block 11
-    %%%%%:   78-block 12
-    %%%%%:   78-block 13
-    %%%%%:   78-block 14
-    %%%%%:   78-block 15
-    %%%%%:   78-block 16
-        1:   79:    EXPECT_EQ(a.findMinAtColumn(1), 2);
-        1:   79-block  0
-        1:   79-block  1
-    $$$$$:   79-block  2
-    $$$$$:   79-block  3
-    $$$$$:   79-block  4
-    $$$$$:   79-block  5
-        1:   79-block  6
-    %%%%%:   79-block  7
-    %%%%%:   79-block  8
-    %%%%%:   79-block  9
-    %%%%%:   79-block 10
-    %%%%%:   79-block 11
-    %%%%%:   79-block 12
-    %%%%%:   79-block 13
-    %%%%%:   79-block 14
-    %%%%%:   79-block 15
-    %%%%%:   79-block 16
-        1:   80:    EXPECT_EQ(a.findMinAtColumn(2), 3);
-        1:   80-block  0
-        1:   80-block  1
-    $$$$$:   80-block  2
-    $$$$$:   80-block  3
-    $$$$$:   80-block  4
-    $$$$$:   80-block  5
-        1:   80-block  6
-    %%%%%:   80-block  7
-    %%%%%:   80-block  8
-    %%%%%:   80-block  9
-    %%%%%:   80-block 10
-    %%%%%:   80-block 11
-    %%%%%:   80-block 12
-    %%%%%:   80-block 13
-    %%%%%:   80-block 14
-    %%%%%:   80-block 15
-    %%%%%:   80-block 16
-        1:   81:    EXPECT_EQ(b.findMaxAtRow(0), 9);
-        1:   81-block  0
-        1:   81-block  1
-    $$$$$:   81-block  2
-    $$$$$:   81-block  3
-    $$$$$:   81-block  4
-    $$$$$:   81-block  5
-        1:   81-block  6
-    %%%%%:   81-block  7
-    %%%%%:   81-block  8
-    %%%%%:   81-block  9
-    %%%%%:   81-block 10
-    %%%%%:   81-block 11
-    %%%%%:   81-block 12
-    %%%%%:   81-block 13
-    %%%%%:   81-block 14
-    %%%%%:   81-block 15
-    %%%%%:   81-block 16
-        1:   82:    EXPECT_EQ(b.findMaxAtRow(1), 6);
-        1:   82-block  0
-        1:   82-block  1
-    $$$$$:   82-block  2
-    $$$$$:   82-block  3
-    $$$$$:   82-block  4
-    $$$$$:   82-block  5
-        1:   82-block  6
-    %%%%%:   82-block  7
-    %%%%%:   82-block  8
-    %%%%%:   82-block  9
-    %%%%%:   82-block 10
-    %%%%%:   82-block 11
-    %%%%%:   82-block 12
-    %%%%%:   82-block 13
-    %%%%%:   82-block 14
-    %%%%%:   82-block 15
-    %%%%%:   82-block 16
-        1:   83:    EXPECT_EQ(b.findMaxAtRow(2), 3);
-        1:   83-block  0
-        1:   83-block  1
-    $$$$$:   83-block  2
-    $$$$$:   83-block  3
-    $$$$$:   83-block  4
-    $$$$$:   83-block  5
-        1:   83-block  6
-    %%%%%:   83-block  7
-    %%%%%:   83-block  8
-    %%%%%:   83-block  9
-    %%%%%:   83-block 10
-    %%%%%:   83-block 11
-    %%%%%:   83-block 12
-    %%%%%:   83-block 13
-    %%%%%:   83-block 14
-    %%%%%:   83-block 15
-    %%%%%:   83-block 16
-        1:   84:    EXPECT_EQ(b.findMaxAtColumn(0), 9);
-        1:   84-block  0
-        1:   84-block  1
-    $$$$$:   84-block  2
-    $$$$$:   84-block  3
-    $$$$$:   84-block  4
-    $$$$$:   84-block  5
-        1:   84-block  6
-    %%%%%:   84-block  7
-    %%%%%:   84-block  8
-    %%%%%:   84-block  9
-    %%%%%:   84-block 10
-    %%%%%:   84-block 11
-    %%%%%:   84-block 12
-    %%%%%:   84-block 13
-    %%%%%:   84-block 14
-    %%%%%:   84-block 15
-    %%%%%:   84-block 16
-        1:   85:    EXPECT_EQ(b.findMaxAtColumn(1), 8);
-        1:   85-block  0
-        1:   85-block  1
-    $$$$$:   85-block  2
-    $$$$$:   85-block  3
-    $$$$$:   85-block  4
-    $$$$$:   85-block  5
-        1:   85-block  6
-    %%%%%:   85-block  7
-    %%%%%:   85-block  8
-    %%%%%:   85-block  9
-    %%%%%:   85-block 10
-    %%%%%:   85-block 11
-    %%%%%:   85-block 12
-    %%%%%:   85-block 13
-    %%%%%:   85-block 14
-    %%%%%:   85-block 15
-    %%%%%:   85-block 16
-        1:   86:    EXPECT_EQ(b.findMaxAtColumn(2), 7);
-        1:   86-block  0
-        1:   86-block  1
-    $$$$$:   86-block  2
-    $$$$$:   86-block  3
-    $$$$$:   86-block  4
-    $$$$$:   86-block  5
-        1:   86-block  6
-    %%%%%:   86-block  7
-    %%%%%:   86-block  8
-    %%%%%:   86-block  9
-    %%%%%:   86-block 10
-    %%%%%:   86-block 11
-    %%%%%:   86-block 12
-    %%%%%:   86-block 13
-    %%%%%:   86-block 14
-    %%%%%:   86-block 15
-        -:   87:
-        1:   88:}
-    %%%%%:   88-block  0
-        -:   89://find average in the matrix
-        8:   90:TEST(Matrix_find_average, task4) {
-        1:   90-block  0
-        1:   90-block  1
-        1:   90-block  2
-    %%%%%:   90-block  3
-    %%%%%:   90-block  4
-    %%%%%:   90-block  5
-    %%%%%:   90-block  6
-    %%%%%:   90-block  7
-    %%%%%:   90-block  8
-        1:   90-block  9
-        1:   90-block 10
-        1:   90-block 11
-        1:   90-block 12
-        1:   90-block 13
-        1:   90-block 14
-        1:   90-block 15
-        2:   91:    Matrix<double> a = m1;
-        1:   91-block  0
-        1:   91-block  1
-        1:   91-block  2
-    %%%%%:   91-block  3
-    %%%%%:   91-block  4
-    %%%%%:   91-block  5
-        1:   92:    EXPECT_EQ(a.findAverage(), 5);
-        1:   92-block  0
-        1:   92-block  1
-    $$$$$:   92-block  2
-    $$$$$:   92-block  3
-    $$$$$:   92-block  4
-    $$$$$:   92-block  5
-        1:   92-block  6
-    %%%%%:   92-block  7
-    %%%%%:   92-block  8
-    %%%%%:   92-block  9
-    %%%%%:   92-block 10
-    %%%%%:   92-block 11
-    %%%%%:   92-block 12
-    %%%%%:   92-block 13
-    %%%%%:   92-block 14
-    %%%%%:   92-block 15
-    %%%%%:   92-block 16
-        1:   93:    EXPECT_EQ(a.findAverageAtRow(0), 2);
-        1:   93-block  0
-        1:   93-block  1
-    $$$$$:   93-block  2
-    $$$$$:   93-block  3
-    $$$$$:   93-block  4
-    $$$$$:   93-block  5
-        1:   93-block  6
-    %%%%%:   93-block  7
-    %%%%%:   93-block  8
-    %%%%%:   93-block  9
-    %%%%%:   93-block 10
-    %%%%%:   93-block 11
-    %%%%%:   93-block 12
-    %%%%%:   93-block 13
-    %%%%%:   93-block 14
-    %%%%%:   93-block 15
-    %%%%%:   93-block 16
-        1:   94:    EXPECT_EQ(a.findAverageAtRow(1), 5);
-        1:   94-block  0
-        1:   94-block  1
-    $$$$$:   94-block  2
-    $$$$$:   94-block  3
-    $$$$$:   94-block  4
-    $$$$$:   94-block  5
-        1:   94-block  6
-    %%%%%:   94-block  7
-    %%%%%:   94-block  8
-    %%%%%:   94-block  9
-    %%%%%:   94-block 10
-    %%%%%:   94-block 11
-    %%%%%:   94-block 12
-    %%%%%:   94-block 13
-    %%%%%:   94-block 14
-    %%%%%:   94-block 15
-    %%%%%:   94-block 16
-        1:   95:    EXPECT_EQ(a.findAverageAtRow(2), 8);
-        1:   95-block  0
-        1:   95-block  1
-    $$$$$:   95-block  2
-    $$$$$:   95-block  3
-    $$$$$:   95-block  4
-    $$$$$:   95-block  5
-        1:   95-block  6
-    %%%%%:   95-block  7
-    %%%%%:   95-block  8
-    %%%%%:   95-block  9
-    %%%%%:   95-block 10
-    %%%%%:   95-block 11
-    %%%%%:   95-block 12
-    %%%%%:   95-block 13
-    %%%%%:   95-block 14
-    %%%%%:   95-block 15
-    %%%%%:   95-block 16
-        1:   96:    EXPECT_EQ(a.findAverageAtColumn(0), 4);
-        1:   96-block  0
-        1:   96-block  1
-    $$$$$:   96-block  2
-    $$$$$:   96-block  3
-    $$$$$:   96-block  4
-    $$$$$:   96-block  5
-        1:   96-block  6
-    %%%%%:   96-block  7
-    %%%%%:   96-block  8
-    %%%%%:   96-block  9
-    %%%%%:   96-block 10
-    %%%%%:   96-block 11
-    %%%%%:   96-block 12
-    %%%%%:   96-block 13
-    %%%%%:   96-block 14
-    %%%%%:   96-block 15
-    %%%%%:   96-block 16
-        1:   97:    EXPECT_EQ(a.findAverageAtColumn(1), 5);
-        1:   97-block  0
-        1:   97-block  1
-    $$$$$:   97-block  2
-    $$$$$:   97-block  3
-    $$$$$:   97-block  4
-    $$$$$:   97-block  5
-        1:   97-block  6
-    %%%%%:   97-block  7
-    %%%%%:   97-block  8
-    %%%%%:   97-block  9
-    %%%%%:   97-block 10
-    %%%%%:   97-block 11
-    %%%%%:   97-block 12
-    %%%%%:   97-block 13
-    %%%%%:   97-block 14
-    %%%%%:   97-block 15
-        1:   98:    EXPECT_FLOAT_EQ(a.findAverageAtColumn(2), 6);
-        1:   98-block  0
-        1:   98-block  1
-    $$$$$:   98-block  2
-    $$$$$:   98-block  3
-    $$$$$:   98-block  4
-    $$$$$:   98-block  5
-        1:   98-block  6
-    %%%%%:   98-block  7
-    %%%%%:   98-block  8
-    %%%%%:   98-block  9
-    %%%%%:   98-block 10
-    %%%%%:   98-block 11
-    %%%%%:   98-block 12
-        1:   99:}
-    %%%%%:   99-block  0
-        -:  100://find sum in the matrix
-        8:  101:TEST(Matrix_find_sum, task4) {
-        1:  101-block  0
-        1:  101-block  1
-        1:  101-block  2
-    %%%%%:  101-block  3
-    %%%%%:  101-block  4
-    %%%%%:  101-block  5
-    %%%%%:  101-block  6
-    %%%%%:  101-block  7
-        1:  101-block  8
-        1:  101-block  9
-        1:  101-block 10
-        1:  101-block 11
-        1:  101-block 12
-        1:  101-block 13
-        1:  101-block 14
-        2:  102:    Matrix<double> a = m1;
-        1:  102-block  0
-        1:  102-block  1
-        1:  102-block  2
-    %%%%%:  102-block  3
-    %%%%%:  102-block  4
-    %%%%%:  102-block  5
-        1:  103:    EXPECT_EQ(a.findSum(), 45);
-        1:  103-block  0
-        1:  103-block  1
-    $$$$$:  103-block  2
-    $$$$$:  103-block  3
-    $$$$$:  103-block  4
-    $$$$$:  103-block  5
-        1:  103-block  6
-    %%%%%:  103-block  7
-    %%%%%:  103-block  8
-    %%%%%:  103-block  9
-    %%%%%:  103-block 10
-    %%%%%:  103-block 11
-    %%%%%:  103-block 12
-    %%%%%:  103-block 13
-    %%%%%:  103-block 14
-    %%%%%:  103-block 15
-    %%%%%:  103-block 16
-        1:  104:    EXPECT_EQ(a.findSumAtRow(0), 6);
-        1:  104-block  0
-        1:  104-block  1
-    $$$$$:  104-block  2
-    $$$$$:  104-block  3
-    $$$$$:  104-block  4
-    $$$$$:  104-block  5
-        1:  104-block  6
-    %%%%%:  104-block  7
-    %%%%%:  104-block  8
-    %%%%%:  104-block  9
-    %%%%%:  104-block 10
-    %%%%%:  104-block 11
-    %%%%%:  104-block 12
-    %%%%%:  104-block 13
-    %%%%%:  104-block 14
-    %%%%%:  104-block 15
-    %%%%%:  104-block 16
-        1:  105:    EXPECT_EQ(a.findSumAtRow(1), 15);
-        1:  105-block  0
-        1:  105-block  1
-    $$$$$:  105-block  2
-    $$$$$:  105-block  3
-    $$$$$:  105-block  4
-    $$$$$:  105-block  5
-        1:  105-block  6
-    %%%%%:  105-block  7
-    %%%%%:  105-block  8
-    %%%%%:  105-block  9
-    %%%%%:  105-block 10
-    %%%%%:  105-block 11
-    %%%%%:  105-block 12
-    %%%%%:  105-block 13
-    %%%%%:  105-block 14
-    %%%%%:  105-block 15
-    %%%%%:  105-block 16
-        1:  106:    EXPECT_EQ(a.findSumAtRow(2), 24);
-        1:  106-block  0
-        1:  106-block  1
-    $$$$$:  106-block  2
-    $$$$$:  106-block  3
-    $$$$$:  106-block  4
-    $$$$$:  106-block  5
-        1:  106-block  6
-    %%%%%:  106-block  7
-    %%%%%:  106-block  8
-    %%%%%:  106-block  9
-    %%%%%:  106-block 10
-    %%%%%:  106-block 11
-    %%%%%:  106-block 12
-    %%%%%:  106-block 13
-    %%%%%:  106-block 14
-    %%%%%:  106-block 15
-    %%%%%:  106-block 16
-        1:  107:    EXPECT_EQ(a.findSumAtColumn(0), 12);
-        1:  107-block  0
-        1:  107-block  1
-    $$$$$:  107-block  2
-    $$$$$:  107-block  3
-    $$$$$:  107-block  4
-    $$$$$:  107-block  5
-        1:  107-block  6
-    %%%%%:  107-block  7
-    %%%%%:  107-block  8
-    %%%%%:  107-block  9
-    %%%%%:  107-block 10
-    %%%%%:  107-block 11
-    %%%%%:  107-block 12
-    %%%%%:  107-block 13
-    %%%%%:  107-block 14
-    %%%%%:  107-block 15
-    %%%%%:  107-block 16
-        1:  108:    EXPECT_EQ(a.findSumAtColumn(1), 15);
-        1:  108-block  0
-        1:  108-block  1
-    $$$$$:  108-block  2
-    $$$$$:  108-block  3
-    $$$$$:  108-block  4
-    $$$$$:  108-block  5
-        1:  108-block  6
-    %%%%%:  108-block  7
-    %%%%%:  108-block  8
-    %%%%%:  108-block  9
-    %%%%%:  108-block 10
-    %%%%%:  108-block 11
-    %%%%%:  108-block 12
-    %%%%%:  108-block 13
-    %%%%%:  108-block 14
-    %%%%%:  108-block 15
-        1:  109:    EXPECT_FLOAT_EQ(a.findSumAtColumn(2), 18);
-        1:  109-block  0
-        1:  109-block  1
-    $$$$$:  109-block  2
-    $$$$$:  109-block  3
-    $$$$$:  109-block  4
-    $$$$$:  109-block  5
-        1:  109-block  6
-    %%%%%:  109-block  7
-    %%%%%:  109-block  8
-    %%%%%:  109-block  9
-    %%%%%:  109-block 10
-    %%%%%:  109-block 11
-    %%%%%:  109-block 12
-        1:  110:}
-    %%%%%:  110-block  0
-        -:  111:
-        1:  112:GTEST_API_ int main() {
-        1:  112-block  0
-        1:  113:    testing::InitGoogleTest();
-        1:  113-block  0
-        1:  114:    return RUN_ALL_TESTS();
-        4:  115:}
-        1:  115-block  0
-        1:  115-block  1
-        1:  115-block  2
-        1:  115-block  3
-        1:  115-block  4
-        1:  115-block  5
-        -:  116://int main() {
-        -:  117://    Matrix<double> a = Matrix<double>(5, 5);
-        -:  118://    a.show();
-        -:  119://    Mat mat1 = Mat::ones(Size(3, 2), CV_32FC1);
-        -:  120://    Mat mat2 = Mat::ones(Size(5, 5), CV_8UC1);
-        -:  121://    cout << mat1 << endl;
-        -:  122://    cout << mat1.rows << endl;
-        -:  123://    cout << mat1.cols << endl;
-        -:  124://    mat1.col(1).row(0) = -0.1;
-        -:  125://    cout << mat1;
-        -:  126://    a = mat1;
-        -:  127://    a.show();
-        -:  128://    Matrix<int> b = mat2;
-        -:  129://    b.show();
-        -:  130://    Mat mat3 = a.to_opencv_32FC1();
-        -:  131://    cout << mat3;
-        -:  132://}
+        -:    7:#define EXP 0.0001
+        -:    8:
+        -:    9:#include "gtest/gtest.h"
+        -:   10:
+        -:   11:
+        -:   12:/**
+        -:   13:* @brief 求实对称矩阵的特征值及特征向量的雅克比法
+        -:   14:* 利用雅格比(Jacobi)方法求实对称矩阵的所有特征值及特征向量
+        -:   15:* @param pMatrix				长度为n*n的数组。存放实对称矩阵
+        -:   16:* @param nDim					矩阵的阶数
+        -:   17:* @param pdblVects				长度为n*n的数组，返回特征向量(按列存储)
+        -:   18:* @param dbEps					精度要求
+        -:   19:* @param nJt					整型变量。控制最大迭代次数
+        -:   20:* @param pdbEigenValues			特征值数组
+        -:   21:* @return
+        -:   22:*/
+        -:   23://bool JacbiCor(int nDim, double dbEps, int nJt) {
+        -:   24://    for (int i = 0; i < nDim; i++) {
+        -:   25://        pdblVects[i * nDim + i] = 1.0f;
+        -:   26://        for (int j = 0; j < nDim; j++) {
+        -:   27://            if (i != j)
+        -:   28://                pdblVects[i * nDim + j] = 0.0f;
+        -:   29://        }
+        -:   30://    }
+        -:   31://
+        -:   32://    int nCount = 0;        //迭代次数
+        -:   33://    while (1) {
+        -:   34://        //在pMatrix的非对角线上找到最大元素
+        -:   35://        double dbMax = pMatrix[1];
+        -:   36://        int nRow = 0;
+        -:   37://        int nCol = 1;
+        -:   38://        for (int i = 0; i < nDim; i++)            //行
+        -:   39://        {
+        -:   40://            for (int j = 0; j < nDim; j++)        //列
+        -:   41://            {
+        -:   42://                double d = fabs(pMatrix[i * nDim + j]);
+        -:   43://
+        -:   44://                if ((i != j) && (d > dbMax)) {
+        -:   45://                    dbMax = d;
+        -:   46://                    nRow = i;
+        -:   47://                    nCol = j;
+        -:   48://                }
+        -:   49://            }
+        -:   50://        }
+        -:   51://
+        -:   52://        if (dbMax < dbEps)     //精度符合要求
+        -:   53://            break;
+        -:   54://
+        -:   55://        if (nCount > nJt)       //迭代次数超过限制
+        -:   56://            break;
+        -:   57://
+        -:   58://        nCount++;
+        -:   59://
+        -:   60://        double dbApp = pMatrix[nRow * nDim + nRow];
+        -:   61://        double dbApq = pMatrix[nRow * nDim + nCol];
+        -:   62://        double dbAqq = pMatrix[nCol * nDim + nCol];
+        -:   63://
+        -:   64://        //计算旋转角度
+        -:   65://        double dbAngle = 0.5 * atan2(-2 * dbApq, dbAqq - dbApp);
+        -:   66://        double dbSinTheta = sin(dbAngle);
+        -:   67://        double dbCosTheta = cos(dbAngle);
+        -:   68://        double dbSin2Theta = sin(2 * dbAngle);
+        -:   69://        double dbCos2Theta = cos(2 * dbAngle);
+        -:   70://
+        -:   71://        pMatrix[nRow * nDim + nRow] = dbApp * dbCosTheta * dbCosTheta +
+        -:   72://                                      dbAqq * dbSinTheta * dbSinTheta + 2 * dbApq * dbCosTheta * dbSinTheta;
+        -:   73://        pMatrix[nCol * nDim + nCol] = dbApp * dbSinTheta * dbSinTheta +
+        -:   74://                                      dbAqq * dbCosTheta * dbCosTheta - 2 * dbApq * dbCosTheta * dbSinTheta;
+        -:   75://        pMatrix[nRow * nDim + nCol] = 0.5 * (dbAqq - dbApp) * dbSin2Theta + dbApq * dbCos2Theta;
+        -:   76://        pMatrix[nCol * nDim + nRow] = pMatrix[nRow * nDim + nCol];
+        -:   77://
+        -:   78://        for (int i = 0; i < nDim; i++) {
+        -:   79://            if ((i != nCol) && (i != nRow)) {
+        -:   80://                int u = i * nDim + nRow;    //p
+        -:   81://                int w = i * nDim + nCol;    //q
+        -:   82://                dbMax = pMatrix[u];
+        -:   83://                pMatrix[u] = pMatrix[w] * dbSinTheta + dbMax * dbCosTheta;
+        -:   84://                pMatrix[w] = pMatrix[w] * dbCosTheta - dbMax * dbSinTheta;
+        -:   85://            }
+        -:   86://        }
+        -:   87://
+        -:   88://        for (int j = 0; j < nDim; j++) {
+        -:   89://            if ((j != nCol) && (j != nRow)) {
+        -:   90://                int u = nRow * nDim + j;    //p
+        -:   91://                int w = nCol * nDim + j;    //q
+        -:   92://                dbMax = pMatrix[u];
+        -:   93://                pMatrix[u] = pMatrix[w] * dbSinTheta + dbMax * dbCosTheta;
+        -:   94://                pMatrix[w] = pMatrix[w] * dbCosTheta - dbMax * dbSinTheta;
+        -:   95://            }
+        -:   96://        }
+        -:   97://
+        -:   98://        //计算特征向量
+        -:   99://        for (int i = 0; i < nDim; i++) {
+        -:  100://            int u = i * nDim + nRow;        //p
+        -:  101://            int w = i * nDim + nCol;        //q
+        -:  102://            dbMax = pdblVects[u];
+        -:  103://            pdblVects[u] = pdblVects[w] * dbSinTheta + dbMax * dbCosTheta;
+        -:  104://            pdblVects[w] = pdblVects[w] * dbCosTheta - dbMax * dbSinTheta;
+        -:  105://        }
+        -:  106://
+        -:  107://    }
+        -:  108://
+        -:  109://    //对特征值进行排序以及又一次排列特征向量,特征值即pMatrix主对角线上的元素
+        -:  110://    std::map<double, int> mapEigen;
+        -:  111://    for (int i = 0; i < nDim; i++) {
+        -:  112://        pdbEigenValues[i] = pMatrix[i * nDim + i];
+        -:  113://
+        -:  114://        mapEigen.insert(make_pair(pdbEigenValues[i], i));
+        -:  115://    }
+        -:  116://
+        -:  117://    double *pdbTmpVec = new double[nDim * nDim];
+        -:  118://    std::map<double, int>::reverse_iterator iter = mapEigen.rbegin();
+        -:  119://    for (int j = 0; iter != mapEigen.rend(), j < nDim; ++iter, ++j) {
+        -:  120://        for (int i = 0; i < nDim; i++) {
+        -:  121://            pdbTmpVec[i * nDim + j] = pdblVects[i * nDim + iter->second];
+        -:  122://        }
+        -:  123://
+        -:  124://        //特征值又一次排列
+        -:  125://        pdbEigenValues[j] = iter->first;
+        -:  126://    }
+        -:  127://
+        -:  128://    //设定正负号
+        -:  129://    for (int i = 0; i < nDim; i++) {
+        -:  130://        double dSumVec = 0;
+        -:  131://        for (int j = 0; j < nDim; j++)
+        -:  132://            dSumVec += pdbTmpVec[j * nDim + i];
+        -:  133://        if (dSumVec < 0) {
+        -:  134://            for (int j = 0; j < nDim; j++)
+        -:  135://                pdbTmpVec[j * nDim + i] *= -1;
+        -:  136://        }
+        -:  137://    }
+        -:  138://
+        -:  139://    memcpy(pdblVects, pdbTmpVec, sizeof(double) * nDim * nDim);
+        -:  140://    delete[]pdbTmpVec;
+        -:  141://
+        -:  142://    return 1;
+        -:  143://}
+        -:  144:
+        4:  145:vector<vector<double>> m1 = {{1, 2, 3},
+        1:  145-block  0
+        1:  145-block  1
+        1:  145-block  2
+        1:  145-block  3
+        1:  145-block  4
+        4:  145-block  5
+        1:  145-block  6
+    %%%%%:  145-block  7
+    %%%%%:  145-block  8
+    %%%%%:  145-block  9
+    %%%%%:  145-block 10
+    %%%%%:  145-block 11
+    %%%%%:  145-block 12
+    %%%%%:  145-block 13
+    %%%%%:  145-block 14
+    %%%%%:  145-block 15
+    %%%%%:  145-block 16
+    %%%%%:  145-block 17
+    %%%%%:  145-block 18
+    %%%%%:  145-block 19
+        -:  146:                             {4, 5, 6},
+        3:  147:                             {7, 8, 9}};
+        3:  147-block  0
+    %%%%%:  147-block  1
+        4:  148:vector<vector<double>> m2 = {{9, 8, 7},
+        1:  148-block  0
+        1:  148-block  1
+        1:  148-block  2
+        1:  148-block  3
+        1:  148-block  4
+        4:  148-block  5
+        1:  148-block  6
+    %%%%%:  148-block  7
+    %%%%%:  148-block  8
+    %%%%%:  148-block  9
+    %%%%%:  148-block 10
+    %%%%%:  148-block 11
+    %%%%%:  148-block 12
+    %%%%%:  148-block 13
+    %%%%%:  148-block 14
+    %%%%%:  148-block 15
+    %%%%%:  148-block 16
+    %%%%%:  148-block 17
+    %%%%%:  148-block 18
+    %%%%%:  148-block 19
+        -:  149:                             {6, 5, 4},
+        3:  150:                             {3, 2, 1}};
+        3:  150-block  0
+    %%%%%:  150-block  1
+        4:  151:vector<vector<double>> m3 = {{1,  2,  1},
+        1:  151-block  0
+        1:  151-block  1
+        1:  151-block  2
+        1:  151-block  3
+        1:  151-block  4
+        4:  151-block  5
+        1:  151-block  6
+    %%%%%:  151-block  7
+    %%%%%:  151-block  8
+    %%%%%:  151-block  9
+    %%%%%:  151-block 10
+    %%%%%:  151-block 11
+    %%%%%:  151-block 12
+    %%%%%:  151-block 13
+    %%%%%:  151-block 14
+    %%%%%:  151-block 15
+    %%%%%:  151-block 16
+    %%%%%:  151-block 17
+    %%%%%:  151-block 18
+    %%%%%:  151-block 19
+        -:  152:                             {0,  0,  0},
+        3:  153:                             {-1, -2, -1}};
+        3:  153-block  0
+    %%%%%:  153-block  1
+        5:  154:vector<vector<double>> m4 = {{1,  2,  3,  4,},
+        1:  154-block  0
+        1:  154-block  1
+        1:  154-block  2
+        1:  154-block  3
+        1:  154-block  4
+        1:  154-block  5
+        5:  154-block  6
+        1:  154-block  7
+    %%%%%:  154-block  8
+    %%%%%:  154-block  9
+    %%%%%:  154-block 10
+    %%%%%:  154-block 11
+    %%%%%:  154-block 12
+    %%%%%:  154-block 13
+    %%%%%:  154-block 14
+    %%%%%:  154-block 15
+    %%%%%:  154-block 16
+    %%%%%:  154-block 17
+    %%%%%:  154-block 18
+    %%%%%:  154-block 19
+    %%%%%:  154-block 20
+    %%%%%:  154-block 21
+    %%%%%:  154-block 22
+        -:  155:                             {5,  6,  7,  8},
+        -:  156:                             {9,  10, 11, 12},
+        4:  157:                             {13, 14, 15, 16}};
+        4:  157-block  0
+    %%%%%:  157-block  1
+        -:  158://init a Matrix by vector<vector<double>>
+        8:  159:TEST(Matrix_init_vector, test) {
+        1:  159-block  0
+        1:  159-block  1
+        1:  159-block  2
+    %%%%%:  159-block  3
+    %%%%%:  159-block  4
+    %%%%%:  159-block  5
+    %%%%%:  159-block  6
+    %%%%%:  159-block  7
+    %%%%%:  159-block  8
+        1:  159-block  9
+        1:  159-block 10
+        1:  159-block 11
+        1:  159-block 12
+        1:  159-block 13
+        1:  159-block 14
+        1:  159-block 15
+        2:  160:    Matrix<double> a = m1;
+        1:  160-block  0
+        1:  160-block  1
+        1:  160-block  2
+    %%%%%:  160-block  3
+    %%%%%:  160-block  4
+    %%%%%:  160-block  5
+        2:  161:    Matrix<double> b = m2;
+        1:  161-block  0
+        1:  161-block  1
+        1:  161-block  2
+    %%%%%:  161-block  3
+    %%%%%:  161-block  4
+    %%%%%:  161-block  5
+        1:  162:    EXPECT_EQ(a.getRow(), 3);
+        1:  162-block  0
+    $$$$$:  162-block  1
+    $$$$$:  162-block  2
+    $$$$$:  162-block  3
+    $$$$$:  162-block  4
+        1:  162-block  5
+    %%%%%:  162-block  6
+    %%%%%:  162-block  7
+    %%%%%:  162-block  8
+    %%%%%:  162-block  9
+    %%%%%:  162-block 10
+    %%%%%:  162-block 11
+    %%%%%:  162-block 12
+    %%%%%:  162-block 13
+    %%%%%:  162-block 14
+    %%%%%:  162-block 15
+        1:  163:    EXPECT_EQ(a.getColumn(), 3);
+        1:  163-block  0
+    $$$$$:  163-block  1
+    $$$$$:  163-block  2
+    $$$$$:  163-block  3
+    $$$$$:  163-block  4
+        1:  163-block  5
+    %%%%%:  163-block  6
+    %%%%%:  163-block  7
+    %%%%%:  163-block  8
+    %%%%%:  163-block  9
+    %%%%%:  163-block 10
+    %%%%%:  163-block 11
+    %%%%%:  163-block 12
+    %%%%%:  163-block 13
+    %%%%%:  163-block 14
+    %%%%%:  163-block 15
+        1:  164:    EXPECT_EQ(b.getRow(), 3);
+        1:  164-block  0
+    $$$$$:  164-block  1
+    $$$$$:  164-block  2
+    $$$$$:  164-block  3
+    $$$$$:  164-block  4
+        1:  164-block  5
+    %%%%%:  164-block  6
+    %%%%%:  164-block  7
+    %%%%%:  164-block  8
+    %%%%%:  164-block  9
+    %%%%%:  164-block 10
+    %%%%%:  164-block 11
+    %%%%%:  164-block 12
+    %%%%%:  164-block 13
+    %%%%%:  164-block 14
+    %%%%%:  164-block 15
+        1:  165:    EXPECT_EQ(b.getColumn(), 3);
+        1:  165-block  0
+    $$$$$:  165-block  1
+    $$$$$:  165-block  2
+    $$$$$:  165-block  3
+    $$$$$:  165-block  4
+        1:  165-block  5
+    %%%%%:  165-block  6
+    %%%%%:  165-block  7
+    %%%%%:  165-block  8
+    %%%%%:  165-block  9
+    %%%%%:  165-block 10
+    %%%%%:  165-block 11
+    %%%%%:  165-block 12
+    %%%%%:  165-block 13
+    %%%%%:  165-block 14
+        1:  166:    int count = 1;
+        4:  167:    for (int i = 0; i < a.getRow(); ++i) {
+        4:  167-block  0
+        3:  167-block  1
+       12:  168:        for (int j = 0; j < a.getColumn(); ++j) {
+        3:  168-block  0
+       12:  168-block  1
+        9:  169:            EXPECT_EQ(a[i][j], count);
+        9:  169-block  0
+        9:  169-block  1
+        9:  169-block  2
+    $$$$$:  169-block  3
+    $$$$$:  169-block  4
+    $$$$$:  169-block  5
+    $$$$$:  169-block  6
+        9:  169-block  7
+    %%%%%:  169-block  8
+    %%%%%:  169-block  9
+    %%%%%:  169-block 10
+    %%%%%:  169-block 11
+    %%%%%:  169-block 12
+    %%%%%:  169-block 13
+        9:  170:            count++;
+        -:  171:        }
+        -:  172:    }
+        4:  173:    for (int i = 0; i < a.getRow(); ++i) {
+        1:  173-block  0
+        4:  173-block  1
+        3:  173-block  2
+       12:  174:        for (int j = 0; j < a.getColumn(); ++j) {
+        3:  174-block  0
+       12:  174-block  1
+        9:  175:            count--;
+        9:  176:            EXPECT_EQ(b[i][j], count);
+        9:  176-block  0
+        9:  176-block  1
+        9:  176-block  2
+    $$$$$:  176-block  3
+    $$$$$:  176-block  4
+    $$$$$:  176-block  5
+    $$$$$:  176-block  6
+        9:  176-block  7
+    %%%%%:  176-block  8
+    %%%%%:  176-block  9
+    %%%%%:  176-block 10
+    %%%%%:  176-block 11
+    %%%%%:  176-block 12
+    %%%%%:  176-block 13
+        -:  177:        }
+        -:  178:    }
+        1:  179:}
+    %%%%%:  179-block  0
+        -:  180://matrix + matrix
+        8:  181:TEST(Matrix_add_matrix, overload_plus) {
+        1:  181-block  0
+        1:  181-block  1
+        1:  181-block  2
+    %%%%%:  181-block  3
+    %%%%%:  181-block  4
+    %%%%%:  181-block  5
+    %%%%%:  181-block  6
+    %%%%%:  181-block  7
+    %%%%%:  181-block  8
+        1:  181-block  9
+        1:  181-block 10
+        1:  181-block 11
+        1:  181-block 12
+        1:  181-block 13
+        1:  181-block 14
+        1:  181-block 15
+        2:  182:    Matrix<int> a = Matrix<int>(3, 3);
+        1:  182-block  0
+    %%%%%:  182-block  1
+        2:  183:    Matrix<int> b = Matrix<int>(3, 3);
+        1:  183-block  0
+    %%%%%:  183-block  1
+        1:  184:    int count = 0;
+        4:  185:    for (int i = 0; i < 3; ++i) {
+        1:  185-block  0
+        4:  185-block  1
+        3:  185-block  2
+       12:  186:        for (int j = 0; j < 3; ++j) {
+        3:  186-block  0
+       12:  186-block  1
+        9:  187:            a[i][j] = count;
+        9:  187-block  0
+        9:  187-block  1
+        9:  188:            b[i][j] = 100 - count;
+        9:  188-block  0
+        9:  189:            count++;
+        -:  190:        }
+        -:  191:    }
+        2:  192:    Matrix<int> c;
+        1:  192-block  0
+        1:  192-block  1
+    %%%%%:  192-block  2
+        1:  193:    c = a + b;
+        1:  193-block  0
+        1:  193-block  1
+        1:  193-block  2
+    %%%%%:  193-block  3
+    %%%%%:  193-block  4
+    %%%%%:  193-block  5
+        4:  194:    for (int i = 0; i < 3; ++i) {
+        4:  194-block  0
+        3:  194-block  1
+       12:  195:        for (int j = 0; j < 3; ++j) {
+        3:  195-block  0
+       12:  195-block  1
+        9:  196:            EXPECT_EQ(c[i][j], 100);
+        9:  196-block  0
+        9:  196-block  1
+        9:  196-block  2
+    $$$$$:  196-block  3
+    $$$$$:  196-block  4
+    $$$$$:  196-block  5
+    $$$$$:  196-block  6
+        9:  196-block  7
+    %%%%%:  196-block  8
+    %%%%%:  196-block  9
+    %%%%%:  196-block 10
+    %%%%%:  196-block 11
+    %%%%%:  196-block 12
+    %%%%%:  196-block 13
+    %%%%%:  196-block 14
+        -:  197:        }
+        -:  198:    }
+        1:  199:}
+        -:  200://find min max in the matrix
+        8:  201:TEST(Matrix_find_max_and_min, task4) {
+        1:  201-block  0
+        1:  201-block  1
+        1:  201-block  2
+    %%%%%:  201-block  3
+    %%%%%:  201-block  4
+    %%%%%:  201-block  5
+    %%%%%:  201-block  6
+    %%%%%:  201-block  7
+    %%%%%:  201-block  8
+        1:  201-block  9
+        1:  201-block 10
+        1:  201-block 11
+        1:  201-block 12
+        1:  201-block 13
+        1:  201-block 14
+        1:  201-block 15
+        2:  202:    Matrix<double> a = m1;
+        1:  202-block  0
+        1:  202-block  1
+        1:  202-block  2
+    %%%%%:  202-block  3
+    %%%%%:  202-block  4
+    %%%%%:  202-block  5
+        2:  203:    Matrix<double> b = m2;
+        1:  203-block  0
+        1:  203-block  1
+    %%%%%:  203-block  2
+    %%%%%:  203-block  3
+    %%%%%:  203-block  4
+        1:  204:    EXPECT_EQ(a.findMax(), 9);
+        1:  204-block  0
+        1:  204-block  1
+    $$$$$:  204-block  2
+    $$$$$:  204-block  3
+    $$$$$:  204-block  4
+    $$$$$:  204-block  5
+        1:  204-block  6
+    %%%%%:  204-block  7
+    %%%%%:  204-block  8
+    %%%%%:  204-block  9
+    %%%%%:  204-block 10
+    %%%%%:  204-block 11
+    %%%%%:  204-block 12
+    %%%%%:  204-block 13
+    %%%%%:  204-block 14
+    %%%%%:  204-block 15
+    %%%%%:  204-block 16
+        1:  205:    EXPECT_EQ(b.findMax(), 9);
+        1:  205-block  0
+        1:  205-block  1
+    $$$$$:  205-block  2
+    $$$$$:  205-block  3
+    $$$$$:  205-block  4
+    $$$$$:  205-block  5
+        1:  205-block  6
+    %%%%%:  205-block  7
+    %%%%%:  205-block  8
+    %%%%%:  205-block  9
+    %%%%%:  205-block 10
+    %%%%%:  205-block 11
+    %%%%%:  205-block 12
+    %%%%%:  205-block 13
+    %%%%%:  205-block 14
+    %%%%%:  205-block 15
+    %%%%%:  205-block 16
+        1:  206:    EXPECT_EQ(a.findMin(), 1);
+        1:  206-block  0
+        1:  206-block  1
+    $$$$$:  206-block  2
+    $$$$$:  206-block  3
+    $$$$$:  206-block  4
+    $$$$$:  206-block  5
+        1:  206-block  6
+    %%%%%:  206-block  7
+    %%%%%:  206-block  8
+    %%%%%:  206-block  9
+    %%%%%:  206-block 10
+    %%%%%:  206-block 11
+    %%%%%:  206-block 12
+    %%%%%:  206-block 13
+    %%%%%:  206-block 14
+    %%%%%:  206-block 15
+    %%%%%:  206-block 16
+        1:  207:    EXPECT_EQ(b.findMin(), 1);
+        1:  207-block  0
+        1:  207-block  1
+    $$$$$:  207-block  2
+    $$$$$:  207-block  3
+    $$$$$:  207-block  4
+    $$$$$:  207-block  5
+        1:  207-block  6
+    %%%%%:  207-block  7
+    %%%%%:  207-block  8
+    %%%%%:  207-block  9
+    %%%%%:  207-block 10
+    %%%%%:  207-block 11
+    %%%%%:  207-block 12
+    %%%%%:  207-block 13
+    %%%%%:  207-block 14
+    %%%%%:  207-block 15
+    %%%%%:  207-block 16
+        1:  208:    EXPECT_EQ(a.findMaxAtRow(0), 3);
+        1:  208-block  0
+        1:  208-block  1
+    $$$$$:  208-block  2
+    $$$$$:  208-block  3
+    $$$$$:  208-block  4
+    $$$$$:  208-block  5
+        1:  208-block  6
+    %%%%%:  208-block  7
+    %%%%%:  208-block  8
+    %%%%%:  208-block  9
+    %%%%%:  208-block 10
+    %%%%%:  208-block 11
+    %%%%%:  208-block 12
+    %%%%%:  208-block 13
+    %%%%%:  208-block 14
+    %%%%%:  208-block 15
+    %%%%%:  208-block 16
+        1:  209:    EXPECT_EQ(a.findMaxAtRow(1), 6);
+        1:  209-block  0
+        1:  209-block  1
+    $$$$$:  209-block  2
+    $$$$$:  209-block  3
+    $$$$$:  209-block  4
+    $$$$$:  209-block  5
+        1:  209-block  6
+    %%%%%:  209-block  7
+    %%%%%:  209-block  8
+    %%%%%:  209-block  9
+    %%%%%:  209-block 10
+    %%%%%:  209-block 11
+    %%%%%:  209-block 12
+    %%%%%:  209-block 13
+    %%%%%:  209-block 14
+    %%%%%:  209-block 15
+    %%%%%:  209-block 16
+        1:  210:    EXPECT_EQ(a.findMaxAtRow(2), 9);
+        1:  210-block  0
+        1:  210-block  1
+    $$$$$:  210-block  2
+    $$$$$:  210-block  3
+    $$$$$:  210-block  4
+    $$$$$:  210-block  5
+        1:  210-block  6
+    %%%%%:  210-block  7
+    %%%%%:  210-block  8
+    %%%%%:  210-block  9
+    %%%%%:  210-block 10
+    %%%%%:  210-block 11
+    %%%%%:  210-block 12
+    %%%%%:  210-block 13
+    %%%%%:  210-block 14
+    %%%%%:  210-block 15
+    %%%%%:  210-block 16
+        1:  211:    EXPECT_EQ(a.findMinAtRow(0), 1);
+        1:  211-block  0
+        1:  211-block  1
+    $$$$$:  211-block  2
+    $$$$$:  211-block  3
+    $$$$$:  211-block  4
+    $$$$$:  211-block  5
+        1:  211-block  6
+    %%%%%:  211-block  7
+    %%%%%:  211-block  8
+    %%%%%:  211-block  9
+    %%%%%:  211-block 10
+    %%%%%:  211-block 11
+    %%%%%:  211-block 12
+    %%%%%:  211-block 13
+    %%%%%:  211-block 14
+    %%%%%:  211-block 15
+    %%%%%:  211-block 16
+        1:  212:    EXPECT_EQ(a.findMinAtRow(1), 4);
+        1:  212-block  0
+        1:  212-block  1
+    $$$$$:  212-block  2
+    $$$$$:  212-block  3
+    $$$$$:  212-block  4
+    $$$$$:  212-block  5
+        1:  212-block  6
+    %%%%%:  212-block  7
+    %%%%%:  212-block  8
+    %%%%%:  212-block  9
+    %%%%%:  212-block 10
+    %%%%%:  212-block 11
+    %%%%%:  212-block 12
+    %%%%%:  212-block 13
+    %%%%%:  212-block 14
+    %%%%%:  212-block 15
+    %%%%%:  212-block 16
+        1:  213:    EXPECT_EQ(a.findMinAtRow(2), 7);
+        1:  213-block  0
+        1:  213-block  1
+    $$$$$:  213-block  2
+    $$$$$:  213-block  3
+    $$$$$:  213-block  4
+    $$$$$:  213-block  5
+        1:  213-block  6
+    %%%%%:  213-block  7
+    %%%%%:  213-block  8
+    %%%%%:  213-block  9
+    %%%%%:  213-block 10
+    %%%%%:  213-block 11
+    %%%%%:  213-block 12
+    %%%%%:  213-block 13
+    %%%%%:  213-block 14
+    %%%%%:  213-block 15
+    %%%%%:  213-block 16
+        1:  214:    EXPECT_EQ(a.findMaxAtColumn(0), 7);
+        1:  214-block  0
+        1:  214-block  1
+    $$$$$:  214-block  2
+    $$$$$:  214-block  3
+    $$$$$:  214-block  4
+    $$$$$:  214-block  5
+        1:  214-block  6
+    %%%%%:  214-block  7
+    %%%%%:  214-block  8
+    %%%%%:  214-block  9
+    %%%%%:  214-block 10
+    %%%%%:  214-block 11
+    %%%%%:  214-block 12
+    %%%%%:  214-block 13
+    %%%%%:  214-block 14
+    %%%%%:  214-block 15
+    %%%%%:  214-block 16
+        1:  215:    EXPECT_EQ(a.findMaxAtColumn(1), 8);
+        1:  215-block  0
+        1:  215-block  1
+    $$$$$:  215-block  2
+    $$$$$:  215-block  3
+    $$$$$:  215-block  4
+    $$$$$:  215-block  5
+        1:  215-block  6
+    %%%%%:  215-block  7
+    %%%%%:  215-block  8
+    %%%%%:  215-block  9
+    %%%%%:  215-block 10
+    %%%%%:  215-block 11
+    %%%%%:  215-block 12
+    %%%%%:  215-block 13
+    %%%%%:  215-block 14
+    %%%%%:  215-block 15
+    %%%%%:  215-block 16
+        1:  216:    EXPECT_EQ(a.findMaxAtColumn(2), 9);
+        1:  216-block  0
+        1:  216-block  1
+    $$$$$:  216-block  2
+    $$$$$:  216-block  3
+    $$$$$:  216-block  4
+    $$$$$:  216-block  5
+        1:  216-block  6
+    %%%%%:  216-block  7
+    %%%%%:  216-block  8
+    %%%%%:  216-block  9
+    %%%%%:  216-block 10
+    %%%%%:  216-block 11
+    %%%%%:  216-block 12
+    %%%%%:  216-block 13
+    %%%%%:  216-block 14
+    %%%%%:  216-block 15
+    %%%%%:  216-block 16
+        1:  217:    EXPECT_EQ(a.findMinAtColumn(0), 1);
+        1:  217-block  0
+        1:  217-block  1
+    $$$$$:  217-block  2
+    $$$$$:  217-block  3
+    $$$$$:  217-block  4
+    $$$$$:  217-block  5
+        1:  217-block  6
+    %%%%%:  217-block  7
+    %%%%%:  217-block  8
+    %%%%%:  217-block  9
+    %%%%%:  217-block 10
+    %%%%%:  217-block 11
+    %%%%%:  217-block 12
+    %%%%%:  217-block 13
+    %%%%%:  217-block 14
+    %%%%%:  217-block 15
+    %%%%%:  217-block 16
+        1:  218:    EXPECT_EQ(a.findMinAtColumn(1), 2);
+        1:  218-block  0
+        1:  218-block  1
+    $$$$$:  218-block  2
+    $$$$$:  218-block  3
+    $$$$$:  218-block  4
+    $$$$$:  218-block  5
+        1:  218-block  6
+    %%%%%:  218-block  7
+    %%%%%:  218-block  8
+    %%%%%:  218-block  9
+    %%%%%:  218-block 10
+    %%%%%:  218-block 11
+    %%%%%:  218-block 12
+    %%%%%:  218-block 13
+    %%%%%:  218-block 14
+    %%%%%:  218-block 15
+    %%%%%:  218-block 16
+        1:  219:    EXPECT_EQ(a.findMinAtColumn(2), 3);
+        1:  219-block  0
+        1:  219-block  1
+    $$$$$:  219-block  2
+    $$$$$:  219-block  3
+    $$$$$:  219-block  4
+    $$$$$:  219-block  5
+        1:  219-block  6
+    %%%%%:  219-block  7
+    %%%%%:  219-block  8
+    %%%%%:  219-block  9
+    %%%%%:  219-block 10
+    %%%%%:  219-block 11
+    %%%%%:  219-block 12
+    %%%%%:  219-block 13
+    %%%%%:  219-block 14
+    %%%%%:  219-block 15
+    %%%%%:  219-block 16
+        1:  220:    EXPECT_EQ(b.findMaxAtRow(0), 9);
+        1:  220-block  0
+        1:  220-block  1
+    $$$$$:  220-block  2
+    $$$$$:  220-block  3
+    $$$$$:  220-block  4
+    $$$$$:  220-block  5
+        1:  220-block  6
+    %%%%%:  220-block  7
+    %%%%%:  220-block  8
+    %%%%%:  220-block  9
+    %%%%%:  220-block 10
+    %%%%%:  220-block 11
+    %%%%%:  220-block 12
+    %%%%%:  220-block 13
+    %%%%%:  220-block 14
+    %%%%%:  220-block 15
+    %%%%%:  220-block 16
+        1:  221:    EXPECT_EQ(b.findMaxAtRow(1), 6);
+        1:  221-block  0
+        1:  221-block  1
+    $$$$$:  221-block  2
+    $$$$$:  221-block  3
+    $$$$$:  221-block  4
+    $$$$$:  221-block  5
+        1:  221-block  6
+    %%%%%:  221-block  7
+    %%%%%:  221-block  8
+    %%%%%:  221-block  9
+    %%%%%:  221-block 10
+    %%%%%:  221-block 11
+    %%%%%:  221-block 12
+    %%%%%:  221-block 13
+    %%%%%:  221-block 14
+    %%%%%:  221-block 15
+    %%%%%:  221-block 16
+        1:  222:    EXPECT_EQ(b.findMaxAtRow(2), 3);
+        1:  222-block  0
+        1:  222-block  1
+    $$$$$:  222-block  2
+    $$$$$:  222-block  3
+    $$$$$:  222-block  4
+    $$$$$:  222-block  5
+        1:  222-block  6
+    %%%%%:  222-block  7
+    %%%%%:  222-block  8
+    %%%%%:  222-block  9
+    %%%%%:  222-block 10
+    %%%%%:  222-block 11
+    %%%%%:  222-block 12
+    %%%%%:  222-block 13
+    %%%%%:  222-block 14
+    %%%%%:  222-block 15
+    %%%%%:  222-block 16
+        1:  223:    EXPECT_EQ(b.findMaxAtColumn(0), 9);
+        1:  223-block  0
+        1:  223-block  1
+    $$$$$:  223-block  2
+    $$$$$:  223-block  3
+    $$$$$:  223-block  4
+    $$$$$:  223-block  5
+        1:  223-block  6
+    %%%%%:  223-block  7
+    %%%%%:  223-block  8
+    %%%%%:  223-block  9
+    %%%%%:  223-block 10
+    %%%%%:  223-block 11
+    %%%%%:  223-block 12
+    %%%%%:  223-block 13
+    %%%%%:  223-block 14
+    %%%%%:  223-block 15
+    %%%%%:  223-block 16
+        1:  224:    EXPECT_EQ(b.findMaxAtColumn(1), 8);
+        1:  224-block  0
+        1:  224-block  1
+    $$$$$:  224-block  2
+    $$$$$:  224-block  3
+    $$$$$:  224-block  4
+    $$$$$:  224-block  5
+        1:  224-block  6
+    %%%%%:  224-block  7
+    %%%%%:  224-block  8
+    %%%%%:  224-block  9
+    %%%%%:  224-block 10
+    %%%%%:  224-block 11
+    %%%%%:  224-block 12
+    %%%%%:  224-block 13
+    %%%%%:  224-block 14
+    %%%%%:  224-block 15
+    %%%%%:  224-block 16
+        1:  225:    EXPECT_EQ(b.findMaxAtColumn(2), 7);
+        1:  225-block  0
+        1:  225-block  1
+    $$$$$:  225-block  2
+    $$$$$:  225-block  3
+    $$$$$:  225-block  4
+    $$$$$:  225-block  5
+        1:  225-block  6
+    %%%%%:  225-block  7
+    %%%%%:  225-block  8
+    %%%%%:  225-block  9
+    %%%%%:  225-block 10
+    %%%%%:  225-block 11
+    %%%%%:  225-block 12
+    %%%%%:  225-block 13
+    %%%%%:  225-block 14
+    %%%%%:  225-block 15
+        -:  226:
+        1:  227:}
+    %%%%%:  227-block  0
+        -:  228://find average in the matrix
+        8:  229:TEST(Matrix_find_average, task4) {
+        1:  229-block  0
+        1:  229-block  1
+        1:  229-block  2
+    %%%%%:  229-block  3
+    %%%%%:  229-block  4
+    %%%%%:  229-block  5
+    %%%%%:  229-block  6
+    %%%%%:  229-block  7
+    %%%%%:  229-block  8
+        1:  229-block  9
+        1:  229-block 10
+        1:  229-block 11
+        1:  229-block 12
+        1:  229-block 13
+        1:  229-block 14
+        1:  229-block 15
+        2:  230:    Matrix<double> a = m1;
+        1:  230-block  0
+        1:  230-block  1
+        1:  230-block  2
+    %%%%%:  230-block  3
+    %%%%%:  230-block  4
+    %%%%%:  230-block  5
+        1:  231:    EXPECT_EQ(a.findAverage(), 5);
+        1:  231-block  0
+        1:  231-block  1
+    $$$$$:  231-block  2
+    $$$$$:  231-block  3
+    $$$$$:  231-block  4
+    $$$$$:  231-block  5
+        1:  231-block  6
+    %%%%%:  231-block  7
+    %%%%%:  231-block  8
+    %%%%%:  231-block  9
+    %%%%%:  231-block 10
+    %%%%%:  231-block 11
+    %%%%%:  231-block 12
+    %%%%%:  231-block 13
+    %%%%%:  231-block 14
+    %%%%%:  231-block 15
+    %%%%%:  231-block 16
+        1:  232:    EXPECT_EQ(a.findAverageAtRow(0), 2);
+        1:  232-block  0
+        1:  232-block  1
+    $$$$$:  232-block  2
+    $$$$$:  232-block  3
+    $$$$$:  232-block  4
+    $$$$$:  232-block  5
+        1:  232-block  6
+    %%%%%:  232-block  7
+    %%%%%:  232-block  8
+    %%%%%:  232-block  9
+    %%%%%:  232-block 10
+    %%%%%:  232-block 11
+    %%%%%:  232-block 12
+    %%%%%:  232-block 13
+    %%%%%:  232-block 14
+    %%%%%:  232-block 15
+    %%%%%:  232-block 16
+        1:  233:    EXPECT_EQ(a.findAverageAtRow(1), 5);
+        1:  233-block  0
+        1:  233-block  1
+    $$$$$:  233-block  2
+    $$$$$:  233-block  3
+    $$$$$:  233-block  4
+    $$$$$:  233-block  5
+        1:  233-block  6
+    %%%%%:  233-block  7
+    %%%%%:  233-block  8
+    %%%%%:  233-block  9
+    %%%%%:  233-block 10
+    %%%%%:  233-block 11
+    %%%%%:  233-block 12
+    %%%%%:  233-block 13
+    %%%%%:  233-block 14
+    %%%%%:  233-block 15
+    %%%%%:  233-block 16
+        1:  234:    EXPECT_EQ(a.findAverageAtRow(2), 8);
+        1:  234-block  0
+        1:  234-block  1
+    $$$$$:  234-block  2
+    $$$$$:  234-block  3
+    $$$$$:  234-block  4
+    $$$$$:  234-block  5
+        1:  234-block  6
+    %%%%%:  234-block  7
+    %%%%%:  234-block  8
+    %%%%%:  234-block  9
+    %%%%%:  234-block 10
+    %%%%%:  234-block 11
+    %%%%%:  234-block 12
+    %%%%%:  234-block 13
+    %%%%%:  234-block 14
+    %%%%%:  234-block 15
+    %%%%%:  234-block 16
+        1:  235:    EXPECT_EQ(a.findAverageAtColumn(0), 4);
+        1:  235-block  0
+        1:  235-block  1
+    $$$$$:  235-block  2
+    $$$$$:  235-block  3
+    $$$$$:  235-block  4
+    $$$$$:  235-block  5
+        1:  235-block  6
+    %%%%%:  235-block  7
+    %%%%%:  235-block  8
+    %%%%%:  235-block  9
+    %%%%%:  235-block 10
+    %%%%%:  235-block 11
+    %%%%%:  235-block 12
+    %%%%%:  235-block 13
+    %%%%%:  235-block 14
+    %%%%%:  235-block 15
+    %%%%%:  235-block 16
+        1:  236:    EXPECT_EQ(a.findAverageAtColumn(1), 5);
+        1:  236-block  0
+        1:  236-block  1
+    $$$$$:  236-block  2
+    $$$$$:  236-block  3
+    $$$$$:  236-block  4
+    $$$$$:  236-block  5
+        1:  236-block  6
+    %%%%%:  236-block  7
+    %%%%%:  236-block  8
+    %%%%%:  236-block  9
+    %%%%%:  236-block 10
+    %%%%%:  236-block 11
+    %%%%%:  236-block 12
+    %%%%%:  236-block 13
+    %%%%%:  236-block 14
+    %%%%%:  236-block 15
+        1:  237:    EXPECT_FLOAT_EQ(a.findAverageAtColumn(2), 6);
+        1:  237-block  0
+        1:  237-block  1
+    $$$$$:  237-block  2
+    $$$$$:  237-block  3
+    $$$$$:  237-block  4
+    $$$$$:  237-block  5
+        1:  237-block  6
+    %%%%%:  237-block  7
+    %%%%%:  237-block  8
+    %%%%%:  237-block  9
+    %%%%%:  237-block 10
+    %%%%%:  237-block 11
+    %%%%%:  237-block 12
+        1:  238:}
+    %%%%%:  238-block  0
+        -:  239://find sum in the matrix
+        8:  240:TEST(Matrix_find_sum, task4) {
+        1:  240-block  0
+        1:  240-block  1
+        1:  240-block  2
+    %%%%%:  240-block  3
+    %%%%%:  240-block  4
+    %%%%%:  240-block  5
+    %%%%%:  240-block  6
+    %%%%%:  240-block  7
+    %%%%%:  240-block  8
+        1:  240-block  9
+        1:  240-block 10
+        1:  240-block 11
+        1:  240-block 12
+        1:  240-block 13
+        1:  240-block 14
+        1:  240-block 15
+        2:  241:    Matrix<double> a = m1;
+        1:  241-block  0
+        1:  241-block  1
+        1:  241-block  2
+    %%%%%:  241-block  3
+    %%%%%:  241-block  4
+    %%%%%:  241-block  5
+        1:  242:    EXPECT_EQ(a.findSum(), 45);
+        1:  242-block  0
+        1:  242-block  1
+    $$$$$:  242-block  2
+    $$$$$:  242-block  3
+    $$$$$:  242-block  4
+    $$$$$:  242-block  5
+        1:  242-block  6
+    %%%%%:  242-block  7
+    %%%%%:  242-block  8
+    %%%%%:  242-block  9
+    %%%%%:  242-block 10
+    %%%%%:  242-block 11
+    %%%%%:  242-block 12
+    %%%%%:  242-block 13
+    %%%%%:  242-block 14
+    %%%%%:  242-block 15
+    %%%%%:  242-block 16
+        1:  243:    EXPECT_EQ(a.findSumAtRow(0), 6);
+        1:  243-block  0
+        1:  243-block  1
+    $$$$$:  243-block  2
+    $$$$$:  243-block  3
+    $$$$$:  243-block  4
+    $$$$$:  243-block  5
+        1:  243-block  6
+    %%%%%:  243-block  7
+    %%%%%:  243-block  8
+    %%%%%:  243-block  9
+    %%%%%:  243-block 10
+    %%%%%:  243-block 11
+    %%%%%:  243-block 12
+    %%%%%:  243-block 13
+    %%%%%:  243-block 14
+    %%%%%:  243-block 15
+    %%%%%:  243-block 16
+        1:  244:    EXPECT_EQ(a.findSumAtRow(1), 15);
+        1:  244-block  0
+        1:  244-block  1
+    $$$$$:  244-block  2
+    $$$$$:  244-block  3
+    $$$$$:  244-block  4
+    $$$$$:  244-block  5
+        1:  244-block  6
+    %%%%%:  244-block  7
+    %%%%%:  244-block  8
+    %%%%%:  244-block  9
+    %%%%%:  244-block 10
+    %%%%%:  244-block 11
+    %%%%%:  244-block 12
+    %%%%%:  244-block 13
+    %%%%%:  244-block 14
+    %%%%%:  244-block 15
+    %%%%%:  244-block 16
+        1:  245:    EXPECT_EQ(a.findSumAtRow(2), 24);
+        1:  245-block  0
+        1:  245-block  1
+    $$$$$:  245-block  2
+    $$$$$:  245-block  3
+    $$$$$:  245-block  4
+    $$$$$:  245-block  5
+        1:  245-block  6
+    %%%%%:  245-block  7
+    %%%%%:  245-block  8
+    %%%%%:  245-block  9
+    %%%%%:  245-block 10
+    %%%%%:  245-block 11
+    %%%%%:  245-block 12
+    %%%%%:  245-block 13
+    %%%%%:  245-block 14
+    %%%%%:  245-block 15
+    %%%%%:  245-block 16
+        1:  246:    EXPECT_EQ(a.findSumAtColumn(0), 12);
+        1:  246-block  0
+        1:  246-block  1
+    $$$$$:  246-block  2
+    $$$$$:  246-block  3
+    $$$$$:  246-block  4
+    $$$$$:  246-block  5
+        1:  246-block  6
+    %%%%%:  246-block  7
+    %%%%%:  246-block  8
+    %%%%%:  246-block  9
+    %%%%%:  246-block 10
+    %%%%%:  246-block 11
+    %%%%%:  246-block 12
+    %%%%%:  246-block 13
+    %%%%%:  246-block 14
+    %%%%%:  246-block 15
+    %%%%%:  246-block 16
+        1:  247:    EXPECT_EQ(a.findSumAtColumn(1), 15);
+        1:  247-block  0
+        1:  247-block  1
+    $$$$$:  247-block  2
+    $$$$$:  247-block  3
+    $$$$$:  247-block  4
+    $$$$$:  247-block  5
+        1:  247-block  6
+    %%%%%:  247-block  7
+    %%%%%:  247-block  8
+    %%%%%:  247-block  9
+    %%%%%:  247-block 10
+    %%%%%:  247-block 11
+    %%%%%:  247-block 12
+    %%%%%:  247-block 13
+    %%%%%:  247-block 14
+    %%%%%:  247-block 15
+        1:  248:    EXPECT_FLOAT_EQ(a.findSumAtColumn(2), 18);
+        1:  248-block  0
+        1:  248-block  1
+    $$$$$:  248-block  2
+    $$$$$:  248-block  3
+    $$$$$:  248-block  4
+    $$$$$:  248-block  5
+        1:  248-block  6
+    %%%%%:  248-block  7
+    %%%%%:  248-block  8
+    %%%%%:  248-block  9
+    %%%%%:  248-block 10
+    %%%%%:  248-block 11
+    %%%%%:  248-block 12
+        1:  249:}
+    %%%%%:  249-block  0
+        -:  250://test calculate eigenvalue
+        8:  251:TEST(Matrix_get_eigenvalue, task3) {
+        1:  251-block  0
+        1:  251-block  1
+        1:  251-block  2
+    %%%%%:  251-block  3
+    %%%%%:  251-block  4
+    %%%%%:  251-block  5
+    %%%%%:  251-block  6
+    %%%%%:  251-block  7
+    %%%%%:  251-block  8
+        1:  251-block  9
+        1:  251-block 10
+        1:  251-block 11
+        1:  251-block 12
+        1:  251-block 13
+        1:  251-block 14
+        1:  251-block 15
+        2:  252:    Matrix<double> a = m1;
+        1:  252-block  0
+        1:  252-block  1
+        1:  252-block  2
+    %%%%%:  252-block  3
+    %%%%%:  252-block  4
+        2:  253:    vector<double> ans = a.getEigenvalue();
+    %%%%%:  253-block  0
+        1:  254:    double k = 0;
+        1:  255:    sort(ans.begin(), ans.end());
+        1:  255-block  0
+        4:  256:    for (double an : ans) {
+        1:  256-block  0
+        4:  256-block  1
+        3:  256-block  2
+        3:  257:        k += an;
+        -:  258:    }
+        1:  259:    EXPECT_NEAR(ans[0], -1.1168, EXP);
+        1:  259-block  0
+        1:  259-block  1
+    $$$$$:  259-block  2
+    $$$$$:  259-block  3
+    $$$$$:  259-block  4
+    $$$$$:  259-block  5
+        1:  259-block  6
+    %%%%%:  259-block  7
+    %%%%%:  259-block  8
+    %%%%%:  259-block  9
+    %%%%%:  259-block 10
+    %%%%%:  259-block 11
+    %%%%%:  259-block 12
+        1:  260:    EXPECT_NEAR(ans[1], 0, EXP);
+        1:  260-block  0
+    $$$$$:  260-block  1
+    $$$$$:  260-block  2
+    $$$$$:  260-block  3
+    $$$$$:  260-block  4
+        1:  260-block  5
+    %%%%%:  260-block  6
+    %%%%%:  260-block  7
+    %%%%%:  260-block  8
+    %%%%%:  260-block  9
+    %%%%%:  260-block 10
+    %%%%%:  260-block 11
+        1:  261:    EXPECT_NEAR(ans[2], 16.1168, EXP);
+        1:  261-block  0
+    $$$$$:  261-block  1
+    $$$$$:  261-block  2
+    $$$$$:  261-block  3
+    $$$$$:  261-block  4
+        1:  261-block  5
+    %%%%%:  261-block  6
+    %%%%%:  261-block  7
+    %%%%%:  261-block  8
+    %%%%%:  261-block  9
+    %%%%%:  261-block 10
+    %%%%%:  261-block 11
+        1:  262:    EXPECT_NEAR(k, 15, EXP);
+        1:  262-block  0
+    $$$$$:  262-block  1
+    $$$$$:  262-block  2
+    $$$$$:  262-block  3
+    $$$$$:  262-block  4
+        1:  262-block  5
+    %%%%%:  262-block  6
+    %%%%%:  262-block  7
+    %%%%%:  262-block  8
+    %%%%%:  262-block  9
+    %%%%%:  262-block 10
+    %%%%%:  262-block 11
+        -:  263:
+        1:  264:}
+    %%%%%:  264-block  0
+        -:  265://test convolution
+        8:  266:TEST(Matrix_convolution, task3) {
+        1:  266-block  0
+        1:  266-block  1
+        1:  266-block  2
+    %%%%%:  266-block  3
+    %%%%%:  266-block  4
+    %%%%%:  266-block  5
+    %%%%%:  266-block  6
+    %%%%%:  266-block  7
+        1:  266-block  8
+        1:  266-block  9
+        1:  266-block 10
+        1:  266-block 11
+        1:  266-block 12
+        1:  266-block 13
+        1:  266-block 14
+        2:  267:    Matrix<double> a = m4;
+        1:  267-block  0
+        1:  267-block  1
+        1:  267-block  2
+    %%%%%:  267-block  3
+    %%%%%:  267-block  4
+    %%%%%:  267-block  5
+        2:  268:    Matrix<double> b = m3;
+        1:  268-block  0
+        1:  268-block  1
+    %%%%%:  268-block  2
+    %%%%%:  268-block  3
+        2:  269:    Matrix<double> ans = a.convolution_2D(b);
+    %%%%%:  269-block  0
+        1:  270:    EXPECT_FLOAT_EQ(ans[0][0], -16);
+        1:  270-block  0
+        1:  270-block  1
+        1:  270-block  2
+    $$$$$:  270-block  3
+    $$$$$:  270-block  4
+    $$$$$:  270-block  5
+    $$$$$:  270-block  6
+        1:  270-block  7
+    %%%%%:  270-block  8
+    %%%%%:  270-block  9
+    %%%%%:  270-block 10
+    %%%%%:  270-block 11
+    %%%%%:  270-block 12
+    %%%%%:  270-block 13
+        1:  271:    EXPECT_FLOAT_EQ(ans[0][1], -24);
+        1:  271-block  0
+        1:  271-block  1
+    $$$$$:  271-block  2
+    $$$$$:  271-block  3
+    $$$$$:  271-block  4
+    $$$$$:  271-block  5
+        1:  271-block  6
+    %%%%%:  271-block  7
+    %%%%%:  271-block  8
+    %%%%%:  271-block  9
+    %%%%%:  271-block 10
+    %%%%%:  271-block 11
+    %%%%%:  271-block 12
+        1:  272:    EXPECT_FLOAT_EQ(ans[0][2], -28);
+        1:  272-block  0
+        1:  272-block  1
+    $$$$$:  272-block  2
+    $$$$$:  272-block  3
+    $$$$$:  272-block  4
+    $$$$$:  272-block  5
+        1:  272-block  6
+    %%%%%:  272-block  7
+    %%%%%:  272-block  8
+    %%%%%:  272-block  9
+    %%%%%:  272-block 10
+    %%%%%:  272-block 11
+    %%%%%:  272-block 12
+        1:  273:    EXPECT_FLOAT_EQ(ans[0][3], -23);
+        1:  273-block  0
+        1:  273-block  1
+    $$$$$:  273-block  2
+    $$$$$:  273-block  3
+    $$$$$:  273-block  4
+    $$$$$:  273-block  5
+        1:  273-block  6
+    %%%%%:  273-block  7
+    %%%%%:  273-block  8
+    %%%%%:  273-block  9
+    %%%%%:  273-block 10
+    %%%%%:  273-block 11
+    %%%%%:  273-block 12
+        1:  274:    EXPECT_FLOAT_EQ(ans[1][0], -24);
+        1:  274-block  0
+        1:  274-block  1
+    $$$$$:  274-block  2
+    $$$$$:  274-block  3
+    $$$$$:  274-block  4
+    $$$$$:  274-block  5
+        1:  274-block  6
+    %%%%%:  274-block  7
+    %%%%%:  274-block  8
+    %%%%%:  274-block  9
+    %%%%%:  274-block 10
+    %%%%%:  274-block 11
+    %%%%%:  274-block 12
+        1:  275:    EXPECT_FLOAT_EQ(ans[1][1], -32);
+        1:  275-block  0
+        1:  275-block  1
+    $$$$$:  275-block  2
+    $$$$$:  275-block  3
+    $$$$$:  275-block  4
+    $$$$$:  275-block  5
+        1:  275-block  6
+    %%%%%:  275-block  7
+    %%%%%:  275-block  8
+    %%%%%:  275-block  9
+    %%%%%:  275-block 10
+    %%%%%:  275-block 11
+    %%%%%:  275-block 12
+        1:  276:    EXPECT_FLOAT_EQ(ans[1][2], -32);
+        1:  276-block  0
+        1:  276-block  1
+    $$$$$:  276-block  2
+    $$$$$:  276-block  3
+    $$$$$:  276-block  4
+    $$$$$:  276-block  5
+        1:  276-block  6
+    %%%%%:  276-block  7
+    %%%%%:  276-block  8
+    %%%%%:  276-block  9
+    %%%%%:  276-block 10
+    %%%%%:  276-block 11
+    %%%%%:  276-block 12
+        1:  277:    EXPECT_FLOAT_EQ(ans[1][3], -24);
+        1:  277-block  0
+        1:  277-block  1
+    $$$$$:  277-block  2
+    $$$$$:  277-block  3
+    $$$$$:  277-block  4
+    $$$$$:  277-block  5
+        1:  277-block  6
+    %%%%%:  277-block  7
+    %%%%%:  277-block  8
+    %%%%%:  277-block  9
+    %%%%%:  277-block 10
+    %%%%%:  277-block 11
+    %%%%%:  277-block 12
+        1:  278:    EXPECT_FLOAT_EQ(ans[2][0], -24);
+        1:  278-block  0
+        1:  278-block  1
+    $$$$$:  278-block  2
+    $$$$$:  278-block  3
+    $$$$$:  278-block  4
+    $$$$$:  278-block  5
+        1:  278-block  6
+    %%%%%:  278-block  7
+    %%%%%:  278-block  8
+    %%%%%:  278-block  9
+    %%%%%:  278-block 10
+    %%%%%:  278-block 11
+    %%%%%:  278-block 12
+        1:  279:    EXPECT_FLOAT_EQ(ans[2][1], -32);
+        1:  279-block  0
+        1:  279-block  1
+    $$$$$:  279-block  2
+    $$$$$:  279-block  3
+    $$$$$:  279-block  4
+    $$$$$:  279-block  5
+        1:  279-block  6
+    %%%%%:  279-block  7
+    %%%%%:  279-block  8
+    %%%%%:  279-block  9
+    %%%%%:  279-block 10
+    %%%%%:  279-block 11
+    %%%%%:  279-block 12
+        1:  280:    EXPECT_FLOAT_EQ(ans[2][2], -32);
+        1:  280-block  0
+        1:  280-block  1
+    $$$$$:  280-block  2
+    $$$$$:  280-block  3
+    $$$$$:  280-block  4
+    $$$$$:  280-block  5
+        1:  280-block  6
+    %%%%%:  280-block  7
+    %%%%%:  280-block  8
+    %%%%%:  280-block  9
+    %%%%%:  280-block 10
+    %%%%%:  280-block 11
+    %%%%%:  280-block 12
+        1:  281:    EXPECT_FLOAT_EQ(ans[2][3], -24);
+        1:  281-block  0
+        1:  281-block  1
+    $$$$$:  281-block  2
+    $$$$$:  281-block  3
+    $$$$$:  281-block  4
+    $$$$$:  281-block  5
+        1:  281-block  6
+    %%%%%:  281-block  7
+    %%%%%:  281-block  8
+    %%%%%:  281-block  9
+    %%%%%:  281-block 10
+    %%%%%:  281-block 11
+    %%%%%:  281-block 12
+        1:  282:    EXPECT_FLOAT_EQ(ans[3][0], 28);
+        1:  282-block  0
+        1:  282-block  1
+    $$$$$:  282-block  2
+    $$$$$:  282-block  3
+    $$$$$:  282-block  4
+    $$$$$:  282-block  5
+        1:  282-block  6
+    %%%%%:  282-block  7
+    %%%%%:  282-block  8
+    %%%%%:  282-block  9
+    %%%%%:  282-block 10
+    %%%%%:  282-block 11
+    %%%%%:  282-block 12
+        1:  283:    EXPECT_FLOAT_EQ(ans[3][1], 40);
+        1:  283-block  0
+        1:  283-block  1
+    $$$$$:  283-block  2
+    $$$$$:  283-block  3
+    $$$$$:  283-block  4
+    $$$$$:  283-block  5
+        1:  283-block  6
+    %%%%%:  283-block  7
+    %%%%%:  283-block  8
+    %%%%%:  283-block  9
+    %%%%%:  283-block 10
+    %%%%%:  283-block 11
+    %%%%%:  283-block 12
+        1:  284:    EXPECT_FLOAT_EQ(ans[3][2], 44);
+        1:  284-block  0
+        1:  284-block  1
+    $$$$$:  284-block  2
+    $$$$$:  284-block  3
+    $$$$$:  284-block  4
+    $$$$$:  284-block  5
+        1:  284-block  6
+    %%%%%:  284-block  7
+    %%%%%:  284-block  8
+    %%%%%:  284-block  9
+    %%%%%:  284-block 10
+    %%%%%:  284-block 11
+    %%%%%:  284-block 12
+        1:  285:    EXPECT_FLOAT_EQ(ans[3][3], 35);
+        1:  285-block  0
+        1:  285-block  1
+    $$$$$:  285-block  2
+    $$$$$:  285-block  3
+    $$$$$:  285-block  4
+    $$$$$:  285-block  5
+        1:  285-block  6
+    %%%%%:  285-block  7
+    %%%%%:  285-block  8
+    %%%%%:  285-block  9
+    %%%%%:  285-block 10
+    %%%%%:  285-block 11
+    %%%%%:  285-block 12
+        1:  286:}
+    %%%%%:  286-block  0
+        -:  287://test inverse
+        -:  288:
+        1:  289:GTEST_API_ int main() {
+        1:  289-block  0
+        1:  290:    testing::InitGoogleTest();
+        1:  290-block  0
+        1:  291:    return RUN_ALL_TESTS();
+        4:  292:}
+        1:  292-block  0
+        1:  292-block  1
+        1:  292-block  2
+        1:  292-block  3
+        1:  292-block  4
+        1:  292-block  5

@@ -131,10 +131,10 @@
         -:  126:  { return _Ios_Openmode(static_cast<int>(__a) & static_cast<int>(__b)); }
         -:  127:
         -:  128:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
-       71:  129:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
-       71:  129-block  0
-       71:  130:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
-       71:  130-block  0
+       75:  129:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
+       75:  129-block  0
+       75:  130:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
+       75:  130-block  0
         -:  131:
         -:  132:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
         -:  133:  operator^(_Ios_Openmode __a, _Ios_Openmode __b)

@@ -122,7 +122,8 @@
         -:  117:  */
         -:  118:  template<typename _ForwardIterator1, typename _ForwardIterator2>
         -:  119:    inline void
-        -:  120:    iter_swap(_ForwardIterator1 __a, _ForwardIterator2 __b)
+    #####:  120:    iter_swap(_ForwardIterator1 __a, _ForwardIterator2 __b)
+    $$$$$:  120-block  0
         -:  121:    {
         -:  122:      // concept requirements
         -:  123:      __glibcxx_function_requires(_Mutable_ForwardIteratorConcept<
@@ -150,9 +151,10 @@
         -:  145:	&& __are_same<_ValueType2&, _ReferenceType2>::__value>::
         -:  146:	iter_swap(__a, __b);
         -:  147:#else
-        -:  148:      swap(*__a, *__b);
+    #####:  148:      swap(*__a, *__b);
+    $$$$$:  148-block  0
         -:  149:#endif
-        -:  150:    }
+    #####:  150:    }
         -:  151:
         -:  152:  /**
         -:  153:   *  @brief Swap the elements of two sequences.
@@ -225,22 +227,22 @@
         -:  216:  template<typename _Tp>
         -:  217:    _GLIBCXX14_CONSTEXPR
         -:  218:    inline const _Tp&
-       88:  219:    max(const _Tp& __a, const _Tp& __b)
+       98:  219:    max(const _Tp& __a, const _Tp& __b)
        54:  219-block  0
-       34:  219-block  1
+       44:  219-block  1
         -:  220:    {
         -:  221:      // concept requirements
         -:  222:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  223:      //return  __a < __b ? __b : __a;
-       88:  224:      if (__a < __b)
+       98:  224:      if (__a < __b)
        54:  224-block  0
-       34:  224-block  1
-       48:  225:	return __b;
+       44:  224-block  1
+       56:  225:	return __b;
        20:  225-block  0
-       28:  225-block  1
-       40:  226:      return __a;
+       36:  225-block  1
+       42:  226:      return __a;
        34:  226-block  0
-        6:  226-block  1
+        8:  226-block  1
         -:  227:    }
         -:  228:
         -:  229:  /**
@@ -291,16 +293,16 @@
         -:  274:  // remove the __normal_iterator wrapper. See copy, fill, ...
         -:  275:  template<typename _Iterator>
         -:  276:    inline _Iterator
-      162:  277:    __niter_base(_Iterator __it)
-       48:  277-block  0
-       12:  277-block  1
-      102:  277-block  2
+      250:  277:    __niter_base(_Iterator __it)
+      116:  277-block  0
+       26:  277-block  1
+      108:  277-block  2
     $$$$$:  277-block  3
     $$$$$:  277-block  4
-      162:  278:    { return __it; }
-       48:  278-block  0
-       12:  278-block  1
-      102:  278-block  2
+      250:  278:    { return __it; }
+      116:  278-block  0
+       26:  278-block  1
+      108:  278-block  2
     $$$$$:  278-block  3
     $$$$$:  278-block  4
         -:  279:
@@ -401,10 +403,11 @@
         -:  354:    {
         -:  355:      template<typename _Tp>
         -:  356:        static _Tp*
-       83:  357:        __copy_m(const _Tp* __first, const _Tp* __last, _Tp* __result)
-       29:  357-block  0
-       48:  357-block  1
-        6:  357-block  2
+      129:  357:        __copy_m(const _Tp* __first, const _Tp* __last, _Tp* __result)
+       10:  357-block  0
+       31:  357-block  1
+       82:  357-block  2
+        6:  357-block  3
         -:  358:        {
         -:  359:#if __cplusplus >= 201103L
         -:  360:	  using __assignable = conditional<_IsMove,
@@ -413,54 +416,59 @@
         -:  363:	  // trivial types can have deleted assignment
         -:  364:	  static_assert( __assignable::type::value, "type is not assignable" );
         -:  365:#endif
-       83:  366:	  const ptrdiff_t _Num = __last - __first;
-       83:  367:	  if (_Num)
-       29:  367-block  0
-       48:  367-block  1
-        6:  367-block  2
-       57:  368:	    __builtin_memmove(__result, __first, sizeof(_Tp) * _Num);
-        3:  368-block  0
-       48:  368-block  1
-        6:  368-block  2
-       83:  369:	  return __result + _Num;
-       29:  369-block  0
-       48:  369-block  1
-        6:  369-block  2
+      129:  366:	  const ptrdiff_t _Num = __last - __first;
+      129:  367:	  if (_Num)
+       10:  367-block  0
+       31:  367-block  1
+       82:  367-block  2
+        6:  367-block  3
+       93:  368:	    __builtin_memmove(__result, __first, sizeof(_Tp) * _Num);
+        2:  368-block  0
+        3:  368-block  1
+       82:  368-block  2
+        6:  368-block  3
+      129:  369:	  return __result + _Num;
+       10:  369-block  0
+       31:  369-block  1
+       82:  369-block  2
+        6:  369-block  3
         -:  370:	}
         -:  371:    };
         -:  372:
         -:  373:  template<bool _IsMove, typename _II, typename _OI>
         -:  374:    inline _OI
-       83:  375:    __copy_move_a(_II __first, _II __last, _OI __result)
+      129:  375:    __copy_move_a(_II __first, _II __last, _OI __result)
     $$$$$:  375-block  0
     $$$$$:  375-block  1
-       29:  375-block  2
-       48:  375-block  3
-        6:  375-block  4
-    $$$$$:  375-block  5
+       10:  375-block  2
+       31:  375-block  3
+       82:  375-block  4
+        6:  375-block  5
     $$$$$:  375-block  6
     $$$$$:  375-block  7
     $$$$$:  375-block  8
+    $$$$$:  375-block  9
         -:  376:    {
         -:  377:      typedef typename iterator_traits<_II>::value_type _ValueTypeI;
         -:  378:      typedef typename iterator_traits<_OI>::value_type _ValueTypeO;
         -:  379:      typedef typename iterator_traits<_II>::iterator_category _Category;
-       83:  380:      const bool __simple = (__is_trivial(_ValueTypeI)
+      129:  380:      const bool __simple = (__is_trivial(_ValueTypeI)
         -:  381:	                     && __is_pointer<_II>::__value
         -:  382:	                     && __is_pointer<_OI>::__value
         -:  383:			     && __are_same<_ValueTypeI, _ValueTypeO>::__value);
         -:  384:
         -:  385:      return std::__copy_move<_IsMove, __simple,
-       83:  386:	                      _Category>::__copy_m(__first, __last, __result);
+      129:  386:	                      _Category>::__copy_m(__first, __last, __result);
     $$$$$:  386-block  0
     $$$$$:  386-block  1
-       29:  386-block  2
-       48:  386-block  3
-        6:  386-block  4
-    $$$$$:  386-block  5
+       10:  386-block  2
+       31:  386-block  3
+       82:  386-block  4
+        6:  386-block  5
     $$$$$:  386-block  6
     $$$$$:  386-block  7
     $$$$$:  386-block  8
+    $$$$$:  386-block  9
         -:  387:    }
         -:  388:
         -:  389:  // Helpers for streambuf iterators (either istream or ostream).
@@ -494,35 +502,37 @@
         -:  417:
         -:  418:  template<bool _IsMove, typename _II, typename _OI>
         -:  419:    inline _OI
-       83:  420:    __copy_move_a2(_II __first, _II __last, _OI __result)
-       42:  420-block  0
+      129:  420:    __copy_move_a2(_II __first, _II __last, _OI __result)
+       69:  420-block  0
     $$$$$:  420-block  1
     $$$$$:  420-block  2
     $$$$$:  420-block  3
     $$$$$:  420-block  4
-       29:  420-block  5
-        6:  420-block  6
-        6:  420-block  7
-    $$$$$:  420-block  8
+       10:  420-block  5
+       31:  420-block  6
+       13:  420-block  7
+        6:  420-block  8
     $$$$$:  420-block  9
     $$$$$:  420-block 10
     $$$$$:  420-block 11
+    $$$$$:  420-block 12
         -:  421:    {
-       83:  422:      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
-       42:  422-block  0
+      129:  422:      return _OI(std::__copy_move_a<_IsMove>(std::__niter_base(__first),
+       69:  422-block  0
     $$$$$:  422-block  1
     $$$$$:  422-block  2
     $$$$$:  422-block  3
     $$$$$:  422-block  4
-       29:  422-block  5
-        6:  422-block  6
-        6:  422-block  7
-    $$$$$:  422-block  8
+       10:  422-block  5
+       31:  422-block  6
+       13:  422-block  7
+        6:  422-block  8
     $$$$$:  422-block  9
     $$$$$:  422-block 10
     $$$$$:  422-block 11
+    $$$$$:  422-block 12
         -:  423:					     std::__niter_base(__last),
-       83:  424:					     std::__niter_base(__result)));
+      129:  424:					     std::__niter_base(__result)));
         -:  425:    }
         -:  426:
         -:  427:  /**
@@ -544,19 +554,20 @@
         -:  443:  */
         -:  444:  template<typename _II, typename _OI>
         -:  445:    inline _OI
-       83:  446:    copy(_II __first, _II __last, _OI __result)
-       42:  446-block  0
+      129:  446:    copy(_II __first, _II __last, _OI __result)
+       69:  446-block  0
     $$$$$:  446-block  1
     $$$$$:  446-block  2
     $$$$$:  446-block  3
     $$$$$:  446-block  4
-       29:  446-block  5
-        6:  446-block  6
-        6:  446-block  7
-    $$$$$:  446-block  8
+       10:  446-block  5
+       31:  446-block  6
+       13:  446-block  7
+        6:  446-block  8
     $$$$$:  446-block  9
     $$$$$:  446-block 10
     $$$$$:  446-block 11
+    $$$$$:  446-block 12
         -:  447:    {
         -:  448:      // concept requirements
         -:  449:      __glibcxx_function_requires(_InputIteratorConcept<_II>)
@@ -565,20 +576,21 @@
         -:  452:      __glibcxx_requires_valid_range(__first, __last);
         -:  453:
         -:  454:      return (std::__copy_move_a2<__is_move_iterator<_II>::__value>
-       83:  455:	      (std::__miter_base(__first), std::__miter_base(__last),
-       42:  455-block  0
+      129:  455:	      (std::__miter_base(__first), std::__miter_base(__last),
+       69:  455-block  0
     $$$$$:  455-block  1
     $$$$$:  455-block  2
     $$$$$:  455-block  3
     $$$$$:  455-block  4
-       29:  455-block  5
-        6:  455-block  6
-        6:  455-block  7
-    $$$$$:  455-block  8
+       10:  455-block  5
+       31:  455-block  6
+       13:  455-block  7
+        6:  455-block  8
     $$$$$:  455-block  9
     $$$$$:  455-block 10
     $$$$$:  455-block 11
-       83:  456:	       __result));
+    $$$$$:  455-block 12
+      129:  456:	       __result));
         -:  457:    }
         -:  458:
         -:  459:#if __cplusplus >= 201103L
@@ -681,7 +693,8 @@
         -:  556:    {
         -:  557:      template<typename _Tp>
         -:  558:        static _Tp*
-        -:  559:        __copy_move_b(const _Tp* __first, const _Tp* __last, _Tp* __result)
+    #####:  559:        __copy_move_b(const _Tp* __first, const _Tp* __last, _Tp* __result)
+    $$$$$:  559-block  0
         -:  560:        {
         -:  561:#if __cplusplus >= 201103L
         -:  562:	  using __assignable = conditional<_IsMove,
@@ -690,21 +703,25 @@
         -:  565:	  // trivial types can have deleted assignment
         -:  566:	  static_assert( __assignable::type::value, "type is not assignable" );
         -:  567:#endif
-        -:  568:	  const ptrdiff_t _Num = __last - __first;
-        -:  569:	  if (_Num)
-        -:  570:	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
-        -:  571:	  return __result - _Num;
+    #####:  568:	  const ptrdiff_t _Num = __last - __first;
+    #####:  569:	  if (_Num)
+    $$$$$:  569-block  0
+    #####:  570:	    __builtin_memmove(__result - _Num, __first, sizeof(_Tp) * _Num);
+    $$$$$:  570-block  0
+    #####:  571:	  return __result - _Num;
+    $$$$$:  571-block  0
         -:  572:	}
         -:  573:    };
         -:  574:
         -:  575:  template<bool _IsMove, typename _BI1, typename _BI2>
         -:  576:    inline _BI2
-        -:  577:    __copy_move_backward_a(_BI1 __first, _BI1 __last, _BI2 __result)
+    #####:  577:    __copy_move_backward_a(_BI1 __first, _BI1 __last, _BI2 __result)
+    $$$$$:  577-block  0
         -:  578:    {
         -:  579:      typedef typename iterator_traits<_BI1>::value_type _ValueType1;
         -:  580:      typedef typename iterator_traits<_BI2>::value_type _ValueType2;
         -:  581:      typedef typename iterator_traits<_BI1>::iterator_category _Category;
-        -:  582:      const bool __simple = (__is_trivial(_ValueType1)
+    #####:  582:      const bool __simple = (__is_trivial(_ValueType1)
         -:  583:	                     && __is_pointer<_BI1>::__value
         -:  584:	                     && __is_pointer<_BI2>::__value
         -:  585:			     && __are_same<_ValueType1, _ValueType2>::__value);
@@ -712,16 +729,19 @@
         -:  587:      return std::__copy_move_backward<_IsMove, __simple,
         -:  588:	                               _Category>::__copy_move_b(__first,
         -:  589:								 __last,
-        -:  590:								 __result);
+    #####:  590:								 __result);
+    $$$$$:  590-block  0
         -:  591:    }
         -:  592:
         -:  593:  template<bool _IsMove, typename _BI1, typename _BI2>
         -:  594:    inline _BI2
-        -:  595:    __copy_move_backward_a2(_BI1 __first, _BI1 __last, _BI2 __result)
+    #####:  595:    __copy_move_backward_a2(_BI1 __first, _BI1 __last, _BI2 __result)
+    $$$$$:  595-block  0
         -:  596:    {
         -:  597:      return _BI2(std::__copy_move_backward_a<_IsMove>
-        -:  598:		  (std::__niter_base(__first), std::__niter_base(__last),
-        -:  599:		   std::__niter_base(__result)));
+    #####:  598:		  (std::__niter_base(__first), std::__niter_base(__last),
+    $$$$$:  598-block  0
+    #####:  599:		   std::__niter_base(__result)));
         -:  600:    }
         -:  601:
         -:  602:  /**
@@ -780,7 +800,8 @@
         -:  655:  */
         -:  656:  template<typename _BI1, typename _BI2>
         -:  657:    inline _BI2
-        -:  658:    move_backward(_BI1 __first, _BI1 __last, _BI2 __result)
+    #####:  658:    move_backward(_BI1 __first, _BI1 __last, _BI2 __result)
+    $$$$$:  658-block  0
         -:  659:    {
         -:  660:      // concept requirements
         -:  661:      __glibcxx_function_requires(_BidirectionalIteratorConcept<_BI1>)
@@ -790,9 +811,10 @@
         -:  665:	    typename iterator_traits<_BI2>::value_type>)
         -:  666:      __glibcxx_requires_valid_range(__first, __last);
         -:  667:
-        -:  668:      return std::__copy_move_backward_a2<true>(std::__miter_base(__first),
+    #####:  668:      return std::__copy_move_backward_a2<true>(std::__miter_base(__first),
+    $$$$$:  668-block  0
         -:  669:						std::__miter_base(__last),
-        -:  670:						__result);
+    #####:  670:						__result);
         -:  671:    }
         -:  672:
         -:  673:#define _GLIBCXX_MOVE_BACKWARD3(_Tp, _Up, _Vp) std::move_backward(_Tp, _Up, _Vp)
@@ -871,18 +893,23 @@
         -:  746:  template<typename _OutputIterator, typename _Size, typename _Tp>
         -:  747:    inline typename
         -:  748:    __gnu_cxx::__enable_if<__is_scalar<_Tp>::__value, _OutputIterator>::__type
-        9:  749:    __fill_n_a(_OutputIterator __first, _Size __n, const _Tp& __value)
-        9:  749-block  0
+       13:  749:    __fill_n_a(_OutputIterator __first, _Size __n, const _Tp& __value)
+        4:  749-block  0
+        9:  749-block  1
         -:  750:    {
-        9:  751:      const _Tp __tmp = __value;
-       36:  752:      for (__decltype(__n + 0) __niter = __n;
-        9:  752-block  0
-       27:  752-block  1
-       36:  753:	   __niter > 0; --__niter, ++__first)
-       36:  753-block  0
-       27:  754:	*__first = __tmp;
-        9:  755:      return __first;
-        9:  755-block  0
+       13:  751:      const _Tp __tmp = __value;
+       56:  752:      for (__decltype(__n + 0) __niter = __n;
+        4:  752-block  0
+       16:  752-block  1
+        9:  752-block  2
+       27:  752-block  3
+       56:  753:	   __niter > 0; --__niter, ++__first)
+       20:  753-block  0
+       36:  753-block  1
+       43:  754:	*__first = __tmp;
+       13:  755:      return __first;
+        4:  755-block  0
+        9:  755-block  1
         -:  756:    }
         -:  757:
         -:  758:  template<typename _Size, typename _Tp>
@@ -911,14 +938,16 @@
         -:  781:  */
         -:  782:  template<typename _OI, typename _Size, typename _Tp>
         -:  783:    inline _OI
-        9:  784:    fill_n(_OI __first, _Size __n, const _Tp& __value)
-        9:  784-block  0
+       13:  784:    fill_n(_OI __first, _Size __n, const _Tp& __value)
+        4:  784-block  0
+        9:  784-block  1
         -:  785:    {
         -:  786:      // concept requirements
         -:  787:      __glibcxx_function_requires(_OutputIteratorConcept<_OI, _Tp>)
         -:  788:
-        9:  789:      return _OI(std::__fill_n_a(std::__niter_base(__first), __n, __value));
-        9:  789-block  0
+       13:  789:      return _OI(std::__fill_n_a(std::__niter_base(__first), __n, __value));
+        4:  789-block  0
+        9:  789-block  1
         -:  790:    }
         -:  791:
         -:  792:  template<bool _BoolType>
@@ -1137,8 +1166,10 @@
         -: 1005:  { return sizeof(int) * __CHAR_BIT__  - 1 - __builtin_clz(__n); }
         -: 1006:
         -: 1007:  inline _GLIBCXX_CONSTEXPR long
-        -: 1008:  __lg(long __n)
-        -: 1009:  { return sizeof(long) * __CHAR_BIT__ - 1 - __builtin_clzl(__n); }
+        1: 1008:  __lg(long __n)
+        1: 1008-block  0
+        1: 1009:  { return sizeof(long) * __CHAR_BIT__ - 1 - __builtin_clzl(__n); }
+        1: 1009-block  0
         -: 1010:
         -: 1011:  inline _GLIBCXX_CONSTEXPR unsigned long
         -: 1012:  __lg(unsigned long __n)

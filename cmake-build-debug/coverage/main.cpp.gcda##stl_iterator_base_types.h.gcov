@@ -207,12 +207,12 @@
         -:  202:  template<typename _Iter>
         -:  203:    inline _GLIBCXX_CONSTEXPR
         -:  204:    typename iterator_traits<_Iter>::iterator_category
-        8:  205:    __iterator_category(const _Iter&)
-        2:  205-block  0
-        6:  205-block  1
-        8:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
-        2:  206-block  0
-        6:  206-block  1
+       17:  205:    __iterator_category(const _Iter&)
+        4:  205-block  0
+       13:  205-block  1
+       17:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+        4:  206-block  0
+       13:  206-block  1
         -:  207:
         -:  208:  //@}
         -:  209:
