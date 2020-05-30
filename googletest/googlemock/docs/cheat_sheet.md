@@ -513,7 +513,7 @@ which must be a permanent callback.
 | :-------------------------------- | :-------------------------------------------- |
 | `Return()`                        | Return from a `void` mock function.           |
 | `Return(value)`                   | Return `value`. If the type of `value` is     different to the mock function's return type, `value` is converted to the latter type <i>at the time the expectation is set</i>, not when the action is executed. |
-| `ReturnArg<N>()`                  | Return the `N`-th (0-based) argument.         |
+| `ReturnArg<row>()`                  | Return the `row`-th (0-based) argument.         |
 | `ReturnNew<T>(a1, ..., ak)`       | Return `new T(a1, ..., ak)`; a different      object is created each time. |
 | `ReturnNull()`                    | Return a null pointer.                        |
 | `ReturnPointee(ptr)`              | Return the value pointed to by `ptr`.         |
@@ -528,13 +528,13 @@ which must be a permanent callback.
 |                                    |                                         |
 | :--------------------------------- | :-------------------------------------- |
 | `Assign(&variable, value)` | Assign `value` to variable. |
-| `DeleteArg<N>()` | Delete the `N`-th (0-based) argument, which must be a pointer. |
-| `SaveArg<N>(pointer)` | Save the `N`-th (0-based) argument to `*pointer`. |
-| `SaveArgPointee<N>(pointer)` | Save the value pointed to by the `N`-th (0-based) argument to `*pointer`. |
-| `SetArgReferee<N>(value)` | Assign value to the variable referenced by the `N`-th (0-based) argument. |
-| `SetArgPointee<N>(value)` | Assign `value` to the variable pointed by the `N`-th (0-based) argument. |
-| `SetArgumentPointee<N>(value)` | Same as `SetArgPointee<N>(value)`. Deprecated. Will be removed in v1.7.0. |
-| `SetArrayArgument<N>(first, last)` | Copies the elements in source range [`first`, `last`) to the array pointed to by the `N`-th (0-based) argument, which can be either a pointer or an iterator. The action does not take ownership of the elements in the source range. |
+| `DeleteArg<row>()` | Delete the `row`-th (0-based) argument, which must be a pointer. |
+| `SaveArg<row>(pointer)` | Save the `row`-th (0-based) argument to `*pointer`. |
+| `SaveArgPointee<row>(pointer)` | Save the value pointed to by the `row`-th (0-based) argument to `*pointer`. |
+| `SetArgReferee<row>(value)` | Assign value to the variable referenced by the `row`-th (0-based) argument. |
+| `SetArgPointee<row>(value)` | Assign `value` to the variable pointed by the `row`-th (0-based) argument. |
+| `SetArgumentPointee<row>(value)` | Same as `SetArgPointee<row>(value)`. Deprecated. Will be removed in v1.7.0. |
+| `SetArrayArgument<row>(first, last)` | Copies the elements in source range [`first`, `last`) to the array pointed to by the `row`-th (0-based) argument, which can be either a pointer or an iterator. The action does not take ownership of the elements in the source range. |
 | `SetErrnoAndReturn(error, value)` | Set `errno` to `error` and return `value`. |
 | `Throw(exception)` | Throws the given exception, which can be any copyable value. Available since v1.1.0. |
 <!-- mdformat on -->
@@ -552,7 +552,7 @@ functor, or lambda.
 | `Invoke(object_pointer, &class::method)` | Invoke the method on the object with the arguments passed to the mock function. |
 | `InvokeWithoutArgs(f)` | Invoke `f`, which can be a global/static function or a functor. `f` must take no arguments. |
 | `InvokeWithoutArgs(object_pointer, &class::method)` | Invoke the method on the object, which takes no arguments. |
-| `InvokeArgument<N>(arg1, arg2, ..., argk)` | Invoke the mock function's `N`-th (0-based) argument, which must be a function or a functor, with the `k` arguments. |
+| `InvokeArgument<row>(arg1, arg2, ..., argk)` | Invoke the mock function's `row`-th (0-based) argument, which must be a function or a functor, with the `k` arguments. |
 <!-- mdformat on -->
 
 The return value of the invoked function is used as the return value of the
@@ -580,7 +580,7 @@ callback type instead of a derived one, e.g.
   ... Invoke(done2) ...;  // This works.
 ```
 
-In `InvokeArgument<N>(...)`, if an argument needs to be passed by reference,
+In `InvokeArgument<row>(...)`, if an argument needs to be passed by reference,
 wrap it inside `ByRef()`. For example,
 
 ```cpp
@@ -613,7 +613,7 @@ composite action - trying to do so will result in a run-time error.
 | :----------------------------- | :------------------------------------------ |
 | `DoAll(a1, a2, ..., an)`       | Do all actions `a1` to `an` and return the result of `an` in each invocation. The first `n - 1` sub-actions must return void. |
 | `IgnoreResult(a)`              | Perform action `a` and ignore its result. `a` must not return void. |
-| `WithArg<N>(a)`                | Pass the `N`-th (0-based) argument of the mock function to action `a` and perform it. |
+| `WithArg<row>(a)`                | Pass the `row`-th (0-based) argument of the mock function to action `a` and perform it. |
 | `WithArgs<N1, N2, ..., Nk>(a)` | Pass the selected (0-based) arguments of the mock function to action `a` and perform it. |
 | `WithoutArgs(a)`               | Perform action `a` without any arguments. |
 <!-- mdformat on -->

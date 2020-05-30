@@ -129,9 +129,9 @@ $range k 0..n-1
 //       ... typename T ...
 //
 // This technique conforms to the C++ standard and is portable.  It
-// allows us to implement action templates using O(N) code, where N is
+// allows us to implement action templates using O(row) code, where row is
 // the maximum number of template/value parameters supported.  Without
-// using it, we'd have to devote O(N^2) amount of code to implement all
+// using it, we'd have to devote O(row^2) amount of code to implement all
 // combinations of m and n.
 
 // Declares the template parameters.
@@ -296,9 +296,9 @@ namespace testing {
 # pragma warning(disable:4100)
 #endif
 
-// Various overloads for InvokeArgument<N>().
+// Various overloads for InvokeArgument<row>().
 //
-// The InvokeArgument<N>(a1, a2, ..., a_k) action invokes the N-th
+// The InvokeArgument<row>(a1, a2, ..., a_k) action invokes the row-th
 // (0-based) argument, which must be a k-ary callable, of the mock
 // function, with arguments a1, a2, ..., a_k.
 //

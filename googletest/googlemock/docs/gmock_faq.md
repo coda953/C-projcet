@@ -278,7 +278,7 @@ debugging, just choose a less verbose level.
 ### How can I delete the mock function's argument in an action?
 
 If your mock function takes a pointer argument and you want to delete that
-argument, you can use testing::DeleteArg<N>() to delete the N'th (zero-indexed)
+argument, you can use testing::DeleteArg<row>() to delete the row'th (zero-indexed)
 argument:
 
 ```cpp

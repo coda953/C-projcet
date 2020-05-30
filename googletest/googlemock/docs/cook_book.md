@@ -2002,9 +2002,9 @@ Note, however, that if you use the `ReturnOKWith()` method, it will override the
 values provided by `SetArgPointee()` in the response parameters of your function
 call.
 
-If the output argument is an array, use the `SetArrayArgument<N>(first, last)`
+If the output argument is an array, use the `SetArrayArgument<row>(first, last)`
 action instead. It copies the elements in source range `[first, last)` to the
-array pointed to by the `N`-th (0-based) argument:
+array pointed to by the `row`-th (0-based) argument:
 
 ```cpp
 using ::testing::NotNull;
@@ -2356,10 +2356,10 @@ Arghh, you need to refer to a mock function argument but C++ has no lambda
 Well, gMock has an action to solve *exactly* this problem:
 
 ```cpp
-InvokeArgument<N>(arg_1, arg_2, ..., arg_m)
+InvokeArgument<row>(arg_1, arg_2, ..., arg_m)
 ```
 
-will invoke the `N`-th (0-based) argument the mock function receives, with
+will invoke the `row`-th (0-based) argument the mock function receives, with
 `arg_1`, `arg_2`, ..., and `arg_m`. No matter if the argument is a function
 pointer, a functor, or a callback. gMock handles them all.
 
@@ -2525,7 +2525,7 @@ using ::testing::WithArgs;
 For better readability, gMock also gives you:
 
 *   `WithoutArgs(action)` when the inner `action` takes *no* argument, and
-*   `WithArg<N>(action)` (no `s` after `Arg`) when the inner `action` takes
+*   `WithArg<row>(action)` (no `s` after `Arg`) when the inner `action` takes
     *one* argument.
 
 As you may have realized, `InvokeWithoutArgs(...)` is just syntactic sugar for
@@ -2892,7 +2892,7 @@ can get really slow.
 
 If you are experiencing slow compilation, you can move the definition of your
 mock class' constructor and destructor out of the class body and into a `.cc`
-file. This way, even if you `#include` your mock class in N files, the compiler
+file. This way, even if you `#include` your mock class in row files, the compiler
 only needs to generate its constructor and destructor once, resulting in a much
 faster compilation.
 
