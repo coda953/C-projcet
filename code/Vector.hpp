@@ -91,6 +91,7 @@ public:
         }
         return ans;
     }
+
 /**
  * get the maximum element of the vector
  * @return the maximum element of the vector
@@ -106,6 +107,7 @@ public:
         }
         return ans;
     }
+
 /**
  * get the average of the all elements of the vector
  * @return  the average of the all elements of the vector
@@ -115,6 +117,7 @@ public:
         ans /= this->length;
         return ans;
     }
+
 /**
  *get the sum of the all elements of the vector
  * @return  the sum of the all elements of the vector
@@ -130,6 +133,7 @@ public:
         }
         return ans;
     }
+
 /**
  * set the length of the vector
  * @param _length the new length of the vector, if the size is larger,the new element is default value.
@@ -138,6 +142,7 @@ public:
         this->length = _length;
         this->vector.resize(_length);
     }
+
 /**
  * vector dot product with other vector
  * @param other the other vector
@@ -155,6 +160,7 @@ public:
         }
         return ans;
     }
+
 /**
  * get the conjugation of the vector
  * @return the conjugation of the vector
@@ -167,6 +173,7 @@ public:
         }
         return ans;
     }
+
 /**
  * get the conjugation of the vector, and change this vector to ans
  * @return the conjugation of the vector
@@ -180,6 +187,7 @@ public:
         this->vector = ans.vector;
         return ans;
     }
+
 /**
  * get the element wise multiplication of the vector
  * @param other  the other vector to element wise multiplication
@@ -197,6 +205,7 @@ public:
         }
         return ans;
     }
+
 /**
  * get the element wise multiplication of the vector, and change this vector to answer vector
  * @param other  the other vector to element wise multiplication
@@ -215,6 +224,7 @@ public:
         this->vector = ans.vector;
         return ans;
     }
+
 /**
  * reload operator + to add two vector
  * @param other  the other vector to add
@@ -231,6 +241,7 @@ public:
         }
         return ans;
     }
+
 /**
  * reload operator + to add with a matrix,every row of matrix will add the vector
  * @param other the matrix to add
@@ -249,6 +260,7 @@ public:
         }
         return ans;
     }
+
 /**
  * reload operator - to add two vector
  * @param other  the other vector to minus
@@ -265,6 +277,7 @@ public:
         }
         return ans;
     }
+
 /**
  * reload operator - to add with a matrix,every row of matrix will minus the vector
  * @param other the matrix to minus
@@ -283,6 +296,7 @@ public:
         }
         return ans;
     }
+
 /**
  * reload operator * to multiple with an element
  * @param other the multiplier
@@ -295,6 +309,7 @@ public:
         }
         return ans;
     }
+
 /**
  * reload operator * to multiple with a matrix,every row of the matrix will multiple with the vector
  * @param other the multiplier matrix
@@ -314,6 +329,7 @@ public:
         }
         return ans;
     }
+
 /**
  * get the cross product of two vectors
  * @param other the other vector to cross product

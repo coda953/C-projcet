@@ -10,6 +10,7 @@ using namespace cv;
 
 template<class T>
 class Vector;
+
 /**
  * the class of Matrix
  * @authors Zhu Junda Zheng Ruiqi Wang Yifan
@@ -27,6 +28,7 @@ public:
         this->column = 0;
         this->matrix.resize(0);
     }
+
 /**
  * overload [] to access matrix data
  * @param i  the row of the matrix
@@ -38,6 +40,7 @@ public:
         }
         return this->matrix[i];
     }
+
 /**
  * initial a matrix with certain row and column
  * @param row the row of the matrix
@@ -51,6 +54,7 @@ public:
             this->matrix[i].resize(column);
         }
     }
+
 /**
  * initial a matrix with row equals 1 and column equals length
  * like a vector
@@ -62,6 +66,7 @@ public:
         this->matrix.resize(this->row);
         this->matrix[0].resize(this->column);
     }
+
 /**
  * initial a matrix with other matrix
  * @param other the other matrix
@@ -71,6 +76,7 @@ public:
         this->column = other.column;
         this->matrix = other.matrix;
     }
+
 /**
  * initial a matrix with a vector
  * the matrix has row equals 1 and column equals vector's length
@@ -85,6 +91,7 @@ public:
         this->column = ans.column;
         this->matrix = ans.matrix;
     }
+
 /**
  * a function to get the minimium element of the matrix
  * @return  the minimium element of the matrix
@@ -102,6 +109,7 @@ public:
         }
         return ans;
     }
+
 /**
  *
  * @param row
@@ -720,6 +728,47 @@ public:
             }
         }
         return ans;
+    }
+
+    T cal_det() {
+        if (this->row != this->column) {
+            cerr << "The matrix is not square matrix";
+            return 0;
+        }
+        class temp {
+        public:
+            double det(int n, double *mm) {
+                if (n == 1)
+                    return mm[0];
+                double *subMat = new double[(n - 1) * (n - 1)];//创建n-1阶的代数余子式阵subMat
+                int mov = 0;//判断行是否移动
+                double sum = 0.0;//sum为行列式的值
+                for (int Matrow = 0; Matrow < n; Matrow++) // Mat的行数把矩阵Mat(nn)赋值到subMat(n-1)
+                {
+                    for (int subMatrow = 0; subMatrow < n - 1; subMatrow++)//把Mat阵第一列各元素的代数余子式存到subMat
+                    {
+                        mov = Matrow > subMatrow ? 0 : 1; //subMat中小于Matrow的行，同行赋值，等于的错过，大于的加一
+                        for (int j = 0; j < n - 1; j++)  //从Mat的第二列赋值到第n列
+                        {
+                            subMat[subMatrow * (n - 1) + j] = mm[(subMatrow + mov) * n + j + 1];
+                        }
+                    }
+                    int flag = (Matrow % 2 == 0 ? 1 : -1);//因为列数为0，所以行数是偶数时候，代数余子式为1.
+                    sum += flag * mm[Matrow * n] * det(n - 1, subMat);//Mat第一列各元素与其代数余子式积的和即为行列式
+                }
+                delete[]subMat;
+                return sum;
+            }
+        };
+        double *cur = new double[this->row * this->row];
+        int count = 0;
+        for (int i = 0; i < this->row; ++i) {
+            for (int j = 0; j < this->row; ++j) {
+                cur[count++] = this->matrix[i][j];
+            }
+        }
+        temp ans;
+        return ans.det(this->row, cur);
     }
 
     Matrix(vector<vector<T>> other);

@@ -22,6 +22,9 @@ vector<vector<double>> m4 = {{1,  2,  3,  4,},
                              {5,  6,  7,  8},
                              {9,  10, 11, 12},
                              {13, 14, 15, 16}};
+vector<vector<double>> m5 = {{1, 1, 2},
+                             {3, 4, 5},
+                             {6, 7, 8}};
 //init a Matrix by vector<vector<double>>
 TEST(Matrix_init_vector, test) {
     Matrix<double> a = m1;
@@ -152,16 +155,29 @@ TEST(Matrix_convolution, task3) {
     EXPECT_FLOAT_EQ(ans[3][3], 35);
 }
 //test inverse
-TEST(Vector_cross_product,task2){
-    vector<double> a={1,2};
-    vector<double>b={2,3};
-    Vector<double> vec1=a;
-    Vector<double> vec2=b;
-    Vector<double>ans=vec1.cross_product(vec2);
-    EXPECT_EQ(ans[0],0);
-    EXPECT_EQ(ans[1],0);
-    EXPECT_EQ(ans[2],-1);
+TEST(Vector_cross_product, task2) {
+    vector<double> a = {1, 2};
+    vector<double> b = {2, 3};
+    Vector<double> vec1 = a;
+    Vector<double> vec2 = b;
+    Vector<double> ans = vec1.cross_product(vec2);
+    EXPECT_EQ(ans[0], 0);
+    EXPECT_EQ(ans[1], 0);
+    EXPECT_EQ(ans[2], -1);
 }
+
+TEST(Matrix_det, task2) {
+    Matrix<double> a = m1;
+    Matrix<double> b = m2;
+    Matrix<double> c = m5;
+    EXPECT_EQ(0, a.cal_det());
+    EXPECT_EQ(15, a.cal_traces());
+    EXPECT_EQ(0, b.cal_det());
+    EXPECT_EQ(15, b.cal_traces());
+    EXPECT_EQ(-3, c.cal_det());
+    EXPECT_EQ(13, c.cal_traces());
+}
+
 GTEST_API_ int main() {
     testing::InitGoogleTest();
     return RUN_ALL_TESTS();
