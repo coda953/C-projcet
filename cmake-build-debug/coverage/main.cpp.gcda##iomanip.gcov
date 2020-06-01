@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/iomanip
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Standard stream manipulators -*- C++ -*-
@@ -197,10 +197,10 @@
         -:  192:   *  that object.
         -:  193:  */
         -:  194:  inline _Setprecision
-       75:  195:  setprecision(int __n)
-       75:  195-block  0
-       75:  196:  { return { __n }; }
-       75:  196-block  0
+       79:  195:  setprecision(int __n)
+       79:  195-block  0
+       79:  196:  { return { __n }; }
+       79:  196-block  0
         -:  197:
         -:  198:  template<typename _CharT, typename _Traits>
         -:  199:    inline basic_istream<_CharT, _Traits>&

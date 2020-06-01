@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/ext/new_allocator.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Allocator that wraps operator new -*- C++ -*-
@@ -81,24 +81,24 @@
         -:   76:      typedef std::true_type propagate_on_container_move_assignment;
         -:   77:#endif
         -:   78:
-       54:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+       60:   79:      new_allocator() _GLIBCXX_USE_NOEXCEPT { }
         5:   79-block  0
        14:   79-block  1
-       18:   79-block  2
-       17:   79-block  3
+       23:   79-block  2
+       18:   79-block  3
         -:   80:
-      186:   81:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
-      152:   81-block  0
+      195:   81:      new_allocator(const new_allocator&) _GLIBCXX_USE_NOEXCEPT { }
+      161:   81-block  0
        22:   81-block  1
        12:   81-block  2
         -:   82:
         -:   83:      template<typename _Tp1>
         -:   84:	new_allocator(const new_allocator<_Tp1>&) _GLIBCXX_USE_NOEXCEPT { }
         -:   85:
-      215:   86:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
+      229:   86:      ~new_allocator() _GLIBCXX_USE_NOEXCEPT { }
         5:   86-block  0
        32:   86-block  1
-      157:   86-block  2
+      171:   86-block  2
        21:   86-block  3
         -:   87:
         -:   88:      pointer
@@ -112,17 +112,17 @@
         -:   96:      // NB: __n is permitted to be 0.  The C++ standard says nothing
         -:   97:      // about what the return value is when __n == 0.
         -:   98:      pointer
-      143:   99:      allocate(size_type __n, const void* = static_cast<const void*>(0))
+      152:   99:      allocate(size_type __n, const void* = static_cast<const void*>(0))
         5:   99-block  0
        23:   99-block  1
-       89:   99-block  2
-       26:   99-block  3
+       97:   99-block  2
+       27:   99-block  3
         -:  100:      {
-      143:  101:	if (__n > this->max_size())
+      152:  101:	if (__n > this->max_size())
         5:  101-block  0
        23:  101-block  1
-       89:  101-block  2
-       26:  101-block  3
+       97:  101-block  2
+       27:  101-block  3
     #####:  102:	  std::__throw_bad_alloc();
     $$$$$:  102-block  0
     $$$$$:  102-block  1
@@ -136,18 +136,18 @@
         -:  108:	    return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp), __al));
         -:  109:	  }
         -:  110:#endif
-      143:  111:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
+      152:  111:	return static_cast<_Tp*>(::operator new(__n * sizeof(_Tp)));
         5:  111-block  0
        23:  111-block  1
-       89:  111-block  2
-       26:  111-block  3
+       97:  111-block  2
+       27:  111-block  3
         -:  112:      }
         -:  113:
         -:  114:      // __p is not permitted to be a null pointer.
         -:  115:      void
-      118:  116:      deallocate(pointer __p, size_type)
+      126:  116:      deallocate(pointer __p, size_type)
        19:  116-block  0
-       76:  116-block  1
+       84:  116-block  1
        18:  116-block  2
         5:  116-block  3
         -:  117:      {
@@ -158,24 +158,24 @@
         -:  122:	    return;
         -:  123:	  }
         -:  124:#endif
-      118:  125:	::operator delete(__p);
+      126:  125:	::operator delete(__p);
        19:  125-block  0
-       76:  125-block  1
+       84:  125-block  1
        18:  125-block  2
         5:  125-block  3
-      118:  126:      }
+      126:  126:      }
         -:  127:
         -:  128:      size_type
-      205:  129:      max_size() const _GLIBCXX_USE_NOEXCEPT
+      218:  129:      max_size() const _GLIBCXX_USE_NOEXCEPT
        11:  129-block  0
        25:  129-block  1
-      103:  129-block  2
-       66:  129-block  3
-      205:  130:      { return size_t(-1) / sizeof(_Tp); }
+      113:  129-block  2
+       69:  129-block  3
+      218:  130:      { return size_t(-1) / sizeof(_Tp); }
        11:  130-block  0
        25:  130-block  1
-      103:  130-block  2
-       66:  130-block  3
+      113:  130-block  2
+       69:  130-block  3
         -:  131:
         -:  132:#if __cplusplus >= 201103L
         -:  133:      template<typename _Up, typename... _Args>

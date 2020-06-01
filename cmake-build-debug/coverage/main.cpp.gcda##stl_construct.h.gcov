@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/stl_construct.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// nonstandard construct and destroy functions -*- C++ -*-
@@ -179,11 +179,11 @@
         -:  114:    {
         -:  115:      template<typename _ForwardIterator>
         -:  116:        static void
-      117:  117:        __destroy(_ForwardIterator, _ForwardIterator) { }
+      130:  117:        __destroy(_ForwardIterator, _ForwardIterator) { }
     $$$$$:  117-block  0
     $$$$$:  117-block  1
-       82:  117-block  2
-       35:  117-block  3
+       94:  117-block  2
+       36:  117-block  3
         -:  118:    };
         -:  119:
         -:  120:  /**
@@ -193,15 +193,15 @@
         -:  124:   */
         -:  125:  template<typename _ForwardIterator>
         -:  126:    inline void
-      156:  127:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
+      169:  127:    _Destroy(_ForwardIterator __first, _ForwardIterator __last)
     $$$$$:  127-block  0
     $$$$$:  127-block  1
     $$$$$:  127-block  2
     $$$$$:  127-block  3
        10:  127-block  4
        29:  127-block  5
-       82:  127-block  6
-       35:  127-block  7
+       94:  127-block  6
+       36:  127-block  7
         -:  128:    {
         -:  129:      typedef typename iterator_traits<_ForwardIterator>::value_type
         -:  130:                       _Value_type;
@@ -211,16 +211,16 @@
         -:  134:		    "value type is destructible");
         -:  135:#endif
         -:  136:      std::_Destroy_aux<__has_trivial_destructor(_Value_type)>::
-      156:  137:	__destroy(__first, __last);
+      169:  137:	__destroy(__first, __last);
     $$$$$:  137-block  0
     $$$$$:  137-block  1
     $$$$$:  137-block  2
     $$$$$:  137-block  3
        10:  137-block  4
        29:  137-block  5
-       82:  137-block  6
-       35:  137-block  7
-      156:  138:    }
+       94:  137-block  6
+       36:  137-block  7
+      169:  138:    }
         -:  139:
         -:  140:  template<bool>
         -:  141:    struct _Destroy_n_aux
@@ -285,27 +285,27 @@
         -:  200:
         -:  201:  template<typename _ForwardIterator, typename _Tp>
         -:  202:    inline void
-      156:  203:    _Destroy(_ForwardIterator __first, _ForwardIterator __last,
+      169:  203:    _Destroy(_ForwardIterator __first, _ForwardIterator __last,
     $$$$$:  203-block  0
     $$$$$:  203-block  1
     $$$$$:  203-block  2
     $$$$$:  203-block  3
        10:  203-block  4
        29:  203-block  5
-       82:  203-block  6
-       35:  203-block  7
+       94:  203-block  6
+       36:  203-block  7
         -:  204:	     allocator<_Tp>&)
         -:  205:    {
-      156:  206:      _Destroy(__first, __last);
+      169:  206:      _Destroy(__first, __last);
     $$$$$:  206-block  0
     $$$$$:  206-block  1
     $$$$$:  206-block  2
     $$$$$:  206-block  3
        10:  206-block  4
        29:  206-block  5
-       82:  206-block  6
-       35:  206-block  7
-      156:  207:    }
+       94:  206-block  6
+       36:  206-block  7
+      169:  207:    }
         -:  208:
         -:  209:#if __cplusplus > 201402L
         -:  210:  template <typename _Tp>

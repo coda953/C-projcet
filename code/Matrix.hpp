@@ -102,7 +102,11 @@ public:
         }
         return ans;
     }
-
+/**
+ *
+ * @param row
+ * @return
+ */
     T findMinAtRow(int row) {
         if (this->row == 0 || this->column == 0) {
             cerr << "The vector is empty,can not get sum" << endl;

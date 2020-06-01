@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/tuple
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// <tuple> -*- C++ -*-
@@ -115,11 +115,11 @@
         -:  110:	: _Head(std::forward<_UHead>(__uhead), *__a._M_a) { }
         -:  111:
         -:  112:      static constexpr _Head&
-      150:  113:      _M_head(_Head_base& __b) noexcept { return __b; }
+      158:  113:      _M_head(_Head_base& __b) noexcept { return __b; }
     $$$$$:  113-block  0
     $$$$$:  113-block  1
-       75:  113-block  2
-       75:  113-block  3
+       79:  113-block  2
+       79:  113-block  3
         -:  114:
         -:  115:      static constexpr const _Head&
         -:  116:      _M_head(const _Head_base& __b) noexcept { return __b; }
@@ -166,11 +166,11 @@
         -:  157:	: _M_head_impl(std::forward<_UHead>(__uhead), *__a._M_a) { }
         -:  158:
         -:  159:      static constexpr _Head&
-      474:  160:      _M_head(_Head_base& __b) noexcept { return __b._M_head_impl; }
-       87:  160-block  0
-       87:  160-block  1
-      150:  160-block  2
-      150:  160-block  3
+      496:  160:      _M_head(_Head_base& __b) noexcept { return __b._M_head_impl; }
+       90:  160-block  0
+       90:  160-block  1
+      158:  160-block  2
+      158:  160-block  3
         -:  161:
         -:  162:      static constexpr const _Head&
     #####:  163:      _M_head(const _Head_base& __b) noexcept { return __b._M_head_impl; }
@@ -207,11 +207,11 @@
         -:  192:      typedef _Head_base<_Idx, _Head> _Base;
         -:  193:
         -:  194:      static constexpr _Head&
-      474:  195:      _M_head(_Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
-       87:  195-block  0
-       87:  195-block  1
-      150:  195-block  2
-      150:  195-block  3
+      496:  195:      _M_head(_Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
+       90:  195-block  0
+       90:  195-block  1
+      158:  195-block  2
+      158:  195-block  3
         -:  196:
         -:  197:      static constexpr const _Head&
     #####:  198:      _M_head(const _Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
@@ -369,11 +369,11 @@
         -:  348:      typedef _Head_base<_Idx, _Head> _Base;
         -:  349:
         -:  350:      static constexpr _Head&
-      150:  351:      _M_head(_Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
+      158:  351:      _M_head(_Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
     $$$$$:  351-block  0
     $$$$$:  351-block  1
-       75:  351-block  2
-       75:  351-block  3
+       79:  351-block  2
+       79:  351-block  3
         -:  352:
         -:  353:      static constexpr const _Head&
         -:  354:      _M_head(const _Tuple_impl& __t) noexcept { return _Base::_M_head(__t); }
@@ -1325,16 +1325,16 @@
         -: 1300:
         -: 1301:  template<std::size_t __i, typename _Head, typename... _Tail>
         -: 1302:    constexpr _Head&
-      312: 1303:    __get_helper(_Tuple_impl<__i, _Head, _Tail...>& __t) noexcept
+      327: 1303:    __get_helper(_Tuple_impl<__i, _Head, _Tail...>& __t) noexcept
     $$$$$: 1303-block  0
-       75: 1303-block  1
-       87: 1303-block  2
-      150: 1303-block  3
-      312: 1304:    { return _Tuple_impl<__i, _Head, _Tail...>::_M_head(__t); }
+       79: 1303-block  1
+       90: 1303-block  2
+      158: 1303-block  3
+      327: 1304:    { return _Tuple_impl<__i, _Head, _Tail...>::_M_head(__t); }
     $$$$$: 1304-block  0
-       75: 1304-block  1
-       87: 1304-block  2
-      150: 1304-block  3
+       79: 1304-block  1
+       90: 1304-block  2
+      158: 1304-block  3
         -: 1305:
         -: 1306:  template<std::size_t __i, typename _Head, typename... _Tail>
         -: 1307:    constexpr const _Head&
@@ -1346,16 +1346,16 @@
         -: 1311:  /// Return a reference to the ith element of a tuple.
         -: 1312:  template<std::size_t __i, typename... _Elements>
         -: 1313:    constexpr __tuple_element_t<__i, tuple<_Elements...>>&
-      312: 1314:    get(tuple<_Elements...>& __t) noexcept
+      327: 1314:    get(tuple<_Elements...>& __t) noexcept
     $$$$$: 1314-block  0
-       75: 1314-block  1
-       87: 1314-block  2
-      150: 1314-block  3
-      312: 1315:    { return std::__get_helper<__i>(__t); }
+       79: 1314-block  1
+       90: 1314-block  2
+      158: 1314-block  3
+      327: 1315:    { return std::__get_helper<__i>(__t); }
     $$$$$: 1315-block  0
-       75: 1315-block  1
-       87: 1315-block  2
-      150: 1315-block  3
+       79: 1315-block  1
+       90: 1315-block  2
+      158: 1315-block  3
         -: 1316:
         -: 1317:  /// Return a const reference to the ith element of a const tuple.
         -: 1318:  template<std::size_t __i, typename... _Elements>

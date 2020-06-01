@@ -152,7 +152,16 @@ TEST(Matrix_convolution, task3) {
     EXPECT_FLOAT_EQ(ans[3][3], 35);
 }
 //test inverse
-
+TEST(Vector_cross_product,task2){
+    vector<double> a={1,2};
+    vector<double>b={2,3};
+    Vector<double> vec1=a;
+    Vector<double> vec2=b;
+    Vector<double>ans=vec1.cross_product(vec2);
+    EXPECT_EQ(ans[0],0);
+    EXPECT_EQ(ans[1],0);
+    EXPECT_EQ(ans[2],-1);
+}
 GTEST_API_ int main() {
     testing::InitGoogleTest();
     return RUN_ALL_TESTS();

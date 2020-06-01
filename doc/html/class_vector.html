@@ -52,6 +52,8 @@ $(function() {
 Public 成员函数</h2></td></tr>
 <tr class="memitem:a39d6069675db4ecfc1ab81d440da759a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a39d6069675db4ecfc1ab81d440da759a">Vector</a> ()</td></tr>
 <tr class="separator:a39d6069675db4ecfc1ab81d440da759a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5785c9840239e5271da4be859418e45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#ab5785c9840239e5271da4be859418e45">Vector</a> (vector&lt; T &gt; other)</td></tr>
+<tr class="separator:ab5785c9840239e5271da4be859418e45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae509affb59595509b9ad5fcccbdfff42"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#ae509affb59595509b9ad5fcccbdfff42">Vector</a> (int length)</td></tr>
 <tr class="separator:ae509affb59595509b9ad5fcccbdfff42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb312ba3f86b6445db805f52090f4f02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#abb312ba3f86b6445db805f52090f4f02">getLength</a> ()</td></tr>
@@ -92,16 +94,24 @@ Public 成员函数</h2></td></tr>
 <tr class="separator:a9e601d1ede8a41ce8290710453f115c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a06b1cdf226d3a10ff7676d614cda539d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a06b1cdf226d3a10ff7676d614cda539d">operator*</a> (<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; other) const</td></tr>
 <tr class="separator:a06b1cdf226d3a10ff7676d614cda539d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a529c56f93a03aeeade5cba1ba5a9039e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a529c56f93a03aeeade5cba1ba5a9039e">cross_product</a> (<a class="el" href="class_vector.html">Vector</a> other)</td></tr>
+<tr class="separator:a529c56f93a03aeeade5cba1ba5a9039e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class Vector&lt; T &gt;</h3>
 
+<p>The class of vector </p><dl class="tparams"><dt>模板参数</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>the type of the element of vector </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">在文件 <a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a> 第 <a class="el" href="_matrix_8hpp_source.html#l00012">12</a> 行定义.</p>
 </div><h2 class="groupheader">构造及析构函数说明</h2>
 <a id="a39d6069675db4ecfc1ab81d440da759a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39d6069675db4ecfc1ab81d440da759a">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d6069675db4ecfc1ab81d440da759a">&#9670;&nbsp;</a></span>Vector() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,13 +134,50 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>init a vector with length equals 0 </p>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00016">16</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00023">23</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab5785c9840239e5271da4be859418e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5785c9840239e5271da4be859418e45">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::<a class="el" href="class_vector.html">Vector</a> </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>init a vector by a std::vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the std::vector </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00023">23</a> 行定义.</p>
 
 </div>
 </div>
 <a id="ae509affb59595509b9ad5fcccbdfff42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae509affb59595509b9ad5fcccbdfff42">&#9670;&nbsp;</a></span>Vector() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae509affb59595509b9ad5fcccbdfff42">&#9670;&nbsp;</a></span>Vector() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,8 +201,14 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>init a vector length equals user input and all elements equal default value </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>the length of the vector </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00021">21</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00041">41</a> 行定义.</p>
 
 </div>
 </div>
@@ -184,8 +237,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the conjugation of the vector </p><dl class="section return"><dt>返回</dt><dd>the conjugation of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00109">109</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00162">162</a> 行定义.</p>
 
 </div>
 </div>
@@ -213,8 +267,51 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the conjugation of the vector, and change this vector to ans </p><dl class="section return"><dt>返回</dt><dd>the conjugation of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00118">118</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00174">174</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a529c56f93a03aeeade5cba1ba5a9039e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a529c56f93a03aeeade5cba1ba5a9039e">&#9670;&nbsp;</a></span>cross_product()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::cross_product </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>get the cross product of two vectors </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the other vector to cross product </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer vector </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00322">322</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_vector_a529c56f93a03aeeade5cba1ba5a9039e_icgraph.png" border="0" usemap="#class_vector_a529c56f93a03aeeade5cba1ba5a9039e_icgraph" alt=""/></div>
+</div>
 
 </div>
 </div>
@@ -243,8 +340,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>vector dot product with other vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the other vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00096">96</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00146">146</a> 行定义.</p>
 
 </div>
 </div>
@@ -273,8 +377,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the element wise multiplication of the vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the other vector to element wise multiplication </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00128">128</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00188">188</a> 行定义.</p>
 
 </div>
 </div>
@@ -303,8 +414,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the element wise multiplication of the vector, and change this vector to answer vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the other vector to element wise multiplication </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00141">141</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00205">205</a> 行定义.</p>
 
 </div>
 </div>
@@ -332,8 +450,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the average of the all elements of the vector </p><dl class="section return"><dt>返回</dt><dd>the average of the all elements of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00073">73</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00113">113</a> 行定义.</p>
 
 </div>
 </div>
@@ -361,8 +480,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the maximum element of the vector </p><dl class="section return"><dt>返回</dt><dd>the maximum element of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00061">61</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00098">98</a> 行定义.</p>
 
 </div>
 </div>
@@ -390,8 +510,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the minimum element of the vector </p><dl class="section return"><dt>返回</dt><dd>the minimum element of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00049">49</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00083">83</a> 行定义.</p>
 
 </div>
 </div>
@@ -419,8 +540,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the sum of the all elements of the vector </p><dl class="section return"><dt>返回</dt><dd>the sum of the all elements of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00079">79</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00122">122</a> 行定义.</p>
 
 </div>
 </div>
@@ -448,8 +570,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>get the length of the vector </p><dl class="section return"><dt>返回</dt><dd>the length of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00026">26</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00050">50</a> 行定义.</p>
 <div class="dynheader">
 这是这个函数的调用关系图:</div>
 <div class="dyncontent">
@@ -483,8 +606,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>reload operator * to multiple with a matrix,every row of the matrix will multiple with the vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the multiplier matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00215">215</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00303">303</a> 行定义.</p>
 <div class="dynheader">
 函数调用图:</div>
 <div class="dyncontent">
@@ -518,8 +648,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>reload operator * to multiple with an element </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the multiplier </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00207">207</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00291">291</a> 行定义.</p>
 
 </div>
 </div>
@@ -548,8 +685,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>reload operator + to add two vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the other vector to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00155">155</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00223">223</a> 行定义.</p>
 
 </div>
 </div>
@@ -578,8 +722,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>reload operator + to add with a matrix,every row of matrix will add the vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the matrix to add </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer matrix </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00167">167</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00239">239</a> 行定义.</p>
 <div class="dynheader">
 函数调用图:</div>
 <div class="dyncontent">
@@ -613,8 +764,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>reload operator - to add two vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the other vector to minus </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00181">181</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00257">257</a> 行定义.</p>
 
 </div>
 </div>
@@ -643,8 +801,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>reload operator - to add with a matrix,every row of matrix will minus the vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the matrix to minus </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the answer matrix </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00193">193</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00273">273</a> 行定义.</p>
 <div class="dynheader">
 函数调用图:</div>
 <div class="dyncontent">
@@ -678,8 +843,15 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>overload [] to achieve the element of the vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>the index of the vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>the i-th element of the vector </dd></dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00044">44</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00075">75</a> 行定义.</p>
 
 </div>
 </div>
@@ -708,8 +880,14 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>set the length of the vector </p><dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_length</td><td>the new length of the vector, if the size is larger,the new element is default value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00091">91</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00137">137</a> 行定义.</p>
 
 </div>
 </div>
@@ -737,8 +915,9 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>show the vector </p>
 
-<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00031">31</a> 行定义.</p>
+<p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el" href="_vector_8hpp_source.html#l00057">57</a> 行定义.</p>
 
 </div>
 </div>

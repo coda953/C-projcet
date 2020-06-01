@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/move.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Move, forward and identity for C++11 + swap -*- C++ -*-
@@ -118,23 +118,23 @@
         -:   95:  */
         -:   96:  template<typename _Tp>
         -:   97:    constexpr typename std::remove_reference<_Tp>::type&&
-       17:   98:    move(_Tp&& __t) noexcept
+       29:   98:    move(_Tp&& __t) noexcept
     $$$$$:   98-block  0
     $$$$$:   98-block  1
     $$$$$:   98-block  2
         5:   98-block  3
-        9:   98-block  4
-        2:   98-block  5
-        1:   98-block  6
+       18:   98-block  4
+        4:   98-block  5
+        2:   98-block  6
     $$$$$:   98-block  7
-       17:   99:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       29:   99:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
     $$$$$:   99-block  0
     $$$$$:   99-block  1
     $$$$$:   99-block  2
         5:   99-block  3
-        9:   99-block  4
-        2:   99-block  5
-        1:   99-block  6
+       18:   99-block  4
+        4:   99-block  5
+        2:   99-block  6
     $$$$$:   99-block  7
         -:  100:
         -:  101:
@@ -223,9 +223,9 @@
         -:  184:    typename enable_if<__and_<__not_<__is_tuple_like<_Tp>>,
         -:  185:			      is_move_constructible<_Tp>,
         -:  186:			      is_move_assignable<_Tp>>::value>::type
-        3:  187:    swap(_Tp& __a, _Tp& __b)
+        6:  187:    swap(_Tp& __a, _Tp& __b)
     $$$$$:  187-block  0
-        3:  187-block  1
+        6:  187-block  1
     $$$$$:  187-block  2
         -:  188:    noexcept(__and_<is_nothrow_move_constructible<_Tp>,
         -:  189:	            is_nothrow_move_assignable<_Tp>>::value)
@@ -237,13 +237,13 @@
         -:  195:      // concept requirements
         -:  196:      __glibcxx_function_requires(_SGIAssignableConcept<_Tp>)
         -:  197:
-        3:  198:      _Tp __tmp = _GLIBCXX_MOVE(__a);
+        6:  198:      _Tp __tmp = _GLIBCXX_MOVE(__a);
     $$$$$:  198-block  0
-        3:  198-block  1
+        6:  198-block  1
     $$$$$:  198-block  2
-        3:  199:      __a = _GLIBCXX_MOVE(__b);
-        3:  200:      __b = _GLIBCXX_MOVE(__tmp);
-        3:  201:    }
+        6:  199:      __a = _GLIBCXX_MOVE(__b);
+        6:  200:      __b = _GLIBCXX_MOVE(__tmp);
+        6:  201:    }
         -:  202:
         -:  203:  // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  204:  // DR 809. std::swap should be overloaded for array types.

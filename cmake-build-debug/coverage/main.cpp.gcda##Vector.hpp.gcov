@@ -1,0 +1,287 @@
+        -:    0:Source:/cygdrive/c/Users/10505/CLionProjects/C-projcet/code/Vector.hpp
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:
+        -:    2:#ifndef CPPPROJECT_VECTOR_HPP
+        -:    3:#define CPPPROJECT_VECTOR_HPP
+        -:    4:
+        -:    5:#include <bits/stdc++.h>
+        -:    6:#include "Matrix.hpp"
+        -:    7:
+        -:    8:using namespace std;
+        -:    9:
+        -:   10:template<class T>
+        -:   11:class Matrix;
+        -:   12:
+        -:   13:template<class T>
+       14:   14:class Vector {
+        1:   14-block  0
+        1:   14-block  1
+        1:   14-block  2
+        1:   14-block  3
+        5:   14-block  4
+        5:   14-block  5
+        -:   15:public:
+        -:   16:    Vector() {
+        -:   17:        this->length = 0;
+        -:   18:        this->vector.resize(length);
+        -:   19:    }
+        4:   20:  Vector<T>(vector<T> other){
+        2:   20-block  0
+        2:   20-block  1
+    %%%%%:   20-block  2
+        2:   21:        this->length=other.size();
+        2:   22:        this->vector=other;
+        2:   23:    }
+        2:   23-block  0
+        2:   24:    explicit Vector(int length) {
+        1:   24-block  0
+        1:   24-block  1
+    %%%%%:   24-block  2
+        1:   25:        this->length = length;
+        1:   26:        this->vector.resize(length);
+        1:   27:    }
+        1:   27-block  0
+        -:   28:
+        -:   29:    int getLength() {
+        -:   30:        return this->length;
+        -:   31:    }
+        -:   32:
+        -:   33:    void show() {
+        -:   34:        cout << "Length:" << this->length << endl;
+        -:   35:        cout << "[";
+        -:   36:        for (int i = 0; i < this->length; ++i) {
+        -:   37:            cout << this->vector[i];
+        -:   38:            if (i == this->length - 1) {
+        -:   39:                cout << "]";
+        -:   40:            } else {
+        -:   41:                cout << ",";
+        -:   42:            }
+        -:   43:        }
+        -:   44:    }
+        -:   45:
+        4:   46:    T &operator[](int i) {
+        4:   46-block  0
+        4:   47:        return this->vector[i];
+        4:   47-block  0
+        -:   48:
+        -:   49:    }
+        -:   50:
+        -:   51:    double findMin() {
+        -:   52:        if (this->length == 0) {
+        -:   53:            cerr << "The vector is empty,can not get sum" << endl;
+        -:   54:            return 0;
+        -:   55:        }
+        -:   56:        double ans = this->vector[0].real();
+        -:   57:        for (int i = 0; i < length; ++i) {
+        -:   58:            ans = min(ans, this->vector[i].real());
+        -:   59:        }
+        -:   60:        return ans;
+        -:   61:    }
+        -:   62:
+        -:   63:    double findMax() {
+        -:   64:        if (this->length == 0) {
+        -:   65:            cerr << "The vector is empty,can not get sum" << endl;
+        -:   66:            return 0;
+        -:   67:        }
+        -:   68:        double ans = this->vector[0].real();
+        -:   69:        for (int i = 0; i < length; ++i) {
+        -:   70:            ans = max(ans, this->vector[i].real());
+        -:   71:        }
+        -:   72:        return ans;
+        -:   73:    }
+        -:   74:
+        -:   75:    T findAverage() {
+        -:   76:        T ans = findSum();
+        -:   77:        ans /= this->length;
+        -:   78:        return ans;
+        -:   79:    }
+        -:   80:
+        -:   81:    T findSum() {
+        -:   82:        if (this->length == 0) {
+        -:   83:            cerr << "The Vector is empty,can not get sum" << endl;
+        -:   84:            return {0, 0};
+        -:   85:        }
+        -:   86:        T ans = {0, 0};
+        -:   87:        for (int i = 0; i < this->length; ++i) {
+        -:   88:            ans += this->vector[i];
+        -:   89:        }
+        -:   90:        return ans;
+        -:   91:    }
+        -:   92:
+        -:   93:    void setLength(int _length) {
+        -:   94:        this->length = _length;
+        -:   95:        this->vector.resize(_length);
+        -:   96:    }
+        -:   97:
+        -:   98:    T dot_product(Vector other) {
+        -:   99:        T ans = 0;
+        -:  100:        if (this->length != other.length) {
+        -:  101:            cerr << "dot product error!" << endl;
+        -:  102:            cerr << "the two vector length is not equal" << endl;
+        -:  103:            return ans;
+        -:  104:        }
+        -:  105:        for (int i = 0; i < this->length; ++i) {
+        -:  106:            ans += this->vector[i] * other.vector[i];
+        -:  107:        }
+        -:  108:        return ans;
+        -:  109:    }
+        -:  110:
+        -:  111:    Vector conjugation() {
+        -:  112:        Vector ans = Vector(this->length);
+        -:  113:        for (int i = 0; i < this->length; ++i) {
+        -:  114:            T cur(this->vector[i].real(), -this->vector[i].imag());
+        -:  115:            ans[i] = cur;
+        -:  116:        }
+        -:  117:        return ans;
+        -:  118:    }
+        -:  119:
+        -:  120:    Vector conjugation_change() {
+        -:  121:        Vector ans = Vector(this->length);
+        -:  122:        for (int i = 0; i < this->length; ++i) {
+        -:  123:            T cur(this->vector[i].real(), -this->vector[i].imag());
+        -:  124:            ans[i] = cur;
+        -:  125:        }
+        -:  126:        this->vector = ans.vector;
+        -:  127:        return ans;
+        -:  128:    }
+        -:  129:
+        -:  130:    Vector element_wise_multiplication(Vector &other) {
+        -:  131:        if (this->length != other.length) {
+        -:  132:            cerr << "element_wise_multiplication_change error!" << endl;
+        -:  133:            cerr << "the size of two vector is not equal" << endl;
+        -:  134:            return Vector(0);
+        -:  135:        }
+        -:  136:        Vector ans = Vector(this->length);
+        -:  137:        for (int i = 0; i < this->length; ++i) {
+        -:  138:            ans[i] = this->vector[i] * other.vector[i];
+        -:  139:        }
+        -:  140:        return ans;
+        -:  141:    }
+        -:  142:
+        -:  143:    Vector element_wise_multiplication_change(Vector &other) {
+        -:  144:        if (this->length != other.length) {
+        -:  145:            cerr << "element_wise_multiplication_change error!" << endl;
+        -:  146:            cerr << "the size of two vector is not equal" << endl;
+        -:  147:            return Vector(0);
+        -:  148:        }
+        -:  149:        Vector ans = Vector(this->length);
+        -:  150:        for (int i = 0; i < this->length; ++i) {
+        -:  151:            ans[i] = this->vector[i] * other.vector[i];
+        -:  152:        }
+        -:  153:        this->vector = ans.vector;
+        -:  154:        return ans;
+        -:  155:    }
+        -:  156:
+        -:  157:    Vector operator+(const Vector &other) const {
+        -:  158:        if (this->length != other.length) {
+        -:  159:            cerr << "The length of two vector is not equal" << endl;
+        -:  160:            return Vector(0);
+        -:  161:        }
+        -:  162:        Vector ans = Vector(this->length);
+        -:  163:        for (int i = 0; i < this->length; ++i) {
+        -:  164:            ans[i] = this->vector[i] + other.vector[i];
+        -:  165:        }
+        -:  166:        return ans;
+        -:  167:    }
+        -:  168:
+        -:  169:    Matrix<T> operator+(Matrix<T> other) const {
+        -:  170:        if (this->length != other.getColumn()) {
+        -:  171:            cerr << "The column of the matrix is not equal to the vector length" << endl;
+        -:  172:            return Matrix<T>(0, 0);
+        -:  173:        }
+        -:  174:        Matrix<T> ans = Matrix<T>(other.getRow(), other.getColumn());
+        -:  175:        for (int i = 0; i < other.getRow(); ++i) {
+        -:  176:            for (int j = 0; j < other.getColumn(); ++j) {
+        -:  177:                ans[i][j] = other[i][j] + this->vector[j];
+        -:  178:            }
+        -:  179:        }
+        -:  180:        return ans;
+        -:  181:    }
+        -:  182:
+        -:  183:    Vector operator-(const Vector &other) const {
+        -:  184:        if (this->length != other.length) {
+        -:  185:            cerr << "The length of two vector is not equal" << endl;
+        -:  186:            return Vector(0);
+        -:  187:        }
+        -:  188:        Vector ans = Vector(this->length);
+        -:  189:        for (int i = 0; i < this->length; ++i) {
+        -:  190:            ans[i] = this->vector[i] - other.vector[i];
+        -:  191:        }
+        -:  192:        return ans;
+        -:  193:    }
+        -:  194:
+        -:  195:    Matrix<T> operator-(Matrix<T> other) const {
+        -:  196:        if (this->length != other.getColumn()) {
+        -:  197:            cerr << "The column of the matrix is not equal to the vector length" << endl;
+        -:  198:            return Matrix<T>(0, 0);
+        -:  199:        }
+        -:  200:        Matrix<T> ans = Matrix<T>(other.getRow(), other.getColumn());
+        -:  201:        for (int i = 0; i < other.getRow(); ++i) {
+        -:  202:            for (int j = 0; j < other.getColumn(); ++j) {
+        -:  203:                ans[i][j] = other[i][j] - this->vector[j];
+        -:  204:            }
+        -:  205:        }
+        -:  206:        return ans;
+        -:  207:    }
+        -:  208:
+        -:  209:    Vector operator*(T other) const {
+        -:  210:        Vector ans = Vector(this->length);
+        -:  211:        for (int i = 0; i < this->length; ++i) {
+        -:  212:            ans[i] = this->vector[i] * other;
+        -:  213:        }
+        -:  214:        return ans;
+        -:  215:    }
+        -:  216:
+        -:  217:    Vector operator*(Matrix<T> other) const {
+        -:  218:        if (this->length != other.getRow()) {
+        -:  219:            cerr << "Vector * Matrix error!" << endl;
+        -:  220:            cerr << "Vector length is not equal Matrix row" << endl;
+        -:  221:            return Vector(0);
+        -:  222:        }
+        -:  223:        Vector ans = Vector(other.getColumn());
+        -:  224:        for (int i = 0; i < other.getColumn(); ++i) {
+        -:  225:            for (int j = 0; j < this->length; ++j) {
+        -:  226:                ans[i] += this->vector[j] * other[j][i];
+        -:  227:            }
+        -:  228:        }
+        -:  229:        return ans;
+        -:  230:    }
+        1:  231:    Vector cross_product(Vector other) {
+        1:  231-block  0
+        2:  232:        Vector ans = Vector(3);
+        1:  232-block  0
+        1:  232-block  1
+        1:  232-block  2
+    %%%%%:  232-block  3
+        1:  233:        if (this->length==2 && other.length == 2){
+        1:  233-block  0
+        1:  233-block  1
+        1:  234:            ans[2] = this->vector[0]* other.vector[1] - this->vector[1]* other.vector[0];
+        1:  234-block  0
+        1:  235:            return ans;
+        -:  236:        }
+    #####:  237:        if (this->length==3 && other.length == 3){
+    $$$$$:  237-block  0
+    $$$$$:  237-block  1
+    #####:  238:            ans[0] = this->vector[1] * other.vector[2] - this->vector[2] * other.vector[1];
+    $$$$$:  238-block  0
+    #####:  239:            ans[1] = this->vector[2] * other.vector[0] - this->vector[0] * other.vector[2];
+    #####:  240:            ans[2] = this->vector[0] * other.vector[1] - this->vector[1] * other.vector[0];
+    #####:  241:            return ans;
+        -:  242:        }
+    #####:  243:        cerr<< "The dimension of both vectors should either be 2 or 3"<<endl;
+    $$$$$:  243-block  0
+    $$$$$:  243-block  1
+    #####:  244:        return Vector(0);
+    $$$$$:  244-block  0
+    $$$$$:  244-block  1
+        -:  245:    }
+        -:  246:private:
+        -:  247:    vector<T> vector;
+        -:  248:    int length{};
+        -:  249:};
+        -:  250:
+        -:  251:#endif //CPPPROJECT_VECTOR_HPP

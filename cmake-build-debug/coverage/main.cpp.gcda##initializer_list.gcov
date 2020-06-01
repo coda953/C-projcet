@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/initializer_list
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// std::initializer_list support -*- C++ -*-
@@ -73,27 +73,27 @@
         -:   68:
         -:   69:      // Number of elements.
         -:   70:      constexpr size_type
-       34:   71:      size() const noexcept { return _M_len; }
+       38:   71:      size() const noexcept { return _M_len; }
         4:   71-block  0
         4:   71-block  1
-       13:   71-block  2
-       13:   71-block  3
+       15:   71-block  2
+       15:   71-block  3
         -:   72:
         -:   73:      // First element.
         -:   74:      constexpr const_iterator
-       68:   75:      begin() const noexcept { return _M_array; }
+       76:   75:      begin() const noexcept { return _M_array; }
         8:   75-block  0
         8:   75-block  1
-       26:   75-block  2
-       26:   75-block  3
+       30:   75-block  2
+       30:   75-block  3
         -:   76:
         -:   77:      // One past the last element.
         -:   78:      constexpr const_iterator
-       34:   79:      end() const noexcept { return begin() + size(); }
+       38:   79:      end() const noexcept { return begin() + size(); }
         4:   79-block  0
         4:   79-block  1
-       13:   79-block  2
-       13:   79-block  3
+       15:   79-block  2
+       15:   79-block  3
         -:   80:    };
         -:   81:
         -:   82:  /**

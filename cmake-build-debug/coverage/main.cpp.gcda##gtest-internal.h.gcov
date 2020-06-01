@@ -1,6 +1,6 @@
         -:    0:Source:/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googletest/include/gtest/internal/gtest-internal.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Copyright 2005, Google Inc.
@@ -499,8 +499,8 @@
         -:  465:            virtual Test *CreateTest() = 0;
         -:  466:
         -:  467:        protected:
-        7:  468:            TestFactoryBase() {}
-        7:  468-block  0
+        8:  468:            TestFactoryBase() {}
+        8:  468-block  0
         -:  469:
         -:  470:        private:
         -:  471:            GTEST_DISALLOW_COPY_AND_ASSIGN_(TestFactoryBase);
@@ -509,7 +509,7 @@
         -:  474:// This class provides implementation of TeastFactoryBase interface.
         -:  475:// It is used in TEST and TEST_F macros.
         -:  476:        template<class TestClass>
-       14:  477:        class TestFactoryImpl : public TestFactoryBase {
+       16:  477:        class TestFactoryImpl : public TestFactoryBase {
     $$$$$:  477-block  0
     $$$$$:  477-block  1
     $$$$$:  477-block  2
@@ -538,10 +538,10 @@
     $$$$$:  477-block 25
     $$$$$:  477-block 26
     $$$$$:  477-block 27
-        1:  477-block 28
-        1:  477-block 29
-        1:  477-block 30
-        1:  477-block 31
+    $$$$$:  477-block 28
+    $$$$$:  477-block 29
+    $$$$$:  477-block 30
+    $$$$$:  477-block 31
         1:  477-block 32
         1:  477-block 33
         1:  477-block 34
@@ -552,8 +552,14 @@
         1:  477-block 39
         1:  477-block 40
         1:  477-block 41
+        1:  477-block 42
+        1:  477-block 43
+        1:  477-block 44
+        1:  477-block 45
+        1:  477-block 46
+        1:  477-block 47
         -:  478:        public:
-        7:  479:            Test *CreateTest() override { return new TestClass; }
+        8:  479:            Test *CreateTest() override { return new TestClass; }
         1:  479-block  0
         1:  479-block  1
         1:  479-block  2
@@ -589,6 +595,11 @@
         1:  479-block 32
         1:  479-block 33
     %%%%%:  479-block 34
+        1:  479-block 35
+        1:  479-block 36
+        1:  479-block 37
+        1:  479-block 38
+    %%%%%:  479-block 39
         -:  480:        };
         -:  481:
         -:  482:#if GTEST_OS_WINDOWS
@@ -608,13 +619,13 @@
         -:  496:        using SetUpTestSuiteFunc = void (*)();
         -:  497:        using TearDownTestSuiteFunc = void (*)();
         -:  498:
-       28:  499:        struct CodeLocation {
-       14:  499-block  0
-       14:  499-block  1
-        7:  500:            CodeLocation(const std::string &a_file, int a_line)
-        7:  500-block  0
-        7:  501:                    : file(a_file), line(a_line) {}
-        7:  501-block  0
+       32:  499:        struct CodeLocation {
+       16:  499-block  0
+       16:  499-block  1
+        8:  500:            CodeLocation(const std::string &a_file, int a_line)
+        8:  500-block  0
+        8:  501:                    : file(a_file), line(a_line) {}
+        8:  501-block  0
         -:  502:
         -:  503:            std::string file;
         -:  504:            int line;
@@ -626,14 +637,14 @@
         -:  510:// Utility functions to help SuiteApiResolver
         -:  511:        using SetUpTearDownSuiteFuncType = void (*)();
         -:  512:
-       28:  513:        inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
-       28:  513-block  0
+       32:  513:        inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
+       32:  513-block  0
         -:  514:                SetUpTearDownSuiteFuncType a, SetUpTearDownSuiteFuncType def) {
-       28:  515:            return a == def ? nullptr : a;
-       28:  515-block  0
+       32:  515:            return a == def ? nullptr : a;
+       32:  515-block  0
     $$$$$:  515-block  1
-       28:  515-block  2
-       28:  515-block  3
+       32:  515-block  2
+       32:  515-block  3
         -:  516:        }
         -:  517:
         -:  518:        template<typename T>
@@ -646,20 +657,20 @@
         -:  525:            using Test =
         -:  526:            typename std::conditional<sizeof(T) != 0, ::testing::Test, void>::type;
         -:  527:
-        7:  528:            static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char *filename,
-        7:  528-block  0
+        8:  528:            static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char *filename,
+        8:  528-block  0
         -:  529:                                                                  int line_num) {
-        7:  530:                SetUpTearDownSuiteFuncType test_case_fp =
-        7:  530-block  0
+        8:  530:                SetUpTearDownSuiteFuncType test_case_fp =
+        8:  530-block  0
         -:  531:                        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
-        7:  532:                SetUpTearDownSuiteFuncType test_suite_fp =
+        8:  532:                SetUpTearDownSuiteFuncType test_suite_fp =
         -:  533:                        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
         -:  534:
-        7:  535:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+        8:  535:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     $$$$$:  535-block  0
-        7:  535-block  1
+        8:  535-block  1
     $$$$$:  535-block  2
-        7:  535-block  3
+        8:  535-block  3
     $$$$$:  535-block  4
     $$$$$:  535-block  5
     $$$$$:  535-block  6
@@ -671,28 +682,28 @@
     $$$$$:  538-block  1
     $$$$$:  538-block  2
         -:  539:
-        7:  540:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        7:  540-block  0
+        8:  540:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        8:  540-block  0
     $$$$$:  540-block  1
-        7:  540-block  2
-        7:  540-block  3
-        7:  540-block  4
+        8:  540-block  2
+        8:  540-block  3
+        8:  540-block  4
         -:  541:            }
         -:  542:
-        7:  543:            static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char *filename,
-        7:  543-block  0
+        8:  543:            static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char *filename,
+        8:  543-block  0
         -:  544:                                                                     int line_num) {
-        7:  545:                SetUpTearDownSuiteFuncType test_case_fp =
-        7:  545-block  0
+        8:  545:                SetUpTearDownSuiteFuncType test_case_fp =
+        8:  545-block  0
         -:  546:                        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
-        7:  547:                SetUpTearDownSuiteFuncType test_suite_fp =
+        8:  547:                SetUpTearDownSuiteFuncType test_suite_fp =
         -:  548:                        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
         -:  549:
-        7:  550:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+        8:  550:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     $$$$$:  550-block  0
-        7:  550-block  1
+        8:  550-block  1
     $$$$$:  550-block  2
-        7:  550-block  3
+        8:  550-block  3
     $$$$$:  550-block  4
     $$$$$:  550-block  5
     $$$$$:  550-block  6
@@ -704,12 +715,12 @@
     $$$$$:  553-block  1
     $$$$$:  553-block  2
         -:  554:
-        7:  555:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        7:  555-block  0
+        8:  555:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        8:  555-block  0
     $$$$$:  555-block  1
-        7:  555-block  2
-        7:  555-block  3
-        7:  555-block  4
+        8:  555-block  2
+        8:  555-block  3
+        8:  555-block  4
         -:  556:            }
         -:  557:        };
         -:  558:

@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/stl_vector.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Vector implementation -*- C++ -*-
@@ -83,13 +83,13 @@
         -:   78:      typedef typename __gnu_cxx::__alloc_traits<_Tp_alloc_type>::pointer
         -:   79:       	pointer;
         -:   80:
-      228:   81:      struct _Vector_impl
+      246:   81:      struct _Vector_impl
         5:   81-block  0
         5:   81-block  1
        19:   81-block  2
        19:   81-block  3
-       75:   81-block  4
-       75:   81-block  5
+       84:   81-block  4
+       84:   81-block  5
        15:   81-block  6
        15:   81-block  7
         -:   82:      : public _Tp_alloc_type
@@ -98,117 +98,117 @@
         -:   85:	pointer _M_finish;
         -:   86:	pointer _M_end_of_storage;
         -:   87:
-       37:   88:	_Vector_impl()
-        5:   88-block  0
+       41:   88:	_Vector_impl()
+        8:   88-block  0
         5:   88-block  1
        10:   88-block  2
-       17:   88-block  3
-       37:   89:	: _Tp_alloc_type(), _M_start(), _M_finish(), _M_end_of_storage()
-        5:   89-block  0
+       18:   88-block  3
+       41:   89:	: _Tp_alloc_type(), _M_start(), _M_finish(), _M_end_of_storage()
+        8:   89-block  0
         5:   89-block  1
        10:   89-block  2
-       17:   89-block  3
-       37:   90:	{ }
+       18:   89-block  3
+       41:   90:	{ }
         -:   91:
-      101:   92:	_Vector_impl(_Tp_alloc_type const& __a) _GLIBCXX_NOEXCEPT
+      106:   92:	_Vector_impl(_Tp_alloc_type const& __a) _GLIBCXX_NOEXCEPT
        13:   92-block  0
-       82:   92-block  1
+       87:   92-block  1
         6:   92-block  2
-      101:   93:	: _Tp_alloc_type(__a), _M_start(), _M_finish(), _M_end_of_storage()
+      106:   93:	: _Tp_alloc_type(__a), _M_start(), _M_finish(), _M_end_of_storage()
        13:   93-block  0
-       82:   93-block  1
+       87:   93-block  1
         6:   93-block  2
-      101:   94:	{ }
+      106:   94:	{ }
         -:   95:
         -:   96:#if __cplusplus >= 201103L
-        1:   97:	_Vector_impl(_Tp_alloc_type&& __a) noexcept
+        2:   97:	_Vector_impl(_Tp_alloc_type&& __a) noexcept
     $$$$$:   97-block  0
-        1:   97-block  1
-        1:   98:	: _Tp_alloc_type(std::move(__a)),
+        2:   97-block  1
+        2:   98:	: _Tp_alloc_type(std::move(__a)),
     $$$$$:   98-block  0
-        1:   98-block  1
-        1:   99:	  _M_start(), _M_finish(), _M_end_of_storage()
-        1:  100:	{ }
+        2:   98-block  1
+        2:   99:	  _M_start(), _M_finish(), _M_end_of_storage()
+        2:  100:	{ }
         -:  101:#endif
         -:  102:
-        1:  103:	void _M_swap_data(_Vector_impl& __x) _GLIBCXX_NOEXCEPT
+        2:  103:	void _M_swap_data(_Vector_impl& __x) _GLIBCXX_NOEXCEPT
     $$$$$:  103-block  0
-        1:  103-block  1
+        2:  103-block  1
         -:  104:	{
-        1:  105:	  std::swap(_M_start, __x._M_start);
+        2:  105:	  std::swap(_M_start, __x._M_start);
     $$$$$:  105-block  0
-        1:  105-block  1
-        1:  106:	  std::swap(_M_finish, __x._M_finish);
-        1:  107:	  std::swap(_M_end_of_storage, __x._M_end_of_storage);
-        1:  108:	}
+        2:  105-block  1
+        2:  106:	  std::swap(_M_finish, __x._M_finish);
+        2:  107:	  std::swap(_M_end_of_storage, __x._M_end_of_storage);
+        2:  108:	}
         -:  109:      };
         -:  110:
         -:  111:    public:
         -:  112:      typedef _Alloc allocator_type;
         -:  113:
         -:  114:      _Tp_alloc_type&
-      331:  115:      _M_get_Tp_allocator() _GLIBCXX_NOEXCEPT
+      356:  115:      _M_get_Tp_allocator() _GLIBCXX_NOEXCEPT
        18:  115-block  0
        53:  115-block  1
-      179:  115-block  2
-       81:  115-block  3
-      331:  116:      { return *static_cast<_Tp_alloc_type*>(&this->_M_impl); }
+      201:  115-block  2
+       84:  115-block  3
+      356:  116:      { return *static_cast<_Tp_alloc_type*>(&this->_M_impl); }
        18:  116-block  0
        53:  116-block  1
-      179:  116-block  2
-       81:  116-block  3
+      201:  116-block  2
+       84:  116-block  3
         -:  117:
         -:  118:      const _Tp_alloc_type&
-      146:  119:      _M_get_Tp_allocator() const _GLIBCXX_NOEXCEPT
-       83:  119-block  0
+      153:  119:      _M_get_Tp_allocator() const _GLIBCXX_NOEXCEPT
+       88:  119-block  0
         6:  119-block  1
        11:  119-block  2
-       46:  119-block  3
-      146:  120:      { return *static_cast<const _Tp_alloc_type*>(&this->_M_impl); }
-       83:  120-block  0
+       48:  119-block  3
+      153:  120:      { return *static_cast<const _Tp_alloc_type*>(&this->_M_impl); }
+       88:  120-block  0
         6:  120-block  1
        11:  120-block  2
-       46:  120-block  3
+       48:  120-block  3
         -:  121:
         -:  122:      allocator_type
         -:  123:      get_allocator() const _GLIBCXX_NOEXCEPT
         -:  124:      { return allocator_type(_M_get_Tp_allocator()); }
         -:  125:
-       37:  126:      _Vector_base()
-        5:  126-block  0
+       41:  126:      _Vector_base()
+        8:  126-block  0
         5:  126-block  1
        10:  126-block  2
-       17:  126-block  3
-       37:  127:      : _M_impl() { }
-        5:  127-block  0
+       18:  126-block  3
+       41:  127:      : _M_impl() { }
+        8:  127-block  0
         5:  127-block  1
        10:  127-block  2
-       17:  127-block  3
+       18:  127-block  3
         -:  128:
-       17:  129:      _Vector_base(const allocator_type& __a) _GLIBCXX_NOEXCEPT
+       19:  129:      _Vector_base(const allocator_type& __a) _GLIBCXX_NOEXCEPT
         4:  129-block  0
-       13:  129-block  1
-       17:  130:      : _M_impl(__a) { }
+       15:  129-block  1
+       19:  130:      : _M_impl(__a) { }
         4:  130-block  0
-       13:  130-block  1
+       15:  130-block  1
         -:  131:
         -:  132:      _Vector_base(size_t __n)
         -:  133:      : _M_impl()
         -:  134:      { _M_create_storage(__n); }
         -:  135:
-       84:  136:      _Vector_base(size_t __n, const allocator_type& __a)
-       69:  136-block  0
+       87:  136:      _Vector_base(size_t __n, const allocator_type& __a)
+       72:  136-block  0
         9:  136-block  1
         6:  136-block  2
-       84:  137:      : _M_impl(__a)
-       69:  137-block  0
+       87:  137:      : _M_impl(__a)
+       72:  137-block  0
     %%%%%:  137-block  1
         9:  137-block  2
     %%%%%:  137-block  3
         6:  137-block  4
     %%%%%:  137-block  5
-       84:  138:      { _M_create_storage(__n); }
-       69:  138-block  0
+       87:  138:      { _M_create_storage(__n); }
+       72:  138-block  0
         9:  138-block  1
         6:  138-block  2
         -:  139:
@@ -216,13 +216,13 @@
         -:  141:      _Vector_base(_Tp_alloc_type&& __a) noexcept
         -:  142:      : _M_impl(std::move(__a)) { }
         -:  143:
-        1:  144:      _Vector_base(_Vector_base&& __x) noexcept
+        2:  144:      _Vector_base(_Vector_base&& __x) noexcept
     $$$$$:  144-block  0
-        1:  144-block  1
-        1:  145:      : _M_impl(std::move(__x._M_get_Tp_allocator()))
+        2:  144-block  1
+        2:  145:      : _M_impl(std::move(__x._M_get_Tp_allocator()))
     $$$$$:  145-block  0
-        1:  145-block  1
-        1:  146:      { this->_M_impl._M_swap_data(__x._M_impl); }
+        2:  145-block  1
+        2:  146:      { this->_M_impl._M_swap_data(__x._M_impl); }
         -:  147:
         -:  148:      _Vector_base(_Vector_base&& __x, const allocator_type& __a)
         -:  149:      : _M_impl(__a)
@@ -237,30 +237,30 @@
         -:  158:      }
         -:  159:#endif
         -:  160:
-      114:  161:      ~_Vector_base() _GLIBCXX_NOEXCEPT
+      123:  161:      ~_Vector_base() _GLIBCXX_NOEXCEPT
         5:  161-block  0
        19:  161-block  1
-       75:  161-block  2
+       84:  161-block  2
        15:  161-block  3
-      114:  162:      { _M_deallocate(this->_M_impl._M_start, this->_M_impl._M_end_of_storage
+      123:  162:      { _M_deallocate(this->_M_impl._M_start, this->_M_impl._M_end_of_storage
         5:  162-block  0
        19:  162-block  1
-       75:  162-block  2
+       84:  162-block  2
        15:  162-block  3
-      114:  163:		      - this->_M_impl._M_start); }
+      123:  163:		      - this->_M_impl._M_start); }
         -:  164:
         -:  165:    public:
         -:  166:      _Vector_impl _M_impl;
         -:  167:
         -:  168:      pointer
-      143:  169:      _M_allocate(size_t __n)
+      152:  169:      _M_allocate(size_t __n)
         5:  169-block  0
        23:  169-block  1
-       89:  169-block  2
-       26:  169-block  3
+       97:  169-block  2
+       27:  169-block  3
         -:  170:      {
         -:  171:	typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tr;
-      143:  172:	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
+      152:  172:	return __n != 0 ? _Tr::allocate(_M_impl, __n) : pointer();
         5:  172-block  0
         5:  172-block  1
     $$$$$:  172-block  2
@@ -269,50 +269,50 @@
        23:  172-block  5
     $$$$$:  172-block  6
        23:  172-block  7
-       89:  172-block  8
-       89:  172-block  9
+       97:  172-block  8
+       97:  172-block  9
     $$$$$:  172-block 10
-       89:  172-block 11
-       26:  172-block 12
-       26:  172-block 13
+       97:  172-block 11
+       27:  172-block 12
+       27:  172-block 13
     $$$$$:  172-block 14
-       26:  172-block 15
+       27:  172-block 15
         -:  173:      }
         -:  174:
         -:  175:      void
-      156:  176:      _M_deallocate(pointer __p, size_t __n)
+      169:  176:      _M_deallocate(pointer __p, size_t __n)
        29:  176-block  0
-       82:  176-block  1
-       35:  176-block  2
+       94:  176-block  1
+       36:  176-block  2
        10:  176-block  3
         -:  177:      {
         -:  178:	typedef __gnu_cxx::__alloc_traits<_Tp_alloc_type> _Tr;
-      156:  179:	if (__p)
+      169:  179:	if (__p)
        29:  179-block  0
-       82:  179-block  1
-       35:  179-block  2
+       94:  179-block  1
+       36:  179-block  2
        10:  179-block  3
-      118:  180:	  _Tr::deallocate(_M_impl, __p, __n);
+      126:  180:	  _Tr::deallocate(_M_impl, __p, __n);
        19:  180-block  0
-       76:  180-block  1
+       84:  180-block  1
        18:  180-block  2
         5:  180-block  3
-      156:  181:      }
+      169:  181:      }
         -:  182:
         -:  183:    private:
         -:  184:      void
-       84:  185:      _M_create_storage(size_t __n)
-       69:  185-block  0
+       87:  185:      _M_create_storage(size_t __n)
+       72:  185-block  0
         9:  185-block  1
         6:  185-block  2
         -:  186:      {
-       84:  187:	this->_M_impl._M_start = this->_M_allocate(__n);
-       69:  187-block  0
+       87:  187:	this->_M_impl._M_start = this->_M_allocate(__n);
+       72:  187-block  0
         9:  187-block  1
         6:  187-block  2
-       84:  188:	this->_M_impl._M_finish = this->_M_impl._M_start;
-       84:  189:	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-       84:  190:      }
+       87:  188:	this->_M_impl._M_finish = this->_M_impl._M_start;
+       87:  189:	this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
+       87:  190:      }
         -:  191:    };
         -:  192:
         -:  193:
@@ -381,19 +381,19 @@
         -:  256:      /**
         -:  257:       *  @brief  Creates a %vector with no elements.
         -:  258:       */
-       37:  259:      vector()
-        5:  259-block  0
+       41:  259:      vector()
+        8:  259-block  0
         5:  259-block  1
        10:  259-block  2
-       17:  259-block  3
+       18:  259-block  3
         -:  260:#if __cplusplus >= 201103L
         -:  261:      noexcept(is_nothrow_default_constructible<_Alloc>::value)
         -:  262:#endif
-       37:  263:      : _Base() { }
-        5:  263-block  0
+       41:  263:      : _Base() { }
+        8:  263-block  0
         5:  263-block  1
        10:  263-block  2
-       17:  263-block  3
+       18:  263-block  3
         -:  264:
         -:  265:      /**
         -:  266:       *  @brief  Creates a %vector with no elements.
@@ -456,14 +456,14 @@
         -:  323:       *  The newly-created %vector uses a copy of the allocator object used
         -:  324:       *  by @a __x (unless the allocator traits dictate a different object).
         -:  325:       */
-       84:  326:      vector(const vector& __x)
-       69:  326-block  0
+       87:  326:      vector(const vector& __x)
+       72:  326-block  0
         9:  326-block  1
         6:  326-block  2
         -:  327:      : _Base(__x.size(),
-       84:  328:	_Alloc_traits::_S_select_on_copy(__x._M_get_Tp_allocator()))
-       69:  328-block  0
-       69:  328-block  1
+       87:  328:	_Alloc_traits::_S_select_on_copy(__x._M_get_Tp_allocator()))
+       72:  328-block  0
+       72:  328-block  1
     %%%%%:  328-block  2
     %%%%%:  328-block  3
     %%%%%:  328-block  4
@@ -478,12 +478,12 @@
     %%%%%:  328-block 13
     %%%%%:  328-block 14
         -:  329:      {
-       84:  330:	this->_M_impl._M_finish =
-       84:  331:	  std::__uninitialized_copy_a(__x.begin(), __x.end(),
+       87:  330:	this->_M_impl._M_finish =
+       87:  331:	  std::__uninitialized_copy_a(__x.begin(), __x.end(),
         -:  332:				      this->_M_impl._M_start,
-       84:  333:				      _M_get_Tp_allocator());
-       84:  334:      }
-       69:  334-block  0
+       87:  333:				      _M_get_Tp_allocator());
+       87:  334:      }
+       72:  334-block  0
         9:  334-block  1
         6:  334-block  2
         -:  335:
@@ -495,12 +495,12 @@
         -:  341:       *  The newly-created %vector contains the exact contents of @a __x.
         -:  342:       *  The contents of @a __x are a valid, but unspecified %vector.
         -:  343:       */
-        1:  344:      vector(vector&& __x) noexcept
+        2:  344:      vector(vector&& __x) noexcept
     $$$$$:  344-block  0
-        1:  344-block  1
-        1:  345:      : _Base(std::move(__x)) { }
+        2:  344-block  1
+        2:  345:      : _Base(std::move(__x)) { }
     $$$$$:  345-block  0
-        1:  345-block  1
+        2:  345-block  1
         -:  346:
         -:  347:      /// Copy constructor with alternative allocator
         -:  348:      vector(const vector& __x, const allocator_type& __a)
@@ -538,23 +538,23 @@
         -:  380:       *  This will call the element type's copy constructor N times
         -:  381:       *  (where N is @a __l.size()) and do no memory reallocation.
         -:  382:       */
-       17:  383:      vector(initializer_list<value_type> __l,
+       19:  383:      vector(initializer_list<value_type> __l,
         4:  383-block  0
-       13:  383-block  1
+       15:  383-block  1
         -:  384:	     const allocator_type& __a = allocator_type())
-       17:  385:      : _Base(__a)
+       19:  385:      : _Base(__a)
         4:  385-block  0
     %%%%%:  385-block  1
-       13:  385-block  2
+       15:  385-block  2
     %%%%%:  385-block  3
         -:  386:      {
-       17:  387:	_M_range_initialize(__l.begin(), __l.end(),
+       19:  387:	_M_range_initialize(__l.begin(), __l.end(),
     %%%%%:  387-block  0
     %%%%%:  387-block  1
         -:  388:			    random_access_iterator_tag());
-       17:  389:      }
+       19:  389:      }
         4:  389-block  0
-       13:  389-block  1
+       15:  389-block  1
         -:  390:#endif
         -:  391:
         -:  392:      /**
@@ -598,16 +598,16 @@
         -:  430:       *  not touched in any way.  Managing the pointer is the user's
         -:  431:       *  responsibility.
         -:  432:       */
-      114:  433:      ~vector() _GLIBCXX_NOEXCEPT
+      123:  433:      ~vector() _GLIBCXX_NOEXCEPT
         5:  433-block  0
        19:  433-block  1
-       75:  433-block  2
+       84:  433-block  2
        15:  433-block  3
-      114:  434:      { std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
-      228:  435:		      _M_get_Tp_allocator()); }
+      123:  434:      { std::_Destroy(this->_M_impl._M_start, this->_M_impl._M_finish,
+      246:  435:		      _M_get_Tp_allocator()); }
         5:  435-block  0
        19:  435-block  1
-       75:  435-block  2
+       84:  435-block  2
        15:  435-block  3
         -:  436:
         -:  437:      /**
@@ -736,14 +736,14 @@
         -:  560:       *  element order.
         -:  561:       */
         -:  562:      iterator
-       16:  563:      begin() _GLIBCXX_NOEXCEPT
+       17:  563:      begin() _GLIBCXX_NOEXCEPT
     $$$$$:  563-block  0
-       11:  563-block  1
+       12:  563-block  1
     $$$$$:  563-block  2
         5:  563-block  3
-       16:  564:      { return iterator(this->_M_impl._M_start); }
+       17:  564:      { return iterator(this->_M_impl._M_start); }
     $$$$$:  564-block  0
-       11:  564-block  1
+       12:  564-block  1
     $$$$$:  564-block  2
         5:  564-block  3
         -:  565:
@@ -753,13 +753,13 @@
         -:  569:       *  element order.
         -:  570:       */
         -:  571:      const_iterator
-       95:  572:      begin() const _GLIBCXX_NOEXCEPT
-       69:  572-block  0
+      100:  572:      begin() const _GLIBCXX_NOEXCEPT
+       74:  572-block  0
         2:  572-block  1
        18:  572-block  2
         6:  572-block  3
-       95:  573:      { return const_iterator(this->_M_impl._M_start); }
-       69:  573-block  0
+      100:  573:      { return const_iterator(this->_M_impl._M_start); }
+       74:  573-block  0
         2:  573-block  1
        18:  573-block  2
         6:  573-block  3
@@ -770,15 +770,15 @@
         -:  578:       *  element order.
         -:  579:       */
         -:  580:      iterator
-       16:  581:      end() _GLIBCXX_NOEXCEPT
+       17:  581:      end() _GLIBCXX_NOEXCEPT
     $$$$$:  581-block  0
     $$$$$:  581-block  1
-       11:  581-block  2
+       12:  581-block  2
         5:  581-block  3
-       16:  582:      { return iterator(this->_M_impl._M_finish); }
+       17:  582:      { return iterator(this->_M_impl._M_finish); }
     $$$$$:  582-block  0
     $$$$$:  582-block  1
-       11:  582-block  2
+       12:  582-block  2
         5:  582-block  3
         -:  583:
         -:  584:      /**
@@ -787,13 +787,13 @@
         -:  587:       *  ordinary element order.
         -:  588:       */
         -:  589:      const_iterator
-       95:  590:      end() const _GLIBCXX_NOEXCEPT
-       69:  590-block  0
+      100:  590:      end() const _GLIBCXX_NOEXCEPT
+       74:  590-block  0
         2:  590-block  1
        18:  590-block  2
         6:  590-block  3
-       95:  591:      { return const_iterator(this->_M_impl._M_finish); }
-       69:  591-block  0
+      100:  591:      { return const_iterator(this->_M_impl._M_finish); }
+       74:  591-block  0
         2:  591-block  1
        18:  591-block  2
         6:  591-block  3
@@ -875,29 +875,29 @@
         -:  667:      // [23.2.4.2] capacity
         -:  668:      /**  Returns the number of elements in the %vector.  */
         -:  669:      size_type
-      332:  670:      size() const _GLIBCXX_NOEXCEPT
+      356:  670:      size() const _GLIBCXX_NOEXCEPT
        25:  670-block  0
-      118:  670-block  1
+      132:  670-block  1
        34:  670-block  2
-      155:  670-block  3
-      332:  671:      { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
+      165:  670-block  3
+      356:  671:      { return size_type(this->_M_impl._M_finish - this->_M_impl._M_start); }
        25:  671-block  0
-      118:  671-block  1
+      132:  671-block  1
        34:  671-block  2
-      155:  671-block  3
+      165:  671-block  3
         -:  672:
         -:  673:      /**  Returns the size() of the largest possible %vector.  */
         -:  674:      size_type
-       62:  675:      max_size() const _GLIBCXX_NOEXCEPT
+       66:  675:      max_size() const _GLIBCXX_NOEXCEPT
         2:  675-block  0
         6:  675-block  1
-       14:  675-block  2
-       40:  675-block  3
-       62:  676:      { return _Alloc_traits::max_size(_M_get_Tp_allocator()); }
+       16:  675-block  2
+       42:  675-block  3
+       66:  676:      { return _Alloc_traits::max_size(_M_get_Tp_allocator()); }
         2:  676-block  0
         6:  676-block  1
-       14:  676-block  2
-       40:  676-block  3
+       16:  676-block  2
+       42:  676-block  3
         -:  677:
         -:  678:#if __cplusplus >= 201103L
         -:  679:      /**
@@ -910,19 +910,19 @@
         -:  686:       *  default constructed elements are appended.
         -:  687:       */
         -:  688:      void
-       18:  689:      resize(size_type __new_size)
-        4:  689-block  0
+       19:  689:      resize(size_type __new_size)
+        5:  689-block  0
         1:  689-block  1
         4:  689-block  2
         9:  689-block  3
         -:  690:      {
-       18:  691:	if (__new_size > size())
-        4:  691-block  0
+       19:  691:	if (__new_size > size())
+        5:  691-block  0
         1:  691-block  1
         4:  691-block  2
         9:  691-block  3
-       17:  692:	  _M_default_append(__new_size - size());
-        4:  692-block  0
+       18:  692:	  _M_default_append(__new_size - size());
+        5:  692-block  0
         1:  692-block  1
         3:  692-block  2
         9:  692-block  3
@@ -936,7 +936,7 @@
     $$$$$:  694-block  1
     $$$$$:  694-block  2
     $$$$$:  694-block  3
-       18:  695:      }
+       19:  695:      }
         -:  696:
         -:  697:      /**
         -:  698:       *  @brief  Resizes the %vector to the specified number of elements.
@@ -991,15 +991,15 @@
         -:  747:       *  hold before needing to allocate more memory.
         -:  748:       */
         -:  749:      size_type
-       11:  750:      capacity() const _GLIBCXX_NOEXCEPT
+       13:  750:      capacity() const _GLIBCXX_NOEXCEPT
     $$$$$:  750-block  0
-    $$$$$:  750-block  1
+        2:  750-block  1
         9:  750-block  2
         2:  750-block  3
-       11:  751:      { return size_type(this->_M_impl._M_end_of_storage
-       11:  752:			 - this->_M_impl._M_start); }
+       13:  751:      { return size_type(this->_M_impl._M_end_of_storage
+       13:  752:			 - this->_M_impl._M_start); }
     $$$$$:  752-block  0
-    $$$$$:  752-block  1
+        2:  752-block  1
         9:  752-block  2
         2:  752-block  3
         -:  753:
@@ -1044,18 +1044,18 @@
         -:  792:       *  see at().)
         -:  793:       */
         -:  794:      reference
-     1165:  795:      operator[](size_type __n) _GLIBCXX_NOEXCEPT
+     1175:  795:      operator[](size_type __n) _GLIBCXX_NOEXCEPT
        63:  795-block  0
       522:  795-block  1
-      512:  795-block  2
-       68:  795-block  3
+      520:  795-block  2
+       70:  795-block  3
         -:  796:      {
         -:  797:	__glibcxx_requires_subscript(__n);
-     1165:  798:	return *(this->_M_impl._M_start + __n);
+     1175:  798:	return *(this->_M_impl._M_start + __n);
        63:  798-block  0
       522:  798-block  1
-      512:  798-block  2
-       68:  798-block  3
+      520:  798-block  2
+       70:  798-block  3
         -:  799:      }
         -:  800:
         -:  801:      /**
@@ -1526,28 +1526,28 @@
         -: 1254:       */
         -: 1255:      template<typename _ForwardIterator>
         -: 1256:	pointer
-       11: 1257:	_M_allocate_and_copy(size_type __n,
+       13: 1257:	_M_allocate_and_copy(size_type __n,
     $$$$$: 1257-block  0
-    $$$$$: 1257-block  1
+        2: 1257-block  1
         9: 1257-block  2
         2: 1257-block  3
         -: 1258:			     _ForwardIterator __first, _ForwardIterator __last)
         -: 1259:	{
-       11: 1260:	  pointer __result = this->_M_allocate(__n);
+       13: 1260:	  pointer __result = this->_M_allocate(__n);
     $$$$$: 1260-block  0
-    $$$$$: 1260-block  1
+        2: 1260-block  1
         9: 1260-block  2
         2: 1260-block  3
         -: 1261:	  __try
         -: 1262:	    {
-       11: 1263:	      std::__uninitialized_copy_a(__first, __last, __result,
-       11: 1264:					  _M_get_Tp_allocator());
-       11: 1265:	      return __result;
+       13: 1263:	      std::__uninitialized_copy_a(__first, __last, __result,
+       13: 1264:					  _M_get_Tp_allocator());
+       13: 1265:	      return __result;
     $$$$$: 1265-block  0
     $$$$$: 1265-block  1
     %%%%%: 1265-block  2
-    $$$$$: 1265-block  3
-    $$$$$: 1265-block  4
+        2: 1265-block  3
+        2: 1265-block  4
     %%%%%: 1265-block  5
         9: 1265-block  6
         9: 1265-block  7
@@ -1625,21 +1625,21 @@
         -: 1321:      // Called by the second initialize_dispatch above
         -: 1322:      template<typename _ForwardIterator>
         -: 1323:	void
-       17: 1324:	_M_range_initialize(_ForwardIterator __first, _ForwardIterator __last,
+       19: 1324:	_M_range_initialize(_ForwardIterator __first, _ForwardIterator __last,
         4: 1324-block  0
-       13: 1324-block  1
+       15: 1324-block  1
         -: 1325:			    std::forward_iterator_tag)
         -: 1326:	{
-       17: 1327:	  const size_type __n = std::distance(__first, __last);
+       19: 1327:	  const size_type __n = std::distance(__first, __last);
         4: 1327-block  0
-       13: 1327-block  1
-       17: 1328:	  this->_M_impl._M_start = this->_M_allocate(__n);
-       17: 1329:	  this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
-       17: 1330:	  this->_M_impl._M_finish =
-       17: 1331:	    std::__uninitialized_copy_a(__first, __last,
+       15: 1327-block  1
+       19: 1328:	  this->_M_impl._M_start = this->_M_allocate(__n);
+       19: 1329:	  this->_M_impl._M_end_of_storage = this->_M_impl._M_start + __n;
+       19: 1330:	  this->_M_impl._M_finish =
+       19: 1331:	    std::__uninitialized_copy_a(__first, __last,
         -: 1332:					this->_M_impl._M_start,
-       17: 1333:					_M_get_Tp_allocator());
-       17: 1334:	}
+       19: 1333:					_M_get_Tp_allocator());
+       19: 1334:	}
         -: 1335:
         -: 1336:      // Called by the first initialize_dispatch above and by the
         -: 1337:      // vector(n,value,a) constructor.
@@ -1807,29 +1807,29 @@
         -: 1499:
         -: 1500:      // Called by _M_fill_insert, _M_insert_aux etc.
         -: 1501:      size_type
-       31: 1502:      _M_check_len(size_type __n, const char* __s) const
+       33: 1502:      _M_check_len(size_type __n, const char* __s) const
         1: 1502-block  0
         3: 1502-block  1
-        7: 1502-block  2
-       20: 1502-block  3
+        8: 1502-block  2
+       21: 1502-block  3
         -: 1503:      {
-       31: 1504:	if (max_size() - size() < __n)
+       33: 1504:	if (max_size() - size() < __n)
         1: 1504-block  0
         3: 1504-block  1
-        7: 1504-block  2
-       20: 1504-block  3
+        8: 1504-block  2
+       21: 1504-block  3
     #####: 1505:	  __throw_length_error(__N(__s));
     $$$$$: 1505-block  0
     $$$$$: 1505-block  1
     $$$$$: 1505-block  2
     $$$$$: 1505-block  3
         -: 1506:
-       31: 1507:	const size_type __len = size() + std::max(size(), __n);
+       33: 1507:	const size_type __len = size() + std::max(size(), __n);
         1: 1507-block  0
         3: 1507-block  1
-        7: 1507-block  2
-       20: 1507-block  3
-       31: 1508:	return (__len < size() || __len > max_size()) ? max_size() : __len;
+        8: 1507-block  2
+       21: 1507-block  3
+       33: 1508:	return (__len < size() || __len > max_size()) ? max_size() : __len;
         1: 1508-block  0
     $$$$$: 1508-block  1
         1: 1508-block  2
@@ -1838,14 +1838,14 @@
     $$$$$: 1508-block  5
         3: 1508-block  6
         3: 1508-block  7
-        7: 1508-block  8
+        8: 1508-block  8
     $$$$$: 1508-block  9
-        7: 1508-block 10
-        7: 1508-block 11
-       20: 1508-block 12
+        8: 1508-block 10
+        8: 1508-block 11
+       21: 1508-block 12
     $$$$$: 1508-block 13
-       20: 1508-block 14
-       20: 1508-block 15
+       21: 1508-block 14
+       21: 1508-block 15
         -: 1509:      }
         -: 1510:
         -: 1511:      // Internal erase functions follow.

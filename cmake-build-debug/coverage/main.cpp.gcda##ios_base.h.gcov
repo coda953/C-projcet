@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/ios_base.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Iostreams base classes -*- C++ -*-
@@ -131,10 +131,10 @@
         -:  126:  { return _Ios_Openmode(static_cast<int>(__a) & static_cast<int>(__b)); }
         -:  127:
         -:  128:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
-       75:  129:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
-       75:  129-block  0
-       75:  130:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
-       75:  130-block  0
+       79:  129:  operator|(_Ios_Openmode __a, _Ios_Openmode __b)
+       79:  129-block  0
+       79:  130:  { return _Ios_Openmode(static_cast<int>(__a) | static_cast<int>(__b)); }
+       79:  130-block  0
         -:  131:
         -:  132:  inline _GLIBCXX_CONSTEXPR _Ios_Openmode
         -:  133:  operator^(_Ios_Openmode __a, _Ios_Openmode __b)

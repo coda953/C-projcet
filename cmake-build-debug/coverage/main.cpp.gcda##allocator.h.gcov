@@ -1,6 +1,6 @@
         -:    0:Source:/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/include/c++/bits/allocator.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Allocators -*- C++ -*-
@@ -133,30 +133,30 @@
         -:  128:      typedef true_type is_always_equal;
         -:  129:#endif
         -:  130:
-      108:  131:      allocator() throw() { }
+      120:  131:      allocator() throw() { }
         5:  131-block  0
         5:  131-block  1
         4:  131-block  2
         4:  131-block  3
        10:  131-block  4
        10:  131-block  5
-       13:  131-block  6
-       13:  131-block  7
-        5:  131-block  8
-        5:  131-block  9
-       17:  131-block 10
-       17:  131-block 11
+       15:  131-block  6
+       15:  131-block  7
+        8:  131-block  8
+        8:  131-block  9
+       18:  131-block 10
+       18:  131-block 11
         -:  132:
-      186:  133:      allocator(const allocator& __a) throw()
-       69:  133-block  0
-       83:  133-block  1
+      195:  133:      allocator(const allocator& __a) throw()
+       72:  133-block  0
+       89:  133-block  1
         9:  133-block  2
        13:  133-block  3
         6:  133-block  4
         6:  133-block  5
-      186:  134:      : __allocator_base<_Tp>(__a) { }
-       69:  134-block  0
-       83:  134-block  1
+      195:  134:      : __allocator_base<_Tp>(__a) { }
+       72:  134-block  0
+       89:  134-block  1
         9:  134-block  2
        13:  134-block  3
         6:  134-block  4
@@ -165,17 +165,17 @@
         -:  136:      template<typename _Tp1>
         -:  137:	allocator(const allocator<_Tp1>&) throw() { }
         -:  138:
-      430:  139:      ~allocator() throw() { }
+      458:  139:      ~allocator() throw() { }
         5:  139-block  0
         5:  139-block  1
        13:  139-block  2
        13:  139-block  3
        19:  139-block  4
        19:  139-block  5
-       82:  139-block  6
-       82:  139-block  7
-       75:  139-block  8
-       75:  139-block  9
+       87:  139-block  6
+       87:  139-block  7
+       84:  139-block  8
+       84:  139-block  9
         6:  139-block 10
         6:  139-block 11
        15:  139-block 12

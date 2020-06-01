@@ -1,6 +1,6 @@
         -:    0:Source:/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googletest/include/gtest/gtest.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/main.cpp.gcda
+        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Copyright 2005, Google Inc.
@@ -303,9 +303,9 @@
         -:  298://   Expected: Foo() is even
         -:  299://     Actual: it's 5
         -:  300://
-      174:  301:    class GTEST_API_ AssertionResult {
-       87:  301-block  0
-       87:  301-block  1
+      180:  301:    class GTEST_API_ AssertionResult {
+       90:  301-block  0
+       90:  301-block  1
         -:  302:    public:
         -:  303:        // Copy constructor.
         -:  304:        // Used in EXPECT_TRUE/FALSE(assertion_result).
@@ -346,9 +346,9 @@
         -:  339:        }
         -:  340:
         -:  341:        // Returns true if and only if the assertion succeeded.
-      174:  342:        operator bool() const { return success_; }  // NOLINT
-       87:  342-block  0
-       87:  342-block  1
+      180:  342:        operator bool() const { return success_; }  // NOLINT
+       90:  342-block  0
+       90:  342-block  1
         -:  343:
         -:  344:        // Returns the assertion's negation. Used with EXPECT/ASSERT_FALSE.
         -:  345:        AssertionResult operator!() const;
@@ -1669,17 +1669,17 @@
         -: 1631:
         -: 1632:// The helper function for {ASSERT|EXPECT}_EQ.
         -: 1633:        template<typename T1, typename T2>
-       65: 1634:        AssertionResult CmpHelperEQ(const char *lhs_expression,
-       52: 1634-block  0
+       68: 1634:        AssertionResult CmpHelperEQ(const char *lhs_expression,
+       55: 1634-block  0
        13: 1634-block  1
         -: 1635:                                    const char *rhs_expression,
         -: 1636:                                    const T1 &lhs,
         -: 1637:                                    const T2 &rhs) {
-       65: 1638:            if (lhs == rhs) {
-       52: 1638-block  0
+       68: 1638:            if (lhs == rhs) {
+       55: 1638-block  0
        13: 1638-block  1
-       65: 1639:                return AssertionSuccess();
-       52: 1639-block  0
+       68: 1639:                return AssertionSuccess();
+       55: 1639-block  0
        13: 1639-block  1
         -: 1640:            }
         -: 1641:
@@ -1705,13 +1705,13 @@
         -: 1659:                    // and the other is the null pointer constant.
         -: 1660:                    typename std::enable_if<!std::is_integral<T1>::value ||
         -: 1661:                                            !std::is_pointer<T2>::value>::type * = nullptr>
-       65: 1662:            static AssertionResult Compare(const char *lhs_expression,
-       52: 1662-block  0
+       68: 1662:            static AssertionResult Compare(const char *lhs_expression,
+       55: 1662-block  0
        13: 1662-block  1
         -: 1663:                                           const char *rhs_expression, const T1 &lhs,
         -: 1664:                                           const T2 &rhs) {
-       65: 1665:                return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
-       52: 1665-block  0
+       68: 1665:                return CmpHelperEQ(lhs_expression, rhs_expression, lhs, rhs);
+       55: 1665-block  0
        13: 1665-block  1
         -: 1666:            }
         -: 1667:
