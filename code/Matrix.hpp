@@ -1,9 +1,8 @@
 #ifndef CPPPROJECT_MATRIX_HPP
 #define CPPPROJECT_MATRIX_HPP
 
-#include <bits/stdc++.h>
 #include "Vector.hpp"
-#include <opencv.hpp>
+#include <opencv2/core.hpp>
 
 using namespace std;
 using namespace cv;

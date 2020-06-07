@@ -1,6 +1,6 @@
-        -:    0:Source:/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googletest/include/gtest/gtest-message.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
+        -:    0:Source:/Users/bytedance/CLionProjects/C-projcet/googletest/googletest/include/gtest/gtest-message.h
+        -:    0:Graph:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Copyright 2005, Google Inc.
@@ -93,9 +93,11 @@
         -:   88:// latter (it causes an access violation if you do).  The Message
         -:   89:// class hides this difference by treating a NULL char pointer as
         -:   90:// "(null)".
-      158:   91:    class GTEST_API_ Message {
-       79:   91-block  0
-       79:   91-block  1
+      166:   91:    class GTEST_API_ Message {
+       83:   91-block  0
+       83:   91-block  1
+       83:   91-block  2
+       83:   91-block  3
         -:   92:    private:
         -:   93:        // The type of basic IO manipulators (endl, ends, and flush) for
         -:   94:        // narrow streams.

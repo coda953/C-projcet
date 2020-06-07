@@ -1,4 +1,4 @@
-# Install script for directory: /cygdrive/c/Users/10505/CLionProjects/C-projcet
+# Install script for directory: /Users/bytedance/CLionProjects/C-projcet
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/cmake_install.cmake")
+  include("/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

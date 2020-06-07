@@ -1,6 +1,6 @@
-        -:    0:Source:/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googletest/include/gtest/gtest-printers.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
+        -:    0:Source:/Users/bytedance/CLionProjects/C-projcet/googletest/googletest/include/gtest/gtest-printers.h
+        -:    0:Graph:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Copyright 2007, Google Inc.
@@ -236,9 +236,9 @@
     $$$$$:  230-block  0
     $$$$$:  230-block  1
     #####:  231:                *os << value;
-    $$$$$:  231-block  0
-    $$$$$:  231-block  1
     #####:  232:            }
+    $$$$$:  232-block  0
+    $$$$$:  232-block  1
         -:  233:        };
         -:  234:
         -:  235:        struct ProtobufPrinter {
@@ -326,9 +326,9 @@
         -:  315:                    StreamPrinter, ProtobufPrinter, ConvertibleToIntegerPrinter,
         -:  316:                    ConvertibleToStringViewPrinter, FallbackPrinter>::type;
     #####:  317:            Printer::PrintValue(value, os);
-    $$$$$:  317-block  0
-    $$$$$:  317-block  1
     #####:  318:        }
+    $$$$$:  318-block  0
+    $$$$$:  318-block  1
         -:  319:
         -:  320:// FormatForComparison<ToPrint, OtherOperand>::Format(value) formats a
         -:  321:// value of type ToPrint that is an operand of a comparison assertion
@@ -459,9 +459,9 @@
     $$$$$:  433-block  0
     $$$$$:  433-block  1
     #####:  434:            internal::PrintWithFallback(value, os);
-    $$$$$:  434-block  0
-    $$$$$:  434-block  1
     #####:  435:        }
+    $$$$$:  435-block  0
+    $$$$$:  435-block  1
         -:  436:
         -:  437:// The following list of PrintTo() overloads tells
         -:  438:// UniversalPrinter<T>::Print() how to print standard types (built-in
@@ -638,9 +638,9 @@
         -:  607:                // in ::testing::internal, it will be picked by the compiler in the
         -:  608:                // following statement - exactly what we want.
     #####:  609:                PrintTo(value, os);
-    $$$$$:  609-block  0
-    $$$$$:  609-block  1
     #####:  610:            }
+    $$$$$:  610-block  0
+    $$$$$:  610-block  1
         -:  611:
         -:  612:            GTEST_DISABLE_MSC_WARNINGS_POP_()
         -:  613:        };
@@ -760,9 +760,9 @@
     $$$$$:  726-block  0
     $$$$$:  726-block  1
     #####:  727:                UniversalPrint(value, os);
-    $$$$$:  727-block  0
-    $$$$$:  727-block  1
     #####:  728:            }
+    $$$$$:  728-block  0
+    $$$$$:  728-block  1
         -:  729:        };
         -:  730:
         -:  731:        template<typename T>
@@ -840,9 +840,9 @@
         -:  801:            // UniversalPrinter with T directly.
         -:  802:            typedef T T1;
     #####:  803:            UniversalPrinter<T1>::Print(value, os);
-    $$$$$:  803-block  0
-    $$$$$:  803-block  1
     #####:  804:        }
+    $$$$$:  804-block  0
+    $$$$$:  804-block  1
         -:  805:
         -:  806:        typedef ::std::vector<::std::string> Strings;
         -:  807:
@@ -882,23 +882,23 @@
     $$$$$:  840-block  0
     $$$$$:  840-block  1
     #####:  841:        ::std::stringstream ss;
-    $$$$$:  841-block  0
-    $$$$$:  841-block  1
-    %%%%%:  841-block  2
-    $$$$$:  841-block  3
-    $$$$$:  841-block  4
-    %%%%%:  841-block  5
     #####:  842:        internal::UniversalTersePrinter<T>::Print(value, &ss);
     $$$$$:  842-block  0
     $$$$$:  842-block  1
+    $$$$$:  842-block  2
+    $$$$$:  842-block  3
+    $$$$$:  842-block  4
+    $$$$$:  842-block  5
     #####:  843:        return ss.str();
     $$$$$:  843-block  0
     $$$$$:  843-block  1
-    $$$$$:  843-block  2
-    $$$$$:  843-block  3
-    $$$$$:  843-block  4
-    $$$$$:  843-block  5
-        -:  844:    }
+    #####:  844:    }
+    $$$$$:  844-block  0
+    $$$$$:  844-block  1
+    $$$$$:  844-block  2
+    $$$$$:  844-block  3
+    $$$$$:  844-block  4
+    $$$$$:  844-block  5
         -:  845:
         -:  846:}  // namespace testing
         -:  847:

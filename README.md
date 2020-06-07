@@ -1,4 +1,36 @@
 # C-project
+## 说明
+###windows 配置如下
+`cygwin` +`opencv3.4` 
+### mac 配置如下
+#### 配置brew
+`/bin/zsh -c "$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)"`
+#### 安装opencv
+`cd "$(brew --repo)"`
+
+`git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git`
+
+`cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"`
+
+`git remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git ` 
+
+`brew update`
+
+`brew install opencv`
+#### 安装gtest
+`git clone https://github.com/google/googletest`
+
+`cd googletest`
+
+`mkdir build`
+
+`cd build`
+
+`cmake .. -DCMAKE_CXX_STANDARD=17`
+
+`make`
+
+`make install`
 ## 短期目标：
 1) 稀疏矩阵的存储
 2) 计算特征向量，计算逆。

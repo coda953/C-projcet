@@ -4,12 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googlemock/src/gmock-all.cc" "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
+  "/Users/bytedance/CLionProjects/C-projcet/googletest/googlemock/src/gmock-all.cc" "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/local/Cellar/opencv/4.3.0_4/include/opencv4"
+  "../"
   "../googletest/googlemock/include"
   "../googletest/googlemock"
   "../googletest/googletest/include"
@@ -18,7 +20,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
+  "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/gtest.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

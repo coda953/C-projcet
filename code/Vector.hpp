@@ -2,8 +2,9 @@
 #ifndef CPPPROJECT_VECTOR_HPP
 #define CPPPROJECT_VECTOR_HPP
 
-#include <bits/stdc++.h>
 #include "Matrix.hpp"
+#include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class Matrix;
  * The class of vector
  * @tparam T the type of the element of vector
  */
+
 template<class T>
 class Vector {
 public:

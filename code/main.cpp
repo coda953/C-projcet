@@ -1,12 +1,11 @@
 #include "Matrix.hpp"
 #include "Vector.hpp"
-#include <opencv.hpp>
-
+#include <opencv2/core.hpp>
+#include <gtest/gtest.h>
 using namespace std;
 using namespace cv;
 #define EXP 0.0001
 
-#include "gtest/gtest.h"
 
 
 vector<vector<double>> m1 = {{1, 2, 3},

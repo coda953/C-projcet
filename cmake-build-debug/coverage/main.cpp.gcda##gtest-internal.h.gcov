@@ -1,6 +1,6 @@
-        -:    0:Source:/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googletest/include/gtest/internal/gtest-internal.h
-        -:    0:Graph:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
-        -:    0:Data:/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
+        -:    0:Source:/Users/bytedance/CLionProjects/C-projcet/googletest/googletest/include/gtest/internal/gtest-internal.h
+        -:    0:Graph:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
         -:    0:Runs:1
         -:    0:Programs:1
         -:    1:// Copyright 2005, Google Inc.
@@ -306,8 +306,11 @@
         -:  301:            // around may change its bits, although the new value is guaranteed
         -:  302:            // to be also a NAN.  Therefore, don't expect this constructor to
         -:  303:            // preserve the bits in x when x is a NAN.
-       36:  304:            explicit FloatingPoint(const RawType &x) { u_.value_ = x; }
+       72:  304:            explicit FloatingPoint(const RawType &x) { u_.value_ = x; }
        36:  304-block  0
+       36:  304-block  1
+       36:  304-block  2
+       36:  304-block  3
         -:  305:
         -:  306:            // Static methods
         -:  307:
@@ -334,7 +337,7 @@
         -:  328:            const Bits &bits() const { return u_.bits_; }
         -:  329:
         -:  330:            // Returns the exponent bits of this number.
-       72:  331:            Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
+       36:  331:            Bits exponent_bits() const { return kExponentBitMask & u_.bits_; }
        36:  331-block  0
        36:  331-block  1
         -:  332:
@@ -354,9 +357,7 @@
        36:  343:                return (exponent_bits() == kExponentBitMask) && (fraction_bits() != 0);
        36:  343-block  0
     $$$$$:  343-block  1
-    $$$$$:  343-block  2
-       36:  343-block  3
-       36:  343-block  4
+       36:  343-block  2
         -:  344:            }
         -:  345:
         -:  346:            // Returns true if and only if this number is at most kMaxUlps ULP's away
@@ -373,14 +374,13 @@
        18:  355-block  0
        18:  355-block  1
     $$$$$:  355-block  2
-       18:  355-block  3
-       18:  355-block  4
-    $$$$$:  355-block  5
         -:  356:
-       18:  357:                return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
+       36:  357:                return DistanceBetweenSignAndMagnitudeNumbers(u_.bits_, rhs.u_.bits_)
        18:  357-block  0
+       18:  357-block  1
        18:  358:                       <= kMaxUlps;
-        -:  359:            }
+       18:  359:            }
+       18:  359-block  0
         -:  360:
         -:  361:        private:
         -:  362:            // The data type used to store the actual floating-point number.
@@ -416,7 +416,8 @@
        12:  389:                    return kSignBitMask | sam;
        12:  389-block  0
         -:  390:                }
-        -:  391:            }
+       36:  391:            }
+       36:  391-block  0
         -:  392:
         -:  393:            // Given two numbers in the sign-and-magnitude representation,
         -:  394:            // returns the distance between them as an unsigned number.
@@ -424,12 +425,12 @@
        18:  395-block  0
         -:  396:                                                               const Bits &sam2) {
        18:  397:                const Bits biased1 = SignAndMagnitudeToBiased(sam1);
-       18:  397-block  0
        18:  398:                const Bits biased2 = SignAndMagnitudeToBiased(sam2);
        18:  399:                return (biased1 >= biased2) ? (biased1 - biased2) : (biased2 - biased1);
        18:  399-block  0
-    $$$$$:  399-block  1
-       18:  399-block  2
+       18:  399-block  1
+    $$$$$:  399-block  2
+       18:  399-block  3
         -:  400:            }
         -:  401:
         -:  402:            FloatingPointUnion u_;
@@ -491,16 +492,22 @@
         -:  458:// of a Test object.
         -:  459:        class TestFactoryBase {
         -:  460:        public:
-    #####:  461:            virtual ~TestFactoryBase() {}
+        9:  461:            virtual ~TestFactoryBase() {}
     $$$$$:  461-block  0
+    $$$$$:  461-block  1
+    $$$$$:  461-block  2
+    $$$$$:  461-block  3
+        9:  461-block  4
+        9:  461-block  5
         -:  462:
         -:  463:            // Creates a test instance to run. The instance is both created and destroyed
         -:  464:            // within TestInfoImpl::Run()
         -:  465:            virtual Test *CreateTest() = 0;
         -:  466:
         -:  467:        protected:
-        8:  468:            TestFactoryBase() {}
-        8:  468-block  0
+        9:  468:            TestFactoryBase() {}
+        9:  468-block  0
+        9:  468-block  1
         -:  469:
         -:  470:        private:
         -:  471:            GTEST_DISALLOW_COPY_AND_ASSIGN_(TestFactoryBase);
@@ -509,39 +516,39 @@
         -:  474:// This class provides implementation of TeastFactoryBase interface.
         -:  475:// It is used in TEST and TEST_F macros.
         -:  476:        template<class TestClass>
-       16:  477:        class TestFactoryImpl : public TestFactoryBase {
-    $$$$$:  477-block  0
-    $$$$$:  477-block  1
-    $$$$$:  477-block  2
-    $$$$$:  477-block  3
-    $$$$$:  477-block  4
-    $$$$$:  477-block  5
-    $$$$$:  477-block  6
-    $$$$$:  477-block  7
-    $$$$$:  477-block  8
-    $$$$$:  477-block  9
-    $$$$$:  477-block 10
-    $$$$$:  477-block 11
-    $$$$$:  477-block 12
-    $$$$$:  477-block 13
-    $$$$$:  477-block 14
-    $$$$$:  477-block 15
-    $$$$$:  477-block 16
-    $$$$$:  477-block 17
-    $$$$$:  477-block 18
-    $$$$$:  477-block 19
-    $$$$$:  477-block 20
-    $$$$$:  477-block 21
-    $$$$$:  477-block 22
-    $$$$$:  477-block 23
-    $$$$$:  477-block 24
-    $$$$$:  477-block 25
-    $$$$$:  477-block 26
-    $$$$$:  477-block 27
-    $$$$$:  477-block 28
-    $$$$$:  477-block 29
-    $$$$$:  477-block 30
-    $$$$$:  477-block 31
+       45:  477:        class TestFactoryImpl : public TestFactoryBase {
+        1:  477-block  0
+        1:  477-block  1
+        1:  477-block  2
+        1:  477-block  3
+        1:  477-block  4
+        1:  477-block  5
+        1:  477-block  6
+        1:  477-block  7
+        1:  477-block  8
+        1:  477-block  9
+        1:  477-block 10
+        1:  477-block 11
+        1:  477-block 12
+        1:  477-block 13
+        1:  477-block 14
+        1:  477-block 15
+        1:  477-block 16
+        1:  477-block 17
+        1:  477-block 18
+        1:  477-block 19
+        1:  477-block 20
+        1:  477-block 21
+        1:  477-block 22
+        1:  477-block 23
+        1:  477-block 24
+        1:  477-block 25
+        1:  477-block 26
+        1:  477-block 27
+        1:  477-block 28
+        1:  477-block 29
+        1:  477-block 30
+        1:  477-block 31
         1:  477-block 32
         1:  477-block 33
         1:  477-block 34
@@ -558,48 +565,95 @@
         1:  477-block 45
         1:  477-block 46
         1:  477-block 47
+        1:  477-block 48
+        1:  477-block 49
+        1:  477-block 50
+        1:  477-block 51
+        1:  477-block 52
+        1:  477-block 53
+        1:  477-block 54
+        1:  477-block 55
+        1:  477-block 56
+        1:  477-block 57
+        1:  477-block 58
+        1:  477-block 59
+        1:  477-block 60
+        1:  477-block 61
+        1:  477-block 62
+        1:  477-block 63
+        1:  477-block 64
+        1:  477-block 65
+        1:  477-block 66
+        1:  477-block 67
+        1:  477-block 68
+        1:  477-block 69
+        1:  477-block 70
+        1:  477-block 71
+        1:  477-block 72
+        1:  477-block 73
+        1:  477-block 74
+        1:  477-block 75
+        1:  477-block 76
+        1:  477-block 77
+        1:  477-block 78
+        1:  477-block 79
+        1:  477-block 80
+        1:  477-block 81
+        1:  477-block 82
+        1:  477-block 83
+        1:  477-block 84
+        1:  477-block 85
+        1:  477-block 86
+        1:  477-block 87
+        1:  477-block 88
+        1:  477-block 89
         -:  478:        public:
-        8:  479:            Test *CreateTest() override { return new TestClass; }
+        9:  479:            Test *CreateTest() override { return new TestClass; }
         1:  479-block  0
         1:  479-block  1
         1:  479-block  2
-        1:  479-block  3
-    %%%%%:  479-block  4
+    $$$$$:  479-block  3
+    $$$$$:  479-block  4
         1:  479-block  5
         1:  479-block  6
         1:  479-block  7
-        1:  479-block  8
-    %%%%%:  479-block  9
+    $$$$$:  479-block  8
+    $$$$$:  479-block  9
         1:  479-block 10
         1:  479-block 11
         1:  479-block 12
-        1:  479-block 13
-    %%%%%:  479-block 14
+    $$$$$:  479-block 13
+    $$$$$:  479-block 14
         1:  479-block 15
         1:  479-block 16
         1:  479-block 17
-        1:  479-block 18
-    %%%%%:  479-block 19
+    $$$$$:  479-block 18
+    $$$$$:  479-block 19
         1:  479-block 20
         1:  479-block 21
         1:  479-block 22
-        1:  479-block 23
-    %%%%%:  479-block 24
+    $$$$$:  479-block 23
+    $$$$$:  479-block 24
         1:  479-block 25
         1:  479-block 26
         1:  479-block 27
-        1:  479-block 28
-    %%%%%:  479-block 29
+    $$$$$:  479-block 28
+    $$$$$:  479-block 29
         1:  479-block 30
         1:  479-block 31
         1:  479-block 32
-        1:  479-block 33
-    %%%%%:  479-block 34
+    $$$$$:  479-block 33
+    $$$$$:  479-block 34
         1:  479-block 35
         1:  479-block 36
         1:  479-block 37
-        1:  479-block 38
-    %%%%%:  479-block 39
+    $$$$$:  479-block 38
+    $$$$$:  479-block 39
+        1:  479-block 40
+        1:  479-block 41
+        1:  479-block 42
+    $$$$$:  479-block 43
+    $$$$$:  479-block 44
         -:  480:        };
         -:  481:
         -:  482:#if GTEST_OS_WINDOWS
@@ -619,13 +673,17 @@
         -:  496:        using SetUpTestSuiteFunc = void (*)();
         -:  497:        using TearDownTestSuiteFunc = void (*)();
         -:  498:
-       32:  499:        struct CodeLocation {
-       16:  499-block  0
-       16:  499-block  1
-        8:  500:            CodeLocation(const std::string &a_file, int a_line)
-        8:  500-block  0
-        8:  501:                    : file(a_file), line(a_line) {}
-        8:  501-block  0
+       54:  499:        struct CodeLocation {
+       27:  499-block  0
+       27:  499-block  1
+       27:  499-block  2
+       27:  499-block  3
+       18:  500:            CodeLocation(const std::string &a_file, int a_line)
+        9:  500-block  0
+        9:  500-block  1
+       18:  501:                    : file(a_file), line(a_line) {}
+        9:  501-block  0
+        9:  501-block  1
         -:  502:
         -:  503:            std::string file;
         -:  504:            int line;
@@ -637,14 +695,14 @@
         -:  510:// Utility functions to help SuiteApiResolver
         -:  511:        using SetUpTearDownSuiteFuncType = void (*)();
         -:  512:
-       32:  513:        inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
-       32:  513-block  0
+       36:  513:        inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
+       36:  513-block  0
         -:  514:                SetUpTearDownSuiteFuncType a, SetUpTearDownSuiteFuncType def) {
-       32:  515:            return a == def ? nullptr : a;
-       32:  515-block  0
-    $$$$$:  515-block  1
-       32:  515-block  2
-       32:  515-block  3
+       36:  515:            return a == def ? nullptr : a;
+       36:  515-block  0
+       36:  515-block  1
+    $$$$$:  515-block  2
+       36:  515-block  3
         -:  516:        }
         -:  517:
         -:  518:        template<typename T>
@@ -657,71 +715,71 @@
         -:  525:            using Test =
         -:  526:            typename std::conditional<sizeof(T) != 0, ::testing::Test, void>::type;
         -:  527:
-        8:  528:            static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char *filename,
-        8:  528-block  0
+        9:  528:            static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char *filename,
+        9:  528-block  0
         -:  529:                                                                  int line_num) {
-        8:  530:                SetUpTearDownSuiteFuncType test_case_fp =
-        8:  530-block  0
-        -:  531:                        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
-        8:  532:                SetUpTearDownSuiteFuncType test_suite_fp =
-        -:  533:                        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
+        9:  530:                SetUpTearDownSuiteFuncType test_case_fp =
+        9:  531:                        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
+        9:  532:                SetUpTearDownSuiteFuncType test_suite_fp =
+        9:  533:                        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
         -:  534:
-        8:  535:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
-    $$$$$:  535-block  0
-        8:  535-block  1
-    $$$$$:  535-block  2
-        8:  535-block  3
+        9:  535:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+        9:  535-block  0
+    $$$$$:  535-block  1
+        9:  535-block  2
+        9:  535-block  3
     $$$$$:  535-block  4
     $$$$$:  535-block  5
     $$$$$:  535-block  6
-    %%%%%:  535-block  7
-        -:  536:                            << "Test can not provide both SetUpTestSuite and SetUpTestCase, please "
+    $$$$$:  535-block  7
+    $$$$$:  535-block  8
+    #####:  536:                            << "Test can not provide both SetUpTestSuite and SetUpTestCase, please "
+    $$$$$:  536-block  0
         -:  537:                               "make sure there is only one present at "
     #####:  538:                            << filename << ":" << line_num;
     $$$$$:  538-block  0
     $$$$$:  538-block  1
     $$$$$:  538-block  2
         -:  539:
-        8:  540:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        8:  540-block  0
+        9:  540:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        9:  540-block  0
     $$$$$:  540-block  1
-        8:  540-block  2
-        8:  540-block  3
-        8:  540-block  4
-        -:  541:            }
+        9:  540-block  2
+        9:  540-block  3
+    #####:  541:            }
         -:  542:
-        8:  543:            static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char *filename,
-        8:  543-block  0
+        9:  543:            static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char *filename,
+        9:  543-block  0
         -:  544:                                                                     int line_num) {
-        8:  545:                SetUpTearDownSuiteFuncType test_case_fp =
-        8:  545-block  0
-        -:  546:                        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
-        8:  547:                SetUpTearDownSuiteFuncType test_suite_fp =
-        -:  548:                        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
+        9:  545:                SetUpTearDownSuiteFuncType test_case_fp =
+        9:  546:                        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
+        9:  547:                SetUpTearDownSuiteFuncType test_suite_fp =
+        9:  548:                        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
         -:  549:
-        8:  550:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
-    $$$$$:  550-block  0
-        8:  550-block  1
-    $$$$$:  550-block  2
-        8:  550-block  3
+        9:  550:                GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+        9:  550-block  0
+    $$$$$:  550-block  1
+        9:  550-block  2
+        9:  550-block  3
     $$$$$:  550-block  4
     $$$$$:  550-block  5
     $$$$$:  550-block  6
-    %%%%%:  550-block  7
-        -:  551:                            << "Test can not provide both TearDownTestSuite and TearDownTestCase,"
+    $$$$$:  550-block  7
+    $$$$$:  550-block  8
+    #####:  551:                            << "Test can not provide both TearDownTestSuite and TearDownTestCase,"
+    $$$$$:  551-block  0
         -:  552:                               " please make sure there is only one present at"
     #####:  553:                            << filename << ":" << line_num;
     $$$$$:  553-block  0
     $$$$$:  553-block  1
     $$$$$:  553-block  2
         -:  554:
-        8:  555:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-        8:  555-block  0
+        9:  555:                return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+        9:  555-block  0
     $$$$$:  555-block  1
-        8:  555-block  2
-        8:  555-block  3
-        8:  555-block  4
-        -:  556:            }
+        9:  555-block  2
+        9:  555-block  3
+    #####:  556:            }
         -:  557:        };
         -:  558:
         -:  559:// Creates a new TestInfo object and registers it with Google Test;

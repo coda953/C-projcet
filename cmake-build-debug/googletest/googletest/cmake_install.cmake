@@ -1,4 +1,4 @@
-# Install script for directory: /cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googletest
+# Install script for directory: /Users/bytedance/CLionProjects/C-projcet/googletest/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -36,7 +36,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets.cmake"
-         "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
+         "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -45,36 +45,44 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets-debug.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES
-    "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/GTestConfigVersion.cmake"
-    "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/GTestConfig.cmake"
+    "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/GTestConfigVersion.cmake"
+    "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/GTestConfig.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googletest/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/Users/bytedance/CLionProjects/C-projcet/googletest/googletest/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/lib/libgtestd.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/lib/libgtestd.a")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libgtestd.a" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libgtestd.a")
+    execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libgtestd.a")
+  endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/lib/libgtest_maind.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/lib/libgtest_maind.a")
+  if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libgtest_maind.a" AND
+     NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libgtest_maind.a")
+    execute_process(COMMAND "/Library/Developer/CommandLineTools/usr/bin/ranlib" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libgtest_maind.a")
+  endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/gtest.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/gtest.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/cygdrive/c/Users/10505/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/gtest_main.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/googletest/generated/gtest_main.pc")
 endif()
 
