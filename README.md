@@ -1,6 +1,6 @@
 # C-project
 ## 说明
-###windows 配置如下
+### windows 配置如下
 `cygwin` +`opencv3.4` 
 ### mac 配置如下
 #### 配置brew
