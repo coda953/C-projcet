@@ -1,0 +1,1096 @@
+        -:    0:Source:/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1/sstream
+        -:    0:Graph:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcno
+        -:    0:Data:/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir/code/main.cpp.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:// -*- C++ -*-
+        -:    2://===--------------------------- sstream ----------------------------------===//
+        -:    3://
+        -:    4:// Part of the LLVM Project, under the Apache License v2.0 with LLVM Exceptions.
+        -:    5:// See https://llvm.org/LICENSE.txt for license information.
+        -:    6:// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+        -:    7://
+        -:    8://===----------------------------------------------------------------------===//
+        -:    9:
+        -:   10:#ifndef _LIBCPP_SSTREAM
+        -:   11:#define _LIBCPP_SSTREAM
+        -:   12:
+        -:   13:/*
+        -:   14:    sstream synopsis
+        -:   15:
+        -:   16:template <class charT, class traits = char_traits<charT>, class Allocator = allocator<charT> >
+        -:   17:class basic_stringbuf
+        -:   18:    : public basic_streambuf<charT, traits>
+        -:   19:{
+        -:   20:public:
+        -:   21:    typedef charT                          char_type;
+        -:   22:    typedef traits                         traits_type;
+        -:   23:    typedef typename traits_type::int_type int_type;
+        -:   24:    typedef typename traits_type::pos_type pos_type;
+        -:   25:    typedef typename traits_type::off_type off_type;
+        -:   26:    typedef Allocator                      allocator_type;
+        -:   27:
+        -:   28:    // 27.8.1.1 Constructors:
+        -:   29:    explicit basic_stringbuf(ios_base::openmode which = ios_base::in | ios_base::out);
+        -:   30:    explicit basic_stringbuf(const basic_string<char_type, traits_type, allocator_type>& str,
+        -:   31:                             ios_base::openmode which = ios_base::in | ios_base::out);
+        -:   32:    basic_stringbuf(basic_stringbuf&& rhs);
+        -:   33:
+        -:   34:    // 27.8.1.2 Assign and swap:
+        -:   35:    basic_stringbuf& operator=(basic_stringbuf&& rhs);
+        -:   36:    void swap(basic_stringbuf& rhs);
+        -:   37:
+        -:   38:    // 27.8.1.3 Get and set:
+        -:   39:    basic_string<char_type, traits_type, allocator_type> str() const;
+        -:   40:    void str(const basic_string<char_type, traits_type, allocator_type>& s);
+        -:   41:
+        -:   42:protected:
+        -:   43:    // 27.8.1.4 Overridden virtual functions:
+        -:   44:    virtual int_type underflow();
+        -:   45:    virtual int_type pbackfail(int_type c = traits_type::eof());
+        -:   46:    virtual int_type overflow (int_type c = traits_type::eof());
+        -:   47:    virtual basic_streambuf<char_type, traits_type>* setbuf(char_type*, streamsize);
+        -:   48:    virtual pos_type seekoff(off_type off, ios_base::seekdir way,
+        -:   49:                             ios_base::openmode which = ios_base::in | ios_base::out);
+        -:   50:    virtual pos_type seekpos(pos_type sp,
+        -:   51:                             ios_base::openmode which = ios_base::in | ios_base::out);
+        -:   52:};
+        -:   53:
+        -:   54:template <class charT, class traits, class Allocator>
+        -:   55:  void swap(basic_stringbuf<charT, traits, Allocator>& x,
+        -:   56:            basic_stringbuf<charT, traits, Allocator>& y);
+        -:   57:
+        -:   58:typedef basic_stringbuf<char>    stringbuf;
+        -:   59:typedef basic_stringbuf<wchar_t> wstringbuf;
+        -:   60:
+        -:   61:template <class charT, class traits = char_traits<charT>, class Allocator = allocator<charT> >
+        -:   62:class basic_istringstream
+        -:   63:    : public basic_istream<charT, traits>
+        -:   64:{
+        -:   65:public:
+        -:   66:    typedef charT                          char_type;
+        -:   67:    typedef traits                         traits_type;
+        -:   68:    typedef typename traits_type::int_type int_type;
+        -:   69:    typedef typename traits_type::pos_type pos_type;
+        -:   70:    typedef typename traits_type::off_type off_type;
+        -:   71:    typedef Allocator                      allocator_type;
+        -:   72:
+        -:   73:    // 27.8.2.1 Constructors:
+        -:   74:    explicit basic_istringstream(ios_base::openmode which = ios_base::in);
+        -:   75:    explicit basic_istringstream(const basic_string<char_type, traits_type,allocator_type>& str,
+        -:   76:                                 ios_base::openmode which = ios_base::in);
+        -:   77:    basic_istringstream(basic_istringstream&& rhs);
+        -:   78:
+        -:   79:    // 27.8.2.2 Assign and swap:
+        -:   80:    basic_istringstream& operator=(basic_istringstream&& rhs);
+        -:   81:    void swap(basic_istringstream& rhs);
+        -:   82:
+        -:   83:    // 27.8.2.3 Members:
+        -:   84:    basic_stringbuf<char_type, traits_type, allocator_type>* rdbuf() const;
+        -:   85:    basic_string<char_type, traits_type, allocator_type> str() const;
+        -:   86:    void str(const basic_string<char_type, traits_type, allocator_type>& s);
+        -:   87:};
+        -:   88:
+        -:   89:template <class charT, class traits, class Allocator>
+        -:   90:  void swap(basic_istringstream<charT, traits, Allocator>& x,
+        -:   91:            basic_istringstream<charT, traits, Allocator>& y);
+        -:   92:
+        -:   93:typedef basic_istringstream<char>    istringstream;
+        -:   94:typedef basic_istringstream<wchar_t> wistringstream;
+        -:   95:
+        -:   96:template <class charT, class traits = char_traits<charT>, class Allocator = allocator<charT> >
+        -:   97:class basic_ostringstream
+        -:   98:    : public basic_ostream<charT, traits>
+        -:   99:{
+        -:  100:public:
+        -:  101:    // types:
+        -:  102:    typedef charT                          char_type;
+        -:  103:    typedef traits                         traits_type;
+        -:  104:    typedef typename traits_type::int_type int_type;
+        -:  105:    typedef typename traits_type::pos_type pos_type;
+        -:  106:    typedef typename traits_type::off_type off_type;
+        -:  107:    typedef Allocator                      allocator_type;
+        -:  108:
+        -:  109:    // 27.8.3.1 Constructors/destructor:
+        -:  110:    explicit basic_ostringstream(ios_base::openmode which = ios_base::out);
+        -:  111:    explicit basic_ostringstream(const basic_string<char_type, traits_type, allocator_type>& str,
+        -:  112:                                 ios_base::openmode which = ios_base::out);
+        -:  113:    basic_ostringstream(basic_ostringstream&& rhs);
+        -:  114:
+        -:  115:    // 27.8.3.2 Assign/swap:
+        -:  116:    basic_ostringstream& operator=(basic_ostringstream&& rhs);
+        -:  117:    void swap(basic_ostringstream& rhs);
+        -:  118:
+        -:  119:    // 27.8.3.3 Members:
+        -:  120:    basic_stringbuf<char_type, traits_type, allocator_type>* rdbuf() const;
+        -:  121:    basic_string<char_type, traits_type, allocator_type> str() const;
+        -:  122:    void str(const basic_string<char_type, traits_type, allocator_type>& s);
+        -:  123:};
+        -:  124:
+        -:  125:template <class charT, class traits, class Allocator>
+        -:  126:  void swap(basic_ostringstream<charT, traits, Allocator>& x,
+        -:  127:            basic_ostringstream<charT, traits, Allocator>& y);
+        -:  128:
+        -:  129:typedef basic_ostringstream<char>    ostringstream;
+        -:  130:typedef basic_ostringstream<wchar_t> wostringstream;
+        -:  131:
+        -:  132:template <class charT, class traits = char_traits<charT>, class Allocator = allocator<charT> >
+        -:  133:class basic_stringstream
+        -:  134:    : public basic_iostream<charT, traits>
+        -:  135:{
+        -:  136:public:
+        -:  137:    // types:
+        -:  138:    typedef charT                          char_type;
+        -:  139:    typedef traits                         traits_type;
+        -:  140:    typedef typename traits_type::int_type int_type;
+        -:  141:    typedef typename traits_type::pos_type pos_type;
+        -:  142:    typedef typename traits_type::off_type off_type;
+        -:  143:    typedef Allocator                      allocator_type;
+        -:  144:
+        -:  145:    // constructors/destructor
+        -:  146:    explicit basic_stringstream(ios_base::openmode which = ios_base::out|ios_base::in);
+        -:  147:    explicit basic_stringstream(const basic_string<char_type, traits_type, allocator_type>& str,
+        -:  148:                                ios_base::openmode which = ios_base::out|ios_base::in);
+        -:  149:    basic_stringstream(basic_stringstream&& rhs);
+        -:  150:
+        -:  151:    // 27.8.5.1 Assign/swap:
+        -:  152:    basic_stringstream& operator=(basic_stringstream&& rhs);
+        -:  153:    void swap(basic_stringstream& rhs);
+        -:  154:
+        -:  155:    // Members:
+        -:  156:    basic_stringbuf<char_type, traits_type, allocator_type>* rdbuf() const;
+        -:  157:    basic_string<char_type, traits_type, allocator_type> str() const;
+        -:  158:    void str(const basic_string<char_type, traits_type, allocator_type>& str);
+        -:  159:};
+        -:  160:
+        -:  161:template <class charT, class traits, class Allocator>
+        -:  162:  void swap(basic_stringstream<charT, traits, Allocator>& x,
+        -:  163:            basic_stringstream<charT, traits, Allocator>& y);
+        -:  164:
+        -:  165:typedef basic_stringstream<char>    stringstream;
+        -:  166:typedef basic_stringstream<wchar_t> wstringstream;
+        -:  167:
+        -:  168:}  // std
+        -:  169:
+        -:  170:*/
+        -:  171:
+        -:  172:#include <__config>
+        -:  173:#include <ostream>
+        -:  174:#include <istream>
+        -:  175:#include <string>
+        -:  176:
+        -:  177:#if !defined(_LIBCPP_HAS_NO_PRAGMA_SYSTEM_HEADER)
+        -:  178:#pragma GCC system_header
+        -:  179:#endif
+        -:  180:
+        -:  181:_LIBCPP_PUSH_MACROS
+        -:  182:#include <__undef_macros>
+        -:  183:
+        -:  184:
+        -:  185:_LIBCPP_BEGIN_NAMESPACE_STD
+        -:  186:
+        -:  187:// basic_stringbuf
+        -:  188:
+        -:  189:template <class _CharT, class _Traits, class _Allocator>
+        -:  190:class _LIBCPP_TEMPLATE_VIS basic_stringbuf
+        -:  191:    : public basic_streambuf<_CharT, _Traits>
+        -:  192:{
+        -:  193:public:
+        -:  194:    typedef _CharT                         char_type;
+        -:  195:    typedef _Traits                        traits_type;
+        -:  196:    typedef typename traits_type::int_type int_type;
+        -:  197:    typedef typename traits_type::pos_type pos_type;
+        -:  198:    typedef typename traits_type::off_type off_type;
+        -:  199:    typedef _Allocator                     allocator_type;
+        -:  200:
+        -:  201:    typedef basic_string<char_type, traits_type, allocator_type> string_type;
+        -:  202:
+        -:  203:private:
+        -:  204:
+        -:  205:    string_type __str_;
+        -:  206:    mutable char_type* __hm_;
+        -:  207:    ios_base::openmode __mode_;
+        -:  208:
+        -:  209:public:
+        -:  210:    // 27.8.1.1 Constructors:
+        -:  211:    inline _LIBCPP_INLINE_VISIBILITY
+    #####:  212:    explicit basic_stringbuf(ios_base::openmode __wch = ios_base::in | ios_base::out);
+        -:  213:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  214:    explicit basic_stringbuf(const string_type& __s,
+        -:  215:                             ios_base::openmode __wch = ios_base::in | ios_base::out);
+        -:  216:#ifndef _LIBCPP_CXX03_LANG
+        -:  217:    basic_stringbuf(basic_stringbuf&& __rhs);
+        -:  218:
+        -:  219:    // 27.8.1.2 Assign and swap:
+        -:  220:    basic_stringbuf& operator=(basic_stringbuf&& __rhs);
+        -:  221:#endif
+        -:  222:    void swap(basic_stringbuf& __rhs);
+        -:  223:
+        -:  224:    // 27.8.1.3 Get and set:
+        -:  225:    string_type str() const;
+        -:  226:    void str(const string_type& __s);
+        -:  227:
+        -:  228:protected:
+        -:  229:    // 27.8.1.4 Overridden virtual functions:
+        -:  230:    virtual int_type underflow();
+        -:  231:    virtual int_type pbackfail(int_type __c = traits_type::eof());
+        -:  232:    virtual int_type overflow (int_type __c = traits_type::eof());
+        -:  233:    virtual pos_type seekoff(off_type __off, ios_base::seekdir __way,
+        -:  234:                             ios_base::openmode __wch = ios_base::in | ios_base::out);
+        -:  235:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  236:    virtual pos_type seekpos(pos_type __sp,
+        -:  237:                             ios_base::openmode __wch = ios_base::in | ios_base::out);
+        -:  238:};
+        -:  239:
+        -:  240:template <class _CharT, class _Traits, class _Allocator>
+    #####:  241:basic_stringbuf<_CharT, _Traits, _Allocator>::basic_stringbuf(ios_base::openmode __wch)
+    $$$$$:  241-block  0
+    $$$$$:  241-block  1
+    #####:  242:    : __hm_(0),
+    #####:  243:      __mode_(__wch)
+    #####:  244:{
+    #####:  245:}
+    $$$$$:  245-block  0
+    $$$$$:  245-block  1
+        -:  246:
+        -:  247:template <class _CharT, class _Traits, class _Allocator>
+        -:  248:basic_stringbuf<_CharT, _Traits, _Allocator>::basic_stringbuf(const string_type& __s,
+        -:  249:                             ios_base::openmode __wch)
+        -:  250:    : __str_(__s.get_allocator()),
+        -:  251:      __hm_(0),
+        -:  252:      __mode_(__wch)
+        -:  253:{
+        -:  254:    str(__s);
+        -:  255:}
+        -:  256:
+        -:  257:#ifndef _LIBCPP_CXX03_LANG
+        -:  258:
+        -:  259:template <class _CharT, class _Traits, class _Allocator>
+        -:  260:basic_stringbuf<_CharT, _Traits, _Allocator>::basic_stringbuf(basic_stringbuf&& __rhs)
+        -:  261:    : __mode_(__rhs.__mode_)
+        -:  262:{
+        -:  263:    char_type* __p = const_cast<char_type*>(__rhs.__str_.data());
+        -:  264:    ptrdiff_t __binp = -1;
+        -:  265:    ptrdiff_t __ninp = -1;
+        -:  266:    ptrdiff_t __einp = -1;
+        -:  267:    if (__rhs.eback() != nullptr)
+        -:  268:    {
+        -:  269:        __binp = __rhs.eback() - __p;
+        -:  270:        __ninp = __rhs.gptr() - __p;
+        -:  271:        __einp = __rhs.egptr() - __p;
+        -:  272:    }
+        -:  273:    ptrdiff_t __bout = -1;
+        -:  274:    ptrdiff_t __nout = -1;
+        -:  275:    ptrdiff_t __eout = -1;
+        -:  276:    if (__rhs.pbase() != nullptr)
+        -:  277:    {
+        -:  278:        __bout = __rhs.pbase() - __p;
+        -:  279:        __nout = __rhs.pptr() - __p;
+        -:  280:        __eout = __rhs.epptr() - __p;
+        -:  281:    }
+        -:  282:    ptrdiff_t __hm = __rhs.__hm_ == nullptr ? -1 : __rhs.__hm_ - __p;
+        -:  283:    __str_ = _VSTD::move(__rhs.__str_);
+        -:  284:    __p = const_cast<char_type*>(__str_.data());
+        -:  285:    if (__binp != -1)
+        -:  286:        this->setg(__p + __binp, __p + __ninp, __p + __einp);
+        -:  287:    if (__bout != -1)
+        -:  288:    {
+        -:  289:        this->setp(__p + __bout, __p + __eout);
+        -:  290:        this->__pbump(__nout);
+        -:  291:    }
+        -:  292:    __hm_ = __hm == -1 ? nullptr : __p + __hm;
+        -:  293:    __p = const_cast<char_type*>(__rhs.__str_.data());
+        -:  294:    __rhs.setg(__p, __p, __p);
+        -:  295:    __rhs.setp(__p, __p);
+        -:  296:    __rhs.__hm_ = __p;
+        -:  297:    this->pubimbue(__rhs.getloc());
+        -:  298:}
+        -:  299:
+        -:  300:template <class _CharT, class _Traits, class _Allocator>
+        -:  301:basic_stringbuf<_CharT, _Traits, _Allocator>&
+        -:  302:basic_stringbuf<_CharT, _Traits, _Allocator>::operator=(basic_stringbuf&& __rhs)
+        -:  303:{
+        -:  304:    char_type* __p = const_cast<char_type*>(__rhs.__str_.data());
+        -:  305:    ptrdiff_t __binp = -1;
+        -:  306:    ptrdiff_t __ninp = -1;
+        -:  307:    ptrdiff_t __einp = -1;
+        -:  308:    if (__rhs.eback() != nullptr)
+        -:  309:    {
+        -:  310:        __binp = __rhs.eback() - __p;
+        -:  311:        __ninp = __rhs.gptr() - __p;
+        -:  312:        __einp = __rhs.egptr() - __p;
+        -:  313:    }
+        -:  314:    ptrdiff_t __bout = -1;
+        -:  315:    ptrdiff_t __nout = -1;
+        -:  316:    ptrdiff_t __eout = -1;
+        -:  317:    if (__rhs.pbase() != nullptr)
+        -:  318:    {
+        -:  319:        __bout = __rhs.pbase() - __p;
+        -:  320:        __nout = __rhs.pptr() - __p;
+        -:  321:        __eout = __rhs.epptr() - __p;
+        -:  322:    }
+        -:  323:    ptrdiff_t __hm = __rhs.__hm_ == nullptr ? -1 : __rhs.__hm_ - __p;
+        -:  324:    __str_ = _VSTD::move(__rhs.__str_);
+        -:  325:    __p = const_cast<char_type*>(__str_.data());
+        -:  326:    if (__binp != -1)
+        -:  327:        this->setg(__p + __binp, __p + __ninp, __p + __einp);
+        -:  328:    else
+        -:  329:        this->setg(nullptr, nullptr, nullptr);
+        -:  330:    if (__bout != -1)
+        -:  331:    {
+        -:  332:        this->setp(__p + __bout, __p + __eout);
+        -:  333:        this->__pbump(__nout);
+        -:  334:    }
+        -:  335:    else
+        -:  336:        this->setp(nullptr, nullptr);
+        -:  337:
+        -:  338:    __hm_ = __hm == -1 ? nullptr : __p + __hm;
+        -:  339:    __mode_ = __rhs.__mode_;
+        -:  340:    __p = const_cast<char_type*>(__rhs.__str_.data());
+        -:  341:    __rhs.setg(__p, __p, __p);
+        -:  342:    __rhs.setp(__p, __p);
+        -:  343:    __rhs.__hm_ = __p;
+        -:  344:    this->pubimbue(__rhs.getloc());
+        -:  345:    return *this;
+        -:  346:}
+        -:  347:
+        -:  348:#endif  // _LIBCPP_CXX03_LANG
+        -:  349:
+        -:  350:template <class _CharT, class _Traits, class _Allocator>
+        -:  351:void
+        -:  352:basic_stringbuf<_CharT, _Traits, _Allocator>::swap(basic_stringbuf& __rhs)
+        -:  353:{
+        -:  354:    char_type* __p = const_cast<char_type*>(__rhs.__str_.data());
+        -:  355:    ptrdiff_t __rbinp = -1;
+        -:  356:    ptrdiff_t __rninp = -1;
+        -:  357:    ptrdiff_t __reinp = -1;
+        -:  358:    if (__rhs.eback() != nullptr)
+        -:  359:    {
+        -:  360:        __rbinp = __rhs.eback() - __p;
+        -:  361:        __rninp = __rhs.gptr() - __p;
+        -:  362:        __reinp = __rhs.egptr() - __p;
+        -:  363:    }
+        -:  364:    ptrdiff_t __rbout = -1;
+        -:  365:    ptrdiff_t __rnout = -1;
+        -:  366:    ptrdiff_t __reout = -1;
+        -:  367:    if (__rhs.pbase() != nullptr)
+        -:  368:    {
+        -:  369:        __rbout = __rhs.pbase() - __p;
+        -:  370:        __rnout = __rhs.pptr() - __p;
+        -:  371:        __reout = __rhs.epptr() - __p;
+        -:  372:    }
+        -:  373:    ptrdiff_t __rhm = __rhs.__hm_ == nullptr ? -1 : __rhs.__hm_ - __p;
+        -:  374:    __p = const_cast<char_type*>(__str_.data());
+        -:  375:    ptrdiff_t __lbinp = -1;
+        -:  376:    ptrdiff_t __lninp = -1;
+        -:  377:    ptrdiff_t __leinp = -1;
+        -:  378:    if (this->eback() != nullptr)
+        -:  379:    {
+        -:  380:        __lbinp = this->eback() - __p;
+        -:  381:        __lninp = this->gptr() - __p;
+        -:  382:        __leinp = this->egptr() - __p;
+        -:  383:    }
+        -:  384:    ptrdiff_t __lbout = -1;
+        -:  385:    ptrdiff_t __lnout = -1;
+        -:  386:    ptrdiff_t __leout = -1;
+        -:  387:    if (this->pbase() != nullptr)
+        -:  388:    {
+        -:  389:        __lbout = this->pbase() - __p;
+        -:  390:        __lnout = this->pptr() - __p;
+        -:  391:        __leout = this->epptr() - __p;
+        -:  392:    }
+        -:  393:    ptrdiff_t __lhm = __hm_ == nullptr ? -1 : __hm_ - __p;
+        -:  394:    _VSTD::swap(__mode_, __rhs.__mode_);
+        -:  395:    __str_.swap(__rhs.__str_);
+        -:  396:    __p = const_cast<char_type*>(__str_.data());
+        -:  397:    if (__rbinp != -1)
+        -:  398:        this->setg(__p + __rbinp, __p + __rninp, __p + __reinp);
+        -:  399:    else
+        -:  400:        this->setg(nullptr, nullptr, nullptr);
+        -:  401:    if (__rbout != -1)
+        -:  402:    {
+        -:  403:        this->setp(__p + __rbout, __p + __reout);
+        -:  404:        this->__pbump(__rnout);
+        -:  405:    }
+        -:  406:    else
+        -:  407:        this->setp(nullptr, nullptr);
+        -:  408:    __hm_ = __rhm == -1 ? nullptr : __p + __rhm;
+        -:  409:    __p = const_cast<char_type*>(__rhs.__str_.data());
+        -:  410:    if (__lbinp != -1)
+        -:  411:        __rhs.setg(__p + __lbinp, __p + __lninp, __p + __leinp);
+        -:  412:    else
+        -:  413:        __rhs.setg(nullptr, nullptr, nullptr);
+        -:  414:    if (__lbout != -1)
+        -:  415:    {
+        -:  416:        __rhs.setp(__p + __lbout, __p + __leout);
+        -:  417:        __rhs.__pbump(__lnout);
+        -:  418:    }
+        -:  419:    else
+        -:  420:        __rhs.setp(nullptr, nullptr);
+        -:  421:    __rhs.__hm_ = __lhm == -1 ? nullptr : __p + __lhm;
+        -:  422:    locale __tl = __rhs.getloc();
+        -:  423:    __rhs.pubimbue(this->getloc());
+        -:  424:    this->pubimbue(__tl);
+        -:  425:}
+        -:  426:
+        -:  427:template <class _CharT, class _Traits, class _Allocator>
+        -:  428:inline _LIBCPP_INLINE_VISIBILITY
+        -:  429:void
+        -:  430:swap(basic_stringbuf<_CharT, _Traits, _Allocator>& __x,
+        -:  431:     basic_stringbuf<_CharT, _Traits, _Allocator>& __y)
+        -:  432:{
+        -:  433:    __x.swap(__y);
+        -:  434:}
+        -:  435:
+        -:  436:template <class _CharT, class _Traits, class _Allocator>
+        -:  437:basic_string<_CharT, _Traits, _Allocator>
+       83:  438:basic_stringbuf<_CharT, _Traits, _Allocator>::str() const
+       83:  438-block  0
+        -:  439:{
+       83:  440:    if (__mode_ & ios_base::out)
+       83:  440-block  0
+        -:  441:    {
+       83:  442:        if (__hm_ < this->pptr())
+       83:  442-block  0
+       39:  443:            __hm_ = this->pptr();
+       39:  443-block  0
+       83:  444:        return string_type(this->pbase(), __hm_, __str_.get_allocator());
+       83:  444-block  0
+        -:  445:    }
+    #####:  446:    else if (__mode_ & ios_base::in)
+    $$$$$:  446-block  0
+    #####:  447:        return string_type(this->eback(), this->egptr(), __str_.get_allocator());
+    $$$$$:  447-block  0
+    #####:  448:    return string_type(__str_.get_allocator());
+    $$$$$:  448-block  0
+       83:  449:}
+       83:  449-block  0
+        -:  450:
+        -:  451:template <class _CharT, class _Traits, class _Allocator>
+        -:  452:void
+        -:  453:basic_stringbuf<_CharT, _Traits, _Allocator>::str(const string_type& __s)
+        -:  454:{
+        -:  455:    __str_ = __s;
+        -:  456:    __hm_ = 0;
+        -:  457:    if (__mode_ & ios_base::in)
+        -:  458:    {
+        -:  459:        __hm_ = const_cast<char_type*>(__str_.data()) + __str_.size();
+        -:  460:        this->setg(const_cast<char_type*>(__str_.data()),
+        -:  461:                   const_cast<char_type*>(__str_.data()),
+        -:  462:                   __hm_);
+        -:  463:    }
+        -:  464:    if (__mode_ & ios_base::out)
+        -:  465:    {
+        -:  466:        typename string_type::size_type __sz = __str_.size();
+        -:  467:        __hm_ = const_cast<char_type*>(__str_.data()) + __sz;
+        -:  468:        __str_.resize(__str_.capacity());
+        -:  469:        this->setp(const_cast<char_type*>(__str_.data()),
+        -:  470:                   const_cast<char_type*>(__str_.data()) + __str_.size());
+        -:  471:        if (__mode_ & (ios_base::app | ios_base::ate))
+        -:  472:        {
+        -:  473:            while (__sz > INT_MAX)
+        -:  474:            {
+        -:  475:                this->pbump(INT_MAX);
+        -:  476:                __sz -= INT_MAX;
+        -:  477:            }
+        -:  478:            if (__sz > 0)
+        -:  479:                this->pbump(__sz);
+        -:  480:        }
+        -:  481:    }
+        -:  482:}
+        -:  483:
+        -:  484:template <class _CharT, class _Traits, class _Allocator>
+        -:  485:typename basic_stringbuf<_CharT, _Traits, _Allocator>::int_type
+    #####:  486:basic_stringbuf<_CharT, _Traits, _Allocator>::underflow()
+    $$$$$:  486-block  0
+        -:  487:{
+    #####:  488:    if (__hm_ < this->pptr())
+    $$$$$:  488-block  0
+    #####:  489:        __hm_ = this->pptr();
+    $$$$$:  489-block  0
+    #####:  490:    if (__mode_ & ios_base::in)
+    $$$$$:  490-block  0
+        -:  491:    {
+    #####:  492:        if (this->egptr() < __hm_)
+    $$$$$:  492-block  0
+    #####:  493:            this->setg(this->eback(), this->gptr(), __hm_);
+    $$$$$:  493-block  0
+    #####:  494:        if (this->gptr() < this->egptr())
+    $$$$$:  494-block  0
+    #####:  495:            return traits_type::to_int_type(*this->gptr());
+    $$$$$:  495-block  0
+    #####:  496:    }
+    $$$$$:  496-block  0
+    #####:  497:    return traits_type::eof();
+    $$$$$:  497-block  0
+    #####:  498:}
+    $$$$$:  498-block  0
+        -:  499:
+        -:  500:template <class _CharT, class _Traits, class _Allocator>
+        -:  501:typename basic_stringbuf<_CharT, _Traits, _Allocator>::int_type
+    #####:  502:basic_stringbuf<_CharT, _Traits, _Allocator>::pbackfail(int_type __c)
+    $$$$$:  502-block  0
+        -:  503:{
+    #####:  504:    if (__hm_ < this->pptr())
+    $$$$$:  504-block  0
+    #####:  505:        __hm_ = this->pptr();
+    $$$$$:  505-block  0
+    #####:  506:    if (this->eback() < this->gptr())
+    $$$$$:  506-block  0
+        -:  507:    {
+    #####:  508:        if (traits_type::eq_int_type(__c, traits_type::eof()))
+    $$$$$:  508-block  0
+        -:  509:        {
+    #####:  510:            this->setg(this->eback(), this->gptr()-1, __hm_);
+    #####:  511:            return traits_type::not_eof(__c);
+    $$$$$:  511-block  0
+        -:  512:        }
+    #####:  513:        if ((__mode_ & ios_base::out) ||
+    $$$$$:  513-block  0
+    $$$$$:  513-block  1
+    #####:  514:            traits_type::eq(traits_type::to_char_type(__c), this->gptr()[-1]))
+        -:  515:        {
+    #####:  516:            this->setg(this->eback(), this->gptr()-1, __hm_);
+    #####:  517:            *this->gptr() = traits_type::to_char_type(__c);
+    #####:  518:            return __c;
+    $$$$$:  518-block  0
+        -:  519:        }
+    #####:  520:    }
+    $$$$$:  520-block  0
+    #####:  521:    return traits_type::eof();
+    $$$$$:  521-block  0
+    #####:  522:}
+    $$$$$:  522-block  0
+        -:  523:
+        -:  524:template <class _CharT, class _Traits, class _Allocator>
+        -:  525:typename basic_stringbuf<_CharT, _Traits, _Allocator>::int_type
+       91:  526:basic_stringbuf<_CharT, _Traits, _Allocator>::overflow(int_type __c)
+       91:  526-block  0
+        -:  527:{
+       91:  528:    if (!traits_type::eq_int_type(__c, traits_type::eof()))
+       91:  528-block  0
+        -:  529:    {
+       91:  530:        ptrdiff_t __ninp = this->gptr()  - this->eback();
+       91:  531:        if (this->pptr() == this->epptr())
+       91:  531-block  0
+        -:  532:        {
+       91:  533:            if (!(__mode_ & ios_base::out))
+       91:  533-block  0
+    #####:  534:                return traits_type::eof();
+    $$$$$:  534-block  0
+        -:  535:#ifndef _LIBCPP_NO_EXCEPTIONS
+        -:  536:            try
+        -:  537:            {
+        -:  538:#endif  // _LIBCPP_NO_EXCEPTIONS
+       91:  539:                ptrdiff_t __nout = this->pptr()  - this->pbase();
+       91:  539-block  0
+       91:  539-block  1
+       91:  540:                ptrdiff_t __hm = __hm_ - this->pbase();
+       91:  540-block  0
+       91:  541:                __str_.push_back(char_type());
+       91:  541-block  0
+       91:  542:                __str_.resize(__str_.capacity());
+       91:  542-block  0
+       91:  543:                char_type* __p = const_cast<char_type*>(__str_.data());
+       91:  544:                this->setp(__p, __p + __str_.size());
+       91:  544-block  0
+       91:  545:                this->__pbump(__nout);
+       91:  545-block  0
+       91:  546:                __hm_ = this->pbase() + __hm;
+       91:  546-block  0
+        -:  547:#ifndef _LIBCPP_NO_EXCEPTIONS
+       91:  548:            }
+       91:  548-block  0
+        -:  549:            catch (...)
+        -:  550:            {
+    #####:  551:                return traits_type::eof();
+    #####:  552:            }
+    $$$$$:  552-block  0
+        -:  553:#endif  // _LIBCPP_NO_EXCEPTIONS
+       91:  554:        }
+       91:  554-block  0
+       91:  555:        __hm_ = _VSTD::max(this->pptr() + 1, __hm_);
+       91:  556:        if (__mode_ & ios_base::in)
+       91:  556-block  0
+        -:  557:        {
+       91:  558:            char_type* __p = const_cast<char_type*>(__str_.data());
+       91:  559:            this->setg(__p, __p + __ninp, __hm_);
+       91:  560:        }
+       91:  560-block  0
+       91:  561:        return this->sputc(traits_type::to_char_type(__c));
+       91:  561-block  0
+        -:  562:    }
+    #####:  563:    return traits_type::not_eof(__c);
+    $$$$$:  563-block  0
+       91:  564:}
+    $$$$$:  564-block  0
+       91:  564-block  1
+        -:  565:
+        -:  566:template <class _CharT, class _Traits, class _Allocator>
+        -:  567:typename basic_stringbuf<_CharT, _Traits, _Allocator>::pos_type
+    #####:  568:basic_stringbuf<_CharT, _Traits, _Allocator>::seekoff(off_type __off,
+    $$$$$:  568-block  0
+        -:  569:                                                      ios_base::seekdir __way,
+        -:  570:                                                      ios_base::openmode __wch)
+        -:  571:{
+    #####:  572:    if (__hm_ < this->pptr())
+    $$$$$:  572-block  0
+    #####:  573:        __hm_ = this->pptr();
+    $$$$$:  573-block  0
+    #####:  574:    if ((__wch & (ios_base::in | ios_base::out)) == 0)
+    $$$$$:  574-block  0
+    #####:  575:        return pos_type(-1);
+    $$$$$:  575-block  0
+    #####:  576:    if ((__wch & (ios_base::in | ios_base::out)) == (ios_base::in | ios_base::out)
+    $$$$$:  576-block  0
+    #####:  577:        && __way == ios_base::cur)
+    $$$$$:  577-block  0
+    #####:  578:        return pos_type(-1);
+    $$$$$:  578-block  0
+    #####:  579:    const ptrdiff_t __hm = __hm_ == nullptr ? 0 : __hm_ - __str_.data();
+    $$$$$:  579-block  0
+    $$$$$:  579-block  1
+    $$$$$:  579-block  2
+        -:  580:    off_type __noff;
+    #####:  581:    switch (__way)
+    $$$$$:  581-block  0
+        -:  582:    {
+        -:  583:    case ios_base::beg:
+    #####:  584:        __noff = 0;
+    #####:  585:        break;
+    $$$$$:  585-block  0
+        -:  586:    case ios_base::cur:
+    #####:  587:        if (__wch & ios_base::in)
+    $$$$$:  587-block  0
+    #####:  588:            __noff = this->gptr() - this->eback();
+    $$$$$:  588-block  0
+        -:  589:        else
+    #####:  590:            __noff = this->pptr() - this->pbase();
+    $$$$$:  590-block  0
+    #####:  591:        break;
+    $$$$$:  591-block  0
+        -:  592:    case ios_base::end:
+    #####:  593:        __noff = __hm;
+    #####:  594:        break;
+    $$$$$:  594-block  0
+        -:  595:    default:
+    #####:  596:        return pos_type(-1);
+    $$$$$:  596-block  0
+        -:  597:    }
+    #####:  598:    __noff += __off;
+    #####:  599:    if (__noff < 0 || __hm < __noff)
+    $$$$$:  599-block  0
+    $$$$$:  599-block  1
+    #####:  600:        return pos_type(-1);
+    $$$$$:  600-block  0
+    #####:  601:    if (__noff != 0)
+    $$$$$:  601-block  0
+        -:  602:    {
+    #####:  603:        if ((__wch & ios_base::in) && this->gptr() == 0)
+    $$$$$:  603-block  0
+    $$$$$:  603-block  1
+    #####:  604:            return pos_type(-1);
+    $$$$$:  604-block  0
+    #####:  605:        if ((__wch & ios_base::out) && this->pptr() == 0)
+    $$$$$:  605-block  0
+    $$$$$:  605-block  1
+    #####:  606:            return pos_type(-1);
+    $$$$$:  606-block  0
+    #####:  607:    }
+    $$$$$:  607-block  0
+    #####:  608:    if (__wch & ios_base::in)
+    $$$$$:  608-block  0
+    #####:  609:        this->setg(this->eback(), this->eback() + __noff, __hm_);
+    $$$$$:  609-block  0
+    #####:  610:    if (__wch & ios_base::out)
+    $$$$$:  610-block  0
+        -:  611:    {
+    #####:  612:        this->setp(this->pbase(), this->epptr());
+    #####:  613:        this->pbump(__noff);
+    #####:  614:    }
+    $$$$$:  614-block  0
+    #####:  615:    return pos_type(__noff);
+    $$$$$:  615-block  0
+    #####:  616:}
+    $$$$$:  616-block  0
+        -:  617:
+        -:  618:template <class _CharT, class _Traits, class _Allocator>
+        -:  619:typename basic_stringbuf<_CharT, _Traits, _Allocator>::pos_type
+    #####:  620:basic_stringbuf<_CharT, _Traits, _Allocator>::seekpos(pos_type __sp,
+    $$$$$:  620-block  0
+        -:  621:                                                      ios_base::openmode __wch)
+        -:  622:{
+    #####:  623:    return seekoff(__sp, ios_base::beg, __wch);
+    $$$$$:  623-block  0
+        -:  624:}
+        -:  625:
+        -:  626:// basic_istringstream
+        -:  627:
+        -:  628:template <class _CharT, class _Traits, class _Allocator>
+        -:  629:class _LIBCPP_TEMPLATE_VIS basic_istringstream
+        -:  630:    : public basic_istream<_CharT, _Traits>
+        -:  631:{
+        -:  632:public:
+        -:  633:    typedef _CharT                         char_type;
+        -:  634:    typedef _Traits                        traits_type;
+        -:  635:    typedef typename traits_type::int_type int_type;
+        -:  636:    typedef typename traits_type::pos_type pos_type;
+        -:  637:    typedef typename traits_type::off_type off_type;
+        -:  638:    typedef _Allocator                     allocator_type;
+        -:  639:
+        -:  640:    typedef basic_string<char_type, traits_type, allocator_type> string_type;
+        -:  641:
+        -:  642:private:
+        -:  643:    basic_stringbuf<char_type, traits_type, allocator_type> __sb_;
+        -:  644:
+        -:  645:public:
+        -:  646:    // 27.8.2.1 Constructors:
+        -:  647:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  648:    explicit basic_istringstream(ios_base::openmode __wch = ios_base::in);
+        -:  649:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  650:    explicit basic_istringstream(const string_type& __s,
+        -:  651:                                 ios_base::openmode __wch = ios_base::in);
+        -:  652:#ifndef _LIBCPP_CXX03_LANG
+        -:  653:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  654:    basic_istringstream(basic_istringstream&& __rhs);
+        -:  655:
+        -:  656:    // 27.8.2.2 Assign and swap:
+        -:  657:    basic_istringstream& operator=(basic_istringstream&& __rhs);
+        -:  658:#endif  // _LIBCPP_CXX03_LANG
+        -:  659:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  660:    void swap(basic_istringstream& __rhs);
+        -:  661:
+        -:  662:    // 27.8.2.3 Members:
+        -:  663:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  664:    basic_stringbuf<char_type, traits_type, allocator_type>* rdbuf() const;
+        -:  665:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  666:    string_type str() const;
+        -:  667:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  668:    void str(const string_type& __s);
+        -:  669:};
+        -:  670:
+        -:  671:template <class _CharT, class _Traits, class _Allocator>
+        -:  672:basic_istringstream<_CharT, _Traits, _Allocator>::basic_istringstream(ios_base::openmode __wch)
+        -:  673:    : basic_istream<_CharT, _Traits>(&__sb_),
+        -:  674:      __sb_(__wch | ios_base::in)
+        -:  675:{
+        -:  676:}
+        -:  677:
+        -:  678:template <class _CharT, class _Traits, class _Allocator>
+        -:  679:basic_istringstream<_CharT, _Traits, _Allocator>::basic_istringstream(const string_type& __s,
+        -:  680:                                                                      ios_base::openmode __wch)
+        -:  681:    : basic_istream<_CharT, _Traits>(&__sb_),
+        -:  682:      __sb_(__s, __wch | ios_base::in)
+        -:  683:{
+        -:  684:}
+        -:  685:
+        -:  686:#ifndef _LIBCPP_CXX03_LANG
+        -:  687:
+        -:  688:template <class _CharT, class _Traits, class _Allocator>
+        -:  689:basic_istringstream<_CharT, _Traits, _Allocator>::basic_istringstream(basic_istringstream&& __rhs)
+        -:  690:    : basic_istream<_CharT, _Traits>(_VSTD::move(__rhs)),
+        -:  691:      __sb_(_VSTD::move(__rhs.__sb_))
+        -:  692:{
+        -:  693:    basic_istream<_CharT, _Traits>::set_rdbuf(&__sb_);
+        -:  694:}
+        -:  695:
+        -:  696:template <class _CharT, class _Traits, class _Allocator>
+        -:  697:basic_istringstream<_CharT, _Traits, _Allocator>&
+        -:  698:basic_istringstream<_CharT, _Traits, _Allocator>::operator=(basic_istringstream&& __rhs)
+        -:  699:{
+        -:  700:    basic_istream<char_type, traits_type>::operator=(_VSTD::move(__rhs));
+        -:  701:    __sb_ = _VSTD::move(__rhs.__sb_);
+        -:  702:    return *this;
+        -:  703:}
+        -:  704:
+        -:  705:#endif  // _LIBCPP_CXX03_LANG
+        -:  706:
+        -:  707:template <class _CharT, class _Traits, class _Allocator>
+        -:  708:void basic_istringstream<_CharT, _Traits, _Allocator>::swap(basic_istringstream& __rhs)
+        -:  709:{
+        -:  710:    basic_istream<char_type, traits_type>::swap(__rhs);
+        -:  711:    __sb_.swap(__rhs.__sb_);
+        -:  712:}
+        -:  713:
+        -:  714:template <class _CharT, class _Traits, class _Allocator>
+        -:  715:inline _LIBCPP_INLINE_VISIBILITY
+        -:  716:void
+        -:  717:swap(basic_istringstream<_CharT, _Traits, _Allocator>& __x,
+        -:  718:     basic_istringstream<_CharT, _Traits, _Allocator>& __y)
+        -:  719:{
+        -:  720:    __x.swap(__y);
+        -:  721:}
+        -:  722:
+        -:  723:template <class _CharT, class _Traits, class _Allocator>
+        -:  724:basic_stringbuf<_CharT, _Traits, _Allocator>*
+        -:  725:basic_istringstream<_CharT, _Traits, _Allocator>::rdbuf() const
+        -:  726:{
+        -:  727:    return const_cast<basic_stringbuf<char_type, traits_type, allocator_type>*>(&__sb_);
+        -:  728:}
+        -:  729:
+        -:  730:template <class _CharT, class _Traits, class _Allocator>
+        -:  731:basic_string<_CharT, _Traits, _Allocator>
+        -:  732:basic_istringstream<_CharT, _Traits, _Allocator>::str() const
+        -:  733:{
+        -:  734:    return __sb_.str();
+        -:  735:}
+        -:  736:
+        -:  737:template <class _CharT, class _Traits, class _Allocator>
+        -:  738:void basic_istringstream<_CharT, _Traits, _Allocator>::str(const string_type& __s)
+        -:  739:{
+        -:  740:    __sb_.str(__s);
+        -:  741:}
+        -:  742:
+        -:  743:// basic_ostringstream
+        -:  744:
+        -:  745:template <class _CharT, class _Traits, class _Allocator>
+        -:  746:class _LIBCPP_TEMPLATE_VIS basic_ostringstream
+        -:  747:    : public basic_ostream<_CharT, _Traits>
+        -:  748:{
+        -:  749:public:
+        -:  750:    typedef _CharT                         char_type;
+        -:  751:    typedef _Traits                        traits_type;
+        -:  752:    typedef typename traits_type::int_type int_type;
+        -:  753:    typedef typename traits_type::pos_type pos_type;
+        -:  754:    typedef typename traits_type::off_type off_type;
+        -:  755:    typedef _Allocator                     allocator_type;
+        -:  756:
+        -:  757:    typedef basic_string<char_type, traits_type, allocator_type> string_type;
+        -:  758:
+        -:  759:private:
+        -:  760:    basic_stringbuf<char_type, traits_type, allocator_type> __sb_;
+        -:  761:
+        -:  762:public:
+        -:  763:    // 27.8.2.1 Constructors:
+        -:  764:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  765:    explicit basic_ostringstream(ios_base::openmode __wch = ios_base::out);
+        -:  766:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  767:    explicit basic_ostringstream(const string_type& __s,
+        -:  768:                                 ios_base::openmode __wch = ios_base::out);
+        -:  769:#ifndef _LIBCPP_CXX03_LANG
+        -:  770:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  771:    basic_ostringstream(basic_ostringstream&& __rhs);
+        -:  772:
+        -:  773:    // 27.8.2.2 Assign and swap:
+        -:  774:    basic_ostringstream& operator=(basic_ostringstream&& __rhs);
+        -:  775:#endif  // _LIBCPP_CXX03_LANG
+        -:  776:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  777:    void swap(basic_ostringstream& __rhs);
+        -:  778:
+        -:  779:    // 27.8.2.3 Members:
+        -:  780:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  781:    basic_stringbuf<char_type, traits_type, allocator_type>* rdbuf() const;
+        -:  782:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  783:    string_type str() const;
+        -:  784:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  785:    void str(const string_type& __s);
+        -:  786:};
+        -:  787:
+        -:  788:template <class _CharT, class _Traits, class _Allocator>
+        -:  789:basic_ostringstream<_CharT, _Traits, _Allocator>::basic_ostringstream(ios_base::openmode __wch)
+        -:  790:    : basic_ostream<_CharT, _Traits>(&__sb_),
+        -:  791:      __sb_(__wch | ios_base::out)
+        -:  792:{
+        -:  793:}
+        -:  794:
+        -:  795:template <class _CharT, class _Traits, class _Allocator>
+        -:  796:basic_ostringstream<_CharT, _Traits, _Allocator>::basic_ostringstream(const string_type& __s,
+        -:  797:                                                                      ios_base::openmode __wch)
+        -:  798:    : basic_ostream<_CharT, _Traits>(&__sb_),
+        -:  799:      __sb_(__s, __wch | ios_base::out)
+        -:  800:{
+        -:  801:}
+        -:  802:
+        -:  803:#ifndef _LIBCPP_CXX03_LANG
+        -:  804:
+        -:  805:template <class _CharT, class _Traits, class _Allocator>
+        -:  806:basic_ostringstream<_CharT, _Traits, _Allocator>::basic_ostringstream(basic_ostringstream&& __rhs)
+        -:  807:    : basic_ostream<_CharT, _Traits>(_VSTD::move(__rhs)),
+        -:  808:      __sb_(_VSTD::move(__rhs.__sb_))
+        -:  809:{
+        -:  810:    basic_ostream<_CharT, _Traits>::set_rdbuf(&__sb_);
+        -:  811:}
+        -:  812:
+        -:  813:template <class _CharT, class _Traits, class _Allocator>
+        -:  814:basic_ostringstream<_CharT, _Traits, _Allocator>&
+        -:  815:basic_ostringstream<_CharT, _Traits, _Allocator>::operator=(basic_ostringstream&& __rhs)
+        -:  816:{
+        -:  817:    basic_ostream<char_type, traits_type>::operator=(_VSTD::move(__rhs));
+        -:  818:    __sb_ = _VSTD::move(__rhs.__sb_);
+        -:  819:    return *this;
+        -:  820:}
+        -:  821:
+        -:  822:#endif  // _LIBCPP_CXX03_LANG
+        -:  823:
+        -:  824:template <class _CharT, class _Traits, class _Allocator>
+        -:  825:void
+        -:  826:basic_ostringstream<_CharT, _Traits, _Allocator>::swap(basic_ostringstream& __rhs)
+        -:  827:{
+        -:  828:    basic_ostream<char_type, traits_type>::swap(__rhs);
+        -:  829:    __sb_.swap(__rhs.__sb_);
+        -:  830:}
+        -:  831:
+        -:  832:template <class _CharT, class _Traits, class _Allocator>
+        -:  833:inline _LIBCPP_INLINE_VISIBILITY
+        -:  834:void
+        -:  835:swap(basic_ostringstream<_CharT, _Traits, _Allocator>& __x,
+        -:  836:     basic_ostringstream<_CharT, _Traits, _Allocator>& __y)
+        -:  837:{
+        -:  838:    __x.swap(__y);
+        -:  839:}
+        -:  840:
+        -:  841:template <class _CharT, class _Traits, class _Allocator>
+        -:  842:basic_stringbuf<_CharT, _Traits, _Allocator>*
+        -:  843:basic_ostringstream<_CharT, _Traits, _Allocator>::rdbuf() const
+        -:  844:{
+        -:  845:    return const_cast<basic_stringbuf<char_type, traits_type, allocator_type>*>(&__sb_);
+        -:  846:}
+        -:  847:
+        -:  848:template <class _CharT, class _Traits, class _Allocator>
+        -:  849:basic_string<_CharT, _Traits, _Allocator>
+        -:  850:basic_ostringstream<_CharT, _Traits, _Allocator>::str() const
+        -:  851:{
+        -:  852:    return __sb_.str();
+        -:  853:}
+        -:  854:
+        -:  855:template <class _CharT, class _Traits, class _Allocator>
+        -:  856:void
+        -:  857:basic_ostringstream<_CharT, _Traits, _Allocator>::str(const string_type& __s)
+        -:  858:{
+        -:  859:    __sb_.str(__s);
+        -:  860:}
+        -:  861:
+        -:  862:// basic_stringstream
+        -:  863:
+        -:  864:template <class _CharT, class _Traits, class _Allocator>
+        -:  865:class _LIBCPP_TEMPLATE_VIS basic_stringstream
+        -:  866:    : public basic_iostream<_CharT, _Traits>
+        -:  867:{
+        -:  868:public:
+        -:  869:    typedef _CharT                         char_type;
+        -:  870:    typedef _Traits                        traits_type;
+        -:  871:    typedef typename traits_type::int_type int_type;
+        -:  872:    typedef typename traits_type::pos_type pos_type;
+        -:  873:    typedef typename traits_type::off_type off_type;
+        -:  874:    typedef _Allocator                     allocator_type;
+        -:  875:
+        -:  876:    typedef basic_string<char_type, traits_type, allocator_type> string_type;
+        -:  877:
+        -:  878:private:
+        -:  879:    basic_stringbuf<char_type, traits_type, allocator_type> __sb_;
+        -:  880:
+        -:  881:public:
+        -:  882:    // 27.8.2.1 Constructors:
+        -:  883:    inline _LIBCPP_INLINE_VISIBILITY
+    #####:  884:    explicit basic_stringstream(ios_base::openmode __wch = ios_base::in | ios_base::out);
+        -:  885:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  886:    explicit basic_stringstream(const string_type& __s,
+        -:  887:                                ios_base::openmode __wch = ios_base::in | ios_base::out);
+        -:  888:#ifndef _LIBCPP_CXX03_LANG
+        -:  889:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  890:    basic_stringstream(basic_stringstream&& __rhs);
+        -:  891:
+        -:  892:    // 27.8.2.2 Assign and swap:
+        -:  893:    basic_stringstream& operator=(basic_stringstream&& __rhs);
+        -:  894:#endif  // _LIBCPP_CXX03_LANG
+        -:  895:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  896:    void swap(basic_stringstream& __rhs);
+        -:  897:
+        -:  898:    // 27.8.2.3 Members:
+        -:  899:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  900:    basic_stringbuf<char_type, traits_type, allocator_type>* rdbuf() const;
+        -:  901:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  902:    string_type str() const;
+        -:  903:    inline _LIBCPP_INLINE_VISIBILITY
+        -:  904:    void str(const string_type& __s);
+        -:  905:};
+        -:  906:
+        -:  907:template <class _CharT, class _Traits, class _Allocator>
+    #####:  908:basic_stringstream<_CharT, _Traits, _Allocator>::basic_stringstream(ios_base::openmode __wch)
+    $$$$$:  908-block  0
+    #####:  909:    : basic_iostream<_CharT, _Traits>(&__sb_),
+    $$$$$:  909-block  0
+    #####:  910:      __sb_(__wch)
+    $$$$$:  910-block  0
+    #####:  911:{
+    #####:  912:}
+    $$$$$:  912-block  0
+    $$$$$:  912-block  1
+    $$$$$:  912-block  2
+    $$$$$:  912-block  3
+    $$$$$:  912-block  4
+        -:  913:
+        -:  914:template <class _CharT, class _Traits, class _Allocator>
+        -:  915:basic_stringstream<_CharT, _Traits, _Allocator>::basic_stringstream(const string_type& __s,
+        -:  916:                                                                    ios_base::openmode __wch)
+        -:  917:    : basic_iostream<_CharT, _Traits>(&__sb_),
+        -:  918:      __sb_(__s, __wch)
+        -:  919:{
+        -:  920:}
+        -:  921:
+        -:  922:#ifndef _LIBCPP_CXX03_LANG
+        -:  923:
+        -:  924:template <class _CharT, class _Traits, class _Allocator>
+        -:  925:basic_stringstream<_CharT, _Traits, _Allocator>::basic_stringstream(basic_stringstream&& __rhs)
+        -:  926:    : basic_iostream<_CharT, _Traits>(_VSTD::move(__rhs)),
+        -:  927:      __sb_(_VSTD::move(__rhs.__sb_))
+        -:  928:{
+        -:  929:    basic_istream<_CharT, _Traits>::set_rdbuf(&__sb_);
+        -:  930:}
+        -:  931:
+        -:  932:template <class _CharT, class _Traits, class _Allocator>
+        -:  933:basic_stringstream<_CharT, _Traits, _Allocator>&
+        -:  934:basic_stringstream<_CharT, _Traits, _Allocator>::operator=(basic_stringstream&& __rhs)
+        -:  935:{
+        -:  936:    basic_iostream<char_type, traits_type>::operator=(_VSTD::move(__rhs));
+        -:  937:    __sb_ = _VSTD::move(__rhs.__sb_);
+        -:  938:    return *this;
+        -:  939:}
+        -:  940:
+        -:  941:#endif  // _LIBCPP_CXX03_LANG
+        -:  942:
+        -:  943:template <class _CharT, class _Traits, class _Allocator>
+        -:  944:void
+        -:  945:basic_stringstream<_CharT, _Traits, _Allocator>::swap(basic_stringstream& __rhs)
+        -:  946:{
+        -:  947:    basic_iostream<char_type, traits_type>::swap(__rhs);
+        -:  948:    __sb_.swap(__rhs.__sb_);
+        -:  949:}
+        -:  950:
+        -:  951:template <class _CharT, class _Traits, class _Allocator>
+        -:  952:inline _LIBCPP_INLINE_VISIBILITY
+        -:  953:void
+        -:  954:swap(basic_stringstream<_CharT, _Traits, _Allocator>& __x,
+        -:  955:     basic_stringstream<_CharT, _Traits, _Allocator>& __y)
+        -:  956:{
+        -:  957:    __x.swap(__y);
+        -:  958:}
+        -:  959:
+        -:  960:template <class _CharT, class _Traits, class _Allocator>
+        -:  961:basic_stringbuf<_CharT, _Traits, _Allocator>*
+        -:  962:basic_stringstream<_CharT, _Traits, _Allocator>::rdbuf() const
+        -:  963:{
+        -:  964:    return const_cast<basic_stringbuf<char_type, traits_type, allocator_type>*>(&__sb_);
+        -:  965:}
+        -:  966:
+        -:  967:template <class _CharT, class _Traits, class _Allocator>
+        -:  968:basic_string<_CharT, _Traits, _Allocator>
+    #####:  969:basic_stringstream<_CharT, _Traits, _Allocator>::str() const
+    $$$$$:  969-block  0
+        -:  970:{
+    #####:  971:    return __sb_.str();
+    $$$$$:  971-block  0
+        -:  972:}
+        -:  973:
+        -:  974:template <class _CharT, class _Traits, class _Allocator>
+        -:  975:void
+        -:  976:basic_stringstream<_CharT, _Traits, _Allocator>::str(const string_type& __s)
+        -:  977:{
+        -:  978:    __sb_.str(__s);
+        -:  979:}
+        -:  980:
+        -:  981:_LIBCPP_END_NAMESPACE_STD
+        -:  982:
+        -:  983:_LIBCPP_POP_MACROS
+        -:  984:
+        -:  985:#endif  // _LIBCPP_SSTREAM
