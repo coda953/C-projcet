@@ -176,7 +176,47 @@ TEST(Matrix_det, task2) {
     EXPECT_EQ(-3, c.cal_det());
     EXPECT_EQ(13, c.cal_traces());
 }
-
+TEST(Matrix_init,test0){
+    Matrix<double>a=Matrix<double>(10);
+    EXPECT_EQ(a.getRow(),1);
+    EXPECT_EQ(a.getColumn(),10);
+    for (int i = 0; i < a.getColumn(); ++i) {
+        EXPECT_EQ(a[0][i],0);
+    }
+    a.setRow(2);
+    a.setColumn(2);
+    EXPECT_EQ(2,a.getRow());
+    EXPECT_EQ(2,a.getColumn());
+    a[0][0]=1;
+    a[0][1]=2;
+    a[1][0]=3;
+    a[1][1]=4;
+    a.transposition_change();
+    EXPECT_EQ(a[0][1],3);
+    EXPECT_EQ(a[1][0],2);
+    EXPECT_EQ(a[0][0],1);
+    EXPECT_EQ(a[1][1],4);
+}
+TEST(Matrix_to_OpenCV,test1){
+    Matrix<double>a=m1;
+    Mat cv_a=a.to_opencv_32FC1();
+    for (int i = 0; i < cv_a.rows; ++i) {
+        for (int j = 0; j < cv_a.cols; ++j) {
+            EXPECT_DOUBLE_EQ(i*cv_a.rows+j+1,cv_a.at<float>(i,j));
+        }
+    }
+}
+TEST(Matrix_element_wise_muliplication,test1){
+    Matrix<double>a=m1;
+    a.setRow(2);
+    a.setColumn(2);
+    Matrix<double>b=a;
+    a.element_wise_multiplication_change(b);
+    EXPECT_DOUBLE_EQ(a[0][0],1);
+    EXPECT_DOUBLE_EQ(a[0][1],4);
+    EXPECT_DOUBLE_EQ(a[1][0],16);
+    EXPECT_DOUBLE_EQ(a[1][1],25);
+}
 GTEST_API_ int main() {
     testing::InitGoogleTest();
     return RUN_ALL_TESTS();

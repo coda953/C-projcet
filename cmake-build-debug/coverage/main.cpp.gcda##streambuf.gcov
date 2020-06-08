@@ -222,17 +222,17 @@
         -:  217:
         -:  218:    // 27.6.2.2.5 Put area:
         -:  219:    inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1
-       91:  220:    int_type sputc(char_type __c) {
-       91:  220-block  0
-       91:  221:        if (__nout_ == __eout_)
-       91:  221-block  0
+      103:  220:    int_type sputc(char_type __c) {
+      103:  220-block  0
+      103:  221:        if (__nout_ == __eout_)
+      103:  221-block  0
     #####:  222:            return overflow(traits_type::to_int_type(__c));
     $$$$$:  222-block  0
-       91:  223:        *__nout_++ = __c;
-       91:  224:        return traits_type::to_int_type(__c);
-       91:  224-block  0
-       91:  225:    }
-       91:  225-block  0
+      103:  223:        *__nout_++ = __c;
+      103:  224:        return traits_type::to_int_type(__c);
+      103:  224-block  0
+      103:  225:    }
+      103:  225-block  0
         -:  226:
         -:  227:    inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1
       413:  228:    streamsize sputn(const char_type* __s, streamsize __n)
@@ -247,12 +247,12 @@
         -:  235:    void swap(basic_streambuf& __rhs);
         -:  236:
         -:  237:    // 27.6.2.3.2 Get area:
-       91:  238:    _LIBCPP_INLINE_VISIBILITY char_type* eback() const {return __binp_;}
-       91:  238-block  0
-       91:  238-block  1
-       91:  239:    _LIBCPP_INLINE_VISIBILITY char_type* gptr()  const {return __ninp_;}
-       91:  239-block  0
-       91:  239-block  1
+      103:  238:    _LIBCPP_INLINE_VISIBILITY char_type* eback() const {return __binp_;}
+      103:  238-block  0
+      103:  238-block  1
+      103:  239:    _LIBCPP_INLINE_VISIBILITY char_type* gptr()  const {return __ninp_;}
+      103:  239-block  0
+      103:  239-block  1
     #####:  240:    _LIBCPP_INLINE_VISIBILITY char_type* egptr() const {return __einp_;}
     $$$$$:  240-block  0
     $$$$$:  240-block  1
@@ -261,24 +261,24 @@
         -:  243:    void gbump(int __n) { __ninp_ += __n; }
         -:  244:
         -:  245:    inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1
-       91:  246:    void setg(char_type* __gbeg, char_type* __gnext, char_type* __gend) {
-       91:  246-block  0
-       91:  247:        __binp_ = __gbeg;
-       91:  248:        __ninp_ = __gnext;
-       91:  249:        __einp_ = __gend;
-       91:  250:    }
-       91:  250-block  0
+      103:  246:    void setg(char_type* __gbeg, char_type* __gnext, char_type* __gend) {
+      103:  246-block  0
+      103:  247:        __binp_ = __gbeg;
+      103:  248:        __ninp_ = __gnext;
+      103:  249:        __einp_ = __gend;
+      103:  250:    }
+      103:  250-block  0
         -:  251:
         -:  252:    // 27.6.2.3.3 Put area:
-      356:  253:    _LIBCPP_INLINE_VISIBILITY char_type* pbase() const {return __bout_;}
-      356:  253-block  0
-      356:  253-block  1
-      395:  254:    _LIBCPP_INLINE_VISIBILITY char_type* pptr()  const {return __nout_;}
-      395:  254-block  0
-      395:  254-block  1
-       91:  255:    _LIBCPP_INLINE_VISIBILITY char_type* epptr() const {return __eout_;}
-       91:  255-block  0
-       91:  255-block  1
+      404:  253:    _LIBCPP_INLINE_VISIBILITY char_type* pbase() const {return __bout_;}
+      404:  253-block  0
+      404:  253-block  1
+      448:  254:    _LIBCPP_INLINE_VISIBILITY char_type* pptr()  const {return __nout_;}
+      448:  254-block  0
+      448:  254-block  1
+      103:  255:    _LIBCPP_INLINE_VISIBILITY char_type* epptr() const {return __eout_;}
+      103:  255-block  0
+      103:  255-block  1
         -:  256:
         -:  257:    inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1
     #####:  258:    void pbump(int __n) { __nout_ += __n; }
@@ -286,17 +286,17 @@
     $$$$$:  258-block  1
         -:  259:
         -:  260:    _LIBCPP_INLINE_VISIBILITY
-       91:  261:    void __pbump(streamsize __n) { __nout_ += __n; }
-       91:  261-block  0
-       91:  261-block  1
+      103:  261:    void __pbump(streamsize __n) { __nout_ += __n; }
+      103:  261-block  0
+      103:  261-block  1
         -:  262:
         -:  263:    inline _LIBCPP_HIDE_FROM_ABI_AFTER_V1
-       91:  264:    void setp(char_type* __pbeg, char_type* __pend) {
-       91:  264-block  0
-       91:  265:        __bout_ = __nout_ = __pbeg;
-       91:  266:        __eout_ = __pend;
-       91:  267:    }
-       91:  267-block  0
+      103:  264:    void setp(char_type* __pbeg, char_type* __pend) {
+      103:  264-block  0
+      103:  265:        __bout_ = __nout_ = __pbeg;
+      103:  266:        __eout_ = __pend;
+      103:  267:    }
+      103:  267-block  0
         -:  268:
         -:  269:    // 27.6.2.4 virtual functions:
         -:  270:    // 27.6.2.4.1 Locales:

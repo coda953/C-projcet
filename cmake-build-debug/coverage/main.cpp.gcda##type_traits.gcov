@@ -467,13 +467,13 @@
         -:  462:inline _LIBCPP_CONSTEXPR_AFTER_CXX14
         -:  463:_LIBCPP_NO_CFI _LIBCPP_INLINE_VISIBILITY
         -:  464:_Tp*
-      241:  465:addressof(_Tp& __x) _NOEXCEPT
-      166:  465-block  0
-       75:  465-block  1
+      277:  465:addressof(_Tp& __x) _NOEXCEPT
+      190:  465-block  0
+       87:  465-block  1
         -:  466:{
-      241:  467:    return __builtin_addressof(__x);
-      166:  467-block  0
-       75:  467-block  1
+      277:  467:    return __builtin_addressof(__x);
+      190:  467-block  0
+       87:  467-block  1
         -:  468:}
         -:  469:
         -:  470:#else
@@ -2356,66 +2356,66 @@
         -: 2347:template <class _Tp>
         -: 2348:inline _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR
         -: 2349:typename remove_reference<_Tp>::type&&
-      430: 2350:move(_Tp&& __t) _NOEXCEPT
+      568: 2350:move(_Tp&& __t) _NOEXCEPT
         6: 2350-block  0
-       12: 2350-block  1
+       14: 2350-block  1
     $$$$$: 2350-block  2
        27: 2350-block  3
-      207: 2350-block  4
-       72: 2350-block  5
-       97: 2350-block  6
-    $$$$$: 2350-block  7
-        9: 2350-block  8
+      234: 2350-block  4
+      126: 2350-block  5
+      115: 2350-block  6
+        1: 2350-block  7
+       45: 2350-block  8
         -: 2351:{
         -: 2352:    typedef _LIBCPP_NODEBUG_TYPE typename remove_reference<_Tp>::type _Up;
-      430: 2353:    return static_cast<_Up&&>(__t);
+      568: 2353:    return static_cast<_Up&&>(__t);
         6: 2353-block  0
-       12: 2353-block  1
+       14: 2353-block  1
     $$$$$: 2353-block  2
        27: 2353-block  3
-      207: 2353-block  4
-       72: 2353-block  5
-       97: 2353-block  6
-    $$$$$: 2353-block  7
-        9: 2353-block  8
+      234: 2353-block  4
+      126: 2353-block  5
+      115: 2353-block  6
+        1: 2353-block  7
+       45: 2353-block  8
         -: 2354:}
         -: 2355:
         -: 2356:template <class _Tp>
         -: 2357:inline _LIBCPP_INLINE_VISIBILITY _LIBCPP_CONSTEXPR
         -: 2358:_Tp&&
-     1174: 2359:forward(typename remove_reference<_Tp>::type& __t) _NOEXCEPT
+     1403: 2359:forward(typename remove_reference<_Tp>::type& __t) _NOEXCEPT
        18: 2359-block  0
-      412: 2359-block  1
+      502: 2359-block  1
        12: 2359-block  2
        48: 2359-block  3
-       24: 2359-block  4
-      222: 2359-block  5
-      166: 2359-block  6
+       28: 2359-block  4
+      270: 2359-block  5
+      190: 2359-block  6
         6: 2359-block  7
     $$$$$: 2359-block  8
-       46: 2359-block  9
+       52: 2359-block  9
        12: 2359-block 10
-       16: 2359-block 11
-      190: 2359-block 12
-        2: 2359-block 13
-    $$$$$: 2359-block 14
+       28: 2359-block 11
+      224: 2359-block 12
+       10: 2359-block 13
+        3: 2359-block 14
         -: 2360:{
-     1174: 2361:    return static_cast<_Tp&&>(__t);
+     1403: 2361:    return static_cast<_Tp&&>(__t);
        18: 2361-block  0
-      412: 2361-block  1
+      502: 2361-block  1
        12: 2361-block  2
        48: 2361-block  3
-       24: 2361-block  4
-      222: 2361-block  5
-      166: 2361-block  6
+       28: 2361-block  4
+      270: 2361-block  5
+      190: 2361-block  6
         6: 2361-block  7
     $$$$$: 2361-block  8
-       46: 2361-block  9
+       52: 2361-block  9
        12: 2361-block 10
-       16: 2361-block 11
-      190: 2361-block 12
-        2: 2361-block 13
-    $$$$$: 2361-block 14
+       28: 2361-block 11
+      224: 2361-block 12
+       10: 2361-block 13
+        3: 2361-block 14
         -: 2362:}
         -: 2363:
         -: 2364:template <class _Tp>
@@ -4644,21 +4644,21 @@
         -: 4587:#else
         -: 4588:void
         -: 4589:#endif
-      105: 4590:swap(_Tp& __x, _Tp& __y) _NOEXCEPT_(is_nothrow_move_constructible<_Tp>::value &&
+      144: 4590:swap(_Tp& __x, _Tp& __y) _NOEXCEPT_(is_nothrow_move_constructible<_Tp>::value &&
         9: 4590-block  0
-       69: 4590-block  1
-       24: 4590-block  2
-        3: 4590-block  3
+       78: 4590-block  1
+       42: 4590-block  2
+       15: 4590-block  3
         -: 4591:                                    is_nothrow_move_assignable<_Tp>::value)
         -: 4592:{
-      105: 4593:    _Tp __t(_VSTD::move(__x));
-      105: 4594:    __x = _VSTD::move(__y);
-      105: 4595:    __y = _VSTD::move(__t);
-      105: 4596:}
+      144: 4593:    _Tp __t(_VSTD::move(__x));
+      144: 4594:    __x = _VSTD::move(__y);
+      144: 4595:    __y = _VSTD::move(__t);
+      144: 4596:}
         9: 4596-block  0
-       69: 4596-block  1
-       24: 4596-block  2
-        3: 4596-block  3
+       78: 4596-block  1
+       42: 4596-block  2
+       15: 4596-block  3
         -: 4597:
         -: 4598:template<class _Tp, size_t _Np>
         -: 4599:inline _LIBCPP_INLINE_VISIBILITY

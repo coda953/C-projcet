@@ -305,9 +305,9 @@
         -:  300:class __vector_base_common
         -:  301:{
         -:  302:protected:
-      171:  303:    _LIBCPP_INLINE_VISIBILITY __vector_base_common() {}
-      171:  303-block  0
-      171:  303-block  1
+      203:  303:    _LIBCPP_INLINE_VISIBILITY __vector_base_common() {}
+      203:  303-block  0
+      203:  303-block  1
         -:  304:    _LIBCPP_NORETURN void __throw_length_error() const;
         -:  305:    _LIBCPP_NORETURN void __throw_out_of_range() const;
         -:  306:};
@@ -351,55 +351,55 @@
         -:  344:    __compressed_pair<pointer, allocator_type> __end_cap_;
         -:  345:
         -:  346:    _LIBCPP_INLINE_VISIBILITY
-     1079:  347:    allocator_type& __alloc() _NOEXCEPT
-      132:  347-block  0
+     1273:  347:    allocator_type& __alloc() _NOEXCEPT
+      144:  347-block  0
        30:  347-block  1
-      733:  347-block  2
-      184:  347-block  3
-     1079:  348:        {return __end_cap_.second();}
-      132:  348-block  0
+      864:  347-block  2
+      235:  347-block  3
+     1273:  348:        {return __end_cap_.second();}
+      144:  348-block  0
        30:  348-block  1
-      733:  348-block  2
-      184:  348-block  3
+      864:  348-block  2
+      235:  348-block  3
         -:  349:    _LIBCPP_INLINE_VISIBILITY
-      312:  350:    const allocator_type& __alloc() const _NOEXCEPT
-       35:  350-block  0
+      369:  350:    const allocator_type& __alloc() const _NOEXCEPT
+       38:  350-block  0
         7:  350-block  1
-      216:  350-block  2
-       54:  350-block  3
-      312:  351:        {return __end_cap_.second();}
-       35:  351-block  0
+      254:  350-block  2
+       70:  350-block  3
+      369:  351:        {return __end_cap_.second();}
+       38:  351-block  0
         7:  351-block  1
-      216:  351-block  2
-       54:  351-block  3
+      254:  351-block  2
+       70:  351-block  3
         -:  352:    _LIBCPP_INLINE_VISIBILITY
-      212:  353:    pointer& __end_cap() _NOEXCEPT
-       38:  353-block  0
+      260:  353:    pointer& __end_cap() _NOEXCEPT
+       41:  353-block  0
         8:  353-block  1
-      135:  353-block  2
-       31:  353-block  3
-      212:  354:        {return __end_cap_.first();}
-       38:  354-block  0
+      166:  353-block  2
+       45:  353-block  3
+      260:  354:        {return __end_cap_.first();}
+       41:  354-block  0
         8:  354-block  1
-      135:  354-block  2
-       31:  354-block  3
+      166:  354-block  2
+       45:  354-block  3
         -:  355:    _LIBCPP_INLINE_VISIBILITY
-     1014:  356:    const pointer& __end_cap() const _NOEXCEPT
+     1242:  356:    const pointer& __end_cap() const _NOEXCEPT
        38:  356-block  0
-      168:  356-block  1
-      631:  356-block  2
-      177:  356-block  3
-     1014:  357:        {return __end_cap_.first();}
+      183:  356-block  1
+      772:  356-block  2
+      249:  356-block  3
+     1242:  357:        {return __end_cap_.first();}
        38:  357-block  0
-      168:  357-block  1
-      631:  357-block  2
-      177:  357-block  3
+      183:  357-block  1
+      772:  357-block  2
+      249:  357-block  3
         -:  358:
         -:  359:    _LIBCPP_INLINE_VISIBILITY
-       58:  360:    __vector_base()
-       26:  360-block  0
+       71:  360:    __vector_base()
+       32:  360-block  0
     $$$$$:  360-block  1
-       18:  360-block  2
+       25:  360-block  2
     $$$$$:  360-block  3
         5:  360-block  4
     $$$$$:  360-block  5
@@ -408,53 +408,53 @@
         -:  361:        _NOEXCEPT_(is_nothrow_default_constructible<allocator_type>::value);
         -:  362:    _LIBCPP_INLINE_VISIBILITY __vector_base(const allocator_type& __a);
         -:  363:#ifndef _LIBCPP_CXX03_LANG
-      113:  364:    _LIBCPP_INLINE_VISIBILITY __vector_base(allocator_type&& __a) _NOEXCEPT;
+      132:  364:    _LIBCPP_INLINE_VISIBILITY __vector_base(allocator_type&& __a) _NOEXCEPT;
         6:  364-block  0
     $$$$$:  364-block  1
-       12:  364-block  2
+       14:  364-block  2
     $$$$$:  364-block  3
-       95:  364-block  4
+      112:  364-block  4
     $$$$$:  364-block  5
         -:  365:#endif
         -:  366:    ~__vector_base();
         -:  367:
         -:  368:    _LIBCPP_INLINE_VISIBILITY
-      179:  369:    void clear() _NOEXCEPT {__destruct_at_end(__begin_);}
-       25:  369-block  0
-       25:  369-block  1
+      213:  369:    void clear() _NOEXCEPT {__destruct_at_end(__begin_);}
+       28:  369-block  0
+       28:  369-block  1
         5:  369-block  2
         5:  369-block  3
-      119:  369-block  4
-      119:  369-block  5
-       30:  369-block  6
-       30:  369-block  7
+      141:  369-block  4
+      141:  369-block  5
+       39:  369-block  6
+       39:  369-block  7
         -:  370:    _LIBCPP_INLINE_VISIBILITY
-     1014:  371:    size_type capacity() const _NOEXCEPT
+     1242:  371:    size_type capacity() const _NOEXCEPT
        38:  371-block  0
-      168:  371-block  1
-      631:  371-block  2
-      177:  371-block  3
-     1014:  372:        {return static_cast<size_type>(__end_cap() - __begin_);}
+      183:  371-block  1
+      772:  371-block  2
+      249:  371-block  3
+     1242:  372:        {return static_cast<size_type>(__end_cap() - __begin_);}
        38:  372-block  0
-      168:  372-block  1
-      631:  372-block  2
-      177:  372-block  3
+      183:  372-block  1
+      772:  372-block  2
+      249:  372-block  3
         -:  373:
         -:  374:    _LIBCPP_INLINE_VISIBILITY
         -:  375:    void __destruct_at_end(pointer __new_last) _NOEXCEPT;
         -:  376:
         -:  377:    _LIBCPP_INLINE_VISIBILITY
-       16:  378:    void __copy_assign_alloc(const __vector_base& __c)
+       26:  378:    void __copy_assign_alloc(const __vector_base& __c)
         2:  378-block  0
     $$$$$:  378-block  1
-       12:  378-block  2
-        2:  378-block  3
-       16:  379:        {__copy_assign_alloc(__c, integral_constant<bool,
-       16:  380:                      __alloc_traits::propagate_on_container_copy_assignment::value>());}
+       18:  378-block  2
+        6:  378-block  3
+       26:  379:        {__copy_assign_alloc(__c, integral_constant<bool,
+       26:  380:                      __alloc_traits::propagate_on_container_copy_assignment::value>());}
         2:  380-block  0
     $$$$$:  380-block  1
-       12:  380-block  2
-        2:  380-block  3
+       18:  380-block  2
+        6:  380-block  3
         -:  381:
         -:  382:    _LIBCPP_INLINE_VISIBILITY
         -:  383:    void __move_assign_alloc(__vector_base& __c)
@@ -477,16 +477,16 @@
         -:  400:        }
         -:  401:
         -:  402:    _LIBCPP_INLINE_VISIBILITY
-       16:  403:    void __copy_assign_alloc(const __vector_base&, false_type)
+       26:  403:    void __copy_assign_alloc(const __vector_base&, false_type)
         2:  403-block  0
     $$$$$:  403-block  1
-       12:  403-block  2
-        2:  403-block  3
-       16:  404:        {}
+       18:  403-block  2
+        6:  403-block  3
+       26:  404:        {}
         2:  404-block  0
     $$$$$:  404-block  1
-       12:  404-block  2
-        2:  404-block  3
+       18:  404-block  2
+        6:  404-block  3
         -:  405:
         -:  406:    _LIBCPP_INLINE_VISIBILITY
         -:  407:    void __move_assign_alloc(__vector_base& __c, true_type)
@@ -504,61 +504,61 @@
         -:  419:template <class _Tp, class _Allocator>
         -:  420:inline _LIBCPP_INLINE_VISIBILITY
         -:  421:void
-      179:  422:__vector_base<_Tp, _Allocator>::__destruct_at_end(pointer __new_last) _NOEXCEPT
-       25:  422-block  0
+      223:  422:__vector_base<_Tp, _Allocator>::__destruct_at_end(pointer __new_last) _NOEXCEPT
+       28:  422-block  0
         5:  422-block  1
-      119:  422-block  2
-       30:  422-block  3
+      148:  422-block  2
+       42:  422-block  3
         -:  423:{
-      179:  424:    pointer __soon_to_be_end = __end_;
-      721:  425:    while (__new_last != __soon_to_be_end)
-       25:  425-block  0
-       88:  425-block  1
-       63:  425-block  2
+      223:  424:    pointer __soon_to_be_end = __end_;
+      857:  425:    while (__new_last != __soon_to_be_end)
+       28:  425-block  0
+       97:  425-block  1
+       69:  425-block  2
         5:  425-block  3
        20:  425-block  4
        15:  425-block  5
-      119:  425-block  6
-      489:  425-block  7
-      370:  425-block  8
-       30:  425-block  9
-      124:  425-block 10
-       94:  425-block 11
-      542:  426:        __alloc_traits::destroy(__alloc(), _VSTD::__to_raw_pointer(--__soon_to_be_end));
-       63:  426-block  0
+      148:  425-block  6
+      582:  425-block  7
+      434:  425-block  8
+       42:  425-block  9
+      158:  425-block 10
+      116:  425-block 11
+      634:  426:        __alloc_traits::destroy(__alloc(), _VSTD::__to_raw_pointer(--__soon_to_be_end));
+       69:  426-block  0
     $$$$$:  426-block  1
        15:  426-block  2
     $$$$$:  426-block  3
-      370:  426-block  4
+      434:  426-block  4
     $$$$$:  426-block  5
-       94:  426-block  6
+      116:  426-block  6
     $$$$$:  426-block  7
-      179:  427:    __end_ = __new_last;
-      179:  428:}
-       25:  428-block  0
+      223:  427:    __end_ = __new_last;
+      223:  428:}
+       28:  428-block  0
         5:  428-block  1
-      119:  428-block  2
-       30:  428-block  3
+      148:  428-block  2
+       42:  428-block  3
         -:  429:
         -:  430:template <class _Tp, class _Allocator>
         -:  431:inline _LIBCPP_INLINE_VISIBILITY
-       58:  432:__vector_base<_Tp, _Allocator>::__vector_base()
-       26:  432-block  0
-       18:  432-block  1
+       71:  432:__vector_base<_Tp, _Allocator>::__vector_base()
+       32:  432-block  0
+       25:  432-block  1
         5:  432-block  2
         9:  432-block  3
         -:  433:        _NOEXCEPT_(is_nothrow_default_constructible<allocator_type>::value)
-       58:  434:    : __begin_(nullptr),
-       58:  435:      __end_(nullptr),
-       58:  436:      __end_cap_(nullptr)
-       26:  436-block  0
-       18:  436-block  1
+       71:  434:    : __begin_(nullptr),
+       71:  435:      __end_(nullptr),
+       71:  436:      __end_cap_(nullptr)
+       32:  436-block  0
+       25:  436-block  1
         5:  436-block  2
         9:  436-block  3
-       58:  437:{
-       58:  438:}
-       26:  438-block  0
-       18:  438-block  1
+       71:  437:{
+       71:  438:}
+       32:  438-block  0
+       25:  438-block  1
         5:  438-block  2
         9:  438-block  3
         -:  439:
@@ -574,46 +574,46 @@
         -:  449:#ifndef _LIBCPP_CXX03_LANG
         -:  450:template <class _Tp, class _Allocator>
         -:  451:inline _LIBCPP_INLINE_VISIBILITY
-      113:  452:__vector_base<_Tp, _Allocator>::__vector_base(allocator_type&& __a) _NOEXCEPT
+      132:  452:__vector_base<_Tp, _Allocator>::__vector_base(allocator_type&& __a) _NOEXCEPT
         6:  452-block  0
-       12:  452-block  1
-       95:  452-block  2
-      113:  453:    : __begin_(nullptr),
-      113:  454:      __end_(nullptr),
-      113:  455:      __end_cap_(nullptr, std::move(__a)) {}
+       14:  452-block  1
+      112:  452-block  2
+      132:  453:    : __begin_(nullptr),
+      132:  454:      __end_(nullptr),
+      132:  455:      __end_cap_(nullptr, std::move(__a)) {}
         6:  455-block  0
         6:  455-block  1
-       12:  455-block  2
-       12:  455-block  3
-       95:  455-block  4
-       95:  455-block  5
+       14:  455-block  2
+       14:  455-block  3
+      112:  455-block  4
+      112:  455-block  5
         -:  456:#endif
         -:  457:
         -:  458:template <class _Tp, class _Allocator>
-      181:  459:__vector_base<_Tp, _Allocator>::~__vector_base()
-       25:  459-block  0
+      216:  459:__vector_base<_Tp, _Allocator>::~__vector_base()
+       28:  459-block  0
         5:  459-block  1
-      121:  459-block  2
-       30:  459-block  3
+      144:  459-block  2
+       39:  459-block  3
         -:  460:{
-      181:  461:    if (__begin_ != nullptr)
-       25:  461-block  0
+      216:  461:    if (__begin_ != nullptr)
+       28:  461-block  0
         5:  461-block  1
-      121:  461-block  2
-       30:  461-block  3
+      144:  461-block  2
+       39:  461-block  3
         -:  462:    {
-      179:  463:        clear();
-      179:  464:        __alloc_traits::deallocate(__alloc(), __begin_, capacity());
-      179:  465:    }
-       25:  465-block  0
+      213:  463:        clear();
+      213:  464:        __alloc_traits::deallocate(__alloc(), __begin_, capacity());
+      213:  465:    }
+       28:  465-block  0
         5:  465-block  1
-      119:  465-block  2
-       30:  465-block  3
-      181:  466:}
-       25:  466-block  0
+      141:  465-block  2
+       39:  465-block  3
+      216:  466:}
+       28:  466-block  0
         5:  466-block  1
-      121:  466-block  2
-       30:  466-block  3
+      144:  466-block  2
+       39:  466-block  3
         -:  467:
         -:  468:template <class _Tp, class _Allocator /* = allocator<_Tp> */>
         -:  469:class _LIBCPP_TEMPLATE_VIS vector
@@ -642,28 +642,28 @@
         -:  492:                  "Allocator::value_type must be same type as value_type");
         -:  493:
         -:  494:    _LIBCPP_INLINE_VISIBILITY
-       70:  495:    vector() _NOEXCEPT_(is_nothrow_default_constructible<allocator_type>::value)
-       13:  495-block  0
-       13:  495-block  1
+       96:  495:    vector() _NOEXCEPT_(is_nothrow_default_constructible<allocator_type>::value)
+       20:  495-block  0
+       20:  495-block  1
         5:  495-block  2
         5:  495-block  3
         9:  495-block  4
         9:  495-block  5
-        8:  495-block  6
-        8:  495-block  7
-       70:  496:        {
+       14:  495-block  6
+       14:  495-block  7
+       96:  496:        {
         -:  497:#if _LIBCPP_DEBUG_LEVEL >= 2
         -:  498:            __get_db()->__insert_c(this);
         -:  499:#endif
-       70:  500:        }
-       13:  500-block  0
-       13:  500-block  1
+       96:  500:        }
+       20:  500-block  0
+       20:  500-block  1
         5:  500-block  2
         5:  500-block  3
         9:  500-block  4
         9:  500-block  5
-        8:  500-block  6
-        8:  500-block  7
+       14:  500-block  6
+       14:  500-block  7
         -:  501:    _LIBCPP_INLINE_VISIBILITY explicit vector(const allocator_type& __a)
         -:  502:#if _LIBCPP_STD_VER <= 14
         -:  503:        _NOEXCEPT_(is_nothrow_copy_constructible<allocator_type>::value)
@@ -712,27 +712,27 @@
         -:  546:                                    typename iterator_traits<_ForwardIterator>::reference>::value>::type* = 0);
         -:  547:
         -:  548:    _LIBCPP_INLINE_VISIBILITY
-      342:  549:    ~vector()
-      121:  549-block  0
-       30:  549-block  1
+      406:  549:    ~vector()
+      144:  549-block  0
+       39:  549-block  1
        15:  549-block  2
        15:  549-block  3
         5:  549-block  4
         5:  549-block  5
-      121:  549-block  6
-       30:  549-block  7
-      171:  550:    {
-      171:  551:        __annotate_delete();
+      144:  549-block  6
+       39:  549-block  7
+      203:  550:    {
+      203:  551:        __annotate_delete();
        15:  551-block  0
         5:  551-block  1
-      121:  551-block  2
-       30:  551-block  3
+      144:  551-block  2
+       39:  551-block  3
         -:  552:#if _LIBCPP_DEBUG_LEVEL >= 2
         -:  553:        __get_db()->__erase_c(this);
         -:  554:#endif
-      342:  555:    }
-      121:  555-block  0
-       30:  555-block  1
+      406:  555:    }
+      144:  555-block  0
+       39:  555-block  1
        15:  555-block  2
        15:  555-block  3
     $$$$$:  555-block  4
@@ -741,10 +741,10 @@
         5:  555-block  7
     $$$$$:  555-block  8
     $$$$$:  555-block  9
-      121:  555-block 10
+      144:  555-block 10
     $$$$$:  555-block 11
     $$$$$:  555-block 12
-       30:  555-block 13
+       39:  555-block 13
     $$$$$:  555-block 14
     $$$$$:  555-block 15
         -:  556:
@@ -846,27 +846,27 @@
         -:  652:        {return rend();}
         -:  653:
         -:  654:    _LIBCPP_INLINE_VISIBILITY
-      439:  655:    size_type size() const _NOEXCEPT
+      579:  655:    size_type size() const _NOEXCEPT
        21:  655-block  0
-       94:  655-block  1
-      265:  655-block  2
-       59:  655-block  3
-      439:  656:        {return static_cast<size_type>(this->__end_ - this->__begin_);}
+      100:  655-block  1
+      357:  655-block  2
+      101:  655-block  3
+      579:  656:        {return static_cast<size_type>(this->__end_ - this->__begin_);}
        21:  656-block  0
-       94:  656-block  1
-      265:  656-block  2
-       59:  656-block  3
+      100:  656-block  1
+      357:  656-block  2
+      101:  656-block  3
         -:  657:    _LIBCPP_INLINE_VISIBILITY
-      835:  658:    size_type capacity() const _NOEXCEPT
+     1029:  658:    size_type capacity() const _NOEXCEPT
        33:  658-block  0
-      143:  658-block  1
-      512:  658-block  2
-      147:  658-block  3
-      835:  659:        {return __base::capacity();}
+      155:  658-block  1
+      631:  658-block  2
+      210:  658-block  3
+     1029:  659:        {return __base::capacity();}
        33:  659-block  0
-      143:  659-block  1
-      512:  659-block  2
-      147:  659-block  3
+      155:  659-block  1
+      631:  659-block  2
+      210:  659-block  3
         -:  660:    _LIBCPP_NODISCARD_AFTER_CXX17 _LIBCPP_INLINE_VISIBILITY
         -:  661:    bool empty() const _NOEXCEPT
         -:  662:        {return this->__begin_ == this->__end_;}
@@ -904,16 +904,16 @@
         -:  694:    value_type*       data() _NOEXCEPT
         -:  695:        {return _VSTD::__to_raw_pointer(this->__begin_);}
         -:  696:    _LIBCPP_INLINE_VISIBILITY
-     1564:  697:    const value_type* data() const _NOEXCEPT
-      268:  697-block  0
+     1924:  697:    const value_type* data() const _NOEXCEPT
+      292:  697-block  0
        52:  697-block  1
-     1000:  697-block  2
-      244:  697-block  3
-     1564:  698:        {return _VSTD::__to_raw_pointer(this->__begin_);}
-      268:  698-block  0
+     1232:  697-block  2
+      348:  697-block  3
+     1924:  698:        {return _VSTD::__to_raw_pointer(this->__begin_);}
+      292:  698-block  0
        52:  698-block  1
-     1000:  698-block  2
-      244:  698-block  3
+     1232:  698-block  2
+      348:  698-block  3
         -:  699:
         -:  700:#ifdef _LIBCPP_CXX03_LANG
         -:  701:    _LIBCPP_INLINE_VISIBILITY
@@ -1064,33 +1064,33 @@
         -:  826:    void __move_assign(vector& __c, false_type)
         -:  827:        _NOEXCEPT_(__alloc_traits::is_always_equal::value);
         -:  828:    _LIBCPP_INLINE_VISIBILITY
-    #####:  829:    void __destruct_at_end(pointer __new_last) _NOEXCEPT
+       10:  829:    void __destruct_at_end(pointer __new_last) _NOEXCEPT
     $$$$$:  829-block  0
     $$$$$:  829-block  1
-    $$$$$:  829-block  2
-    $$$$$:  829-block  3
+        3:  829-block  2
+        7:  829-block  3
         -:  830:    {
-    #####:  831:        __invalidate_iterators_past(__new_last);
+       10:  831:        __invalidate_iterators_past(__new_last);
     $$$$$:  831-block  0
     $$$$$:  831-block  1
     $$$$$:  831-block  2
     $$$$$:  831-block  3
-    $$$$$:  831-block  4
+        3:  831-block  4
     $$$$$:  831-block  5
-    $$$$$:  831-block  6
+        7:  831-block  6
     $$$$$:  831-block  7
-    #####:  832:        size_type __old_size = size();
-    #####:  833:        __base::__destruct_at_end(__new_last);
-    #####:  834:        __annotate_shrink(__old_size);
+       10:  832:        size_type __old_size = size();
+       10:  833:        __base::__destruct_at_end(__new_last);
+       10:  834:        __annotate_shrink(__old_size);
     $$$$$:  834-block  0
     $$$$$:  834-block  1
-    $$$$$:  834-block  2
-    $$$$$:  834-block  3
-    #####:  835:    }
+        3:  834-block  2
+        7:  834-block  3
+       10:  835:    }
     $$$$$:  835-block  0
     $$$$$:  835-block  1
-    $$$$$:  835-block  2
-    $$$$$:  835-block  3
+        3:  835-block  2
+        7:  835-block  3
         -:  836:
         -:  837:#ifndef _LIBCPP_CXX03_LANG
         -:  838:    template <class _Up> void __push_back_slow_path(_Up&& __x);
@@ -1116,44 +1116,44 @@
         -:  858:    }
         -:  859:#else
         -:  860:    _LIBCPP_INLINE_VISIBILITY
-      391:  861:    void __annotate_contiguous_container(const void*, const void*, const void*,
-       67:  861-block  0
+      481:  861:    void __annotate_contiguous_container(const void*, const void*, const void*,
+       73:  861-block  0
        13:  861-block  1
-      250:  861-block  2
-       61:  861-block  3
-      391:  862:                                         const void*) const {}
-       67:  862-block  0
+      308:  861-block  2
+       87:  861-block  3
+      481:  862:                                         const void*) const {}
+       73:  862-block  0
        13:  862-block  1
-      250:  862-block  2
-       61:  862-block  3
+      308:  862-block  2
+       87:  862-block  3
         -:  863:#endif
         -:  864:    _LIBCPP_INLINE_VISIBILITY
-      185:  865:    void __annotate_new(size_type __current_size) const {
-       29:  865-block  0
+      220:  865:    void __annotate_new(size_type __current_size) const {
+       32:  865-block  0
         5:  865-block  1
-      121:  865-block  2
-       30:  865-block  3
-      370:  866:      __annotate_contiguous_container(data(), data() + capacity(),
-      185:  867:                                      data() + capacity(), data() + __current_size);
-      185:  868:    }
-       29:  868-block  0
+      143:  865-block  2
+       40:  865-block  3
+      440:  866:      __annotate_contiguous_container(data(), data() + capacity(),
+      220:  867:                                      data() + capacity(), data() + __current_size);
+      220:  868:    }
+       32:  868-block  0
         5:  868-block  1
-      121:  868-block  2
-       30:  868-block  3
+      143:  868-block  2
+       40:  868-block  3
         -:  869:
         -:  870:    _LIBCPP_INLINE_VISIBILITY
-      206:  871:    void __annotate_delete() const {
-       38:  871-block  0
+      251:  871:    void __annotate_delete() const {
+       41:  871-block  0
         8:  871-block  1
-      129:  871-block  2
-       31:  871-block  3
-      412:  872:      __annotate_contiguous_container(data(), data() + capacity(),
-      206:  873:                                      data() + size(), data() + capacity());
-      206:  874:    }
-       38:  874-block  0
+      158:  871-block  2
+       44:  871-block  3
+      502:  872:      __annotate_contiguous_container(data(), data() + capacity(),
+      251:  873:                                      data() + size(), data() + capacity());
+      251:  874:    }
+       41:  874-block  0
         8:  874-block  1
-      129:  874-block  2
-       31:  874-block  3
+      158:  874-block  2
+       44:  874-block  3
         -:  875:
         -:  876:    _LIBCPP_INLINE_VISIBILITY
         -:  877:    void __annotate_increase(size_type __n) const
@@ -1163,19 +1163,19 @@
         -:  881:    }
         -:  882:
         -:  883:    _LIBCPP_INLINE_VISIBILITY
-    #####:  884:    void __annotate_shrink(size_type __old_size) const
+       10:  884:    void __annotate_shrink(size_type __old_size) const
     $$$$$:  884-block  0
     $$$$$:  884-block  1
-    $$$$$:  884-block  2
-    $$$$$:  884-block  3
+        7:  884-block  2
+        3:  884-block  3
         -:  885:    {
-    #####:  886:      __annotate_contiguous_container(data(), data() + capacity(),
-    #####:  887:                                      data() + __old_size, data() + size());
-    #####:  888:    }
+       20:  886:      __annotate_contiguous_container(data(), data() + capacity(),
+       10:  887:                                      data() + __old_size, data() + size());
+       10:  888:    }
     $$$$$:  888-block  0
     $$$$$:  888-block  1
-    $$$$$:  888-block  2
-    $$$$$:  888-block  3
+        7:  888-block  2
+        3:  888-block  3
         -:  889:#ifndef _LIBCPP_HAS_NO_ASAN
         -:  890:    // The annotation for size increase should happen before the actual increase,
         -:  891:    // but if an exception is thrown after that the annotation has to be undone.
@@ -1196,7 +1196,7 @@
         -:  906:#else
         -:  907:    struct __RAII_IncreaseAnnotator {
         -:  908:      _LIBCPP_INLINE_VISIBILITY
-      300:  909:      __RAII_IncreaseAnnotator(const vector &, size_type = 1) {}
+      344:  909:      __RAII_IncreaseAnnotator(const vector &, size_type = 1) {}
         6:  909-block  0
         6:  909-block  1
         6:  909-block  2
@@ -1205,23 +1205,23 @@
         2:  909-block  5
         2:  909-block  6
         2:  909-block  7
-      113:  909-block  8
-      113:  909-block  9
-      113:  909-block 10
-      113:  909-block 11
-       29:  909-block 12
-       29:  909-block 13
-       29:  909-block 14
-       29:  909-block 15
-      150:  910:      _LIBCPP_INLINE_VISIBILITY void __done() {}
+      129:  909-block  8
+      129:  909-block  9
+      129:  909-block 10
+      129:  909-block 11
+       35:  909-block 12
+       35:  909-block 13
+       35:  909-block 14
+       35:  909-block 15
+      172:  910:      _LIBCPP_INLINE_VISIBILITY void __done() {}
         6:  910-block  0
         6:  910-block  1
         2:  910-block  2
         2:  910-block  3
-      113:  910-block  4
-      113:  910-block  5
-       29:  910-block  6
-       29:  910-block  7
+      129:  910-block  4
+      129:  910-block  5
+       35:  910-block  6
+       35:  910-block  7
         -:  911:    };
         -:  912:#endif
         -:  913:
@@ -1245,25 +1245,25 @@
         -:  931:
         -:  932:template <class _Tp, class _Allocator>
         -:  933:void
-       35:  934:vector<_Tp, _Allocator>::__swap_out_circular_buffer(__split_buffer<value_type, allocator_type&>& __v)
+       48:  934:vector<_Tp, _Allocator>::__swap_out_circular_buffer(__split_buffer<value_type, allocator_type&>& __v)
         3:  934-block  0
-       23:  934-block  1
-        8:  934-block  2
-        1:  934-block  3
+       26:  934-block  1
+       14:  934-block  2
+        5:  934-block  3
         -:  935:{
-       35:  936:    __annotate_delete();
-       35:  937:    __alloc_traits::__construct_backward(this->__alloc(), this->__begin_, this->__end_, __v.__begin_);
-       35:  938:    _VSTD::swap(this->__begin_, __v.__begin_);
-       35:  939:    _VSTD::swap(this->__end_, __v.__end_);
-       35:  940:    _VSTD::swap(this->__end_cap(), __v.__end_cap());
-       35:  941:    __v.__first_ = __v.__begin_;
-       35:  942:    __annotate_new(size());
-       35:  943:    __invalidate_all_iterators();
-       35:  944:}
+       48:  936:    __annotate_delete();
+       48:  937:    __alloc_traits::__construct_backward(this->__alloc(), this->__begin_, this->__end_, __v.__begin_);
+       48:  938:    _VSTD::swap(this->__begin_, __v.__begin_);
+       48:  939:    _VSTD::swap(this->__end_, __v.__end_);
+       48:  940:    _VSTD::swap(this->__end_cap(), __v.__end_cap());
+       48:  941:    __v.__first_ = __v.__begin_;
+       48:  942:    __annotate_new(size());
+       48:  943:    __invalidate_all_iterators();
+       48:  944:}
         3:  944-block  0
-       23:  944-block  1
-        8:  944-block  2
-        1:  944-block  3
+       26:  944-block  1
+       14:  944-block  2
+        5:  944-block  3
         -:  945:
         -:  946:template <class _Tp, class _Allocator>
         -:  947:typename vector<_Tp, _Allocator>::pointer
@@ -1291,43 +1291,43 @@
         -:  969://  Postcondition:  size() == 0
         -:  970:template <class _Tp, class _Allocator>
         -:  971:void
-      150:  972:vector<_Tp, _Allocator>::__vallocate(size_type __n)
+      172:  972:vector<_Tp, _Allocator>::__vallocate(size_type __n)
         2:  972-block  0
         6:  972-block  1
-      113:  972-block  2
-       29:  972-block  3
+      129:  972-block  2
+       35:  972-block  3
         -:  973:{
-      150:  974:    if (__n > max_size())
+      172:  974:    if (__n > max_size())
         2:  974-block  0
         6:  974-block  1
-      113:  974-block  2
-       29:  974-block  3
+      129:  974-block  2
+       35:  974-block  3
     #####:  975:        this->__throw_length_error();
     $$$$$:  975-block  0
     $$$$$:  975-block  1
     $$$$$:  975-block  2
     $$$$$:  975-block  3
-      150:  976:    this->__begin_ = this->__end_ = __alloc_traits::allocate(this->__alloc(), __n);
-      150:  977:    this->__end_cap() = this->__begin_ + __n;
-      150:  978:    __annotate_new(0);
-      150:  979:}
+      172:  976:    this->__begin_ = this->__end_ = __alloc_traits::allocate(this->__alloc(), __n);
+      172:  977:    this->__end_cap() = this->__begin_ + __n;
+      172:  978:    __annotate_new(0);
+      172:  979:}
         2:  979-block  0
         6:  979-block  1
-      113:  979-block  2
-       29:  979-block  3
+      129:  979-block  2
+       35:  979-block  3
         -:  980:
         -:  981:template <class _Tp, class _Allocator>
         -:  982:void
-       16:  983:vector<_Tp, _Allocator>::__vdeallocate() _NOEXCEPT
+       20:  983:vector<_Tp, _Allocator>::__vdeallocate() _NOEXCEPT
         2:  983-block  0
     $$$$$:  983-block  1
-       12:  983-block  2
+       16:  983-block  2
         2:  983-block  3
         -:  984:{
-       16:  985:    if (this->__begin_ != nullptr)
+       20:  985:    if (this->__begin_ != nullptr)
         2:  985-block  0
     $$$$$:  985-block  1
-       12:  985-block  2
+       16:  985-block  2
         2:  985-block  3
         -:  986:    {
     #####:  987:        clear();
@@ -1338,82 +1338,82 @@
     $$$$$:  990-block  1
     $$$$$:  990-block  2
     $$$$$:  990-block  3
-       16:  991:}
+       20:  991:}
         2:  991-block  0
     $$$$$:  991-block  1
-       12:  991-block  2
+       16:  991-block  2
         2:  991-block  3
         -:  992:
         -:  993:template <class _Tp, class _Allocator>
         -:  994:typename vector<_Tp, _Allocator>::size_type
-      201:  995:vector<_Tp, _Allocator>::max_size() const _NOEXCEPT
-       29:  995-block  0
+      240:  995:vector<_Tp, _Allocator>::max_size() const _NOEXCEPT
+       32:  995-block  0
         7:  995-block  1
-      123:  995-block  2
-       42:  995-block  3
+      145:  995-block  2
+       56:  995-block  3
         -:  996:{
-      402:  997:    return _VSTD::min<size_type>(__alloc_traits::max_size(this->__alloc()),
-       29:  997-block  0
-       29:  997-block  1
-       29:  997-block  2
+      480:  997:    return _VSTD::min<size_type>(__alloc_traits::max_size(this->__alloc()),
+       32:  997-block  0
+       32:  997-block  1
+       32:  997-block  2
     $$$$$:  997-block  3
         7:  997-block  4
         7:  997-block  5
         7:  997-block  6
     $$$$$:  997-block  7
-      123:  997-block  8
-      123:  997-block  9
-      123:  997-block 10
+      145:  997-block  8
+      145:  997-block  9
+      145:  997-block 10
     $$$$$:  997-block 11
-       42:  997-block 12
-       42:  997-block 13
-       42:  997-block 14
+       56:  997-block 12
+       56:  997-block 13
+       56:  997-block 14
     $$$$$:  997-block 15
-      201:  998:                                 numeric_limits<difference_type>::max());
+      240:  998:                                 numeric_limits<difference_type>::max());
         -:  999:}
         -: 1000:
         -: 1001://  Precondition:  __new_size > capacity()
         -: 1002:template <class _Tp, class _Allocator>
         -: 1003:inline _LIBCPP_INLINE_VISIBILITY
         -: 1004:typename vector<_Tp, _Allocator>::size_type
-       37: 1005:vector<_Tp, _Allocator>::__recommend(size_type __new_size) const
+       51: 1005:vector<_Tp, _Allocator>::__recommend(size_type __new_size) const
         5: 1005-block  0
         9: 1005-block  1
-       13: 1005-block  2
-       10: 1005-block  3
+       21: 1005-block  2
+       16: 1005-block  3
         -: 1006:{
-       37: 1007:    const size_type __ms = max_size();
-       37: 1008:    if (__new_size > __ms)
+       51: 1007:    const size_type __ms = max_size();
+       51: 1008:    if (__new_size > __ms)
         5: 1008-block  0
         9: 1008-block  1
-       13: 1008-block  2
-       10: 1008-block  3
+       21: 1008-block  2
+       16: 1008-block  3
     #####: 1009:        this->__throw_length_error();
     $$$$$: 1009-block  0
     $$$$$: 1009-block  1
     $$$$$: 1009-block  2
     $$$$$: 1009-block  3
-       37: 1010:    const size_type __cap = capacity();
-       37: 1011:    if (__cap >= __ms / 2)
+       51: 1010:    const size_type __cap = capacity();
+       51: 1011:    if (__cap >= __ms / 2)
         5: 1011-block  0
         9: 1011-block  1
-       13: 1011-block  2
-       10: 1011-block  3
+       21: 1011-block  2
+       16: 1011-block  3
     #####: 1012:        return __ms;
     $$$$$: 1012-block  0
     $$$$$: 1012-block  1
     $$$$$: 1012-block  2
     $$$$$: 1012-block  3
-       37: 1013:    return _VSTD::max<size_type>(2*__cap, __new_size);
+       51: 1013:    return _VSTD::max<size_type>(2*__cap, __new_size);
         5: 1013-block  0
         9: 1013-block  1
-       13: 1013-block  2
-       10: 1013-block  3
-       37: 1014:}
+       21: 1013-block  2
+       16: 1013-block  3
+       51: 1014:}
         5: 1014-block  0
         9: 1014-block  1
-       13: 1014-block  2
-       10: 1014-block  3
+       21: 1014-block  2
+       16: 1014-block  3
         -: 1015:
         -: 1016://  Default constructs __n objects starting at __end_
         -: 1017://  throws if construction throws
@@ -1484,25 +1484,25 @@
         -: 1062:    __is_forward_iterator<_ForwardIterator>::value,
         -: 1063:    void
         -: 1064:>::type
-      150: 1065:vector<_Tp, _Allocator>::__construct_at_end(_ForwardIterator __first, _ForwardIterator __last, size_type __n)
+      172: 1065:vector<_Tp, _Allocator>::__construct_at_end(_ForwardIterator __first, _ForwardIterator __last, size_type __n)
         2: 1065-block  0
         6: 1065-block  1
        18: 1065-block  2
         5: 1065-block  3
-       24: 1065-block  4
-       95: 1065-block  5
+       30: 1065-block  4
+      111: 1065-block  5
         -: 1066:{
-      150: 1067:    allocator_type& __a = this->__alloc();
-      150: 1068:    __RAII_IncreaseAnnotator __annotator(*this, __n);
-      150: 1069:    __alloc_traits::__construct_range_forward(__a, __first, __last, this->__end_);
-      150: 1070:    __annotator.__done();
-      150: 1071:}
+      172: 1067:    allocator_type& __a = this->__alloc();
+      172: 1068:    __RAII_IncreaseAnnotator __annotator(*this, __n);
+      172: 1069:    __alloc_traits::__construct_range_forward(__a, __first, __last, this->__end_);
+      172: 1070:    __annotator.__done();
+      172: 1071:}
         2: 1071-block  0
         6: 1071-block  1
        18: 1071-block  2
         5: 1071-block  3
-       24: 1071-block  4
-       95: 1071-block  5
+       30: 1071-block  4
+      111: 1071-block  5
         -: 1072:
         -: 1073://  Default constructs __n objects starting at __end_
         -: 1074://  throws if construction throws
@@ -1510,17 +1510,17 @@
         -: 1076://  Exception safety: strong.
         -: 1077:template <class _Tp, class _Allocator>
         -: 1078:void
-       18: 1079:vector<_Tp, _Allocator>::__append(size_type __n)
+       28: 1079:vector<_Tp, _Allocator>::__append(size_type __n)
         3: 1079-block  0
         9: 1079-block  1
-        1: 1079-block  2
-        5: 1079-block  3
+        5: 1079-block  2
+       11: 1079-block  3
         -: 1080:{
-       18: 1081:    if (static_cast<size_type>(this->__end_cap() - this->__end_) >= __n)
+       28: 1081:    if (static_cast<size_type>(this->__end_cap() - this->__end_) >= __n)
         3: 1081-block  0
         9: 1081-block  1
-        1: 1081-block  2
-        5: 1081-block  3
+        5: 1081-block  2
+       11: 1081-block  3
     #####: 1082:        this->__construct_at_end(__n);
     $$$$$: 1082-block  0
     $$$$$: 1082-block  1
@@ -1528,36 +1528,36 @@
     $$$$$: 1082-block  3
         -: 1083:    else
         -: 1084:    {
-       18: 1085:        allocator_type& __a = this->__alloc();
-       18: 1086:        __split_buffer<value_type, allocator_type&> __v(__recommend(size() + __n), size(), __a);
-       18: 1087:        __v.__construct_at_end(__n);
+       28: 1085:        allocator_type& __a = this->__alloc();
+       28: 1086:        __split_buffer<value_type, allocator_type&> __v(__recommend(size() + __n), size(), __a);
+       28: 1087:        __v.__construct_at_end(__n);
         3: 1087-block  0
         9: 1087-block  1
-        1: 1087-block  2
-        5: 1087-block  3
-       18: 1088:        __swap_out_circular_buffer(__v);
+        5: 1087-block  2
+       11: 1087-block  3
+       28: 1088:        __swap_out_circular_buffer(__v);
         3: 1088-block  0
         9: 1088-block  1
-        1: 1088-block  2
-        5: 1088-block  3
-       18: 1089:    }
+        5: 1088-block  2
+       11: 1088-block  3
+       28: 1089:    }
         3: 1089-block  0
     $$$$$: 1089-block  1
     $$$$$: 1089-block  2
         9: 1089-block  3
     $$$$$: 1089-block  4
     $$$$$: 1089-block  5
-        1: 1089-block  6
+        5: 1089-block  6
     $$$$$: 1089-block  7
     $$$$$: 1089-block  8
-        5: 1089-block  9
+       11: 1089-block  9
     $$$$$: 1089-block 10
     $$$$$: 1089-block 11
-       18: 1090:}
+       28: 1090:}
         3: 1090-block  0
         9: 1090-block  1
-        1: 1090-block  2
-        5: 1090-block  3
+        5: 1090-block  2
+       11: 1090-block  3
         -: 1091:
         -: 1092://  Default constructs __n objects starting at __end_
         -: 1093://  throws if construction throws
@@ -1709,48 +1709,48 @@
         -: 1239:}
         -: 1240:
         -: 1241:template <class _Tp, class _Allocator>
-      222: 1242:vector<_Tp, _Allocator>::vector(const vector& __x)
-       12: 1242-block  0
-       93: 1242-block  1
+      258: 1242:vector<_Tp, _Allocator>::vector(const vector& __x)
+       14: 1242-block  0
+      109: 1242-block  1
         6: 1242-block  2
         6: 1242-block  3
-       12: 1242-block  4
-       93: 1242-block  5
-      111: 1243:    : __base(__alloc_traits::select_on_container_copy_construction(__x.__alloc()))
-      222: 1244:{
+       14: 1242-block  4
+      109: 1242-block  5
+      129: 1243:    : __base(__alloc_traits::select_on_container_copy_construction(__x.__alloc()))
+      258: 1244:{
         -: 1245:#if _LIBCPP_DEBUG_LEVEL >= 2
         -: 1246:    __get_db()->__insert_c(this);
         -: 1247:#endif
-      111: 1248:    size_type __n = __x.size();
-      111: 1249:    if (__n > 0)
+      129: 1248:    size_type __n = __x.size();
+      129: 1249:    if (__n > 0)
         6: 1249-block  0
-       12: 1249-block  1
-       93: 1249-block  2
+       14: 1249-block  1
+      109: 1249-block  2
         -: 1250:    {
-      111: 1251:        __vallocate(__n);
+      129: 1251:        __vallocate(__n);
         6: 1251-block  0
-       12: 1251-block  1
-       93: 1251-block  2
-      111: 1252:        __construct_at_end(__x.__begin_, __x.__end_, __n);
+       14: 1251-block  1
+      109: 1251-block  2
+      129: 1252:        __construct_at_end(__x.__begin_, __x.__end_, __n);
         6: 1252-block  0
-       12: 1252-block  1
-       93: 1252-block  2
-      111: 1253:    }
+       14: 1252-block  1
+      109: 1252-block  2
+      129: 1253:    }
         6: 1253-block  0
-       12: 1253-block  1
-       93: 1253-block  2
-      222: 1254:}
-       12: 1254-block  0
-       93: 1254-block  1
+       14: 1253-block  1
+      109: 1253-block  2
+      258: 1254:}
+       14: 1254-block  0
+      109: 1254-block  1
         6: 1254-block  2
     $$$$$: 1254-block  3
         6: 1254-block  4
     $$$$$: 1254-block  5
     $$$$$: 1254-block  6
-       12: 1254-block  7
+       14: 1254-block  7
     $$$$$: 1254-block  8
     $$$$$: 1254-block  9
-       93: 1254-block 10
+      109: 1254-block 10
     $$$$$: 1254-block 11
         -: 1255:
         -: 1256:template <class _Tp, class _Allocator>
@@ -1772,31 +1772,31 @@
         -: 1272:
         -: 1273:template <class _Tp, class _Allocator>
         -: 1274:inline _LIBCPP_INLINE_VISIBILITY
-        4: 1275:vector<_Tp, _Allocator>::vector(vector&& __x)
+        6: 1275:vector<_Tp, _Allocator>::vector(vector&& __x)
     $$$$$: 1275-block  0
     $$$$$: 1275-block  1
-        2: 1275-block  2
-        2: 1275-block  3
+        3: 1275-block  2
+        3: 1275-block  3
         -: 1276:#if _LIBCPP_STD_VER > 14
         -: 1277:        _NOEXCEPT
         -: 1278:#else
         -: 1279:        _NOEXCEPT_(is_nothrow_move_constructible<allocator_type>::value)
         -: 1280:#endif
-        2: 1281:    : __base(_VSTD::move(__x.__alloc()))
-        4: 1282:{
+        3: 1281:    : __base(_VSTD::move(__x.__alloc()))
+        6: 1282:{
         -: 1283:#if _LIBCPP_DEBUG_LEVEL >= 2
         -: 1284:    __get_db()->__insert_c(this);
         -: 1285:    __get_db()->swap(this, &__x);
         -: 1286:#endif
-        2: 1287:    this->__begin_ = __x.__begin_;
-        2: 1288:    this->__end_ = __x.__end_;
-        2: 1289:    this->__end_cap() = __x.__end_cap();
-        2: 1290:    __x.__begin_ = __x.__end_ = __x.__end_cap() = nullptr;
-        4: 1291:}
+        3: 1287:    this->__begin_ = __x.__begin_;
+        3: 1288:    this->__end_ = __x.__end_;
+        3: 1289:    this->__end_cap() = __x.__end_cap();
+        3: 1290:    __x.__begin_ = __x.__end_ = __x.__end_cap() = nullptr;
+        6: 1291:}
     $$$$$: 1291-block  0
     $$$$$: 1291-block  1
-        2: 1291-block  2
-        2: 1291-block  3
+        3: 1291-block  2
+        3: 1291-block  3
         -: 1292:
         -: 1293:template <class _Tp, class _Allocator>
         -: 1294:inline _LIBCPP_INLINE_VISIBILITY
@@ -1918,30 +1918,30 @@
         -: 1390:template <class _Tp, class _Allocator>
         -: 1391:inline _LIBCPP_INLINE_VISIBILITY
         -: 1392:vector<_Tp, _Allocator>&
-       16: 1393:vector<_Tp, _Allocator>::operator=(const vector& __x)
+       26: 1393:vector<_Tp, _Allocator>::operator=(const vector& __x)
         2: 1393-block  0
     $$$$$: 1393-block  1
-       12: 1393-block  2
-        2: 1393-block  3
+       18: 1393-block  2
+        6: 1393-block  3
         -: 1394:{
-       16: 1395:    if (this != &__x)
+       26: 1395:    if (this != &__x)
         2: 1395-block  0
     $$$$$: 1395-block  1
-       12: 1395-block  2
-        2: 1395-block  3
+       18: 1395-block  2
+        6: 1395-block  3
         -: 1396:    {
-       16: 1397:        __base::__copy_assign_alloc(__x);
-       16: 1398:        assign(__x.__begin_, __x.__end_);
-       16: 1399:    }
+       26: 1397:        __base::__copy_assign_alloc(__x);
+       26: 1398:        assign(__x.__begin_, __x.__end_);
+       26: 1399:    }
         2: 1399-block  0
     $$$$$: 1399-block  1
-       12: 1399-block  2
-        2: 1399-block  3
-       16: 1400:    return *this;
+       18: 1399-block  2
+        6: 1399-block  3
+       26: 1400:    return *this;
         2: 1400-block  0
     $$$$$: 1400-block  1
-       12: 1400-block  2
-        2: 1400-block  3
+       18: 1400-block  2
+        6: 1400-block  3
         -: 1401:}
         -: 1402:
         -: 1403:template <class _Tp, class _Allocator>
@@ -1972,26 +1972,26 @@
         -: 1428:       typename iterator_traits<_ForwardIterator>::reference>::value,
         -: 1429:    void
         -: 1430:>::type
-       16: 1431:vector<_Tp, _Allocator>::assign(_ForwardIterator __first, _ForwardIterator __last)
+       26: 1431:vector<_Tp, _Allocator>::assign(_ForwardIterator __first, _ForwardIterator __last)
         2: 1431-block  0
     $$$$$: 1431-block  1
-       12: 1431-block  2
-        2: 1431-block  3
+       18: 1431-block  2
+        6: 1431-block  3
         -: 1432:{
-       16: 1433:    size_type __new_size = static_cast<size_type>(_VSTD::distance(__first, __last));
-       16: 1434:    if (__new_size <= capacity())
+       26: 1433:    size_type __new_size = static_cast<size_type>(_VSTD::distance(__first, __last));
+       26: 1434:    if (__new_size <= capacity())
         2: 1434-block  0
     $$$$$: 1434-block  1
-       12: 1434-block  2
-        2: 1434-block  3
+       18: 1434-block  2
+        6: 1434-block  3
         -: 1435:    {
-    #####: 1436:        _ForwardIterator __mid = __last;
-    #####: 1437:        bool __growing = false;
-    #####: 1438:        if (__new_size > size())
+        6: 1436:        _ForwardIterator __mid = __last;
+        6: 1437:        bool __growing = false;
+        6: 1438:        if (__new_size > size())
     $$$$$: 1438-block  0
     $$$$$: 1438-block  1
-    $$$$$: 1438-block  2
-    $$$$$: 1438-block  3
+        2: 1438-block  2
+        4: 1438-block  3
         -: 1439:        {
     #####: 1440:            __growing = true;
     #####: 1441:            __mid =  __first;
@@ -2001,44 +2001,44 @@
     $$$$$: 1443-block  1
     $$$$$: 1443-block  2
     $$$$$: 1443-block  3
-    #####: 1444:        pointer __m = _VSTD::copy(__first, __mid, this->__begin_);
-    #####: 1445:        if (__growing)
+        6: 1444:        pointer __m = _VSTD::copy(__first, __mid, this->__begin_);
+        6: 1445:        if (__growing)
     $$$$$: 1445-block  0
     $$$$$: 1445-block  1
-    $$$$$: 1445-block  2
-    $$$$$: 1445-block  3
+        2: 1445-block  2
+        4: 1445-block  3
     #####: 1446:            __construct_at_end(__mid, __last, __new_size - size());
     $$$$$: 1446-block  0
     $$$$$: 1446-block  1
     $$$$$: 1446-block  2
     $$$$$: 1446-block  3
         -: 1447:        else
-    #####: 1448:            this->__destruct_at_end(__m);
+        6: 1448:            this->__destruct_at_end(__m);
     $$$$$: 1448-block  0
     $$$$$: 1448-block  1
-    $$$$$: 1448-block  2
-    $$$$$: 1448-block  3
-    #####: 1449:    }
+        2: 1448-block  2
+        4: 1448-block  3
+        6: 1449:    }
     $$$$$: 1449-block  0
     $$$$$: 1449-block  1
-    $$$$$: 1449-block  2
-    $$$$$: 1449-block  3
+        2: 1449-block  2
+        4: 1449-block  3
         -: 1450:    else
         -: 1451:    {
-       16: 1452:        __vdeallocate();
-       16: 1453:        __vallocate(__recommend(__new_size));
-       16: 1454:        __construct_at_end(__first, __last, __new_size);
+       20: 1452:        __vdeallocate();
+       20: 1453:        __vallocate(__recommend(__new_size));
+       20: 1454:        __construct_at_end(__first, __last, __new_size);
         2: 1454-block  0
     $$$$$: 1454-block  1
-       12: 1454-block  2
+       16: 1454-block  2
         2: 1454-block  3
         -: 1455:    }
-       16: 1456:    __invalidate_all_iterators();
-       16: 1457:}
+       26: 1456:    __invalidate_all_iterators();
+       26: 1457:}
         2: 1457-block  0
     $$$$$: 1457-block  1
-       12: 1457-block  2
-        2: 1457-block  3
+       18: 1457-block  2
+        6: 1457-block  3
         -: 1458:
         -: 1459:template <class _Tp, class _Allocator>
         -: 1460:void
@@ -2127,17 +2127,17 @@
         -: 1537:template <class _Tp, class _Allocator>
         -: 1538:inline _LIBCPP_INLINE_VISIBILITY
         -: 1539:typename vector<_Tp, _Allocator>::reference
-     1234: 1540:vector<_Tp, _Allocator>::operator[](size_type __n) _NOEXCEPT
-      556: 1540-block  0
+     1347: 1540:vector<_Tp, _Allocator>::operator[](size_type __n) _NOEXCEPT
+      607: 1540-block  0
        54: 1540-block  1
-      561: 1540-block  2
+      623: 1540-block  2
        63: 1540-block  3
         -: 1541:{
         -: 1542:    _LIBCPP_ASSERT(__n < size(), "vector[] index out of bounds");
-     1234: 1543:    return this->__begin_[__n];
-      556: 1543-block  0
+     1347: 1543:    return this->__begin_[__n];
+      607: 1543-block  0
        54: 1543-block  1
-      561: 1543-block  2
+      623: 1543-block  2
        63: 1543-block  3
         -: 1544:}
         -: 1545:
@@ -2649,38 +2649,38 @@
         -: 2040:
         -: 2041:template <class _Tp, class _Allocator>
         -: 2042:void
-       19: 2043:vector<_Tp, _Allocator>::resize(size_type __sz)
+       33: 2043:vector<_Tp, _Allocator>::resize(size_type __sz)
         4: 2043-block  0
         9: 2043-block  1
-        1: 2043-block  2
-        5: 2043-block  3
+        6: 2043-block  2
+       14: 2043-block  3
         -: 2044:{
-       19: 2045:    size_type __cs = size();
-       19: 2046:    if (__cs < __sz)
+       33: 2045:    size_type __cs = size();
+       33: 2046:    if (__cs < __sz)
         4: 2046-block  0
         9: 2046-block  1
-        1: 2046-block  2
-        5: 2046-block  3
-       18: 2047:        this->__append(__sz - __cs);
+        6: 2046-block  2
+       14: 2046-block  3
+       28: 2047:        this->__append(__sz - __cs);
         3: 2047-block  0
         9: 2047-block  1
-        1: 2047-block  2
-        5: 2047-block  3
-        1: 2048:    else if (__cs > __sz)
+        5: 2047-block  2
+       11: 2047-block  3
+        5: 2048:    else if (__cs > __sz)
         1: 2048-block  0
     $$$$$: 2048-block  1
-    $$$$$: 2048-block  2
-    $$$$$: 2048-block  3
-    #####: 2049:        this->__destruct_at_end(this->__begin_ + __sz);
+        1: 2048-block  2
+        3: 2048-block  3
+        4: 2049:        this->__destruct_at_end(this->__begin_ + __sz);
     $$$$$: 2049-block  0
     $$$$$: 2049-block  1
-    $$$$$: 2049-block  2
-    $$$$$: 2049-block  3
-       19: 2050:}
+        1: 2049-block  2
+        3: 2049-block  3
+       33: 2050:}
         4: 2050-block  0
         9: 2050-block  1
-        1: 2050-block  2
-        5: 2050-block  3
+        6: 2050-block  2
+       14: 2050-block  3
         -: 2051:
         -: 2052:template <class _Tp, class _Allocator>
         -: 2053:void
@@ -2775,30 +2775,30 @@
         -: 2142:template <class _Tp, class _Allocator>
         -: 2143:inline _LIBCPP_INLINE_VISIBILITY
         -: 2144:void
-       51: 2145:vector<_Tp, _Allocator>::__invalidate_all_iterators()
+       74: 2145:vector<_Tp, _Allocator>::__invalidate_all_iterators()
         5: 2145-block  0
-       23: 2145-block  1
-       13: 2145-block  2
-       10: 2145-block  3
+       26: 2145-block  1
+       23: 2145-block  2
+       20: 2145-block  3
         -: 2146:{
         -: 2147:#if _LIBCPP_DEBUG_LEVEL >= 2
         -: 2148:    __get_db()->__invalidate_all(this);
         -: 2149:#endif  // _LIBCPP_DEBUG_LEVEL >= 2
-       51: 2150:}
+       74: 2150:}
         5: 2150-block  0
-       23: 2150-block  1
-       13: 2150-block  2
-       10: 2150-block  3
+       26: 2150-block  1
+       23: 2150-block  2
+       20: 2150-block  3
         -: 2151:
         -: 2152:
         -: 2153:template <class _Tp, class _Allocator>
         -: 2154:inline _LIBCPP_INLINE_VISIBILITY
         -: 2155:void
-    #####: 2156:vector<_Tp, _Allocator>::__invalidate_iterators_past(pointer __new_last) {
+       10: 2156:vector<_Tp, _Allocator>::__invalidate_iterators_past(pointer __new_last) {
     $$$$$: 2156-block  0
     $$$$$: 2156-block  1
-    $$$$$: 2156-block  2
-    $$$$$: 2156-block  3
+        7: 2156-block  2
+        3: 2156-block  3
         -: 2157:#if _LIBCPP_DEBUG_LEVEL >= 2
         -: 2158:  __c_node* __c = __get_db()->__find_c_and_lock(this);
         -: 2159:  for (__i_node** __p = __c->end_; __p != __c->beg_; ) {
@@ -2814,11 +2814,11 @@
         -: 2169:#else
         -: 2170:  ((void)__new_last);
         -: 2171:#endif
-    #####: 2172:}
+       10: 2172:}
     $$$$$: 2172-block  0
     $$$$$: 2172-block  1
-    $$$$$: 2172-block  2
-    $$$$$: 2172-block  3
+        7: 2172-block  2
+        3: 2172-block  3
         -: 2173:
         -: 2174:// vector<bool>
         -: 2175:

@@ -827,17 +827,17 @@
         -:  814:
         -:  815:    template <class = typename enable_if<__is_allocator<_Allocator>::value, nullptr_t>::type>
         -:  816:    _LIBCPP_INLINE_VISIBILITY
-       18:  817:    basic_string(const _CharT* __s) {
-        9:  817-block  0
-        9:  817-block  1
+       24:  817:    basic_string(const _CharT* __s) {
+       12:  817-block  0
+       12:  817-block  1
         -:  818:      _LIBCPP_ASSERT(__s != nullptr, "basic_string(const char*) detected nullptr");
-        9:  819:      __init(__s, traits_type::length(__s));
+       12:  819:      __init(__s, traits_type::length(__s));
         -:  820:#   if _LIBCPP_DEBUG_LEVEL >= 2
         -:  821:      __get_db()->__insert_c(this);
         -:  822:#   endif
-       18:  823:    }
-        9:  823-block  0
-        9:  823-block  1
+       24:  823:    }
+       12:  823-block  0
+       12:  823-block  1
         -:  824:
         -:  825:    template <class = typename enable_if<__is_allocator<_Allocator>::value, nullptr_t>::type>
         -:  826:        _LIBCPP_INLINE_VISIBILITY
@@ -960,29 +960,29 @@
         -:  943:    const_reverse_iterator crend() const _NOEXCEPT
         -:  944:        {return rend();}
         -:  945:
-       91:  946:    _LIBCPP_INLINE_VISIBILITY size_type size() const _NOEXCEPT
-       91:  946-block  0
-       91:  947:        {return __is_long() ? __get_long_size() : __get_short_size();}
-       91:  947-block  0
+      103:  946:    _LIBCPP_INLINE_VISIBILITY size_type size() const _NOEXCEPT
+      103:  946-block  0
+      103:  947:        {return __is_long() ? __get_long_size() : __get_short_size();}
+      103:  947-block  0
         8:  947-block  1
-       83:  947-block  2
-       91:  947-block  3
+       95:  947-block  2
+      103:  947-block  3
         -:  948:    _LIBCPP_INLINE_VISIBILITY size_type length() const _NOEXCEPT {return size();}
         -:  949:    _LIBCPP_INLINE_VISIBILITY size_type max_size() const _NOEXCEPT;
-       91:  950:    _LIBCPP_INLINE_VISIBILITY size_type capacity() const _NOEXCEPT
-       91:  950-block  0
-       91:  951:        {return (__is_long() ? __get_long_cap()
-       91:  951-block  0
+      103:  950:    _LIBCPP_INLINE_VISIBILITY size_type capacity() const _NOEXCEPT
+      103:  950-block  0
+      103:  951:        {return (__is_long() ? __get_long_cap()
+      103:  951-block  0
         8:  951-block  1
-       83:  951-block  2
-       91:  951-block  3
-       91:  951-block  4
-       91:  952:                             : static_cast<size_type>(__min_cap)) - 1;}
+       95:  951-block  2
+      103:  951-block  3
+      103:  951-block  4
+      103:  952:                             : static_cast<size_type>(__min_cap)) - 1;}
         -:  953:
         -:  954:    void resize(size_type __n, value_type __c);
-       91:  955:    _LIBCPP_INLINE_VISIBILITY void resize(size_type __n) {resize(__n, value_type());}
-       91:  955-block  0
-       91:  955-block  1
+      103:  955:    _LIBCPP_INLINE_VISIBILITY void resize(size_type __n) {resize(__n, value_type());}
+      103:  955-block  0
+      103:  955-block  1
         -:  956:
         -:  957:    void reserve(size_type __res_arg);
         -:  958:    _LIBCPP_INLINE_VISIBILITY void __resize_default_init(size_type __n);
@@ -1271,18 +1271,18 @@
     $$$$$: 1240-block  0
     $$$$$: 1240-block  1
         -: 1241:    _LIBCPP_INLINE_VISIBILITY
-      182: 1242:    const value_type* data() const _NOEXCEPT  {return _VSTD::__to_raw_pointer(__get_pointer());}
-      182: 1242-block  0
-      182: 1242-block  1
+      206: 1242:    const value_type* data() const _NOEXCEPT  {return _VSTD::__to_raw_pointer(__get_pointer());}
+      206: 1242-block  0
+      206: 1242-block  1
         -: 1243:#if _LIBCPP_STD_VER > 14 || defined(_LIBCPP_BUILDING_LIBRARY)
         -: 1244:    _LIBCPP_INLINE_VISIBILITY
         -: 1245:    value_type* data()             _NOEXCEPT  {return _VSTD::__to_raw_pointer(__get_pointer());}
         -: 1246:#endif
         -: 1247:
         -: 1248:    _LIBCPP_INLINE_VISIBILITY
-       83: 1249:    allocator_type get_allocator() const _NOEXCEPT {return __alloc();}
-       83: 1249-block  0
-       83: 1249-block  1
+       95: 1249:    allocator_type get_allocator() const _NOEXCEPT {return __alloc();}
+       95: 1249-block  0
+       95: 1249-block  1
         -: 1250:
         -: 1251:    _LIBCPP_INLINE_VISIBILITY
         -: 1252:    size_type find(const basic_string& __str, size_type __pos = 0) const _NOEXCEPT;
@@ -1452,10 +1452,10 @@
         -: 1416:    _LIBCPP_INLINE_VISIBILITY void __clear_and_shrink() _NOEXCEPT;
         -: 1417:
         -: 1418:    _LIBCPP_INLINE_VISIBILITY
-      364: 1419:    bool __is_long() const _NOEXCEPT
-      364: 1419-block  0
-      364: 1420:        {return bool(__r_.first().__s.__size_ & __short_mask);}
-      364: 1420-block  0
+      412: 1419:    bool __is_long() const _NOEXCEPT
+      412: 1419-block  0
+      412: 1420:        {return bool(__r_.first().__s.__size_ & __short_mask);}
+      412: 1420-block  0
         -: 1421:
         -: 1422:#if _LIBCPP_DEBUG_LEVEL >= 2
         -: 1423:
@@ -1473,10 +1473,10 @@
         8: 1434:        {return __r_.second();}
         8: 1434-block  0
         -: 1435:    _LIBCPP_INLINE_VISIBILITY
-      166: 1436:    const allocator_type& __alloc() const _NOEXCEPT
-      166: 1436-block  0
-      166: 1437:        {return __r_.second();}
-      166: 1437-block  0
+      190: 1436:    const allocator_type& __alloc() const _NOEXCEPT
+      190: 1436-block  0
+      190: 1437:        {return __r_.second();}
+      190: 1437-block  0
         -: 1438:
         -: 1439:#ifdef _LIBCPP_ABI_ALTERNATE_STRING_LAYOUT
         -: 1440:
@@ -1499,23 +1499,23 @@
         -: 1457:#else  // _LIBCPP_ABI_ALTERNATE_STRING_LAYOUT
         -: 1458:
         -: 1459:    _LIBCPP_INLINE_VISIBILITY
-       75: 1460:    void __set_short_size(size_type __s) _NOEXCEPT
-       75: 1460-block  0
+       87: 1460:    void __set_short_size(size_type __s) _NOEXCEPT
+       87: 1460-block  0
         -: 1461:#   ifdef _LIBCPP_BIG_ENDIAN
         -: 1462:        {__r_.first().__s.__size_ = (unsigned char)(__s);}
         -: 1463:#   else
-       75: 1464:        {__r_.first().__s.__size_ = (unsigned char)(__s << 1);}
-       75: 1464-block  0
+       87: 1464:        {__r_.first().__s.__size_ = (unsigned char)(__s << 1);}
+       87: 1464-block  0
         -: 1465:#   endif
         -: 1466:
         -: 1467:    _LIBCPP_INLINE_VISIBILITY
-       83: 1468:    size_type __get_short_size() const _NOEXCEPT
-       83: 1468-block  0
+       95: 1468:    size_type __get_short_size() const _NOEXCEPT
+       95: 1468-block  0
         -: 1469:#   ifdef _LIBCPP_BIG_ENDIAN
         -: 1470:        {return __r_.first().__s.__size_;}
         -: 1471:#   else
-       83: 1472:        {return __r_.first().__s.__size_ >> 1;}
-       83: 1472-block  0
+       95: 1472:        {return __r_.first().__s.__size_ >> 1;}
+       95: 1472-block  0
         -: 1473:#   endif
         -: 1474:
         -: 1475:#endif  // _LIBCPP_ABI_ALTERNATE_STRING_LAYOUT
@@ -1559,26 +1559,26 @@
        16: 1502:        {return __r_.first().__l.__data_;}
        16: 1502-block  0
         -: 1503:    _LIBCPP_INLINE_VISIBILITY
-       75: 1504:    pointer __get_short_pointer() _NOEXCEPT
-       75: 1504-block  0
-       75: 1505:        {return pointer_traits<pointer>::pointer_to(__r_.first().__s.__data_[0]);}
-       75: 1505-block  0
+       87: 1504:    pointer __get_short_pointer() _NOEXCEPT
+       87: 1504-block  0
+       87: 1505:        {return pointer_traits<pointer>::pointer_to(__r_.first().__s.__data_[0]);}
+       87: 1505-block  0
         -: 1506:    _LIBCPP_INLINE_VISIBILITY
-      166: 1507:    const_pointer __get_short_pointer() const _NOEXCEPT
-      166: 1507-block  0
-      166: 1508:        {return pointer_traits<const_pointer>::pointer_to(__r_.first().__s.__data_[0]);}
-      166: 1508-block  0
+      190: 1507:    const_pointer __get_short_pointer() const _NOEXCEPT
+      190: 1507-block  0
+      190: 1508:        {return pointer_traits<const_pointer>::pointer_to(__r_.first().__s.__data_[0]);}
+      190: 1508-block  0
         -: 1509:    _LIBCPP_INLINE_VISIBILITY
         -: 1510:    pointer __get_pointer() _NOEXCEPT
         -: 1511:        {return __is_long() ? __get_long_pointer() : __get_short_pointer();}
         -: 1512:    _LIBCPP_INLINE_VISIBILITY
-      182: 1513:    const_pointer __get_pointer() const _NOEXCEPT
-      182: 1513-block  0
-      182: 1514:        {return __is_long() ? __get_long_pointer() : __get_short_pointer();}
-      182: 1514-block  0
+      206: 1513:    const_pointer __get_pointer() const _NOEXCEPT
+      206: 1513-block  0
+      206: 1514:        {return __is_long() ? __get_long_pointer() : __get_short_pointer();}
+      206: 1514-block  0
        16: 1514-block  1
-      166: 1514-block  2
-      182: 1514-block  3
+      190: 1514-block  2
+      206: 1514-block  3
         -: 1515:
         -: 1516:    _LIBCPP_INLINE_VISIBILITY
     #####: 1517:    void __zero() _NOEXCEPT
@@ -2138,22 +2138,22 @@
         -: 2042:    __is_forward_iterator<_ForwardIterator>::value,
         -: 2043:    void
         -: 2044:>::type
-       83: 2045:basic_string<_CharT, _Traits, _Allocator>::__init(_ForwardIterator __first, _ForwardIterator __last)
-       83: 2045-block  0
+       95: 2045:basic_string<_CharT, _Traits, _Allocator>::__init(_ForwardIterator __first, _ForwardIterator __last)
+       95: 2045-block  0
         -: 2046:{
-       83: 2047:    size_type __sz = static_cast<size_type>(_VSTD::distance(__first, __last));
-       83: 2048:    if (__sz > max_size())
-       83: 2048-block  0
+       95: 2047:    size_type __sz = static_cast<size_type>(_VSTD::distance(__first, __last));
+       95: 2048:    if (__sz > max_size())
+       95: 2048-block  0
     #####: 2049:        this->__throw_length_error();
     $$$$$: 2049-block  0
         -: 2050:    pointer __p;
-       83: 2051:    if (__sz < __min_cap)
-       83: 2051-block  0
+       95: 2051:    if (__sz < __min_cap)
+       95: 2051-block  0
         -: 2052:    {
-       75: 2053:        __set_short_size(__sz);
-       75: 2054:        __p = __get_short_pointer();
-       75: 2055:    }
-       75: 2055-block  0
+       87: 2053:        __set_short_size(__sz);
+       87: 2054:        __p = __get_short_pointer();
+       87: 2055:    }
+       87: 2055-block  0
         -: 2056:    else
         -: 2057:    {
         8: 2058:        size_type __cap = __recommend(__sz);
@@ -2163,15 +2163,15 @@
         8: 2062:        __set_long_size(__sz);
         8: 2062-block  0
         -: 2063:    }
-      874: 2064:    for (; __first != __last; ++__first, (void) ++__p)
-       83: 2064-block  0
-      874: 2064-block  1
-      791: 2064-block  2
-      791: 2065:        traits_type::assign(*__p, *__first);
-      791: 2065-block  0
-       83: 2066:    traits_type::assign(*__p, value_type());
-       83: 2067:}
-       83: 2067-block  0
+      903: 2064:    for (; __first != __last; ++__first, (void) ++__p)
+       95: 2064-block  0
+      903: 2064-block  1
+      808: 2064-block  2
+      808: 2065:        traits_type::assign(*__p, *__first);
+      808: 2065-block  0
+       95: 2066:    traits_type::assign(*__p, value_type());
+       95: 2067:}
+       95: 2067-block  0
         -: 2068:
         -: 2069:template <class _CharT, class _Traits, class _Allocator>
         -: 2070:template<class _InputIterator, class>
@@ -2187,19 +2187,19 @@
         -: 2080:template <class _CharT, class _Traits, class _Allocator>
         -: 2081:template<class _InputIterator, class>
         -: 2082:inline
-      166: 2083:basic_string<_CharT, _Traits, _Allocator>::basic_string(_InputIterator __first, _InputIterator __last,
-       83: 2083-block  0
-       83: 2083-block  1
+      190: 2083:basic_string<_CharT, _Traits, _Allocator>::basic_string(_InputIterator __first, _InputIterator __last,
+       95: 2083-block  0
+       95: 2083-block  1
         -: 2084:                                                        const allocator_type& __a)
-       83: 2085:    : __r_(__second_tag(), __a)
-      166: 2086:{
-       83: 2087:    __init(__first, __last);
+       95: 2085:    : __r_(__second_tag(), __a)
+      190: 2086:{
+       95: 2087:    __init(__first, __last);
         -: 2088:#if _LIBCPP_DEBUG_LEVEL >= 2
         -: 2089:    __get_db()->__insert_c(this);
         -: 2090:#endif
-      166: 2091:}
-       83: 2091-block  0
-       83: 2091-block  1
+      190: 2091:}
+       95: 2091-block  0
+       95: 2091-block  1
         -: 2092:
         -: 2093:#ifndef _LIBCPP_CXX03_LANG
         -: 2094:
@@ -3226,15 +3226,15 @@
         -: 3115:template <class _CharT, class _Traits, class _Allocator>
         -: 3116:inline
         -: 3117:typename basic_string<_CharT, _Traits, _Allocator>::size_type
-       83: 3118:basic_string<_CharT, _Traits, _Allocator>::max_size() const _NOEXCEPT
-       83: 3118-block  0
+       95: 3118:basic_string<_CharT, _Traits, _Allocator>::max_size() const _NOEXCEPT
+       95: 3118-block  0
         -: 3119:{
-       83: 3120:    size_type __m = __alloc_traits::max_size(__alloc());
+       95: 3120:    size_type __m = __alloc_traits::max_size(__alloc());
         -: 3121:#ifdef _LIBCPP_BIG_ENDIAN
         -: 3122:    return (__m <= ~__long_mask ? __m : __m/2) - __alignment;
         -: 3123:#else
-       83: 3124:    return __m - __alignment;
-       83: 3124-block  0
+       95: 3124:    return __m - __alignment;
+       95: 3124-block  0
         -: 3125:#endif
         -: 3126:}
         -: 3127:

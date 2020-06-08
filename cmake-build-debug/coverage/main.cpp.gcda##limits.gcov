@@ -216,9 +216,9 @@
         -:  211:    static _LIBCPP_CONSTEXPR const type __min = __libcpp_compute_min<type, digits, is_signed>::value;
         -:  212:    static _LIBCPP_CONSTEXPR const type __max = is_signed ? type(type(~0) ^ __min) : type(~0);
         -:  213:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type min() _NOEXCEPT {return __min;}
-      201:  214:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __max;}
-      201:  214-block  0
-      201:  214-block  1
+      240:  214:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __max;}
+      240:  214-block  0
+      240:  214-block  1
         -:  215:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type lowest() _NOEXCEPT {return min();}
         -:  216:
         -:  217:    static _LIBCPP_CONSTEXPR const bool is_integer = true;
@@ -455,9 +455,9 @@
         -:  448:public:
         -:  449:    static _LIBCPP_CONSTEXPR const bool is_specialized = __base::is_specialized;
         -:  450:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type min() _NOEXCEPT {return __base::min();}
-      201:  451:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __base::max();}
-      201:  451-block  0
-      201:  451-block  1
+      240:  451:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type max() _NOEXCEPT {return __base::max();}
+      240:  451-block  0
+      240:  451-block  1
         -:  452:    _LIBCPP_INLINE_VISIBILITY static _LIBCPP_CONSTEXPR type lowest() _NOEXCEPT {return __base::lowest();}
         -:  453:
         -:  454:    static _LIBCPP_CONSTEXPR const int  digits = __base::digits;
