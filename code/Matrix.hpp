@@ -110,9 +110,9 @@ public:
     }
 
 /**
- *
- * @param row
- * @return
+ * get the minimum value of a row
+ * @param row the number of the row
+ * @return the minimum element
  */
     T findMinAtRow(int row) {
         if (this->row == 0 || this->column == 0) {
@@ -125,7 +125,11 @@ public:
         }
         return ans;
     }
-
+/**
+ * get the minimum value of a column
+ * @param column the number of the column
+ * @return the minimum element
+ */
     T findMinAtColumn(int column) {
         if (this->row == 0 || this->column == 0) {
             cerr << "The vector is empty,can not get sum" << endl;
@@ -137,7 +141,10 @@ public:
         }
         return ans;
     }
-
+/**
+ * get the maximum element of the matrix
+ * @return the maximum element
+ */
     T findMax() {
         if (this->row == 0 || this->column == 0) {
             cerr << "The vector is empty,can not get sum" << endl;
@@ -151,7 +158,11 @@ public:
         }
         return ans;
     }
-
+/**
+ * get the maximum element of one row
+ * @param row the number of the row
+ * @return the maximum element of row-th row
+ */
     T findMaxAtRow(int row) {
         if (this->row == 0 || this->column == 0) {
             cerr << "The vector is empty,can not get sum" << endl;
@@ -163,7 +174,11 @@ public:
         }
         return ans;
     }
-
+/**
+ * get the maximum element of the column
+ * @param column the number of the column
+ * @return the maximum element of the column
+ */
     T findMaxAtColumn(int column) {
         if (this->row == 0 || this->column == 0) {
             cerr << "The vector is empty,can not get sum" << endl;
@@ -175,25 +190,39 @@ public:
         }
         return ans;
     }
-
+/**
+ * get the average of the matrix
+ * @return the average element
+ */
     T findAverage() {
         T ans = findSum();
         ans /= (row * this->column);
         return ans;
     }
-
+/**
+ * get the average of one row
+ * @param row the number of the row
+ * @return the average of row
+ */
     T findAverageAtRow(int row) {
         T ans = findSumAtRow(row);
         ans /= this->column;
         return ans;
     }
-
+/**
+ * get the average of one column
+ * @param column the number of the column
+ * @return the average of column
+ */
     T findAverageAtColumn(int column) {
         T ans = findSumAtColumn(column);
         ans /= this->row;
         return ans;
     }
-
+/**
+ * get the sum of the matrix
+ * @return the sum of the matrix
+ */
     T findSum() {
         if (this->row == 0 || this->column == 0) {
             cerr << "The vector is empty,can not get sum" << endl;
