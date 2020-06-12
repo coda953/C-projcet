@@ -1,9 +1,10 @@
-/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/install/local.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/install/strip.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/install.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/list_install_components.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/install/local.dir
+/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/opencvTest.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/cppProject.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/CMakeFiles/install/local.dir
 /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/googletest/CMakeFiles/install/strip.dir

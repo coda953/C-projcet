@@ -53,6 +53,7 @@ CMAKE_BINARY_DIR = /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/opencvTest.dir/all
 all: CMakeFiles/cppProject.dir/all
 all: googletest/all
 
@@ -64,6 +65,7 @@ preinstall: googletest/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/opencvTest.dir/clean
 clean: CMakeFiles/cppProject.dir/clean
 clean: googletest/clean
 
@@ -128,6 +130,33 @@ googletest/googletest/clean: googletest/googletest/CMakeFiles/gtest_main.dir/cle
 googletest/googletest/clean: googletest/googletest/CMakeFiles/gtest.dir/clean
 
 .PHONY : googletest/googletest/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/opencvTest.dir
+
+# All Build rule for target.
+CMakeFiles/opencvTest.dir/all: googletest/googletest/CMakeFiles/gtest.dir/all
+	$(MAKE) -f CMakeFiles/opencvTest.dir/build.make CMakeFiles/opencvTest.dir/depend
+	$(MAKE) -f CMakeFiles/opencvTest.dir/build.make CMakeFiles/opencvTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles --progress-num=11,12 "Built target opencvTest"
+.PHONY : CMakeFiles/opencvTest.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/opencvTest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/opencvTest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/opencvTest.dir/rule
+
+# Convenience name for target.
+opencvTest: CMakeFiles/opencvTest.dir/rule
+
+.PHONY : opencvTest
+
+# clean rule for target.
+CMakeFiles/opencvTest.dir/clean:
+	$(MAKE) -f CMakeFiles/opencvTest.dir/build.make CMakeFiles/opencvTest.dir/clean
+.PHONY : CMakeFiles/opencvTest.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/cppProject.dir

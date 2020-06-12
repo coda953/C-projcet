@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -124,6 +112,18 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles /Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles/progress.marks
@@ -155,6 +155,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named opencvTest
+
+# Build rule for target.
+opencvTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opencvTest
+.PHONY : opencvTest
+
+# fast build rule for target.
+opencvTest/fast:
+	$(MAKE) -f CMakeFiles/opencvTest.dir/build.make CMakeFiles/opencvTest.dir/build
+.PHONY : opencvTest/fast
 
 #=============================================================================
 # Target rules for targets named cppProject
@@ -227,7 +240,7 @@ code/main.o: code/main.cpp.o
 
 # target to build an object file
 code/main.cpp.o:
-	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/main.cpp.o
+	$(MAKE) -f CMakeFiles/opencvTest.dir/build.make CMakeFiles/opencvTest.dir/code/main.cpp.o
 .PHONY : code/main.cpp.o
 
 code/main.i: code/main.cpp.i
@@ -236,7 +249,7 @@ code/main.i: code/main.cpp.i
 
 # target to preprocess a source file
 code/main.cpp.i:
-	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/main.cpp.i
+	$(MAKE) -f CMakeFiles/opencvTest.dir/build.make CMakeFiles/opencvTest.dir/code/main.cpp.i
 .PHONY : code/main.cpp.i
 
 code/main.s: code/main.cpp.s
@@ -245,8 +258,35 @@ code/main.s: code/main.cpp.s
 
 # target to generate assembly for a file
 code/main.cpp.s:
-	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/main.cpp.s
+	$(MAKE) -f CMakeFiles/opencvTest.dir/build.make CMakeFiles/opencvTest.dir/code/main.cpp.s
 .PHONY : code/main.cpp.s
+
+code/test.o: code/test.cpp.o
+
+.PHONY : code/test.o
+
+# target to build an object file
+code/test.cpp.o:
+	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/test.cpp.o
+.PHONY : code/test.cpp.o
+
+code/test.i: code/test.cpp.i
+
+.PHONY : code/test.i
+
+# target to preprocess a source file
+code/test.cpp.i:
+	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/test.cpp.i
+.PHONY : code/test.cpp.i
+
+code/test.s: code/test.cpp.s
+
+.PHONY : code/test.s
+
+# target to generate assembly for a file
+code/test.cpp.s:
+	$(MAKE) -f CMakeFiles/cppProject.dir/build.make CMakeFiles/cppProject.dir/code/test.cpp.s
+.PHONY : code/test.cpp.s
 
 # Help Target
 help:
@@ -254,12 +294,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... install/local"
+	@echo "... opencvTest"
 	@echo "... cppProject"
 	@echo "... gmock"
 	@echo "... gmock_main"
@@ -268,6 +309,9 @@ help:
 	@echo "... code/main.o"
 	@echo "... code/main.i"
 	@echo "... code/main.s"
+	@echo "... code/test.o"
+	@echo "... code/test.i"
+	@echo "... code/test.s"
 .PHONY : help
 
 

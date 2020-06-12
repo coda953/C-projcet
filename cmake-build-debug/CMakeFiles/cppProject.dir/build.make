@@ -57,27 +57,27 @@ include CMakeFiles/cppProject.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cppProject.dir/flags.make
 
-CMakeFiles/cppProject.dir/code/main.cpp.o: CMakeFiles/cppProject.dir/flags.make
-CMakeFiles/cppProject.dir/code/main.cpp.o: ../code/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppProject.dir/code/main.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppProject.dir/code/main.cpp.o -c /Users/bytedance/CLionProjects/C-projcet/code/main.cpp
+CMakeFiles/cppProject.dir/code/test.cpp.o: CMakeFiles/cppProject.dir/flags.make
+CMakeFiles/cppProject.dir/code/test.cpp.o: ../code/test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/bytedance/CLionProjects/C-projcet/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cppProject.dir/code/test.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cppProject.dir/code/test.cpp.o -c /Users/bytedance/CLionProjects/C-projcet/code/test.cpp
 
-CMakeFiles/cppProject.dir/code/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppProject.dir/code/main.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/CLionProjects/C-projcet/code/main.cpp > CMakeFiles/cppProject.dir/code/main.cpp.i
+CMakeFiles/cppProject.dir/code/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cppProject.dir/code/test.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/bytedance/CLionProjects/C-projcet/code/test.cpp > CMakeFiles/cppProject.dir/code/test.cpp.i
 
-CMakeFiles/cppProject.dir/code/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppProject.dir/code/main.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/CLionProjects/C-projcet/code/main.cpp -o CMakeFiles/cppProject.dir/code/main.cpp.s
+CMakeFiles/cppProject.dir/code/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cppProject.dir/code/test.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/bytedance/CLionProjects/C-projcet/code/test.cpp -o CMakeFiles/cppProject.dir/code/test.cpp.s
 
 # Object files for target cppProject
 cppProject_OBJECTS = \
-"CMakeFiles/cppProject.dir/code/main.cpp.o"
+"CMakeFiles/cppProject.dir/code/test.cpp.o"
 
 # External object files for target cppProject
 cppProject_EXTERNAL_OBJECTS =
 
-cppProject: CMakeFiles/cppProject.dir/code/main.cpp.o
+cppProject: CMakeFiles/cppProject.dir/code/test.cpp.o
 cppProject: CMakeFiles/cppProject.dir/build.make
 cppProject: /usr/local/lib/libopencv_gapi.4.3.0.dylib
 cppProject: /usr/local/lib/libopencv_stitching.4.3.0.dylib

@@ -9,8 +9,11 @@ add_subdirectory(./googletest)
 set(LIBRARIES
         gtest
         pthread)
-add_executable(cppProject code/main.cpp code/Matrix.hpp code/Vector.hpp )
+add_executable(cppProject code/test.cpp code/Matrix.hpp code/Vector.hpp )
+add_executable(opencvTest code/Matrix.hpp code/Vector.hpp code/main.cpp)
 target_link_libraries(cppProject ${OpenCV_LIBS})
+target_link_libraries(opencvTest ${OpenCV_LIBS})
 target_link_libraries(cppProject ${LIBRARIES})
+target_link_libraries(opencvTest ${LIBRARIES})
 message("Building with lcov Code Coverage Tools")
 set(CMAKE_CXX_FLAGS "--coverage")
