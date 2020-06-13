@@ -854,10 +854,10 @@ Matrix<T>::Matrix(vector<vector<T>> other) {
 
 template<class T>
 Mat Matrix<T>::to_opencv_8UC1() {
-    Mat ans = Mat::zeros(Size(this->column, this->row), CV_8UC1);
-    for (int i = 0; i < this->row; ++i) {
-        for (int j = 0; j < this->column; ++j) {
-            ans.at<float>(i, j) = this->matrix[i][j];
+    Mat ans = Mat::zeros(this->row, this->column, CV_8UC1);
+    for (size_t i = 0; i < this->row; ++i) {
+        for (size_t j = 0; j < this->column; ++j) {
+            ans.at<uchar>(i, j) = this->matrix[i][j];
         }
     }
     return ans;
@@ -865,7 +865,7 @@ Mat Matrix<T>::to_opencv_8UC1() {
 
 template<class T>
 Mat Matrix<T>::to_opencv_32FC1() {
-    Mat ans = Mat::zeros(Size(this->column, this->row), CV_32FC1);
+    Mat ans = Mat::zeros(this->row, this->column, CV_32FC1);
     for (int i = 0; i < this->row; ++i) {
         for (int j = 0; j < this->column; ++j) {
             ans.at<float>(i, j) = this->matrix[i][j];
