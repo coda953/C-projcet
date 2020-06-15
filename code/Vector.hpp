@@ -232,7 +232,7 @@ public:
  * @param other  the other vector to add
  * @return the answer vector
  */
-    Vector operator+(const Vector &other) const {
+    Vector operator+(Vector &other) {
         if (this->length != other.length) {
             cerr << "The length of two vector is not equal" << endl;
             return Vector(0);
@@ -249,7 +249,7 @@ public:
  * @param other the matrix to add
  * @return the answer matrix
  */
-    Matrix<T> operator+(Matrix<T> other) const {
+    Matrix<T> operator+(Matrix<T> other) {
         if (this->length != other.getColumn()) {
             cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix<T>(0, 0);
@@ -268,7 +268,7 @@ public:
  * @param other  the other vector to minus
  * @return the answer vector
  */
-    Vector operator-(const Vector &other) const {
+    Vector operator-(Vector &other) {
         if (this->length != other.length) {
             cerr << "The length of two vector is not equal" << endl;
             return Vector(0);
@@ -285,7 +285,7 @@ public:
  * @param other the matrix to minus
  * @return the answer matrix
  */
-    Matrix<T> operator-(Matrix<T> other) const {
+    Matrix<T> operator-(Matrix<T> other) {
         if (this->length != other.getColumn()) {
             cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix<T>(0, 0);
@@ -304,7 +304,7 @@ public:
  * @param other the multiplier
  * @return the answer vector
  */
-    Vector operator*(T other) const {
+    Vector operator*(T other) {
         Vector ans = Vector(this->length);
         for (int i = 0; i < this->length; ++i) {
             ans[i] = this->vector[i] * other;
@@ -317,7 +317,7 @@ public:
  * @param other the multiplier matrix
  * @return the answer vector
  */
-    Vector operator*(Matrix<T> other) const {
+    Vector operator*(Matrix<T> other) {
         if (this->length != other.getRow()) {
             cerr << "Vector * Matrix error!" << endl;
             cerr << "Vector length is not equal Matrix row" << endl;
