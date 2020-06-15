@@ -1,5 +1,13 @@
 # C-project
 ## 说明
+### TODO
+矩阵求逆
+
+矩阵特征向量
+
+稀疏矩阵存储
+
+中文注释
 ### windows 配置如下
 `cygwin` +`opencv3.4` 
 ### mac 配置如下

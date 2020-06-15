@@ -319,7 +319,10 @@ public:
         return this->column;
 
     }
-
+/**
+ * 计算一个方阵的特征值
+ * @return 矩阵的特征值
+ */
     vector<T> getEigenvalue() {
         if (this->row != this->column) {
             cerr << "The matrix is not a square matrix" << endl;
@@ -546,6 +549,10 @@ public:
         return result;
     }
 
+/**
+ * 矩阵转置
+ * @return 矩阵转置后的矩阵
+ */
     Matrix transposition() {
         Matrix ans = Matrix(this->column, this->row);
         for (int i = 0; i < this->row; ++i) {
@@ -556,6 +563,10 @@ public:
         return ans;
     }
 
+/**
+ * 矩阵转置，并改变原矩阵
+ * @return 矩阵转置后的矩阵
+ */
     Matrix transposition_change() {
         Matrix ans = this->transposition();
         this->row = ans.row;
@@ -564,6 +575,10 @@ public:
         return ans;
     }
 
+/**
+ * 矩阵共轭
+ * @return 原矩阵的共轭矩阵
+ */
     Matrix conjugation() {
         Matrix ans = Matrix(this->row, this->column);
         for (int i = 0; i < this->row; ++i) {
@@ -575,12 +590,21 @@ public:
         return ans;
     }
 
+/**
+ * 矩阵共轭，并改变原矩阵
+ * @return 原矩阵的共轭矩阵
+ */
     Matrix conjugation_change() {
         Matrix ans = this->conjugation();
         this->matrix = ans.matrix;
         return ans;
     }
 
+/**
+ * 矩阵元素点乘
+ * @param other 点乘的矩阵
+ * @return 矩阵元素点乘的结果
+ */
     Matrix element_wise_multiplication(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
             cerr << "the size of these two vector is not equal" << endl;
@@ -599,6 +623,11 @@ public:
         return ans;
     }
 
+/**
+ * 矩阵元素点乘，并将结果赋值给原矩阵
+ * @param other 点乘的矩阵
+ * @return 矩阵元素点乘的结果
+ */
     Matrix element_wise_multiplication_change(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
             cerr << "the size of these two vector is not equal" << endl;
@@ -620,6 +649,14 @@ public:
         return ans;
     }
 
+/**
+ * 矩阵整形为特定行列的矩阵
+ * 若原矩阵元素大于新矩阵，则多余元素丢失
+ * 若原矩阵元素小于等于新矩阵，则多余元素补为默认值
+ * @param row 新矩阵的行数
+ * @param column 新矩阵的列数
+ * @return 新矩阵
+ */
     Matrix reshape(int row, int column) {
         Matrix ans = Matrix(row, column);
         int other = row * column;
@@ -636,6 +673,14 @@ public:
         return ans;
     }
 
+/**
+ * 矩阵整形为特定行列的矩阵，同时改变原矩阵
+ * 若原矩阵元素大于新矩阵，则多余元素丢失
+ * 若原矩阵元素小于等于新矩阵，则多余元素补为默认值
+ * @param row 新矩阵的行数
+ * @param column 新矩阵的列数
+ * @return 新矩阵
+ */
     Matrix reshape_change(int row, int column) {
         Matrix ans = this->reshape(row, column);
         this->row = row;
@@ -644,6 +689,12 @@ public:
         return ans;
     }
 
+/**
+ * 矩阵切片，获取[from，to)范围内的元素
+ * @param from 起坐标
+ * @param to 终止坐标
+ * @return 切片后的向量
+ */
     Vector<T> slicing(int from, int to) {
         Matrix cur = this->reshape(1, this->row * this->column);
         if (to > cur.column) {
@@ -663,6 +714,11 @@ public:
         return ans;
     }
 
+/**
+ * 重载矩阵加法
+ * @param other 相加的矩阵
+ * @return 矩阵计算结果
+ */
     Matrix operator+(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
             cerr << "the size of these two vector is not equal" << endl;
@@ -681,6 +737,13 @@ public:
         return ans;
     }
 
+/**
+ * 重载矩阵与向量相加
+ * 矩阵列数要与向量长度相等
+ * 矩阵每一行都与向量相加
+ * @param other 相加的向量
+ * @return 矩阵计算结果
+ */
     Matrix operator+(Vector<T> other) {
         if (this->column != other.getLength()) {
             cerr << "The column of the matrix is not equal to the vector length" << endl;
@@ -695,6 +758,11 @@ public:
         return ans;
     }
 
+/**
+ * 重载矩阵减法
+ * @param other 相减的矩阵
+ * @return 矩阵计算结果
+ */
     Matrix operator-(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
             cerr << "the size of these two vector is not equal" << endl;
@@ -713,6 +781,13 @@ public:
         return ans;
     }
 
+/**
+ * 重载矩阵与向量相减
+ * 矩阵列数要与向量长度相等
+ * 矩阵每一行都与向量相减
+ * @param other 相减的向量
+ * @return 矩阵计算结果
+ */
     Matrix operator-(Vector<T> other) {
         if (this->column != other.getLength()) {
             cerr << "The column of the matrix is not equal to the vector length" << endl;
@@ -727,6 +802,11 @@ public:
         return ans;
     }
 
+/**
+ * 重载矩阵乘法，矩阵点乘
+ * @param other 相乘的矩阵
+ * @return 矩阵运算结果
+ */
     Matrix operator*(Matrix &other) {
         if (this->column != other.row) {
             cerr << "multiple error!" << endl;
@@ -743,14 +823,21 @@ public:
         return ans;
     }
 
+/**
+ * 重载矩阵向量乘法
+ * 矩阵列数要与向量长度相等
+ * 矩阵每一行与向量点乘
+ * @param other 相点乘的向量
+ * @return 长度为行数的向量，每个元素为对应行数点乘的结果
+ */
     Vector<T> operator*(Vector<T> other) {
         if (this->column != other.getLength()) {
             cerr << "Matrix * Vector error!" << endl;
             cerr << "The left Matrix column is not equal right length" << endl;
             return Vector<T>(0);
         }
-        Vector<T> ans = Vector<T>(other.getLength());
-        for (int i = 0; i < other.getLength(); ++i) {
+        Vector<T> ans = Vector<T>(this->row);
+        for (int i = 0; i < this->row; ++i) {
             for (int j = 0; j < other.getLength(); ++j) {
                 ans[i] += this->matrix[i][j] * other[j];
             }
@@ -758,6 +845,10 @@ public:
         return ans;
     }
 
+/**
+ * 计算矩阵的行列式
+ * @return 矩阵的行列式
+ */
     T cal_det() {
         if (this->row != this->column) {
             cerr << "The matrix is not square matrix";
@@ -799,14 +890,35 @@ public:
         return ans.det(this->row, cur);
     }
 
+/**
+ * 通过二维向量数组声明矩阵
+ * @param other 二维数组
+ */
     Matrix(vector<vector<T>> other);
 
+/**
+ * 通过矩阵声明矩阵
+ * @param other 另一个矩阵
+ */
     Matrix(Mat other);
 
+/**
+ * 将矩阵转化为opencv的cv::Mat中32FC1的形式
+ * @return 矩阵转化后的Mat
+ */
     Mat to_opencv_32FC1();
 
+/**
+ * 将矩阵转化为opencv的cv::Mat中8UC1的形式
+ * @return 矩阵转化后的Mat
+ */
     Mat to_opencv_8UC1();
 
+/**
+ * 矩阵卷积
+ * @param kernel 矩阵卷积和
+ * @return 矩阵卷积结果
+ */
     Matrix convolution_2D(Matrix &kernel) {
         // find center position of kernel (half of kernel size)
         int kCenterX = kernel.column / 2;

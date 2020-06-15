@@ -8,11 +8,11 @@ digraph "Vector::getLength"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="Matrix::Matrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#aab91640cd08194823f62a1cf22d1a3d3",tooltip=" "];
   Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="Matrix::operator*",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a71e670a1c69f34a1df97e5d2600e273c",tooltip=" "];
+  Node3 [label="Matrix::operator*",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a146499e638db8b682a030b360c1ac4bb",tooltip=" "];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="Matrix::operator+",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a688b68ed48e1c3d2892d139c3444d4e1",tooltip=" "];
+  Node4 [label="Matrix::operator+",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a23553617a59a4a25237e6bb4e2e92dca",tooltip=" "];
   Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="Matrix::operator-",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#ade9934e79b67f2ab103d887429e4f82d",tooltip=" "];
+  Node5 [label="Matrix::operator-",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#aa50dc7edd265b146c979aa19798589bc",tooltip=" "];
   Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node6 [label="Matrix::slicing",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#ae9cefb02be86d2f7ea0a5b4b33163a32",tooltip=" "];
 }

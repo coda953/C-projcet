@@ -1,0 +1,848 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/xhtml;charset=UTF-8" http-equiv="Content-Type"/>
+    <meta content="IE=9" http-equiv="X-UA-Compatible"/>
+    <meta content="Doxygen 1.8.18" name="generator"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>My Project: code/test.cpp 源文件</title>
+    <link href="tabs.css" rel="stylesheet" type="text/css"/>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script src="dynsections.js" type="text/javascript"></script>
+    <link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+    <div id="titlearea">
+        <table cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr style="height: 56px;">
+                <td id="projectalign" style="padding-left: 0.5em;">
+                    <div id="projectname">My Project
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- end header part -->
+    <!-- 制作者 Doxygen 1.8.18 -->
+    <script src="menudata.js" type="text/javascript"></script>
+    <script src="menu.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+        $(function () {
+            initMenu('', false, false, 'search.php', '搜索');
+        });
+        /* @license-end */</script>
+    <div id="main-nav"></div>
+    <div class="navpath" id="nav-path">
+        <ul>
+            <li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li>
+        </ul>
+    </div>
+</div><!-- top -->
+<div class="header">
+    <div class="headertitle">
+        <div class="title">test.cpp</div>
+    </div>
+</div><!--header-->
+<div class="contents">
+    <a href="test_8cpp.html">浏览该文件的文档.</a>
+    <div class="fragment">
+        <div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a
+                class="code" href="_matrix_8hpp.html">Matrix.hpp</a>&quot;</span></div>
+        <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a
+                class="code" href="_vector_8hpp.html">Vector.hpp</a>&quot;</span></div>
+        <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;opencv2/core.hpp&gt;</span>
+        </div>
+        <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;gtest/gtest.h&gt;</span>
+        </div>
+        <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using namespace </span>std;
+        </div>
+        <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using namespace </span>cv;
+        </div>
+        <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define EXP 0.0001</span>
+        </div>
+        <div class="line"><a name="l00008"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a84db90500a1f9527c04e28817d9f60a1">    8</a></span>&#160;
+        </div>
+        <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
+        <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+        <div class="line"><a name="l00011"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">   11</a></span>&#160;vector&lt;vector&lt;double&gt;&gt;
+            <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a> = {{1, 2, 3},
+        </div>
+        <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; {4, 5, 6},</div>
+        <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; {7, 8, 9}};</div>
+        <div class="line"><a name="l00014"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">   14</a></span>&#160;vector&lt;vector&lt;double&gt;&gt;
+            <a class="code" href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a> = {{9, 8, 7},
+        </div>
+        <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; {6, 5, 4},</div>
+        <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; {3, 2, 1}};</div>
+        <div class="line"><a name="l00017"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#ad58a66e761b501e9b8473a348243b90b">   17</a></span>&#160;vector&lt;vector&lt;double&gt;&gt;
+            <a class="code" href="test_8cpp.html#ad58a66e761b501e9b8473a348243b90b">m3</a> = {{1, 2, 1},
+        </div>
+        <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; {0, 0, 0},</div>
+        <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; {-1, -2, -1}};</div>
+        <div class="line"><a name="l00020"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a19997558981a318839f9371704ba2b10">   20</a></span>&#160;vector&lt;vector&lt;double&gt;&gt;
+            <a class="code" href="test_8cpp.html#a19997558981a318839f9371704ba2b10">m4</a> = {{1, 2, 3, 4,},
+        </div>
+        <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; {5, 6, 7, 8},</div>
+        <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; {9, 10, 11, 12},</div>
+        <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; {13, 14, 15, 16}};</div>
+        <div class="line"><a name="l00024"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a8c84e7345947361b43debd73d5176455">   24</a></span>&#160;vector&lt;vector&lt;double&gt;&gt;
+            <a class="code" href="test_8cpp.html#a8c84e7345947361b43debd73d5176455">m5</a> = {{1, 1, 2},
+        </div>
+        <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; {3, 4, 5},</div>
+        <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; {6, 7, 8}};</div>
+        <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">//init a Matrix by vector&lt;vector&lt;double&gt;&gt;</span>
+        </div>
+        <div class="line"><a name="l00028"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">   28</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_init_vector, test)
+            {
+        </div>
+        <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            a = <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            b = <a class="code" href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a>;
+        </div>
+        <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a727a71910e64759e24dbda697a9a21b0">getRow</a>(),
+            3);
+        </div>
+        <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">getColumn</a>(),
+            3);
+        </div>
+        <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a727a71910e64759e24dbda697a9a21b0">getRow</a>(),
+            3);
+        </div>
+        <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">getColumn</a>(),
+            3);
+        </div>
+        <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span
+                class="keywordtype">int</span> count = 1;
+        </div>
+        <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; a.<a class="code"
+                                                                                                        href="class_matrix.html#a727a71910e64759e24dbda697a9a21b0">getRow</a>();
+            ++i) {
+        </div>
+        <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; a.<a class="code"
+                                                                                                        href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">getColumn</a>();
+            ++j) {
+        </div>
+        <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; EXPECT_EQ(a[i][j], count);</div>
+        <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; count++;</div>
+        <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; }</div>
+        <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; }</div>
+        <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; a.<a class="code"
+                                                                                                        href="class_matrix.html#a727a71910e64759e24dbda697a9a21b0">getRow</a>();
+            ++i) {
+        </div>
+        <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; a.<a class="code"
+                                                                                                        href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">getColumn</a>();
+            ++j) {
+        </div>
+        <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; count--;</div>
+        <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; EXPECT_EQ(b[i][j], count);</div>
+        <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; }</div>
+        <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; }</div>
+        <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+        <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">//matrix + matrix</span>
+        </div>
+        <div class="line"><a name="l00050"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#adb82f756299c5d7840e341d1b313faa1">   50</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_add_matrix,
+            overload_plus) {
+        </div>
+        <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;int&gt;</a>
+            a = <a class="code" href="class_matrix.html">Matrix&lt;int&gt;</a>(3, 3);
+        </div>
+        <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;int&gt;</a>
+            b = <a class="code" href="class_matrix.html">Matrix&lt;int&gt;</a>(3, 3);
+        </div>
+        <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span
+                class="keywordtype">int</span> count = 0;
+        </div>
+        <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {
+        </div>
+        <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; ++j) {
+        </div>
+        <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; a[i][j] = count;</div>
+        <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; b[i][j] = 100 - count;</div>
+        <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; count++;</div>
+        <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; }</div>
+        <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; }</div>
+        <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;int&gt;</a>
+            c;
+        </div>
+        <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; c = a + b;</div>
+        <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {
+        </div>
+        <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 3; ++j) {
+        </div>
+        <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; EXPECT_EQ(c[i][j], 100);</div>
+        <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; }</div>
+        <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; }</div>
+        <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+        <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">//find min max in the matrix</span>
+        </div>
+        <div class="line"><a name="l00070"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a6a7d763e7ec29eed7b29f8fce2f20b82">   70</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_find_max_and_min,
+            task4) {
+        </div>
+        <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            a = <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            b = <a class="code" href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a>;
+        </div>
+        <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a9acc3ad72b1c8f18ca4551ba2c81a107">findMax</a>(),
+            9);
+        </div>
+        <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a9acc3ad72b1c8f18ca4551ba2c81a107">findMax</a>(),
+            9);
+        </div>
+        <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#acaeadad18093184c8372d235db2e831b">findMin</a>(),
+            1);
+        </div>
+        <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#acaeadad18093184c8372d235db2e831b">findMin</a>(),
+            1);
+        </div>
+        <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a7504062c9870b24e9b190c0831b2f784">findMaxAtRow</a>(0),
+            3);
+        </div>
+        <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a7504062c9870b24e9b190c0831b2f784">findMaxAtRow</a>(1),
+            6);
+        </div>
+        <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a7504062c9870b24e9b190c0831b2f784">findMaxAtRow</a>(2),
+            9);
+        </div>
+        <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a1e407bf9421be8a84adc6b7e6ad2663b">findMinAtRow</a>(0),
+            1);
+        </div>
+        <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a1e407bf9421be8a84adc6b7e6ad2663b">findMinAtRow</a>(1),
+            4);
+        </div>
+        <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a1e407bf9421be8a84adc6b7e6ad2663b">findMinAtRow</a>(2),
+            7);
+        </div>
+        <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a14408689a3beaa6b518d9c7ffe5a9bf2">findMaxAtColumn</a>(0),
+            7);
+        </div>
+        <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a14408689a3beaa6b518d9c7ffe5a9bf2">findMaxAtColumn</a>(1),
+            8);
+        </div>
+        <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a14408689a3beaa6b518d9c7ffe5a9bf2">findMaxAtColumn</a>(2),
+            9);
+        </div>
+        <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#af8139ce8fb8bc072876db744a039f61b">findMinAtColumn</a>(0),
+            1);
+        </div>
+        <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#af8139ce8fb8bc072876db744a039f61b">findMinAtColumn</a>(1),
+            2);
+        </div>
+        <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#af8139ce8fb8bc072876db744a039f61b">findMinAtColumn</a>(2),
+            3);
+        </div>
+        <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a7504062c9870b24e9b190c0831b2f784">findMaxAtRow</a>(0),
+            9);
+        </div>
+        <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a7504062c9870b24e9b190c0831b2f784">findMaxAtRow</a>(1),
+            6);
+        </div>
+        <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a7504062c9870b24e9b190c0831b2f784">findMaxAtRow</a>(2),
+            3);
+        </div>
+        <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a14408689a3beaa6b518d9c7ffe5a9bf2">findMaxAtColumn</a>(0),
+            9);
+        </div>
+        <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a14408689a3beaa6b518d9c7ffe5a9bf2">findMaxAtColumn</a>(1),
+            8);
+        </div>
+        <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; EXPECT_EQ(b.<a class="code"
+                                                                                                      href="class_matrix.html#a14408689a3beaa6b518d9c7ffe5a9bf2">findMaxAtColumn</a>(2),
+            7);
+        </div>
+        <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+        <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+        <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">//find average in the matrix</span>
+        </div>
+        <div class="line"><a name="l00098"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a979628287508fa8b2c33f1186d90f9f1">   98</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_find_average,
+            task4) {
+        </div>
+        <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            a = <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#adc58dfec99221ab1caad745ef6965ace">findAverage</a>(),
+            5);
+        </div>
+        <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a0ee69ebe513dda6e8f94da3f0f8715e3">findAverageAtRow</a>(0),
+            2);
+        </div>
+        <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a0ee69ebe513dda6e8f94da3f0f8715e3">findAverageAtRow</a>(1),
+            5);
+        </div>
+        <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a0ee69ebe513dda6e8f94da3f0f8715e3">findAverageAtRow</a>(2),
+            8);
+        </div>
+        <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a5349e315b89a13d4187eef3a6dadfb47">findAverageAtColumn</a>(0),
+            4);
+        </div>
+        <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a5349e315b89a13d4187eef3a6dadfb47">findAverageAtColumn</a>(1),
+            5);
+        </div>
+        <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; EXPECT_FLOAT_EQ(a.<a class="code"
+                                                                                                            href="class_matrix.html#a5349e315b89a13d4187eef3a6dadfb47">findAverageAtColumn</a>(2),
+            6);
+        </div>
+        <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+        <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">//find sum in the matrix</span>
+        </div>
+        <div class="line"><a name="l00109"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a4ee87d8de39b9f64c3b824a4e10c7ec2">  109</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_find_sum, task4) {
+        </div>
+        <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            a = <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a1f366b7e4cd5e4062001992841c7e52a">findSum</a>(),
+            45);
+        </div>
+        <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a52d5f6ff35990100594147c2bfe2148e">findSumAtRow</a>(0),
+            6);
+        </div>
+        <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a52d5f6ff35990100594147c2bfe2148e">findSumAtRow</a>(1),
+            15);
+        </div>
+        <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a52d5f6ff35990100594147c2bfe2148e">findSumAtRow</a>(2),
+            24);
+        </div>
+        <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#acd42ebe5a1440aae12caa6bb6649a1ce">findSumAtColumn</a>(0),
+            12);
+        </div>
+        <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#acd42ebe5a1440aae12caa6bb6649a1ce">findSumAtColumn</a>(1),
+            15);
+        </div>
+        <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; EXPECT_FLOAT_EQ(a.<a class="code"
+                                                                                                            href="class_matrix.html#acd42ebe5a1440aae12caa6bb6649a1ce">findSumAtColumn</a>(2),
+            18);
+        </div>
+        <div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+        <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">//test calculate eigenvalue</span>
+        </div>
+        <div class="line"><a name="l00120"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a4d3830490d0e3ed1efd859b5fa62167f">  120</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_get_eigenvalue,
+            task3) {
+        </div>
+        <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            a = <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; vector&lt;double&gt; ans = a.<a
+                class="code" href="class_matrix.html#a4f2cda755d762eb6ad6617e53e62b933">getEigenvalue</a>();
+        </div>
+        <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; <span
+                class="keywordtype">double</span> k = 0;
+        </div>
+        <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; sort(ans.begin(), ans.end());
+        </div>
+        <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">double</span> an : ans) {
+        </div>
+        <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; k += an;</div>
+        <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; }</div>
+        <div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; EXPECT_NEAR(ans[0], -1.1168, <a
+                class="code" href="test_8cpp.html#a84db90500a1f9527c04e28817d9f60a1">EXP</a>);
+        </div>
+        <div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; EXPECT_NEAR(ans[1], 0, <a
+                class="code" href="test_8cpp.html#a84db90500a1f9527c04e28817d9f60a1">EXP</a>);
+        </div>
+        <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; EXPECT_NEAR(ans[2], 16.1168, <a
+                class="code" href="test_8cpp.html#a84db90500a1f9527c04e28817d9f60a1">EXP</a>);
+        </div>
+        <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; EXPECT_NEAR(k, 15, <a
+                class="code" href="test_8cpp.html#a84db90500a1f9527c04e28817d9f60a1">EXP</a>);
+        </div>
+        <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+        <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
+        <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">//test convolution</span>
+        </div>
+        <div class="line"><a name="l00135"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a1be9377aa6616cb9668f2d52ac1d5fbd">  135</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_convolution, task3)
+            {
+        </div>
+        <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            a = <a class="code" href="test_8cpp.html#a19997558981a318839f9371704ba2b10">m4</a>;
+        </div>
+        <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            b = <a class="code" href="test_8cpp.html#ad58a66e761b501e9b8473a348243b90b">m3</a>;
+        </div>
+        <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            ans = a.<a class="code" href="class_matrix.html#a817f3aee5a3127fa7e39128d49926d67">convolution_2D</a>(b);
+        </div>
+        <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; EXPECT_FLOAT_EQ(ans[0][0], -16);
+        </div>
+        <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; EXPECT_FLOAT_EQ(ans[0][1], -24);
+        </div>
+        <div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; EXPECT_FLOAT_EQ(ans[0][2], -28);
+        </div>
+        <div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; EXPECT_FLOAT_EQ(ans[0][3], -23);
+        </div>
+        <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; EXPECT_FLOAT_EQ(ans[1][0], -24);
+        </div>
+        <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; EXPECT_FLOAT_EQ(ans[1][1], -32);
+        </div>
+        <div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; EXPECT_FLOAT_EQ(ans[1][2], -32);
+        </div>
+        <div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; EXPECT_FLOAT_EQ(ans[1][3], -24);
+        </div>
+        <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; EXPECT_FLOAT_EQ(ans[2][0], -24);
+        </div>
+        <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; EXPECT_FLOAT_EQ(ans[2][1], -32);
+        </div>
+        <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; EXPECT_FLOAT_EQ(ans[2][2], -32);
+        </div>
+        <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; EXPECT_FLOAT_EQ(ans[2][3], -24);
+        </div>
+        <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; EXPECT_FLOAT_EQ(ans[3][0], 28);
+        </div>
+        <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; EXPECT_FLOAT_EQ(ans[3][1], 40);
+        </div>
+        <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; EXPECT_FLOAT_EQ(ans[3][2], 44);
+        </div>
+        <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; EXPECT_FLOAT_EQ(ans[3][3], 35);
+        </div>
+        <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;}</div>
+        <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">//test inverse</span>
+        </div>
+        <div class="line"><a name="l00157"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#ac654f2376ebd87b9168554a03d062516">  157</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Vector_cross_product,
+            task2) {
+        </div>
+        <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; vector&lt;double&gt; a = {1, 2};
+        </div>
+        <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; vector&lt;double&gt; b = {2, 3};
+        </div>
+        <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; <a class="code"
+                                                                                          href="class_vector.html">Vector&lt;double&gt;</a>
+            vec1 = a;
+        </div>
+        <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; <a class="code"
+                                                                                          href="class_vector.html">Vector&lt;double&gt;</a>
+            vec2 = b;
+        </div>
+        <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; <a class="code"
+                                                                                          href="class_vector.html">Vector&lt;double&gt;</a>
+            ans = vec1.<a class="code" href="class_vector.html#a529c56f93a03aeeade5cba1ba5a9039e">cross_product</a>(vec2);
+        </div>
+        <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; EXPECT_EQ(ans[0], 0);</div>
+        <div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; EXPECT_EQ(ans[1], 0);</div>
+        <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; EXPECT_EQ(ans[2], -1);</div>
+        <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;}</div>
+        <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+        <div class="line"><a name="l00168"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#ab8f0c8e27808d728a4525032479d63fd">  168</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_det, task2) {
+        </div>
+        <div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            a = <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            b = <a class="code" href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a>;
+        </div>
+        <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>
+            c = <a class="code" href="test_8cpp.html#a8c84e7345947361b43debd73d5176455">m5</a>;
+        </div>
+        <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; EXPECT_EQ(0, a.<a class="code"
+                                                                                                         href="class_matrix.html#a7dce41092254340e455de0ca698c7a10">cal_det</a>());
+        </div>
+        <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; EXPECT_EQ(15, a.<a class="code"
+                                                                                                          href="class_matrix.html#a1f3af499f65dca52ae11f98ab7e2cdf7">cal_traces</a>());
+        </div>
+        <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; EXPECT_EQ(0, b.<a class="code"
+                                                                                                         href="class_matrix.html#a7dce41092254340e455de0ca698c7a10">cal_det</a>());
+        </div>
+        <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; EXPECT_EQ(15, b.<a class="code"
+                                                                                                          href="class_matrix.html#a1f3af499f65dca52ae11f98ab7e2cdf7">cal_traces</a>());
+        </div>
+        <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; EXPECT_EQ(-3, c.<a class="code"
+                                                                                                          href="class_matrix.html#a7dce41092254340e455de0ca698c7a10">cal_det</a>());
+        </div>
+        <div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; EXPECT_EQ(13, c.<a class="code"
+                                                                                                          href="class_matrix.html#a1f3af499f65dca52ae11f98ab7e2cdf7">cal_traces</a>());
+        </div>
+        <div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+        <div class="line"><a name="l00179"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e">  179</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_init,test0){
+        </div>
+        <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>a=<a
+                class="code" href="class_matrix.html">Matrix&lt;double&gt;</a>(10);
+        </div>
+        <div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a727a71910e64759e24dbda697a9a21b0">getRow</a>(),1);
+        </div>
+        <div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; EXPECT_EQ(a.<a class="code"
+                                                                                                      href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">getColumn</a>(),10);
+        </div>
+        <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; a.<a class="code"
+                                                                                                        href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">getColumn</a>();
+            ++i) {
+        </div>
+        <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; EXPECT_EQ(a[0][i],0);</div>
+        <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; }</div>
+        <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; a.<a class="code"
+                                                                                            href="class_matrix.html#a3ae6c24603d2034d9925fe77f8984e73">setRow</a>(2);
+        </div>
+        <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; a.<a class="code"
+                                                                                            href="class_matrix.html#a001d828b9aa390ff17fa0efd0a9e01fa">setColumn</a>(2);
+        </div>
+        <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; EXPECT_EQ(2,a.<a class="code"
+                                                                                                        href="class_matrix.html#a727a71910e64759e24dbda697a9a21b0">getRow</a>());
+        </div>
+        <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; EXPECT_EQ(2,a.<a class="code"
+                                                                                                        href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">getColumn</a>());
+        </div>
+        <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; a[0][0]=1;</div>
+        <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; a[0][1]=2;</div>
+        <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; a[1][0]=3;</div>
+        <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; a[1][1]=4;</div>
+        <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; a.<a class="code"
+                                                                                            href="class_matrix.html#a7a49dfbc45c05bbbad18dba9114eb1cf">transposition_change</a>();
+        </div>
+        <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; EXPECT_EQ(a[0][1],3);</div>
+        <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; EXPECT_EQ(a[1][0],2);</div>
+        <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; EXPECT_EQ(a[0][0],1);</div>
+        <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; EXPECT_EQ(a[1][1],4);</div>
+        <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}</div>
+        <div class="line"><a name="l00200"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a2db05ee9112c28a7c789d20534220189">  200</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_to_OpenCV,<a
+                class="code" href="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293">test1</a>){
+        </div>
+        <div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>a=<a
+                class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; Mat cv_a=a.<a class="code"
+                                                                                                     href="class_matrix.html#ad321fcd3d8b097c7830a9abd2021cc12">to_opencv_32FC1</a>();
+        </div>
+        <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; cv_a.rows; ++i) {
+        </div>
+        <div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; <span
+                class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; cv_a.cols; ++j) {
+        </div>
+        <div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;
+            EXPECT_DOUBLE_EQ(i*cv_a.rows+j+1,cv_a.at&lt;<span class="keywordtype">float</span>&gt;(i,j));
+        </div>
+        <div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; }</div>
+        <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; }</div>
+        <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
+        <div class="line"><a name="l00209"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#ae9bd7bf584c9ae4480dbf19d7fc248ec">  209</a></span>&#160;<a
+                class="code" href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a>(Matrix_element_wise_muliplication,<a
+                class="code" href="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293">test1</a>){
+        </div>
+        <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>a=<a
+                class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a>;
+        </div>
+        <div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; a.<a class="code"
+                                                                                            href="class_matrix.html#a3ae6c24603d2034d9925fe77f8984e73">setRow</a>(2);
+        </div>
+        <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; a.<a class="code"
+                                                                                            href="class_matrix.html#a001d828b9aa390ff17fa0efd0a9e01fa">setColumn</a>(2);
+        </div>
+        <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;double&gt;</a>b=a;
+        </div>
+        <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; a.<a class="code"
+                                                                                            href="class_matrix.html#a1ece0fec95976aeb03a6cba01d37d50a">element_wise_multiplication_change</a>(b);
+        </div>
+        <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; EXPECT_DOUBLE_EQ(a[0][0],1);
+        </div>
+        <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; EXPECT_DOUBLE_EQ(a[0][1],4);
+        </div>
+        <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; EXPECT_DOUBLE_EQ(a[1][0],16);
+        </div>
+        <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; EXPECT_DOUBLE_EQ(a[1][1],25);
+        </div>
+        <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;}</div>
+        <div class="line"><a name="l00220"></a><span class="lineno"><a class="line"
+                                                                       href="test_8cpp.html#a9f4a1a0300b569efe2ceac74c926f98e">  220</a></span>&#160;GTEST_API_
+            <span class="keywordtype">int</span> <a class="code"
+                                                    href="test_8cpp.html#a9f4a1a0300b569efe2ceac74c926f98e">main</a>() {
+        </div>
+        <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; testing::InitGoogleTest();</div>
+        <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; <span
+                class="keywordflow">return</span> RUN_ALL_TESTS();
+        </div>
+        <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;}</div>
+    </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_matrix_html_a1f366b7e4cd5e4062001992841c7e52a">
+    <div class="ttname"><a href="class_matrix.html#a1f366b7e4cd5e4062001992841c7e52a">Matrix::findSum</a></div>
+    <div class="ttdeci">T findSum()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00226">Matrix.hpp:226</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a73f716f5127b622a2f6934233c8e35a4">
+    <div class="ttname"><a href="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4">Matrix::getColumn</a></div>
+    <div class="ttdeci">int getColumn()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00318">Matrix.hpp:318</a></div>
+</div>
+<div class="ttc" id="a_vector_8hpp_html">
+    <div class="ttname"><a href="_vector_8hpp.html">Vector.hpp</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_af8139ce8fb8bc072876db744a039f61b">
+    <div class="ttname"><a href="class_matrix.html#af8139ce8fb8bc072876db744a039f61b">Matrix::findMinAtColumn</a></div>
+    <div class="ttdeci">T findMinAtColumn(int column)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00133">Matrix.hpp:133</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_ae374919b33c7ece2a7921f193d9bb00b">
+    <div class="ttname"><a href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a></div>
+    <div class="ttdeci">vector&lt; vector&lt; double &gt; &gt; m1</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00011">test.cpp:11</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_afa7a6abe165ab2c772f0fd740fa19e91">
+    <div class="ttname"><a href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a></div>
+    <div class="ttdeci">vector&lt; vector&lt; double &gt; &gt; m2</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00014">test.cpp:14</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_a84db90500a1f9527c04e28817d9f60a1">
+    <div class="ttname"><a href="test_8cpp.html#a84db90500a1f9527c04e28817d9f60a1">EXP</a></div>
+    <div class="ttdeci">#define EXP</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00008">test.cpp:7</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a7504062c9870b24e9b190c0831b2f784">
+    <div class="ttname"><a href="class_matrix.html#a7504062c9870b24e9b190c0831b2f784">Matrix::findMaxAtRow</a></div>
+    <div class="ttdeci">T findMaxAtRow(int row)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00166">Matrix.hpp:166</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_a9f4a1a0300b569efe2ceac74c926f98e">
+    <div class="ttname"><a href="test_8cpp.html#a9f4a1a0300b569efe2ceac74c926f98e">main</a></div>
+    <div class="ttdeci">GTEST_API_ int main()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00220">test.cpp:220</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a9acc3ad72b1c8f18ca4551ba2c81a107">
+    <div class="ttname"><a href="class_matrix.html#a9acc3ad72b1c8f18ca4551ba2c81a107">Matrix::findMax</a></div>
+    <div class="ttdeci">T findMax()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00148">Matrix.hpp:148</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a7dce41092254340e455de0ca698c7a10">
+    <div class="ttname"><a href="class_matrix.html#a7dce41092254340e455de0ca698c7a10">Matrix::cal_det</a></div>
+    <div class="ttdeci">T cal_det()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00836">Matrix.hpp:836</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a14408689a3beaa6b518d9c7ffe5a9bf2">
+    <div class="ttname"><a href="class_matrix.html#a14408689a3beaa6b518d9c7ffe5a9bf2">Matrix::findMaxAtColumn</a></div>
+    <div class="ttdeci">T findMaxAtColumn(int column)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00182">Matrix.hpp:182</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a52d5f6ff35990100594147c2bfe2148e">
+    <div class="ttname"><a href="class_matrix.html#a52d5f6ff35990100594147c2bfe2148e">Matrix::findSumAtRow</a></div>
+    <div class="ttdeci">T findSumAtRow(int row)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00240">Matrix.hpp:240</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_acd42ebe5a1440aae12caa6bb6649a1ce">
+    <div class="ttname"><a href="class_matrix.html#acd42ebe5a1440aae12caa6bb6649a1ce">Matrix::findSumAtColumn</a></div>
+    <div class="ttdeci">T findSumAtColumn(int column)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00252">Matrix.hpp:252</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_ad321fcd3d8b097c7830a9abd2021cc12">
+    <div class="ttname"><a href="class_matrix.html#ad321fcd3d8b097c7830a9abd2021cc12">Matrix::to_opencv_32FC1</a></div>
+    <div class="ttdeci">Mat to_opencv_32FC1()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00958">Matrix.hpp:958</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_ad58a66e761b501e9b8473a348243b90b">
+    <div class="ttname"><a href="test_8cpp.html#ad58a66e761b501e9b8473a348243b90b">m3</a></div>
+    <div class="ttdeci">vector&lt; vector&lt; double &gt; &gt; m3</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00017">test.cpp:17</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a0ee69ebe513dda6e8f94da3f0f8715e3">
+    <div class="ttname"><a href="class_matrix.html#a0ee69ebe513dda6e8f94da3f0f8715e3">Matrix::findAverageAtRow</a></div>
+    <div class="ttdeci">T findAverageAtRow(int row)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00207">Matrix.hpp:207</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_acaeadad18093184c8372d235db2e831b">
+    <div class="ttname"><a href="class_matrix.html#acaeadad18093184c8372d235db2e831b">Matrix::findMin</a></div>
+    <div class="ttdeci">T findMin()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00098">Matrix.hpp:98</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a001d828b9aa390ff17fa0efd0a9e01fa">
+    <div class="ttname"><a href="class_matrix.html#a001d828b9aa390ff17fa0efd0a9e01fa">Matrix::setColumn</a></div>
+    <div class="ttdeci">int setColumn(int column)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00307">Matrix.hpp:307</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a727a71910e64759e24dbda697a9a21b0">
+    <div class="ttname"><a href="class_matrix.html#a727a71910e64759e24dbda697a9a21b0">Matrix::getRow</a></div>
+    <div class="ttdeci">int getRow()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00303">Matrix.hpp:303</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a1ece0fec95976aeb03a6cba01d37d50a">
+    <div class="ttname"><a href="class_matrix.html#a1ece0fec95976aeb03a6cba01d37d50a">Matrix::element_wise_multiplication_change</a>
+    </div>
+    <div class="ttdeci">Matrix element_wise_multiplication_change(Matrix &amp;other)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00625">Matrix.hpp:625</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a5349e315b89a13d4187eef3a6dadfb47">
+    <div class="ttname"><a href="class_matrix.html#a5349e315b89a13d4187eef3a6dadfb47">Matrix::findAverageAtColumn</a>
+    </div>
+    <div class="ttdeci">T findAverageAtColumn(int column)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00217">Matrix.hpp:217</a></div>
+</div>
+<div class="ttc" id="aclass_vector_html_a529c56f93a03aeeade5cba1ba5a9039e">
+    <div class="ttname"><a href="class_vector.html#a529c56f93a03aeeade5cba1ba5a9039e">Vector::cross_product</a></div>
+    <div class="ttdeci">Vector cross_product(Vector other)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_vector_8hpp_source.html#l00340">Vector.hpp:340</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_adc58dfec99221ab1caad745ef6965ace">
+    <div class="ttname"><a href="class_matrix.html#adc58dfec99221ab1caad745ef6965ace">Matrix::findAverage</a></div>
+    <div class="ttdeci">T findAverage()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00197">Matrix.hpp:197</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a3ae6c24603d2034d9925fe77f8984e73">
+    <div class="ttname"><a href="class_matrix.html#a3ae6c24603d2034d9925fe77f8984e73">Matrix::setRow</a></div>
+    <div class="ttdeci">int setRow(int row)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00297">Matrix.hpp:297</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a1e407bf9421be8a84adc6b7e6ad2663b">
+    <div class="ttname"><a href="class_matrix.html#a1e407bf9421be8a84adc6b7e6ad2663b">Matrix::findMinAtRow</a></div>
+    <div class="ttdeci">T findMinAtRow(int row)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00117">Matrix.hpp:117</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_a8c84e7345947361b43debd73d5176455">
+    <div class="ttname"><a href="test_8cpp.html#a8c84e7345947361b43debd73d5176455">m5</a></div>
+    <div class="ttdeci">vector&lt; vector&lt; double &gt; &gt; m5</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00024">test.cpp:24</a></div>
+</div>
+<div class="ttc" id="a_matrix_8hpp_html">
+    <div class="ttname"><a href="_matrix_8hpp.html">Matrix.hpp</a></div>
+</div>
+<div class="ttc" id="aclass_vector_html">
+    <div class="ttname"><a href="class_vector.html">Vector</a></div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00011">Matrix.hpp:11</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_a19997558981a318839f9371704ba2b10">
+    <div class="ttname"><a href="test_8cpp.html#a19997558981a318839f9371704ba2b10">m4</a></div>
+    <div class="ttdeci">vector&lt; vector&lt; double &gt; &gt; m4</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00020">test.cpp:20</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a1f3af499f65dca52ae11f98ab7e2cdf7">
+    <div class="ttname"><a href="class_matrix.html#a1f3af499f65dca52ae11f98ab7e2cdf7">Matrix::cal_traces</a></div>
+    <div class="ttdeci">T cal_traces()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00264">Matrix.hpp:264</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a7a49dfbc45c05bbbad18dba9114eb1cf">
+    <div class="ttname"><a href="class_matrix.html#a7a49dfbc45c05bbbad18dba9114eb1cf">Matrix::transposition_change</a>
+    </div>
+    <div class="ttdeci">Matrix transposition_change()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00568">Matrix.hpp:568</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a817f3aee5a3127fa7e39128d49926d67">
+    <div class="ttname"><a href="class_matrix.html#a817f3aee5a3127fa7e39128d49926d67">Matrix::convolution_2D</a></div>
+    <div class="ttdeci">Matrix convolution_2D(Matrix &amp;kernel)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00901">Matrix.hpp:901</a></div>
+</div>
+<div class="ttc" id="amain_8cpp_html_a17d004d61d83778c8447d8692fb2e293">
+    <div class="ttname"><a href="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293">test1</a></div>
+    <div class="ttdeci">const char * test1</div>
+    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00009">main.cpp:9</a></div>
+</div>
+<div class="ttc" id="atest_8cpp_html_ac0a47932d1f7001621f394b467d661de">
+    <div class="ttname"><a href="test_8cpp.html#ac0a47932d1f7001621f394b467d661de">TEST</a></div>
+    <div class="ttdeci">TEST(Matrix_init_vector, test)</div>
+    <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00028">test.cpp:28</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html">
+    <div class="ttname"><a href="class_matrix.html">Matrix</a></div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00020">Matrix.hpp:20</a></div>
+</div>
+<div class="ttc" id="aclass_matrix_html_a4f2cda755d762eb6ad6617e53e62b933">
+    <div class="ttname"><a href="class_matrix.html#a4f2cda755d762eb6ad6617e53e62b933">Matrix::getEigenvalue</a></div>
+    <div class="ttdeci">vector&lt; T &gt; getEigenvalue()</div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00326">Matrix.hpp:326</a></div>
+</div>
+<!-- start footer part -->
+<hr class="footer"/>
+<address class="footer"><small>
+    制作者 &#160;<a href="http://www.doxygen.org/index.html">
+    <img alt="doxygen" class="footer" src="doxygen.png"/>
+</a> 1.8.18
+</small></address>
+</body>
+</html>

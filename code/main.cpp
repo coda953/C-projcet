@@ -15,7 +15,8 @@ int main() {
     //change to our matrix
     Matrix<uchar> m1 = Imagetest1;
     Matrix<uchar> m2 = Imagetest2;
-    Matrix<uchar> result = m1 - m2;
+    Matrix<uchar> result = m1 + m2;
+    result.transposition_change();
     //change to opencv mat
     Mat outImage = result.to_opencv_8UC1();
     imshow("[img]", outImage);
