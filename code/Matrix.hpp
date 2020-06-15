@@ -20,7 +20,7 @@ template<class T>
 class Matrix {
 public:
     /**
-     * initial a Matrix with row=0,and column=0
+     * 初始化行列为0的矩阵
      */
     Matrix() {
         this->row = 0;
@@ -29,9 +29,9 @@ public:
     }
 
 /**
- * overload [] to access matrix data
- * @param i  the row of the matrix
- * @return  the row of the matrix
+ * 重载[]访问矩阵中的元素
+ * @param i  矩阵的行数
+ * @return  矩阵该行的vector
  */
     vector<T> &operator[](int i) {
         if (i >= row) {
@@ -41,9 +41,9 @@ public:
     }
 
 /**
- * initial a matrix with certain row and column
- * @param row the row of the matrix
- * @param column the column of the matrix
+ * 初始化具体大小的矩阵
+ * @param row 矩阵的行数
+ * @param column 矩阵的列数
  */
     Matrix(int row, int column) {
         this->row = row;
@@ -55,9 +55,9 @@ public:
     }
 
 /**
- * initial a matrix with row equals 1 and column equals length
- * like a vector
- * @param length the length of the matrix
+ * 初始化矩阵，其行为1，列数为column
+ * 形如向量
+ * @param length 矩阵的长度（列数）
  */
     Matrix(int length) {
         this->row = 1;
@@ -67,8 +67,8 @@ public:
     }
 
 /**
- * initial a matrix with other matrix
- * @param other the other matrix
+ * 用另一个矩阵来初始化矩阵
+ * @param other 传入矩阵
  */
     Matrix(Matrix const &other) {
         this->row = other.row;
@@ -77,9 +77,9 @@ public:
     }
 
 /**
- * initial a matrix with a vector
- * the matrix has row equals 1 and column equals vector's length
- * @param other the vector
+ * 用vector来初始化矩阵
+ * 矩阵的行数为1，列数为vector的长度
+ * @param other 传入向量
  */
     Matrix(Vector<T> other) {
         Matrix ans = Matrix(1, other.getLength());
@@ -92,8 +92,8 @@ public:
     }
 
 /**
- * a function to get the minimium element of the matrix
- * @return  the minimium element of the matrix
+ * 获得矩阵中最小的元素
+ * @return  矩阵中最小的元素
  */
     T findMin() {
         if (this->row == 0 || this->column == 0) {
@@ -110,9 +110,9 @@ public:
     }
 
 /**
- * get the minimum value of a row
- * @param row the number of the row
- * @return the minimum element
+ * 获得矩阵中特定行的最小元素
+ * @param row 行数
+ * @return 该行最小的元素
  */
     T findMinAtRow(int row) {
         if (this->row == 0 || this->column == 0) {
@@ -125,10 +125,11 @@ public:
         }
         return ans;
     }
+
 /**
- * get the minimum value of a column
- * @param column the number of the column
- * @return the minimum element
+ * 获得矩阵中特定列的最小元素
+ * @param column 列数
+ * @return 该列最小的元素
  */
     T findMinAtColumn(int column) {
         if (this->row == 0 || this->column == 0) {
@@ -141,9 +142,10 @@ public:
         }
         return ans;
     }
+
 /**
- * get the maximum element of the matrix
- * @return the maximum element
+ * 获得矩阵中最大的元素
+ * @return 矩阵中最大的元素
  */
     T findMax() {
         if (this->row == 0 || this->column == 0) {
@@ -158,10 +160,11 @@ public:
         }
         return ans;
     }
+
 /**
- * get the maximum element of one row
- * @param row the number of the row
- * @return the maximum element of row-th row
+ * 获得矩阵中特定行的最大元素
+ * @param row 行数
+ * @return 矩阵中特定行的最大元素
  */
     T findMaxAtRow(int row) {
         if (this->row == 0 || this->column == 0) {
@@ -174,10 +177,11 @@ public:
         }
         return ans;
     }
+
 /**
- * get the maximum element of the column
- * @param column the number of the column
- * @return the maximum element of the column
+ * 获得矩阵中特定列的最大元素
+ * @param column 列数
+ * @return 矩阵中特定列的最大元素
  */
     T findMaxAtColumn(int column) {
         if (this->row == 0 || this->column == 0) {
@@ -190,38 +194,42 @@ public:
         }
         return ans;
     }
+
 /**
- * get the average of the matrix
- * @return the average element
+ * 获得矩阵的所有元素的平均值
+ * @return 矩阵的所有元素的平均值
  */
     T findAverage() {
         T ans = findSum();
         ans /= (row * this->column);
         return ans;
     }
+
 /**
- * get the average of one row
- * @param row the number of the row
- * @return the average of row
+ * 获得矩阵特定行的元素平均值
+ * @param row 行数
+ * @return 矩阵特定行的元素平均值
  */
     T findAverageAtRow(int row) {
         T ans = findSumAtRow(row);
         ans /= this->column;
         return ans;
     }
+
 /**
- * get the average of one column
- * @param column the number of the column
- * @return the average of column
+ * 获得矩阵特定列的元素平均值
+ * @param column 列数
+ * @return 矩阵特定列的元素平均值
  */
     T findAverageAtColumn(int column) {
         T ans = findSumAtColumn(column);
         ans /= this->row;
         return ans;
     }
+
 /**
- * get the sum of the matrix
- * @return the sum of the matrix
+ * 获得矩阵所有元素的和
+ * @return 矩阵所有元素的和
  */
     T findSum() {
         if (this->row == 0 || this->column == 0) {
@@ -237,6 +245,11 @@ public:
         return ans;
     }
 
+/**
+ * 获得矩阵特定行的和
+ * @param row 行数
+ * @return 矩阵特定行的和
+ */
     T findSumAtRow(int row) {
         if (this->row < row) {
             cerr << "Input row is bigger than the vector size" << endl;
@@ -249,6 +262,11 @@ public:
         return ans;
     }
 
+/**
+ * 获得矩阵特定列的和
+ * @param column 列数
+ * @return 矩阵特定列的和
+ */
     T findSumAtColumn(int column) {
         if (this->column < column) {
             cerr << "Input column is bigger than the vector size" << endl;
@@ -261,6 +279,11 @@ public:
         return ans;
     }
 
+/**
+ * 计算矩阵的迹
+ * 即矩阵的对角线之和
+ * @return 矩阵的迹
+ */
     T cal_traces() {
         T ans = 0;
         int cur = min(this->row, this->column);
@@ -270,6 +293,9 @@ public:
         return ans;
     }
 
+/**
+ * 显示矩阵
+ */
     void show() {
         cout << "Row:" << this->row << endl;
         cout << "Column:" << this->column << endl;
@@ -290,20 +316,39 @@ public:
         cout << "]" << endl;
     }
 
+/**
+ * 显示矩阵的size
+ */
     void showSize() {
         cout << "Row:" << this->row << "  Column:" << this->column << endl;
     }
 
-    int setRow(int row) {
+/**
+ * 设置矩阵的行数
+ * 如果行数增加，多出的元素为默认值
+ * 如果行数减少，多余的元素被删除
+ * @param row 矩阵的新行数
+ */
+    void setRow(int row) {
         this->row = row;
         this->matrix.resize(row);
-        return 1;
     }
 
+/**
+ * 获取矩阵的行数
+ * @return 矩阵的行数
+ */
     int getRow() {
         return this->row;
     }
 
+/**
+ * 设置矩阵的列数
+ * 如果列数增加，多出的元素为默认值
+ * 如果列数减少，多余的元素被删除
+ * @param column 矩阵的新列数
+ * @return 设置失败返回0，成功返回1
+ */
     int setColumn(int column) {
         if (this->row == 0) {
             return 0;
@@ -315,6 +360,9 @@ public:
         return 1;
     }
 
+/**
+ * 获取矩阵的列数
+ */
     int getColumn() {
         return this->column;
 
