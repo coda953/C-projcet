@@ -681,7 +681,7 @@ public:
         return ans;
     }
 
-    Matrix operator+(Vector<T> other) const {
+    Matrix operator+(Vector<T> other) {
         if (this->column != other.getLength()) {
             cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix(0, 0);
@@ -695,7 +695,7 @@ public:
         return ans;
     }
 
-    Matrix operator-(const Matrix &other) const {
+    Matrix operator-(Matrix &other) {
         if (this->row != other.row || this->column != other.column) {
             cerr << "the size of these two vector is not equal" << endl;
             cerr << "left size is:";
@@ -713,7 +713,7 @@ public:
         return ans;
     }
 
-    Matrix operator-(Vector<T> other) const {
+    Matrix operator-(Vector<T> other) {
         if (this->column != other.getLength()) {
             cerr << "The column of the matrix is not equal to the vector length" << endl;
             return Matrix(0, 0);
@@ -727,7 +727,7 @@ public:
         return ans;
     }
 
-    Matrix operator*(const Matrix &other) const {
+    Matrix operator*(Matrix &other) {
         if (this->column != other.row) {
             cerr << "multiple error!" << endl;
             cerr << "the left matrix column is not equal right matrix row" << endl;
@@ -743,7 +743,7 @@ public:
         return ans;
     }
 
-    Vector<T> operator*(Vector<T> other) const {
+    Vector<T> operator*(Vector<T> other) {
         if (this->column != other.getLength()) {
             cerr << "Matrix * Vector error!" << endl;
             cerr << "The left Matrix column is not equal right length" << endl;
