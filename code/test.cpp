@@ -24,6 +24,9 @@ vector<vector<double>> m4 = {{1,  2,  3,  4,},
 vector<vector<double>> m5 = {{1, 1, 2},
                              {3, 4, 5},
                              {6, 7, 8}};
+vector<vector<double>> m6 = {{1, 2, 3},
+                             {4, 5, 6},
+                             {2, 8, 5}};
 //init a Matrix by vector<vector<double>>
 TEST(Matrix_init_vector, test) {
     Matrix<double> a = m1;
@@ -154,6 +157,20 @@ TEST(Matrix_convolution, task3) {
     EXPECT_FLOAT_EQ(ans[3][3], 35);
 }
 //test inverse
+TEST(Matrix_inverse, task2) {
+    Matrix<double> a = m6;
+    Matrix<double> b = a.inverse();
+    EXPECT_NEAR(b[0][0], -0.851852,EXP);
+    EXPECT_NEAR(b[0][1], 0.518519,EXP);
+    EXPECT_NEAR(b[0][2], -0.111111,EXP);
+    EXPECT_NEAR(b[1][0], -0.296296,EXP);
+    EXPECT_NEAR(b[1][1], -0.037037,EXP);
+    EXPECT_NEAR(b[1][2], 0.222222,EXP);
+    EXPECT_NEAR(b[2][0], 0.814815,EXP);
+    EXPECT_NEAR(b[2][1], -0.148148,EXP);
+    EXPECT_NEAR(b[2][2], -0.111111,EXP);
+}
+
 TEST(Vector_cross_product, task2) {
     vector<double> a = {1, 2};
     vector<double> b = {2, 3};
