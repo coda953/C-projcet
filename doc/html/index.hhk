@@ -62,11 +62,13 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a4f2cda755d762eb6ad6617e53e62b933"><param name="Name" value="getEigenvalue"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#abb312ba3f86b6445db805f52090f4f02"><param name="Name" value="getLength"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a727a71910e64759e24dbda697a9a21b0"><param name="Name" value="getRow"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aca42faaba609fd874438f82fac3ed0db"><param name="Name" value="inverse"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b"><param name="Name" value="m1"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91"><param name="Name" value="m2"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ad58a66e761b501e9b8473a348243b90b"><param name="Name" value="m3"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a19997558981a318839f9371704ba2b10"><param name="Name" value="m4"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a8c84e7345947361b43debd73d5176455"><param name="Name" value="m5"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#afa0989262eedd4aae80f20f0b71d5ee0"><param name="Name" value="m6"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html"><param name="Name" value="main.cpp"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4"><param name="Name" value="main"></OBJECT>
@@ -176,15 +178,23 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aca42faaba609fd874438f82fac3ed0db"><param name="Name" value="inverse"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#ab3f9600e9b58087180d93224ad53cc5d"><param name="Name" value="Matrix"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
+  <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#ad6584ae748fa83c3fea9c056516e08eb"><param name="Name" value="Matrix"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a2ca864d04461e0f81f1d70c5d3e7abcc"><param name="Name" value="Matrix"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a9d567e3a121b1be0c3f9c461cab524fe"><param name="Name" value="Matrix"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a9d567e3a121b1be0c3f9c461cab524fe"><param name="Name" value="Matrix"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a2ca864d04461e0f81f1d70c5d3e7abcc"><param name="Name" value="Matrix"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
   <UL>
@@ -197,10 +207,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aab91640cd08194823f62a1cf22d1a3d3"><param name="Name" value="Matrix"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#ab3f9600e9b58087180d93224ad53cc5d"><param name="Name" value="Matrix"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html"><param name="Name" value="Matrix"></OBJECT>
   <UL>
@@ -271,13 +277,13 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a62d8ac6ea61ba2dbdd4c3ed9fd88c708"><param name="Name" value="transposition"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a7a49dfbc45c05bbbad18dba9114eb1cf"><param name="Name" value="Matrix"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aa5ee0a4e3cb39bde8d47a5a4bf69d6b3"><param name="Name" value="operator*"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aa5ee0a4e3cb39bde8d47a5a4bf69d6b3"><param name="Name" value="Matrix"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a146499e638db8b682a030b360c1ac4bb"><param name="Name" value="operator*"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a146499e638db8b682a030b360c1ac4bb"><param name="Name" value="Matrix"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aa5ee0a4e3cb39bde8d47a5a4bf69d6b3"><param name="Name" value="operator*"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aa5ee0a4e3cb39bde8d47a5a4bf69d6b3"><param name="Name" value="Matrix"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#acfa4d74caf1e6d26608866530ef977a9"><param name="Name" value="operator*"></OBJECT>
   <UL>
@@ -305,11 +311,11 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#aa50dc7edd265b146c979aa19798589bc"><param name="Name" value="Matrix"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a762fa5eb745dab4e0fc7452a2d6c310a"><param name="Name" value="operator-"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a762fa5eb745dab4e0fc7452a2d6c310a"><param name="Name" value="Vector"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a70a80682a695f44b00cd13409cf210ef"><param name="Name" value="operator-"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a70a80682a695f44b00cd13409cf210ef"><param name="Name" value="Vector"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a762fa5eb745dab4e0fc7452a2d6c310a"><param name="Name" value="operator-"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a1847b5bab199460024c333e8d931a0a0"><param name="Name" value="operator[]"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a1847b5bab199460024c333e8d931a0a0"><param name="Name" value="Matrix"></OBJECT>
@@ -354,39 +360,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
   <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#afa0989262eedd4aae80f20f0b71d5ee0"><param name="Name" value="m6"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a9f4a1a0300b569efe2ceac74c926f98e"><param name="Name" value="main"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a979628287508fa8b2c33f1186d90f9f1"><param name="Name" value="TEST"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac0a47932d1f7001621f394b467d661de"><param name="Name" value="TEST"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a6a7d763e7ec29eed7b29f8fce2f20b82"><param name="Name" value="TEST"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a1be9377aa6616cb9668f2d52ac1d5fbd"><param name="Name" value="TEST"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4ee87d8de39b9f64c3b824a4e10c7ec2"><param name="Name" value="TEST"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#adb82f756299c5d7840e341d1b313faa1"><param name="Name" value="TEST"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac654f2376ebd87b9168554a03d062516"><param name="Name" value="TEST"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ae9bd7bf584c9ae4480dbf19d7fc248ec"><param name="Name" value="TEST"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
   <UL>
@@ -394,22 +372,58 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e"><param name="Name" value="TEST"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a2db05ee9112c28a7c789d20534220189"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a979628287508fa8b2c33f1186d90f9f1"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ae9bd7bf584c9ae4480dbf19d7fc248ec"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac0a47932d1f7001621f394b467d661de"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4ee87d8de39b9f64c3b824a4e10c7ec2"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a1be9377aa6616cb9668f2d52ac1d5fbd"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#adb82f756299c5d7840e341d1b313faa1"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a5c0bdb6f4eef80e5d502e8f67b9eb840"><param name="Name" value="TEST"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4d3830490d0e3ed1efd859b5fa62167f"><param name="Name" value="TEST"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a2db05ee9112c28a7c789d20534220189"><param name="Name" value="test.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac654f2376ebd87b9168554a03d062516"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html"><param name="Name" value="test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a6a7d763e7ec29eed7b29f8fce2f20b82"><param name="Name" value="TEST"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e"><param name="Name" value="test.cpp"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293"><param name="Name" value="test1"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#a715d4757101a90c6b10662ce8f70ae55"><param name="Name" value="test2"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e"><param name="Name" value="TEST"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e"><param name="Name" value="test.cpp"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ab8f0c8e27808d728a4525032479d63fd"><param name="Name" value="TEST"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ab8f0c8e27808d728a4525032479d63fd"><param name="Name" value="test.cpp"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#adb82f756299c5d7840e341d1b313faa1"><param name="Name" value="TEST"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#adb82f756299c5d7840e341d1b313faa1"><param name="Name" value="test.cpp"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a6a7d763e7ec29eed7b29f8fce2f20b82"><param name="Name" value="TEST"></OBJECT>
   <UL>
@@ -419,35 +433,39 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ae9bd7bf584c9ae4480dbf19d7fc248ec"><param name="Name" value="test.cpp"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4ee87d8de39b9f64c3b824a4e10c7ec2"><param name="Name" value="TEST"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a2db05ee9112c28a7c789d20534220189"><param name="Name" value="TEST"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4ee87d8de39b9f64c3b824a4e10c7ec2"><param name="Name" value="test.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a2db05ee9112c28a7c789d20534220189"><param name="Name" value="test.cpp"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4d3830490d0e3ed1efd859b5fa62167f"><param name="Name" value="TEST"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#adb82f756299c5d7840e341d1b313faa1"><param name="Name" value="TEST"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4d3830490d0e3ed1efd859b5fa62167f"><param name="Name" value="test.cpp"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#adb82f756299c5d7840e341d1b313faa1"><param name="Name" value="test.cpp"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a979628287508fa8b2c33f1186d90f9f1"><param name="Name" value="TEST"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a979628287508fa8b2c33f1186d90f9f1"><param name="Name" value="test.cpp"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e"><param name="Name" value="TEST"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e"><param name="Name" value="test.cpp"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a1be9377aa6616cb9668f2d52ac1d5fbd"><param name="Name" value="TEST"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a1be9377aa6616cb9668f2d52ac1d5fbd"><param name="Name" value="test.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4d3830490d0e3ed1efd859b5fa62167f"><param name="Name" value="TEST"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4d3830490d0e3ed1efd859b5fa62167f"><param name="Name" value="test.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac0a47932d1f7001621f394b467d661de"><param name="Name" value="TEST"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac0a47932d1f7001621f394b467d661de"><param name="Name" value="test.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a5c0bdb6f4eef80e5d502e8f67b9eb840"><param name="Name" value="TEST"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a5c0bdb6f4eef80e5d502e8f67b9eb840"><param name="Name" value="test.cpp"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac654f2376ebd87b9168554a03d062516"><param name="Name" value="TEST"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac654f2376ebd87b9168554a03d062516"><param name="Name" value="test.cpp"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a2db05ee9112c28a7c789d20534220189"><param name="Name" value="TEST"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a2db05ee9112c28a7c789d20534220189"><param name="Name" value="test.cpp"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#ac0a47932d1f7001621f394b467d661de"><param name="Name" value="TEST"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="test_8cpp.html#a4ee87d8de39b9f64c3b824a4e10c7ec2"><param name="Name" value="TEST"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#ad321fcd3d8b097c7830a9abd2021cc12"><param name="Name" value="to_opencv_32FC1"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#af0813070ed8e915ff548b9a43ea62208"><param name="Name" value="to_opencv_8UC1"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_matrix.html#a62d8ac6ea61ba2dbdd4c3ed9fd88c708"><param name="Name" value="transposition"></OBJECT>
@@ -499,15 +517,11 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#acfa4d74caf1e6d26608866530ef977a9"><param name="Name" value="operator*"></OBJECT>
-  </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
-  <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a159484a6b056d70dab748990ec73784d"><param name="Name" value="operator*"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a29070e17036190d158abcc286abff17a"><param name="Name" value="operator+"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#acfa4d74caf1e6d26608866530ef977a9"><param name="Name" value="operator*"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
@@ -515,11 +529,15 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a762fa5eb745dab4e0fc7452a2d6c310a"><param name="Name" value="operator-"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a29070e17036190d158abcc286abff17a"><param name="Name" value="operator+"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a70a80682a695f44b00cd13409cf210ef"><param name="Name" value="operator-"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a762fa5eb745dab4e0fc7452a2d6c310a"><param name="Name" value="operator-"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
@@ -535,13 +553,13 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a39d6069675db4ecfc1ab81d440da759a"><param name="Name" value="Vector"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#ab5785c9840239e5271da4be859418e45"><param name="Name" value="Vector"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html"><param name="Name" value="Vector"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#ae509affb59595509b9ad5fcccbdfff42"><param name="Name" value="Vector"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#ab5785c9840239e5271da4be859418e45"><param name="Name" value="Vector"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_vector.html#a39d6069675db4ecfc1ab81d440da759a"><param name="Name" value="Vector"></OBJECT>
 </UL>
 </BODY>
 </HTML>

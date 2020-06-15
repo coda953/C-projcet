@@ -39,6 +39,7 @@
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getColumn"><param name="Local" value="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getEigenvalue"><param name="Local" value="class_matrix.html#a4f2cda755d762eb6ad6617e53e62b933"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="getRow"><param name="Local" value="class_matrix.html#a727a71910e64759e24dbda697a9a21b0"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="inverse"><param name="Local" value="class_matrix.html#aca42faaba609fd874438f82fac3ed0db"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="operator*"><param name="Local" value="class_matrix.html#aa5ee0a4e3cb39bde8d47a5a4bf69d6b3"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="operator*"><param name="Local" value="class_matrix.html#a146499e638db8b682a030b360c1ac4bb"><param name="ImageNumber" value="11"></OBJECT>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="operator+"><param name="Local" value="class_matrix.html#a0173619a6c29c89c6700bca328a9b028"><param name="ImageNumber" value="11"></OBJECT>
@@ -164,6 +165,7 @@
           <LI><OBJECT type="text/sitemap"><param name="Name" value="getColumn"><param name="Local" value="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="getEigenvalue"><param name="Local" value="class_matrix.html#a4f2cda755d762eb6ad6617e53e62b933"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="getRow"><param name="Local" value="class_matrix.html#a727a71910e64759e24dbda697a9a21b0"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="inverse"><param name="Local" value="class_matrix.html#aca42faaba609fd874438f82fac3ed0db"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="operator*"><param name="Local" value="class_matrix.html#aa5ee0a4e3cb39bde8d47a5a4bf69d6b3"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="operator*"><param name="Local" value="class_matrix.html#a146499e638db8b682a030b360c1ac4bb"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="operator+"><param name="Local" value="class_matrix.html#a0173619a6c29c89c6700bca328a9b028"><param name="ImageNumber" value="11"></OBJECT>
@@ -198,6 +200,7 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="TEST"><param name="Local" value="test_8cpp.html#a4d3830490d0e3ed1efd859b5fa62167f"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="TEST"><param name="Local" value="test_8cpp.html#a59ab9078f549a937a70d7ccb5c965c6e"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="TEST"><param name="Local" value="test_8cpp.html#ac0a47932d1f7001621f394b467d661de"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="TEST"><param name="Local" value="test_8cpp.html#a5c0bdb6f4eef80e5d502e8f67b9eb840"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="TEST"><param name="Local" value="test_8cpp.html#a2db05ee9112c28a7c789d20534220189"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="TEST"><param name="Local" value="test_8cpp.html#ac654f2376ebd87b9168554a03d062516"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="m1"><param name="Local" value="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b"><param name="ImageNumber" value="11"></OBJECT>
@@ -205,6 +208,7 @@
         <LI><OBJECT type="text/sitemap"><param name="Name" value="m3"><param name="Local" value="test_8cpp.html#ad58a66e761b501e9b8473a348243b90b"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="m4"><param name="Local" value="test_8cpp.html#a19997558981a318839f9371704ba2b10"><param name="ImageNumber" value="11"></OBJECT>
         <LI><OBJECT type="text/sitemap"><param name="Name" value="m5"><param name="Local" value="test_8cpp.html#a8c84e7345947361b43debd73d5176455"><param name="ImageNumber" value="11"></OBJECT>
+        <LI><OBJECT type="text/sitemap"><param name="Name" value="m6"><param name="Local" value="test_8cpp.html#afa0989262eedd4aae80f20f0b71d5ee0"><param name="ImageNumber" value="11"></OBJECT>
         </UL>
       <LI><OBJECT type="text/sitemap"><param name="Name" value="Vector.hpp"><param name="Local" value="_vector_8hpp.html"><param name="ImageNumber" value="11"></OBJECT>
         <UL>
@@ -239,6 +243,7 @@
           <LI><OBJECT type="text/sitemap"><param name="Name" value="getColumn"><param name="Local" value="class_matrix.html#a73f716f5127b622a2f6934233c8e35a4"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="getEigenvalue"><param name="Local" value="class_matrix.html#a4f2cda755d762eb6ad6617e53e62b933"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="getRow"><param name="Local" value="class_matrix.html#a727a71910e64759e24dbda697a9a21b0"><param name="ImageNumber" value="11"></OBJECT>
+          <LI><OBJECT type="text/sitemap"><param name="Name" value="inverse"><param name="Local" value="class_matrix.html#aca42faaba609fd874438f82fac3ed0db"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="operator*"><param name="Local" value="class_matrix.html#aa5ee0a4e3cb39bde8d47a5a4bf69d6b3"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="operator*"><param name="Local" value="class_matrix.html#a146499e638db8b682a030b360c1ac4bb"><param name="ImageNumber" value="11"></OBJECT>
           <LI><OBJECT type="text/sitemap"><param name="Name" value="operator+"><param name="Local" value="class_matrix.html#a0173619a6c29c89c6700bca328a9b028"><param name="ImageNumber" value="11"></OBJECT>
