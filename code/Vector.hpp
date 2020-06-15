@@ -20,7 +20,7 @@ template<class T>
 class Vector {
 public:
     /**
-     * init a vector with length equals 0
+     * 初始化长度为0的向量
      */
     Vector() {
         this->length = 0;
@@ -28,8 +28,8 @@ public:
     }
 
     /**
-     * init a vector by a std::vector
-     * @param other the std::vector
+     * 通过 std::vector 来初始化向量
+     * @param other 传入的std::vector
      */
     Vector<T>(vector<T> other) {
         this->length = other.size();
@@ -37,8 +37,8 @@ public:
     }
 
 /**
- * init a vector length equals user input and all elements equal default value
- * @param length  the length of the vector
+ * 初始化一个特定长度的向量，元素为默认值
+ * @param length  向量的长度
  */
     explicit Vector(int length) {
         this->length = length;
@@ -46,15 +46,15 @@ public:
     }
 
 /**
- * get the length of the vector
- * @return the length of the vector
+ * 获得矩阵的长度
+ * @return 矩阵的长度
  */
     int getLength() {
         return this->length;
     }
 
 /**
- * show the vector
+ * 打印矩阵
  */
     void show() {
         cout << "Length:" << this->length << endl;
@@ -70,17 +70,17 @@ public:
     }
 
 /**
- * overload [] to achieve the element of the vector
- * @param i the index of the vector
- * @return the i-th element of the vector
+ * 重载[]来访问向量的元素
+ * @param i 下标
+ * @return 第i个向量的元素
  */
     T &operator[](int i) {
         return this->vector[i];
     }
 
 /**
- * get the minimum element of the vector
- * @return the minimum element of the vector
+ * 获得向量中的最小值
+ * @return 向量的最小值
  */
     double findMin() {
         if (this->length == 0) {
@@ -95,8 +95,8 @@ public:
     }
 
 /**
- * get the maximum element of the vector
- * @return the maximum element of the vector
+ * 获得向量中的最大值
+ * @return 向量中的最大值
  */
     double findMax() {
         if (this->length == 0) {
@@ -111,8 +111,8 @@ public:
     }
 
 /**
- * get the average of the all elements of the vector
- * @return  the average of the all elements of the vector
+ * 获得向量的平均值
+ * @return  向量的平均值
  */
     T findAverage() {
         T ans = findSum();
@@ -121,8 +121,8 @@ public:
     }
 
 /**
- *get the sum of the all elements of the vector
- * @return  the sum of the all elements of the vector
+ * 获得向量所有元素的和
+ * @return  向量所有元素的和
  */
     T findSum() {
         if (this->length == 0) {
@@ -137,8 +137,10 @@ public:
     }
 
 /**
- * set the length of the vector
- * @param _length the new length of the vector, if the size is larger,the new element is default value.
+ * 设置向量的长度
+ * 如果长度增加，多出的元素为默认值
+ * 如果长度减少，多余的元素被删除
+ * @param _length 向量的新长度
  */
     void setLength(int _length) {
         this->length = _length;
@@ -146,9 +148,9 @@ public:
     }
 
 /**
- * vector dot product with other vector
- * @param other the other vector
- * @return the answer
+ * 向量之间的点积
+ * @param other 另一个向量
+ * @return 向量的点积
  */
     T dot_product(Vector other) {
         T ans = 0;
@@ -164,8 +166,8 @@ public:
     }
 
 /**
- * get the conjugation of the vector
- * @return the conjugation of the vector
+ * 获得向量的共轭向量
+ * @return 向量的共轭向量
  */
     Vector conjugation() {
         Vector ans = Vector(this->length);
@@ -177,8 +179,8 @@ public:
     }
 
 /**
- * get the conjugation of the vector, and change this vector to ans
- * @return the conjugation of the vector
+ * 获得向量的共轭向量，并改变原向量
+ * @return 向量的共轭向量
  */
     Vector conjugation_change() {
         Vector ans = Vector(this->length);
@@ -191,9 +193,9 @@ public:
     }
 
 /**
- * get the element wise multiplication of the vector
- * @param other  the other vector to element wise multiplication
- * @return the answer vector
+ * 获得两个向量的元素点乘
+ * @param other  另一个元素点乘的向量
+ * @return 结果向量
  */
     Vector element_wise_multiplication(Vector &other) {
         if (this->length != other.length) {
@@ -208,10 +210,12 @@ public:
         return ans;
     }
 
+
 /**
- * get the element wise multiplication of the vector, and change this vector to answer vector
- * @param other  the other vector to element wise multiplication
- * @return the answer vector
+ * 获得两个向量的元素点乘
+ * 并将原矩阵转化为结果矩阵
+ * @param other  另一个元素点乘的向量
+ * @return 结果向量
  */
     Vector element_wise_multiplication_change(Vector &other) {
         if (this->length != other.length) {
@@ -228,9 +232,9 @@ public:
     }
 
 /**
- * reload operator + to add two vector
- * @param other  the other vector to add
- * @return the answer vector
+ * 重载+实现两个向量相加
+ * @param other  另一个相加的向量
+ * @return 结果向量
  */
     Vector operator+(Vector &other) {
         if (this->length != other.length) {
@@ -245,9 +249,11 @@ public:
     }
 
 /**
- * reload operator + to add with a matrix,every row of matrix will add the vector
- * @param other the matrix to add
- * @return the answer matrix
+ * 重载+实现向量与矩阵的加法
+ * 向量的长度与矩阵的列数相同
+ * 矩阵的每一行都与向量做加法
+ * @param other 相加的矩阵
+ * @return 向量与矩阵的相加结果
  */
     Matrix<T> operator+(Matrix<T> other) {
         if (this->length != other.getColumn()) {
@@ -264,9 +270,9 @@ public:
     }
 
 /**
- * reload operator - to add two vector
- * @param other  the other vector to minus
- * @return the answer vector
+ * 重载-实现两个向量的减法
+ * @param other  另一个相减的向量
+ * @return 两个向量的减法
  */
     Vector operator-(Vector &other) {
         if (this->length != other.length) {
@@ -281,9 +287,11 @@ public:
     }
 
 /**
- * reload operator - to add with a matrix,every row of matrix will minus the vector
- * @param other the matrix to minus
- * @return the answer matrix
+ * 重载-，实现与矩阵的减法
+ * 向量的长度要与矩阵的列数相同
+ * 矩阵的每一行都与向量相减
+ * @param other 相减的矩阵
+ * @return 结果矩阵
  */
     Matrix<T> operator-(Matrix<T> other) {
         if (this->length != other.getColumn()) {
@@ -300,9 +308,9 @@ public:
     }
 
 /**
- * reload operator * to multiple with an element
- * @param other the multiplier
- * @return the answer vector
+ * 重载*实现向量与元素的乘
+ * @param other 乘的元素
+ * @return 向量与元素乘的结果
  */
     Vector operator*(T other) {
         Vector ans = Vector(this->length);
@@ -313,9 +321,10 @@ public:
     }
 
 /**
- * reload operator * to multiple with a matrix,every row of the matrix will multiple with the vector
- * @param other the multiplier matrix
- * @return the answer vector
+ * 重载*获得向量与矩阵的点积
+ * 其中结果的每一个值为向量与矩阵的行的点积
+ * @param other 另一个乘矩阵
+ * @return 结果向量
  */
     Vector operator*(Matrix<T> other) {
         if (this->length != other.getRow()) {
@@ -333,9 +342,9 @@ public:
     }
 
 /**
- * get the cross product of two vectors
- * @param other the other vector to cross product
- * @return the answer vector
+ * 获得两个向量的叉积
+ * @param other 另一个向量
+ * @return 向量的叉积，长度为3，分别为i,j,k
  */
     Vector cross_product(Vector other) {
         Vector ans = Vector(3);
