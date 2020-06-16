@@ -2,10 +2,10 @@
 #include "Vector.hpp"
 #include <opencv2/core.hpp>
 #include <gtest/gtest.h>
+
 using namespace std;
 using namespace cv;
 #define EXP 0.0001
-
 
 
 vector<vector<double>> m1 = {{1, 2, 3},
@@ -27,6 +27,8 @@ vector<vector<double>> m5 = {{1, 1, 2},
 vector<vector<double>> m6 = {{1, 2, 3},
                              {4, 5, 6},
                              {2, 8, 5}};
+vector<double> m7 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+vector<double> m8 = {9, 8, 7, 6, 5, 4, 3, 2, 1};
 //init a Matrix by vector<vector<double>>
 TEST(Matrix_init_vector, test) {
     Matrix<double> a = m1;
@@ -160,15 +162,15 @@ TEST(Matrix_convolution, task3) {
 TEST(Matrix_inverse, task2) {
     Matrix<double> a = m6;
     Matrix<double> b = a.inverse();
-    EXPECT_NEAR(b[0][0], -0.851852,EXP);
-    EXPECT_NEAR(b[0][1], 0.518519,EXP);
-    EXPECT_NEAR(b[0][2], -0.111111,EXP);
-    EXPECT_NEAR(b[1][0], -0.296296,EXP);
-    EXPECT_NEAR(b[1][1], -0.037037,EXP);
-    EXPECT_NEAR(b[1][2], 0.222222,EXP);
-    EXPECT_NEAR(b[2][0], 0.814815,EXP);
-    EXPECT_NEAR(b[2][1], -0.148148,EXP);
-    EXPECT_NEAR(b[2][2], -0.111111,EXP);
+    EXPECT_NEAR(b[0][0], -0.851852, EXP);
+    EXPECT_NEAR(b[0][1], 0.518519, EXP);
+    EXPECT_NEAR(b[0][2], -0.111111, EXP);
+    EXPECT_NEAR(b[1][0], -0.296296, EXP);
+    EXPECT_NEAR(b[1][1], -0.037037, EXP);
+    EXPECT_NEAR(b[1][2], 0.222222, EXP);
+    EXPECT_NEAR(b[2][0], 0.814815, EXP);
+    EXPECT_NEAR(b[2][1], -0.148148, EXP);
+    EXPECT_NEAR(b[2][2], -0.111111, EXP);
 }
 
 TEST(Vector_cross_product, task2) {
@@ -193,47 +195,83 @@ TEST(Matrix_det, task2) {
     EXPECT_EQ(-3, c.cal_det());
     EXPECT_EQ(13, c.cal_traces());
 }
-TEST(Matrix_init,test0){
-    Matrix<double>a=Matrix<double>(10);
-    EXPECT_EQ(a.getRow(),1);
-    EXPECT_EQ(a.getColumn(),10);
+
+TEST(Matrix_init, test0) {
+    Matrix<double> a = Matrix<double>(10);
+    EXPECT_EQ(a.getRow(), 1);
+    EXPECT_EQ(a.getColumn(), 10);
     for (int i = 0; i < a.getColumn(); ++i) {
-        EXPECT_EQ(a[0][i],0);
+        EXPECT_EQ(a[0][i], 0);
     }
     a.setRow(2);
     a.setColumn(2);
-    EXPECT_EQ(2,a.getRow());
-    EXPECT_EQ(2,a.getColumn());
-    a[0][0]=1;
-    a[0][1]=2;
-    a[1][0]=3;
-    a[1][1]=4;
+    EXPECT_EQ(2, a.getRow());
+    EXPECT_EQ(2, a.getColumn());
+    a[0][0] = 1;
+    a[0][1] = 2;
+    a[1][0] = 3;
+    a[1][1] = 4;
     a.transposition_change();
-    EXPECT_EQ(a[0][1],3);
-    EXPECT_EQ(a[1][0],2);
-    EXPECT_EQ(a[0][0],1);
-    EXPECT_EQ(a[1][1],4);
+    EXPECT_EQ(a[0][1], 3);
+    EXPECT_EQ(a[1][0], 2);
+    EXPECT_EQ(a[0][0], 1);
+    EXPECT_EQ(a[1][1], 4);
 }
-TEST(Matrix_to_OpenCV,test1){
-    Matrix<double>a=m1;
-    Mat cv_a=a.to_opencv_32FC1();
+
+TEST(Matrix_to_OpenCV, test1) {
+    Matrix<double> a = m1;
+    Mat cv_a = a.to_opencv_32FC1();
     for (int i = 0; i < cv_a.rows; ++i) {
         for (int j = 0; j < cv_a.cols; ++j) {
-            EXPECT_DOUBLE_EQ(i*cv_a.rows+j+1,cv_a.at<float>(i,j));
+            EXPECT_DOUBLE_EQ(i * cv_a.rows + j + 1, cv_a.at<float>(i, j));
         }
     }
 }
-TEST(Matrix_element_wise_muliplication,test1){
-    Matrix<double>a=m1;
+
+TEST(Matrix_element_wise_muliplication, test1) {
+    Matrix<double> a = m1;
     a.setRow(2);
     a.setColumn(2);
-    Matrix<double>b=a;
+    Matrix<double> b = a;
     a.element_wise_multiplication_change(b);
-    EXPECT_DOUBLE_EQ(a[0][0],1);
-    EXPECT_DOUBLE_EQ(a[0][1],4);
-    EXPECT_DOUBLE_EQ(a[1][0],16);
-    EXPECT_DOUBLE_EQ(a[1][1],25);
+    EXPECT_DOUBLE_EQ(a[0][0], 1);
+    EXPECT_DOUBLE_EQ(a[0][1], 4);
+    EXPECT_DOUBLE_EQ(a[1][0], 16);
+    EXPECT_DOUBLE_EQ(a[1][1], 25);
 }
+
+TEST(Vector_init, test1) {
+    Vector<double> a = m7;
+    Vector<double> b = a;
+    Vector<double> c = m8;
+    for (int i = 0; i < 9; ++i) {
+        EXPECT_DOUBLE_EQ(a[i], i + 1);
+        EXPECT_DOUBLE_EQ(b[i], a[i]);
+        EXPECT_DOUBLE_EQ(c[i], 9 - i);
+    }
+}
+
+TEST(Vector_operation, test1) {
+    Vector<double> a = m7;
+    Vector<double> c = m8;
+    Vector<double> add = a + c;
+    Vector<double> minus = c - a;
+    Vector<double> mul = a.element_wise_multiplication(c);
+    a.element_wise_multiplication_change(c);
+    Vector<double> mul_element = c * 3;
+    for (int i = 0; i < 9; ++i) {
+        EXPECT_DOUBLE_EQ(10, add[i]);
+        EXPECT_DOUBLE_EQ(8 - 2 * i, minus[i]);
+        EXPECT_DOUBLE_EQ((i + 1) * (9 - i), mul[i]);
+        EXPECT_DOUBLE_EQ(3 * (9 - i), mul_element[i]);
+        EXPECT_DOUBLE_EQ(a[i], mul[i]);
+    }
+    EXPECT_DOUBLE_EQ(45, c.findSum());
+    EXPECT_DOUBLE_EQ(1, c.findMin());
+    EXPECT_DOUBLE_EQ(9, c.findMax());
+    EXPECT_DOUBLE_EQ(5, c.findAverage());
+}
+
 GTEST_API_ int main() {
     testing::InitGoogleTest();
     return RUN_ALL_TESTS();

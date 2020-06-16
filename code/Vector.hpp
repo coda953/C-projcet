@@ -87,9 +87,9 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->vector[0].real();
+        double ans = this->vector[0];
         for (int i = 0; i < length; ++i) {
-            ans = min(ans, this->vector[i].real());
+            ans = min(ans, this->vector[i]);
         }
         return ans;
     }
@@ -103,9 +103,9 @@ public:
             cerr << "The vector is empty,can not get sum" << endl;
             return 0;
         }
-        double ans = this->vector[0].real();
+        double ans = this->vector[0];
         for (int i = 0; i < length; ++i) {
-            ans = max(ans, this->vector[i].real());
+            ans = max(ans, this->vector[i]);
         }
         return ans;
     }
@@ -127,9 +127,9 @@ public:
     T findSum() {
         if (this->length == 0) {
             cerr << "The Vector is empty,can not get sum" << endl;
-            return {0, 0};
+            return 0;
         }
-        T ans = {0, 0};
+        T ans = 0;
         for (int i = 0; i < this->length; ++i) {
             ans += this->vector[i];
         }
