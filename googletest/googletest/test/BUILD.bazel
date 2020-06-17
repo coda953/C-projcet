@@ -54,7 +54,7 @@ cc_test(
             "gtest-listener_test.cc",
             "gtest-unittest-api_test.cc",
             "googletest-param-test-test.cc",
-            "googletest-param-test2-test.cc",
+            "googletest-param-test2_1-test.cc",
             "googletest-catch-exceptions-test_.cc",
             "googletest-color-test_.cc",
             "googletest-env-var-test_.cc",
@@ -134,7 +134,7 @@ cc_test(
     srcs = [
         "googletest-param-test-test.cc",
         "googletest-param-test-test.h",
-        "googletest-param-test2-test.cc",
+        "googletest-param-test2_1-test.cc",
     ],
     deps = ["//:gtest"],
 )

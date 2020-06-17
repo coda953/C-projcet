@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: Vector&lt; T &gt; 模板类 参考</title>
+<title>Matrix: Vector&lt; T &gt; 模板类 参考</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,12 +17,13 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="SunShangXiang.jpeg"/></td>
-  <td id="projectalign" style="padding-left: 0.5em;">
-      <div id="projectname">My Project
-          &#160;<span id="projectnumber">1.0</span>
-      </div>
-  </td>
+     <td id="projectlogo"><img alt="Logo" src="logo.jpg"/></td>
+     <td id="projectalign" style="padding-left: 0.5em;">
+         <div id="projectname">Matrix
+             &#160;<span id="projectnumber">1.0</span>
+         </div>
+         <div id="projectbrief">朱俊达 郑瑞麒 王一帆</div>
+     </td>
  </tr>
  </tbody>
 </table>
@@ -49,234 +50,255 @@ $(function() {
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="_matrix_8hpp_source.html">Matrix.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public 成员函数</h2></td></tr>
-<tr class="memitem:a39d6069675db4ecfc1ab81d440da759a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vector.html#a39d6069675db4ecfc1ab81d440da759a">Vector</a> ()</td></tr>
-<tr class="separator:a39d6069675db4ecfc1ab81d440da759a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-    <tr class="memitem:ab5785c9840239e5271da4be859418e45">
-        <td class="memItemLeft" align="right" valign="top">&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#ab5785c9840239e5271da4be859418e45">Vector</a>
-            (vector&lt; T &gt; other)
-        </td>
-    </tr>
-    <tr class="separator:ab5785c9840239e5271da4be859418e45">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:ae509affb59595509b9ad5fcccbdfff42">
-        <td class="memItemLeft" align="right" valign="top">&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#ae509affb59595509b9ad5fcccbdfff42">Vector</a>
-            (int length)
-        </td>
-    </tr>
-    <tr class="separator:ae509affb59595509b9ad5fcccbdfff42">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:abb312ba3f86b6445db805f52090f4f02">
-        <td class="memItemLeft" align="right" valign="top">int&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#abb312ba3f86b6445db805f52090f4f02">getLength</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:abb312ba3f86b6445db805f52090f4f02">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a4269bca7f34427177c1917f882ee3f2e">
-        <td class="memItemLeft" align="right" valign="top">void&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a4269bca7f34427177c1917f882ee3f2e">show</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:a4269bca7f34427177c1917f882ee3f2e">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a5db0910fc60e17551b75f6b227c49b46">
-        <td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a5db0910fc60e17551b75f6b227c49b46">operator[]</a>
-            (int i)
-        </td>
-    </tr>
-    <tr class="separator:a5db0910fc60e17551b75f6b227c49b46">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a01b998c97659ceda504485a1fb7985ff">
-        <td align="right" class="memItemLeft" valign="top">double&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a01b998c97659ceda504485a1fb7985ff">findMin</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:a01b998c97659ceda504485a1fb7985ff">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a031e8a166f7f8300b6d52da5a1ef6e20">
-        <td align="right" class="memItemLeft" valign="top">double&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a031e8a166f7f8300b6d52da5a1ef6e20">findMax</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:a031e8a166f7f8300b6d52da5a1ef6e20">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:afc23e2fd97b5c4231a0c4b15db354021">
-        <td align="right" class="memItemLeft" valign="top">T&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#afc23e2fd97b5c4231a0c4b15db354021">findAverage</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:afc23e2fd97b5c4231a0c4b15db354021">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a72d9562792f74cc24b22fd6154ce77c7">
-        <td align="right" class="memItemLeft" valign="top">T&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a72d9562792f74cc24b22fd6154ce77c7">findSum</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:a72d9562792f74cc24b22fd6154ce77c7">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a180adde0d32eda44df3fa57eabe47a2d">
-        <td align="right" class="memItemLeft" valign="top">void&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a180adde0d32eda44df3fa57eabe47a2d">setLength</a>
-            (int _length)
-        </td>
-    </tr>
-    <tr class="separator:a180adde0d32eda44df3fa57eabe47a2d">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a5b2444eb1a613ab38f30cfe45bc526d4">
-        <td align="right" class="memItemLeft" valign="top">T&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a5b2444eb1a613ab38f30cfe45bc526d4">dot_product</a>
-            (<a class="el" href="class_vector.html">Vector</a> other)
-        </td>
-    </tr>
-    <tr class="separator:a5b2444eb1a613ab38f30cfe45bc526d4">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a821f1818e52039cc5587856166fe9554">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a821f1818e52039cc5587856166fe9554">conjugation</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:a821f1818e52039cc5587856166fe9554">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a42b56bc8a1b7b5265e2738d13ab100de">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a42b56bc8a1b7b5265e2738d13ab100de">conjugation_change</a>
-            ()
-        </td>
-    </tr>
-    <tr class="separator:a42b56bc8a1b7b5265e2738d13ab100de">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a5644e8a3079bd642f5e5942a8255c096">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a5644e8a3079bd642f5e5942a8255c096">element_wise_multiplication</a>
-            (<a class="el" href="class_vector.html">Vector</a> &amp;other)
-        </td>
-    </tr>
-    <tr class="separator:a5644e8a3079bd642f5e5942a8255c096">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a8128d4b4e2de5aefecd8b0a131df192c">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a8128d4b4e2de5aefecd8b0a131df192c">element_wise_multiplication_change</a>
-            (<a class="el" href="class_vector.html">Vector</a> &amp;other)
-        </td>
-    </tr>
-    <tr class="separator:a8128d4b4e2de5aefecd8b0a131df192c">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a47c6367efb0c813851d62bdbcbd79f53">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a47c6367efb0c813851d62bdbcbd79f53">operator+</a>
-            (<a class="el" href="class_vector.html">Vector</a> &amp;other)
-        </td>
-    </tr>
-    <tr class="separator:a47c6367efb0c813851d62bdbcbd79f53">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a29070e17036190d158abcc286abff17a">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;
-        </td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a29070e17036190d158abcc286abff17a">operator+</a>
-            (<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; other)
-        </td>
-    </tr>
-    <tr class="separator:a29070e17036190d158abcc286abff17a">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a762fa5eb745dab4e0fc7452a2d6c310a">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a762fa5eb745dab4e0fc7452a2d6c310a">operator-</a>
-            (<a class="el" href="class_vector.html">Vector</a> &amp;other)
-        </td>
-    </tr>
-    <tr class="separator:a762fa5eb745dab4e0fc7452a2d6c310a">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a70a80682a695f44b00cd13409cf210ef">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt;&#160;
-        </td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a70a80682a695f44b00cd13409cf210ef">operator-</a>
-            (<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; other)
-        </td>
-    </tr>
-    <tr class="separator:a70a80682a695f44b00cd13409cf210ef">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:acfa4d74caf1e6d26608866530ef977a9">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#acfa4d74caf1e6d26608866530ef977a9">operator*</a>
-            (T other)
-        </td>
-    </tr>
-    <tr class="separator:acfa4d74caf1e6d26608866530ef977a9">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a159484a6b056d70dab748990ec73784d">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a159484a6b056d70dab748990ec73784d">operator*</a>
-            (<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; other)
-        </td>
-    </tr>
-    <tr class="separator:a159484a6b056d70dab748990ec73784d">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-    <tr class="memitem:a529c56f93a03aeeade5cba1ba5a9039e">
-        <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;</td>
-        <td class="memItemRight" valign="bottom"><a class="el"
-                                                    href="class_vector.html#a529c56f93a03aeeade5cba1ba5a9039e">cross_product</a>
-            (<a class="el" href="class_vector.html">Vector</a> other)
-        </td>
-    </tr>
-    <tr class="separator:a529c56f93a03aeeade5cba1ba5a9039e">
-        <td class="memSeparator" colspan="2">&#160;</td>
-    </tr>
-</table>
+    <table class="memberdecls">
+        <tr class="heading">
+            <td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+                Public 成员函数</h2></td>
+        </tr>
+        <tr class="memitem:a39d6069675db4ecfc1ab81d440da759a">
+            <td class="memItemLeft" align="right" valign="top">&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a39d6069675db4ecfc1ab81d440da759a">Vector</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:a39d6069675db4ecfc1ab81d440da759a">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:ab5785c9840239e5271da4be859418e45">
+            <td align="right" class="memItemLeft" valign="top">&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#ab5785c9840239e5271da4be859418e45">Vector</a>
+                (vector&lt; T &gt; other)
+            </td>
+        </tr>
+        <tr class="separator:ab5785c9840239e5271da4be859418e45">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:ae509affb59595509b9ad5fcccbdfff42">
+            <td align="right" class="memItemLeft" valign="top">&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#ae509affb59595509b9ad5fcccbdfff42">Vector</a>
+                (int length)
+            </td>
+        </tr>
+        <tr class="separator:ae509affb59595509b9ad5fcccbdfff42">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:abb312ba3f86b6445db805f52090f4f02">
+            <td align="right" class="memItemLeft" valign="top">int&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#abb312ba3f86b6445db805f52090f4f02">getLength</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:abb312ba3f86b6445db805f52090f4f02">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a4269bca7f34427177c1917f882ee3f2e">
+            <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a4269bca7f34427177c1917f882ee3f2e">show</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:a4269bca7f34427177c1917f882ee3f2e">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a5db0910fc60e17551b75f6b227c49b46">
+            <td align="right" class="memItemLeft" valign="top">T &amp;&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a5db0910fc60e17551b75f6b227c49b46">operator[]</a>
+                (int i)
+            </td>
+        </tr>
+        <tr class="separator:a5db0910fc60e17551b75f6b227c49b46">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a01b998c97659ceda504485a1fb7985ff">
+            <td align="right" class="memItemLeft" valign="top">double&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a01b998c97659ceda504485a1fb7985ff">findMin</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:a01b998c97659ceda504485a1fb7985ff">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a031e8a166f7f8300b6d52da5a1ef6e20">
+            <td align="right" class="memItemLeft" valign="top">double&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a031e8a166f7f8300b6d52da5a1ef6e20">findMax</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:a031e8a166f7f8300b6d52da5a1ef6e20">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:afc23e2fd97b5c4231a0c4b15db354021">
+            <td align="right" class="memItemLeft" valign="top">T&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#afc23e2fd97b5c4231a0c4b15db354021">findAverage</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:afc23e2fd97b5c4231a0c4b15db354021">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a72d9562792f74cc24b22fd6154ce77c7">
+            <td align="right" class="memItemLeft" valign="top">T&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a72d9562792f74cc24b22fd6154ce77c7">findSum</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:a72d9562792f74cc24b22fd6154ce77c7">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a180adde0d32eda44df3fa57eabe47a2d">
+            <td align="right" class="memItemLeft" valign="top">void&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a180adde0d32eda44df3fa57eabe47a2d">setLength</a>
+                (int _length)
+            </td>
+        </tr>
+        <tr class="separator:a180adde0d32eda44df3fa57eabe47a2d">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a5b2444eb1a613ab38f30cfe45bc526d4">
+            <td align="right" class="memItemLeft" valign="top">T&#160;</td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a5b2444eb1a613ab38f30cfe45bc526d4">dot_product</a>
+                (<a class="el" href="class_vector.html">Vector</a> other)
+            </td>
+        </tr>
+        <tr class="separator:a5b2444eb1a613ab38f30cfe45bc526d4">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a821f1818e52039cc5587856166fe9554">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a821f1818e52039cc5587856166fe9554">conjugation</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:a821f1818e52039cc5587856166fe9554">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a42b56bc8a1b7b5265e2738d13ab100de">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a42b56bc8a1b7b5265e2738d13ab100de">conjugation_change</a>
+                ()
+            </td>
+        </tr>
+        <tr class="separator:a42b56bc8a1b7b5265e2738d13ab100de">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a5644e8a3079bd642f5e5942a8255c096">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a5644e8a3079bd642f5e5942a8255c096">element_wise_multiplication</a>
+                (<a class="el" href="class_vector.html">Vector</a> &amp;other)
+            </td>
+        </tr>
+        <tr class="separator:a5644e8a3079bd642f5e5942a8255c096">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a8128d4b4e2de5aefecd8b0a131df192c">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a8128d4b4e2de5aefecd8b0a131df192c">element_wise_multiplication_change</a>
+                (<a class="el" href="class_vector.html">Vector</a> &amp;other)
+            </td>
+        </tr>
+        <tr class="separator:a8128d4b4e2de5aefecd8b0a131df192c">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a47c6367efb0c813851d62bdbcbd79f53">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a47c6367efb0c813851d62bdbcbd79f53">operator+</a>
+                (<a class="el" href="class_vector.html">Vector</a> &amp;other)
+            </td>
+        </tr>
+        <tr class="separator:a47c6367efb0c813851d62bdbcbd79f53">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a29070e17036190d158abcc286abff17a">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T
+                &gt;&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a29070e17036190d158abcc286abff17a">operator+</a>
+                (<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; other)
+            </td>
+        </tr>
+        <tr class="separator:a29070e17036190d158abcc286abff17a">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a762fa5eb745dab4e0fc7452a2d6c310a">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a762fa5eb745dab4e0fc7452a2d6c310a">operator-</a>
+                (<a class="el" href="class_vector.html">Vector</a> &amp;other)
+            </td>
+        </tr>
+        <tr class="separator:a762fa5eb745dab4e0fc7452a2d6c310a">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a70a80682a695f44b00cd13409cf210ef">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_matrix.html">Matrix</a>&lt; T
+                &gt;&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a70a80682a695f44b00cd13409cf210ef">operator-</a>
+                (<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; other)
+            </td>
+        </tr>
+        <tr class="separator:a70a80682a695f44b00cd13409cf210ef">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:acfa4d74caf1e6d26608866530ef977a9">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#acfa4d74caf1e6d26608866530ef977a9">operator*</a>
+                (T other)
+            </td>
+        </tr>
+        <tr class="separator:acfa4d74caf1e6d26608866530ef977a9">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a159484a6b056d70dab748990ec73784d">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a159484a6b056d70dab748990ec73784d">operator*</a>
+                (<a class="el" href="class_matrix.html">Matrix</a>&lt; T &gt; other)
+            </td>
+        </tr>
+        <tr class="separator:a159484a6b056d70dab748990ec73784d">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+        <tr class="memitem:a529c56f93a03aeeade5cba1ba5a9039e">
+            <td align="right" class="memItemLeft" valign="top"><a class="el" href="class_vector.html">Vector</a>&#160;
+            </td>
+            <td class="memItemRight" valign="bottom"><a class="el"
+                                                        href="class_vector.html#a529c56f93a03aeeade5cba1ba5a9039e">cross_product</a>
+                (<a class="el" href="class_vector.html">Vector</a> other)
+            </td>
+        </tr>
+        <tr class="separator:a529c56f93a03aeeade5cba1ba5a9039e">
+            <td class="memSeparator" colspan="2">&#160;</td>
+        </tr>
+    </table>
 <a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
 <div class="textblock"><h3>template&lt;class T&gt;<br />
 class Vector&lt; T &gt;</h3>
@@ -335,14 +357,16 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::<a class="el" href="class_vector.html">Vector</a> </td>
-          <td>(</td>
-          <td class="paramtype">vector&lt; T &gt;&#160;</td>
-            <td class="paramname"><em>other</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::<a class="el"
+                                                                                                   href="class_vector.html">Vector</a>
+              </td>
+              <td>(</td>
+              <td class="paramtype">vector&lt; T &gt;&#160;</td>
+              <td class="paramname"><em>other</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -381,14 +405,16 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::<a class="el" href="class_vector.html">Vector</a> </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-            <td class="paramname"><em>length</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::<a class="el"
+                                                                                                   href="class_vector.html">Vector</a>
+              </td>
+              <td>(</td>
+              <td class="paramtype">int&#160;</td>
+              <td class="paramname"><em>length</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -426,17 +452,20 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
 <table class="mlabels">
   <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::conjugation </td>
-          <td>(</td>
-            <td class="paramname"></td>
-            <td>)</td>
-            <td></td>
-        </tr>
-      </table>
-  </td>
+      <td class="mlabels-left">
+          <table class="memname">
+              <tr>
+                  <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el"
+                                                                                           href="class_vector.html">Vector</a>&lt;
+                      T &gt;::conjugation
+                  </td>
+                  <td>(</td>
+                  <td class="paramname"></td>
+                  <td>)</td>
+                  <td></td>
+              </tr>
+          </table>
+      </td>
       <td class="mlabels-right">
           <span class="mlabels"><span class="mlabel">inline</span></span></td>
   </tr>
@@ -464,17 +493,20 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
 <table class="mlabels">
   <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::conjugation_change </td>
-          <td>(</td>
-            <td class="paramname"></td>
-            <td>)</td>
-            <td></td>
-        </tr>
-      </table>
-  </td>
+      <td class="mlabels-left">
+          <table class="memname">
+              <tr>
+                  <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el"
+                                                                                           href="class_vector.html">Vector</a>&lt;
+                      T &gt;::conjugation_change
+                  </td>
+                  <td>(</td>
+                  <td class="paramname"></td>
+                  <td>)</td>
+                  <td></td>
+              </tr>
+          </table>
+      </td>
       <td class="mlabels-right">
           <span class="mlabels"><span class="mlabel">inline</span></span></td>
   </tr>
@@ -504,14 +536,17 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::cross_product </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;&#160;</td>
-            <td class="paramname"><em>other</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el"
+                                                                                       href="class_vector.html">Vector</a>&lt;
+                  T &gt;::cross_product
+              </td>
+              <td>(</td>
+              <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;&#160;</td>
+              <td class="paramname"><em>other</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -543,11 +578,12 @@ template&lt;class T &gt; </div>
         <div class="dynheader">
             这是这个函数的调用关系图:
         </div>
-<div class="dyncontent">
-<div class="center"><img src="class_vector_a529c56f93a03aeeade5cba1ba5a9039e_icgraph.png" border="0" usemap="#class_vector_a529c56f93a03aeeade5cba1ba5a9039e_icgraph" alt=""/></div>
-</div>
+        <div class="dyncontent">
+            <div class="center"><img src="class_vector_a529c56f93a03aeeade5cba1ba5a9039e_icgraph.png" border="0"
+                                     usemap="#class_vector_a529c56f93a03aeeade5cba1ba5a9039e_icgraph" alt=""/></div>
+        </div>
 
-</div>
+    </div>
 </div>
 <a id="a5b2444eb1a613ab38f30cfe45bc526d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b2444eb1a613ab38f30cfe45bc526d4">&#9670;&nbsp;</a></span>dot_product()</h2>
@@ -560,14 +596,14 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::dot_product </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;&#160;</td>
-            <td class="paramname"><em>other</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname">T <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::dot_product</td>
+              <td>(</td>
+              <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt;&#160;</td>
+              <td class="paramname"><em>other</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -610,14 +646,17 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::element_wise_multiplication </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td>
-            <td class="paramname"><em>other</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el"
+                                                                                       href="class_vector.html">Vector</a>&lt;
+                  T &gt;::element_wise_multiplication
+              </td>
+              <td>(</td>
+              <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td>
+              <td class="paramname"><em>other</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -646,6 +685,13 @@ template&lt;class T &gt; </div>
         <p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el"
                                                                                                     href="_vector_8hpp_source.html#l00200">200</a>
             行定义.</p>
+        <div class="dynheader">
+            这是这个函数的调用关系图:
+        </div>
+        <div class="dyncontent">
+            <div class="center"><img alt="" border="0" src="class_vector_a5644e8a3079bd642f5e5942a8255c096_icgraph.png"
+                                     usemap="#class_vector_a5644e8a3079bd642f5e5942a8255c096_icgraph"/></div>
+        </div>
 
     </div>
 </div>
@@ -660,14 +706,17 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::element_wise_multiplication_change </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td>
-            <td class="paramname"><em>other</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname"><a class="el" href="class_vector.html">Vector</a> <a class="el"
+                                                                                       href="class_vector.html">Vector</a>&lt;
+                  T &gt;::element_wise_multiplication_change
+              </td>
+              <td>(</td>
+              <td class="paramtype"><a class="el" href="class_vector.html">Vector</a>&lt; T &gt; &amp;&#160;</td>
+              <td class="paramname"><em>other</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -696,6 +745,13 @@ template&lt;class T &gt; </div>
         <p class="definition">在文件 <a class="el" href="_vector_8hpp_source.html">Vector.hpp</a> 第 <a class="el"
                                                                                                     href="_vector_8hpp_source.html#l00220">220</a>
             行定义.</p>
+        <div class="dynheader">
+            这是这个函数的调用关系图:
+        </div>
+        <div class="dyncontent">
+            <div class="center"><img alt="" border="0" src="class_vector_a8128d4b4e2de5aefecd8b0a131df192c_icgraph.png"
+                                     usemap="#class_vector_a8128d4b4e2de5aefecd8b0a131df192c_icgraph"/></div>
+        </div>
 
     </div>
 </div>
@@ -708,17 +764,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
 <table class="mlabels">
   <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findAverage </td>
-          <td>(</td>
-            <td class="paramname"></td>
-            <td>)</td>
-            <td></td>
-        </tr>
-      </table>
-  </td>
+      <td class="mlabels-left">
+          <table class="memname">
+              <tr>
+                  <td class="memname">T <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findAverage</td>
+                  <td>(</td>
+                  <td class="paramname"></td>
+                  <td>)</td>
+                  <td></td>
+              </tr>
+          </table>
+      </td>
       <td class="mlabels-right">
           <span class="mlabels"><span class="mlabel">inline</span></span></td>
   </tr>
@@ -746,17 +802,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
 <table class="mlabels">
   <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findMax </td>
-          <td>(</td>
-            <td class="paramname"></td>
-            <td>)</td>
-            <td></td>
-        </tr>
-      </table>
-  </td>
+      <td class="mlabels-left">
+          <table class="memname">
+              <tr>
+                  <td class="memname">double <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findMax</td>
+                  <td>(</td>
+                  <td class="paramname"></td>
+                  <td>)</td>
+                  <td></td>
+              </tr>
+          </table>
+      </td>
       <td class="mlabels-right">
           <span class="mlabels"><span class="mlabel">inline</span></span></td>
   </tr>
@@ -784,17 +840,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
 <table class="mlabels">
   <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findMin </td>
-          <td>(</td>
-            <td class="paramname"></td>
-            <td>)</td>
-            <td></td>
-        </tr>
-      </table>
-  </td>
+      <td class="mlabels-left">
+          <table class="memname">
+              <tr>
+                  <td class="memname">double <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findMin</td>
+                  <td>(</td>
+                  <td class="paramname"></td>
+                  <td>)</td>
+                  <td></td>
+              </tr>
+          </table>
+      </td>
       <td class="mlabels-right">
           <span class="mlabels"><span class="mlabel">inline</span></span></td>
   </tr>
@@ -822,17 +878,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
 <table class="mlabels">
   <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findSum </td>
-          <td>(</td>
-            <td class="paramname"></td>
-            <td>)</td>
-            <td></td>
-        </tr>
-      </table>
-  </td>
+      <td class="mlabels-left">
+          <table class="memname">
+              <tr>
+                  <td class="memname">T <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::findSum</td>
+                  <td>(</td>
+                  <td class="paramname"></td>
+                  <td>)</td>
+                  <td></td>
+              </tr>
+          </table>
+      </td>
       <td class="mlabels-right">
           <span class="mlabels"><span class="mlabel">inline</span></span></td>
   </tr>
@@ -859,21 +915,21 @@ template&lt;class T &gt; </div>
 <div class="memtemplate">
 template&lt;class T &gt; </div>
 <table class="mlabels">
-  <tr>
-      <td class="mlabels-left">
-          <table class="memname">
-              <tr>
-                  <td class="memname">int <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::getLength</td>
-                  <td>(</td>
-                  <td class="paramname"></td>
-                  <td>)</td>
-                  <td></td>
-              </tr>
-          </table>
-      </td>
-      <td class="mlabels-right">
-          <span class="mlabels"><span class="mlabel">inline</span></span></td>
-  </tr>
+    <tr>
+        <td class="mlabels-left">
+            <table class="memname">
+                <tr>
+                    <td class="memname">int <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::getLength</td>
+                    <td>(</td>
+                    <td class="paramname"></td>
+                    <td>)</td>
+                    <td></td>
+                </tr>
+            </table>
+        </td>
+        <td class="mlabels-right">
+            <span class="mlabels"><span class="mlabel">inline</span></span></td>
+    </tr>
 </table>
 </div>
     <div class="memdoc">
@@ -1264,14 +1320,14 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname">T&amp; <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::operator[] </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-            <td class="paramname"><em>i</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname">T&amp; <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::operator[]</td>
+              <td>(</td>
+              <td class="paramtype">int&#160;</td>
+              <td class="paramname"><em>i</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -1314,14 +1370,14 @@ template&lt;class T &gt; </div>
   <tr>
   <td class="mlabels-left">
       <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::setLength </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-            <td class="paramname"><em>_length</em></td>
-            <td>)</td>
-            <td></td>
-        </tr>
+          <tr>
+              <td class="memname">void <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::setLength</td>
+              <td>(</td>
+              <td class="paramtype">int&#160;</td>
+              <td class="paramname"><em>_length</em></td>
+              <td>)</td>
+              <td></td>
+          </tr>
       </table>
   </td>
       <td class="mlabels-right">
@@ -1358,17 +1414,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
 <table class="mlabels">
   <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::show </td>
-            <td>(</td>
-            <td class="paramname"></td>
-            <td>)</td>
-            <td></td>
-        </tr>
-      </table>
-  </td>
+      <td class="mlabels-left">
+          <table class="memname">
+              <tr>
+                  <td class="memname">void <a class="el" href="class_vector.html">Vector</a>&lt; T &gt;::show</td>
+                  <td>(</td>
+                  <td class="paramname"></td>
+                  <td>)</td>
+                  <td></td>
+              </tr>
+          </table>
+      </td>
       <td class="mlabels-right">
           <span class="mlabels"><span class="mlabel">inline</span></span></td>
   </tr>

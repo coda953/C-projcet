@@ -12,9 +12,10 @@ class Vector;
 
 /**
  * the class of Matrix
- * @authors Zhu Junda Zheng Ruiqi Wang Yifan
+ * @authors 朱俊达 郑瑞麒 王一帆
  * @version 1.0
- * @tparam T the data type
+ * @tparam T 类型
+ * @date 2020-06-16 17:23
  */
 template<class T>
 class Matrix {
@@ -315,7 +316,6 @@ public:
         }
         cout << "]" << endl;
     }
-
 /**
  * 显示矩阵的size
  */

@@ -520,13 +520,13 @@ cxxabi.h
 acxx_demangle.h
 -
 
-/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googlemock/src/gmock_main.cc
+/Users/bytedance/CLionProjects/C-projcet/googletest/googlemock/src/gmock_main.cc
 iostream
 -
 gmock/gmock.h
-/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googlemock/src/gmock/gmock.h
+/Users/bytedance/CLionProjects/C-projcet/googletest/googlemock/src/gmock/gmock.h
 gtest/gtest.h
-/cygdrive/c/Users/10505/CLionProjects/C-projcet/googletest/googlemock/src/gtest/gtest.h
+/Users/bytedance/CLionProjects/C-projcet/googletest/googlemock/src/gtest/gtest.h
 tchar.h
 -
 

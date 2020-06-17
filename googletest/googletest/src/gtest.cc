@@ -724,7 +724,7 @@ namespace testing {
                 positive = std::string(p, dash);   // Everything up to the dash
                 negative = std::string(dash + 1);  // Everything after the dash
                 if (positive.empty()) {
-                    // Treat '-test1' as the same as '*-test1'
+                    // Treat '-test1_1' as the same as '*-test1_1'
                     positive = kUniversalFilter;
                 }
             }

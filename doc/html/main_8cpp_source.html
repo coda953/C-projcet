@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.18"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: code/main.cpp 源文件</title>
+<title>Matrix: code/main.cpp 源文件</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -17,12 +17,13 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="SunShangXiang.jpeg"/></td>
-  <td id="projectalign" style="padding-left: 0.5em;">
-      <div id="projectname">My Project
-          &#160;<span id="projectnumber">1.0</span>
-      </div>
-  </td>
+     <td id="projectlogo"><img alt="Logo" src="logo.jpg"/></td>
+     <td id="projectalign" style="padding-left: 0.5em;">
+         <div id="projectname">Matrix
+             &#160;<span id="projectnumber">1.0</span>
+         </div>
+         <div id="projectbrief">朱俊达 郑瑞麒 王一帆</div>
+     </td>
  </tr>
  </tbody>
 </table>
@@ -38,7 +39,7 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-    <div id="nav-path" class="navpath">
+    <div class="navpath" id="nav-path">
         <ul>
             <li class="navelem"><a class="el" href="dir_050edd66366d13764f98250ef6db77f6.html">code</a></li>
         </ul>
@@ -72,66 +73,71 @@ $(function() {
             = <span class="stringliteral">&quot;img/SunShangXiang.jpeg&quot;</span>;
         </div>
         <div class="line"><a name="l00009"></a><span class="lineno"><a class="line"
-                                                                       href="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293">    9</a></span>&#160;<span
+                                                                       href="main_8cpp.html#adbf0add4c47a2cb657ab83d1140b3b88">    9</a></span>&#160;<span
                 class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code"
-                                                                                       href="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293">test1</a>
+                                                                                       href="main_8cpp.html#adbf0add4c47a2cb657ab83d1140b3b88">test1_1</a>
             = <span class="stringliteral">&quot;img/test1_1.png&quot;</span>;
         </div>
         <div class="line"><a name="l00010"></a><span class="lineno"><a class="line"
-                                                                       href="main_8cpp.html#a715d4757101a90c6b10662ce8f70ae55">   10</a></span>&#160;<span
+                                                                       href="main_8cpp.html#a5de076d256ebd200050c7d8e7e94a072">   10</a></span>&#160;<span
                 class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code"
-                                                                                       href="main_8cpp.html#a715d4757101a90c6b10662ce8f70ae55">test2</a>
+                                                                                       href="main_8cpp.html#a5de076d256ebd200050c7d8e7e94a072">test1_2</a>
             = <span class="stringliteral">&quot;img/test1_2.png&quot;</span>;
         </div>
-        <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+        <div class="line"><a name="l00011"></a><span class="lineno"><a class="line"
+                                                                       href="main_8cpp.html#ac9bda8e37db6a6115f3827525622e5fc">   11</a></span>&#160;<span
+                class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code"
+                                                                                       href="main_8cpp.html#ac9bda8e37db6a6115f3827525622e5fc">test2_1</a>=<span
+                class="stringliteral">&quot;img/test2_1.jpg&quot;</span>;
+        </div>
         <div class="line"><a name="l00012"></a><span class="lineno"><a class="line"
-                                                                       href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   12</a></span>&#160;<span
+                                                                       href="main_8cpp.html#a12a5c68e5ec353934bb20a2d4905070f">   12</a></span>&#160;<span
+                class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code"
+                                                                                       href="main_8cpp.html#a12a5c68e5ec353934bb20a2d4905070f">test2_2</a>=<span
+                class="stringliteral">&quot;img/test2_2.jpg&quot;</span>;
+        </div>
+        <div class="line"><a name="l00013"></a><span class="lineno"><a class="line"
+                                                                       href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   13</a></span>&#160;<span
                 class="keywordtype">int</span> <a class="code" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()
             {
         </div>
-        <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; Mat Imagetest1 = imread(<a
-                class="code" href="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293">test1</a>, IMREAD_GRAYSCALE);
+        <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; Mat Imagetest1 = imread(<a
+                class="code" href="main_8cpp.html#ac9bda8e37db6a6115f3827525622e5fc">test2_1</a>, IMREAD_GRAYSCALE);
         </div>
-        <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; Mat Imagetest2 = imread(<a
-                class="code" href="main_8cpp.html#a715d4757101a90c6b10662ce8f70ae55">test2</a>, IMREAD_GRAYSCALE);
+        <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; Mat Imagetest2 = imread(<a
+                class="code" href="main_8cpp.html#a12a5c68e5ec353934bb20a2d4905070f">test2_2</a>, IMREAD_GRAYSCALE);
         </div>
-        <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; <span class="comment">//change to our matrix</span>
-        </div>
-        <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; <a class="code"
-                                                                                          href="class_matrix.html">Matrix&lt;uchar&gt;</a>
-            <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a> = Imagetest1;
+        <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; <span class="comment">//change to our matrix</span>
         </div>
         <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; <a class="code"
                                                                                           href="class_matrix.html">Matrix&lt;uchar&gt;</a>
-            <a class="code" href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a> = Imagetest2;
+            <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a> = Imagetest1;
         </div>
         <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; <a class="code"
+                                                                                          href="class_matrix.html">Matrix&lt;uchar&gt;</a>
+            <a class="code" href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a> = Imagetest2;
+        </div>
+        <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; <a class="code"
                                                                                           href="class_matrix.html">Matrix&lt;uchar&gt;</a>
             result = <a class="code" href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a> + <a class="code"
                                                                                                          href="test_8cpp.html#afa7a6abe165ab2c772f0fd740fa19e91">m2</a>;
         </div>
-        <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; result.<a class="code"
-                                                                                                 href="class_matrix.html#a7a49dfbc45c05bbbad18dba9114eb1cf">transposition_change</a>();
+        <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">//    result.transposition_change();</span>
         </div>
-        <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; <span class="comment">//change to opencv mat</span>
+        <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; <span class="comment">//change to opencv mat</span>
         </div>
-        <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; Mat outImage = result.<a
+        <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; Mat outImage = result.<a
                 class="code" href="class_matrix.html#af0813070ed8e915ff548b9a43ea62208">to_opencv_8UC1</a>();
         </div>
-        <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; imshow(<span
+        <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; imshow(<span
                 class="stringliteral">&quot;[img]&quot;</span>, outImage);
         </div>
-        <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; waitKey(0);</div>
-        <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; <span
+        <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; waitKey(0);</div>
+        <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; <span
                 class="keywordflow">return</span> 0;
         </div>
-        <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+        <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
     </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="amain_8cpp_html_a715d4757101a90c6b10662ce8f70ae55">
-    <div class="ttname"><a href="main_8cpp.html#a715d4757101a90c6b10662ce8f70ae55">test2</a></div>
-    <div class="ttdeci">const char * test2</div>
-    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00010">main.cpp:10</a></div>
-</div>
 <div class="ttc" id="atest_8cpp_html_ae374919b33c7ece2a7921f193d9bb00b">
     <div class="ttname"><a href="test_8cpp.html#ae374919b33c7ece2a7921f193d9bb00b">m1</a></div>
     <div class="ttdeci">vector&lt; vector&lt; double &gt; &gt; m1</div>
@@ -142,10 +148,20 @@ $(function() {
     <div class="ttdeci">vector&lt; vector&lt; double &gt; &gt; m2</div>
     <div class="ttdef"><b>Definition:</b> <a href="test_8cpp_source.html#l00014">test.cpp:14</a></div>
 </div>
+<div class="ttc" id="amain_8cpp_html_a5de076d256ebd200050c7d8e7e94a072">
+    <div class="ttname"><a href="main_8cpp.html#a5de076d256ebd200050c7d8e7e94a072">test1_2</a></div>
+    <div class="ttdeci">const char * test1_2</div>
+    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00010">main.cpp:10</a></div>
+</div>
+<div class="ttc" id="amain_8cpp_html_a12a5c68e5ec353934bb20a2d4905070f">
+    <div class="ttname"><a href="main_8cpp.html#a12a5c68e5ec353934bb20a2d4905070f">test2_2</a></div>
+    <div class="ttdeci">const char * test2_2</div>
+    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00012">main.cpp:12</a></div>
+</div>
 <div class="ttc" id="amain_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4">
     <div class="ttname"><a href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div>
     <div class="ttdeci">int main()</div>
-    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00012">main.cpp:12</a></div>
+    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00013">main.cpp:13</a></div>
 </div>
 <div class="ttc" id="amain_8cpp_html_ad50b25a2fab7c151f71f6f749339e8fb">
     <div class="ttname"><a href="main_8cpp.html#ad50b25a2fab7c151f71f6f749339e8fb">tarMatrix</a></div>
@@ -155,20 +171,19 @@ $(function() {
 <div class="ttc" id="a_matrix_8hpp_html">
     <div class="ttname"><a href="_matrix_8hpp.html">Matrix.hpp</a></div>
 </div>
-<div class="ttc" id="aclass_matrix_html_a7a49dfbc45c05bbbad18dba9114eb1cf">
-    <div class="ttname"><a href="class_matrix.html#a7a49dfbc45c05bbbad18dba9114eb1cf">Matrix::transposition_change</a>
-    </div>
-    <div class="ttdeci">Matrix transposition_change()</div>
-    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00619">Matrix.hpp:619</a></div>
-</div>
-<div class="ttc" id="amain_8cpp_html_a17d004d61d83778c8447d8692fb2e293">
-    <div class="ttname"><a href="main_8cpp.html#a17d004d61d83778c8447d8692fb2e293">test1</a></div>
-    <div class="ttdeci">const char * test1</div>
-    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00009">main.cpp:9</a></div>
+<div class="ttc" id="amain_8cpp_html_ac9bda8e37db6a6115f3827525622e5fc">
+    <div class="ttname"><a href="main_8cpp.html#ac9bda8e37db6a6115f3827525622e5fc">test2_1</a></div>
+    <div class="ttdeci">const char * test2_1</div>
+    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00011">main.cpp:11</a></div>
 </div>
 <div class="ttc" id="aclass_matrix_html">
     <div class="ttname"><a href="class_matrix.html">Matrix</a></div>
-    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00020">Matrix.hpp:20</a></div>
+    <div class="ttdef"><b>Definition:</b> <a href="_matrix_8hpp_source.html#l00021">Matrix.hpp:21</a></div>
+</div>
+<div class="ttc" id="amain_8cpp_html_adbf0add4c47a2cb657ab83d1140b3b88">
+    <div class="ttname"><a href="main_8cpp.html#adbf0add4c47a2cb657ab83d1140b3b88">test1_1</a></div>
+    <div class="ttdeci">const char * test1_1</div>
+    <div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00009">main.cpp:9</a></div>
 </div>
 <div class="ttc" id="aclass_matrix_html_af0813070ed8e915ff548b9a43ea62208">
     <div class="ttname"><a href="class_matrix.html#af0813070ed8e915ff548b9a43ea62208">Matrix::to_opencv_8UC1</a></div>

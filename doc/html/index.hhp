@@ -6,10 +6,10 @@ Default Window=main
 Default topic=index.html
 Index file=index.hhk
 Language=0x804 Chinese (PRC)
-Title=My Project
+Title=Matrix
 
 [WINDOWS]
-main="My Project","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
+main="Matrix","index.hhc","index.hhk","index.html","index.html",,,,,0x23520,,0x10387e,,,,,,,,0
 
 [FILES]
 main_8cpp_source.html
@@ -66,6 +66,7 @@ test_8cpp_ac0a47932d1f7001621f394b467d661de_cgraph.png
 test_8cpp_a5c0bdb6f4eef80e5d502e8f67b9eb840_cgraph.png
 test_8cpp_a2db05ee9112c28a7c789d20534220189_cgraph.png
 test_8cpp_ac654f2376ebd87b9168554a03d062516_cgraph.png
+test_8cpp_a5b1a17f3559846f6731fe458c4c5f8b4_cgraph.png
 _vector_8hpp__incl.png
 _vector_8hpp__dep__incl.png
 class_matrix_aab91640cd08194823f62a1cf22d1a3d3_cgraph.png
@@ -104,6 +105,8 @@ class_matrix_ad321fcd3d8b097c7830a9abd2021cc12_icgraph.png
 class_matrix_af0813070ed8e915ff548b9a43ea62208_icgraph.png
 class_matrix_a7a49dfbc45c05bbbad18dba9114eb1cf_icgraph.png
 class_vector_a529c56f93a03aeeade5cba1ba5a9039e_icgraph.png
+class_vector_a5644e8a3079bd642f5e5942a8255c096_icgraph.png
+class_vector_a8128d4b4e2de5aefecd8b0a131df192c_icgraph.png
 class_vector_abb312ba3f86b6445db805f52090f4f02_icgraph.png
 class_vector_a159484a6b056d70dab748990ec73784d_cgraph.png
 class_vector_a29070e17036190d158abcc286abff17a_cgraph.png
