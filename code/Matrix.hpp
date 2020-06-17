@@ -1136,12 +1136,12 @@ public:
 
     }
 
-    /**
-     * 重载<< 用于输出矩阵
-     * @param out ostream
-     * @param matrix 输出的矩阵
-     * @return ostream
-     */
+/**
+ * 重载<< 用于输出矩阵
+ * @param out ostream
+ * @param matrix 输出的矩阵
+ * @return ostream
+ */
     friend ostream &operator<<(ostream &out, Matrix &matrix) {
         out << "Row:" << matrix.getRow() << endl;
         out << "Column:" << matrix.getColumn() << endl;
