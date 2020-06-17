@@ -1136,6 +1136,33 @@ public:
 
     }
 
+    /**
+     * 重载<< 用于输出矩阵
+     * @param out ostream
+     * @param matrix 输出的矩阵
+     * @return ostream
+     */
+    friend ostream &operator<<(ostream &out, Matrix &matrix) {
+        out << "Row:" << matrix.getRow() << endl;
+        out << "Column:" << matrix.getColumn() << endl;
+        out << "[";
+        for (int i = 0; i < matrix.getRow(); ++i) {
+            out << "[";
+            for (int j = 0; j < matrix.getColumn(); ++j) {
+                out << matrix[i][j];
+                if (j != matrix.getColumn() - 1) {
+                    out << ",";
+                }
+            }
+            out << "]";
+            if (i != matrix.getRow() - 1) {
+                out << endl;
+            }
+        }
+        out << "]" << endl;
+        return out;
+    }
+
 private:
     vector<vector<T>> matrix;
     int row{}, column{};

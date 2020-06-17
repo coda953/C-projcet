@@ -21,8 +21,6 @@ iostream
 -
 
 /Users/bytedance/CLionProjects/C-projcet/code/main.cpp
-iostream
--
 opencv2/opencv.hpp
 -
 opencv2/highgui.hpp
